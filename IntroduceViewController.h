@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface IntroduceViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIScrollView *imageScrollView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *firstImageViewWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *secondImageViewWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *thirdImageViewWidth;
+@property (weak, nonatomic) IBOutlet UIImageView *thirdImageView;
 
 @end
