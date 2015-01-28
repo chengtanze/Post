@@ -17,11 +17,11 @@
 -(void)viewWillAppear:(BOOL)animated{
     NSLog(@"viewWillAppear");
     
-    _imageScrollView.hidden = YES;
+    _imageScrollView.hidden = NO;
     
 }
 -(void)viewDidAppear:(BOOL)animated{
-    [self performSegueWithIdentifier:@"HomeView" sender:self];
+    //[self performSegueWithIdentifier:@"HomeView" sender:self];
 }
 
 - (void)viewDidLoad {

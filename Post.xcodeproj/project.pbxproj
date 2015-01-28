@@ -19,6 +19,9 @@
 		14CE5FED1A74D34A00A19C36 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CE5FEA1A74D34A00A19C36 /* Default@2x.png */; };
 		14CE5FEE1A74D34A00A19C36 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CE5FEB1A74D34A00A19C36 /* Default-568h@2x.png */; };
 		14CE5FEF1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CE5FEC1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png */; };
+		FC7FC7ED1A7875C3004B3909 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7FC7EC1A7875C3004B3909 /* TabBarViewController.m */; };
+		FC7FC7F31A787C4B004B3909 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7FC7F21A787C4B004B3909 /* HomeViewController.m */; };
+		FC7FC7F61A788972004B3909 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7FC7F51A788972004B3909 /* RegisterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,12 @@
 		14CE5FEA1A74D34A00A19C36 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		14CE5FEB1A74D34A00A19C36 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		14CE5FEC1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0-SMART-BOX-启动750-1334.png"; sourceTree = "<group>"; };
+		FC7FC7EB1A7875C3004B3909 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabBarViewController.h; path = Post/TabBarViewController.h; sourceTree = "<group>"; };
+		FC7FC7EC1A7875C3004B3909 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabBarViewController.m; path = Post/TabBarViewController.m; sourceTree = "<group>"; };
+		FC7FC7F11A787C4B004B3909 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Post/HomeViewController.h; sourceTree = "<group>"; };
+		FC7FC7F21A787C4B004B3909 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = Post/HomeViewController.m; sourceTree = "<group>"; };
+		FC7FC7F41A788972004B3909 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = Post/RegisterViewController.h; sourceTree = "<group>"; };
+		FC7FC7F51A788972004B3909 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = Post/RegisterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,8 +147,14 @@
 		14CE5FE41A74CFC000A19C36 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FC7FC7EB1A7875C3004B3909 /* TabBarViewController.h */,
+				FC7FC7EC1A7875C3004B3909 /* TabBarViewController.m */,
 				143770271A74DF17005084CE /* IntroduceViewController.h */,
 				143770281A74DF17005084CE /* IntroduceViewController.m */,
+				FC7FC7F11A787C4B004B3909 /* HomeViewController.h */,
+				FC7FC7F21A787C4B004B3909 /* HomeViewController.m */,
+				FC7FC7F41A788972004B3909 /* RegisterViewController.h */,
+				FC7FC7F51A788972004B3909 /* RegisterViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -291,7 +306,10 @@
 				14CE5FC11A74CF8400A19C36 /* AppDelegate.m in Sources */,
 				14CE5FBE1A74CF8400A19C36 /* main.m in Sources */,
 				14CE5FC71A74CF8400A19C36 /* ViewController.m in Sources */,
+				FC7FC7ED1A7875C3004B3909 /* TabBarViewController.m in Sources */,
+				FC7FC7F31A787C4B004B3909 /* HomeViewController.m in Sources */,
 				14CE5FC41A74CF8400A19C36 /* Post.xcdatamodeld in Sources */,
+				FC7FC7F61A788972004B3909 /* RegisterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
