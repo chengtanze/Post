@@ -20,6 +20,7 @@
     _imageScrollView.hidden = NO;
     
 }
+
 -(void)viewDidAppear:(BOOL)animated{
     //[self performSegueWithIdentifier:@"HomeView" sender:self];
 }

@@ -38,8 +38,6 @@ typedef enum
 
 -(id)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        
-        //maxPicCount = 5;
         currIndex = 0;
         direction = enum_UnKnow;
         
@@ -86,12 +84,6 @@ typedef enum
         
         [picViewArray addObject:image];
     }
-//    for (int nIndex = 0; nIndex < _maxPicCount; nIndex++) {
-//        NSString *str = [NSString stringWithFormat:@"%d.JPG", nIndex + 1];
-//        UIImage * image = [UIImage imageNamed:str];
-//        
-//        [picViewArray addObject:image];
-//    }
     
     //由于最小都要创建3个ImageView 所以当显示的图片小于3时 还是按3个创建
     NSInteger picCount;
@@ -129,7 +121,6 @@ typedef enum
     
     currIndex = [self adjustCurrentIndex:[self upDataCurrent:currIndex]];
     [self upDataScrollViewPoint:currIndex];
-    
 }
 
 -(void)upDataScrollViewPoint{
@@ -155,6 +146,7 @@ typedef enum
         //NSLog(@"scroll view subviews :%ld", subViews.count);
     }
 }
+
 
 -(void)reLoadItem:(NSInteger)index
 {
@@ -187,8 +179,11 @@ typedef enum
         imageView.backgroundColor = [UIColor blackColor];
         imageView.image = image;
         imageView.contentMode = UIViewContentModeScaleAspectFit;
-        imageView.tag = nIndex;
+        imageView.tag = cur;
         //[imageViewArray addObject:imageView];
+        
+        UIGestureRecognizer *gesRec = [self addEventOnImageView:cur];
+        [imageView addGestureRecognizer:gesRec];
         
         [scrollview addSubview:imageView];
     }
@@ -232,20 +227,38 @@ typedef enum
     
     if (x >= widthPageCondition) {
         direction = enum_Right;
-        NSLog(@"direction:[%d]", direction);
+        //NSLog(@"direction:[%d]", direction);
         
         currIndex = [self adjustCurrentIndex:[self upDataCurrent:currIndex]];
         [self upDataScrollViewPoint:currIndex];
     }
     else if (x <= 0) {
         direction = enum_Left;
-        NSLog(@"direction:[%d]", direction);
+        //NSLog(@"direction:[%d]", direction);
         currIndex = [self adjustCurrentIndex:[self upDataCurrent:currIndex]];
         [self upDataScrollViewPoint:currIndex];
     }
 }
 
+- (void)handleSingleTapFrom:(UITapGestureRecognizer*)recognizer {
+    // 触发手勢事件后，在这里作些事情
+    
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(ScrollImageViewdidSelectRowAtIndexPath:)])
+    {
+        [self.delegate ScrollImageViewdidSelectRowAtIndexPath:recognizer.view.tag];
+    }
+    
+    //NSLog(@"handleSwipeFrom:%d", recognizer.view.tag);
+}
 
+-(UIGestureRecognizer *)addEventOnImageView:(NSInteger)index{
+    // 单击的 Recognizer
+    UITapGestureRecognizer* singleRecognizer;
+    singleRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTapFrom:)];
+    singleRecognizer.numberOfTapsRequired = 1; // 单击
+    
+    return singleRecognizer;
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

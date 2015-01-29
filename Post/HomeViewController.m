@@ -9,7 +9,7 @@
 #import "HomeViewController.h"
 #import "Custom_ScrollImageView.h"
 
-@interface HomeViewController ()
+@interface HomeViewController ()<CustromScrollImageViewTapDelegate>
 
 @property(nonatomic, strong)Custom_ScrollImageView * srcollImage;
 
@@ -40,7 +40,9 @@
     static BOOL bFirst = NO;
     if (!bFirst) {
         bFirst = YES;
+        
         self.srcollImage = [[Custom_ScrollImageView alloc]initWithFrame:self.cellForScrollView.frame  picArray:array];
+        self.srcollImage.delegate = self;
         [self.cellForScrollView addSubview:self.srcollImage];
         [_srcollImage upDataScrollViewPoint];
     }
@@ -59,7 +61,9 @@
     return 1;
 }
 
-
+-(void)ScrollImageViewdidSelectRowAtIndexPath:(NSInteger)index{
+    NSLog(@"ScrollImageViewdidSelectRowAtIndexPath :%ld", (long)index);
+}
 
 
 #pragma mark - Table view data source
