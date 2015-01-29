@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface HomeViewController : UITableViewController
-- (IBAction)LoginBtn:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UITableView *HomeItemTableView;
+
+@property (weak, nonatomic) IBOutlet UIView *cellForScrollView;
 
 @end

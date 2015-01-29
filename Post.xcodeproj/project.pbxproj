@@ -22,6 +22,14 @@
 		FC7FC7ED1A7875C3004B3909 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7FC7EC1A7875C3004B3909 /* TabBarViewController.m */; };
 		FC7FC7F31A787C4B004B3909 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7FC7F21A787C4B004B3909 /* HomeViewController.m */; };
 		FC7FC7F61A788972004B3909 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7FC7F51A788972004B3909 /* RegisterViewController.m */; };
+		FC81BC821A7A0D4500D6C78F /* Custom_ScrollImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC81BC811A7A0D4500D6C78F /* Custom_ScrollImageView.m */; };
+		FC81BC891A7A0E6B00D6C78F /* 1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = FC81BC841A7A0E6B00D6C78F /* 1.JPG */; };
+		FC81BC8A1A7A0E6B00D6C78F /* 2.JPG in Resources */ = {isa = PBXBuildFile; fileRef = FC81BC851A7A0E6B00D6C78F /* 2.JPG */; };
+		FC81BC8B1A7A0E6B00D6C78F /* 3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = FC81BC861A7A0E6B00D6C78F /* 3.JPG */; };
+		FC81BC8C1A7A0E6B00D6C78F /* 4.JPG in Resources */ = {isa = PBXBuildFile; fileRef = FC81BC871A7A0E6B00D6C78F /* 4.JPG */; };
+		FC81BC8D1A7A0E6B00D6C78F /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC81BC881A7A0E6B00D6C78F /* 5.jpg */; };
+		FC81BC941A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_救援-d.png in Resources */ = {isa = PBXBuildFile; fileRef = FC81BC921A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_救援-d.png */; };
+		FC81BC951A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_行驶-d.png in Resources */ = {isa = PBXBuildFile; fileRef = FC81BC931A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_行驶-d.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +68,15 @@
 		FC7FC7F21A787C4B004B3909 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = Post/HomeViewController.m; sourceTree = "<group>"; };
 		FC7FC7F41A788972004B3909 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RegisterViewController.h; path = Post/RegisterViewController.h; sourceTree = "<group>"; };
 		FC7FC7F51A788972004B3909 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RegisterViewController.m; path = Post/RegisterViewController.m; sourceTree = "<group>"; };
+		FC81BC801A7A0D4500D6C78F /* Custom_ScrollImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Custom_ScrollImageView.h; sourceTree = "<group>"; };
+		FC81BC811A7A0D4500D6C78F /* Custom_ScrollImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Custom_ScrollImageView.m; sourceTree = "<group>"; };
+		FC81BC841A7A0E6B00D6C78F /* 1.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.JPG; sourceTree = "<group>"; };
+		FC81BC851A7A0E6B00D6C78F /* 2.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.JPG; sourceTree = "<group>"; };
+		FC81BC861A7A0E6B00D6C78F /* 3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.JPG; sourceTree = "<group>"; };
+		FC81BC871A7A0E6B00D6C78F /* 4.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.JPG; sourceTree = "<group>"; };
+		FC81BC881A7A0E6B00D6C78F /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
+		FC81BC921A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_救援-d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-1SMART-BOX-导航按钮_救援-d.png"; sourceTree = "<group>"; };
+		FC81BC931A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_行驶-d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-1SMART-BOX-导航按钮_行驶-d.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +164,7 @@
 		14CE5FE41A74CFC000A19C36 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FC81BC7F1A7A0D0A00D6C78F /* Coustom */,
 				FC7FC7EB1A7875C3004B3909 /* TabBarViewController.h */,
 				FC7FC7EC1A7875C3004B3909 /* TabBarViewController.m */,
 				143770271A74DF17005084CE /* IntroduceViewController.h */,
@@ -181,22 +199,46 @@
 			name = Resource;
 			sourceTree = "<group>";
 		};
-		14CE5FE81A74D32D00A19C36 /* Login */ = {
+		14CE5FE81A74D32D00A19C36 /* Introduce */ = {
 			isa = PBXGroup;
 			children = (
 				14CE5FEC1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png */,
 				14CE5FEB1A74D34A00A19C36 /* Default-568h@2x.png */,
 				14CE5FEA1A74D34A00A19C36 /* Default@2x.png */,
 			);
-			name = Login;
+			name = Introduce;
 			sourceTree = "<group>";
 		};
 		14CE5FE91A74D33800A19C36 /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				14CE5FE81A74D32D00A19C36 /* Login */,
+				FC81BC921A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_救援-d.png */,
+				FC81BC931A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_行驶-d.png */,
+				FC81BC831A7A0E4F00D6C78F /* Home_ScrollImageView */,
+				14CE5FE81A74D32D00A19C36 /* Introduce */,
 			);
 			name = Image;
+			sourceTree = "<group>";
+		};
+		FC81BC7F1A7A0D0A00D6C78F /* Coustom */ = {
+			isa = PBXGroup;
+			children = (
+				FC81BC801A7A0D4500D6C78F /* Custom_ScrollImageView.h */,
+				FC81BC811A7A0D4500D6C78F /* Custom_ScrollImageView.m */,
+			);
+			name = Coustom;
+			sourceTree = "<group>";
+		};
+		FC81BC831A7A0E4F00D6C78F /* Home_ScrollImageView */ = {
+			isa = PBXGroup;
+			children = (
+				FC81BC841A7A0E6B00D6C78F /* 1.JPG */,
+				FC81BC851A7A0E6B00D6C78F /* 2.JPG */,
+				FC81BC861A7A0E6B00D6C78F /* 3.JPG */,
+				FC81BC871A7A0E6B00D6C78F /* 4.JPG */,
+				FC81BC881A7A0E6B00D6C78F /* 5.jpg */,
+			);
+			name = Home_ScrollImageView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,11 +321,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC81BC8D1A7A0E6B00D6C78F /* 5.jpg in Resources */,
 				14CE5FED1A74D34A00A19C36 /* Default@2x.png in Resources */,
 				14CE5FEE1A74D34A00A19C36 /* Default-568h@2x.png in Resources */,
+				FC81BC891A7A0E6B00D6C78F /* 1.JPG in Resources */,
 				14CE5FCA1A74CF8400A19C36 /* Main.storyboard in Resources */,
+				FC81BC941A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_救援-d.png in Resources */,
 				14CE5FEF1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png in Resources */,
 				14CE5FCF1A74CF8400A19C36 /* LaunchScreen.xib in Resources */,
+				FC81BC8C1A7A0E6B00D6C78F /* 4.JPG in Resources */,
+				FC81BC951A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_行驶-d.png in Resources */,
+				FC81BC8B1A7A0E6B00D6C78F /* 3.JPG in Resources */,
+				FC81BC8A1A7A0E6B00D6C78F /* 2.JPG in Resources */,
 				14CE5FCC1A74CF8400A19C36 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +358,7 @@
 				FC7FC7ED1A7875C3004B3909 /* TabBarViewController.m in Sources */,
 				FC7FC7F31A787C4B004B3909 /* HomeViewController.m in Sources */,
 				14CE5FC41A74CF8400A19C36 /* Post.xcdatamodeld in Sources */,
+				FC81BC821A7A0D4500D6C78F /* Custom_ScrollImageView.m in Sources */,
 				FC7FC7F61A788972004B3909 /* RegisterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

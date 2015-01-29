@@ -27,24 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-     
-////    _imageScrollView.contentSize=CGSizeMake(self.view.frame.size.width * 2.0, 0);
-//    _imageScrollView.showsVerticalScrollIndicator = NO;
-//    _imageScrollView.showsHorizontalScrollIndicator = NO;
-//    _imageScrollView.clipsToBounds = YES;
-//    _imageScrollView.scrollEnabled = YES;
-    _imageScrollView.pagingEnabled = YES;
-//    _imageScrollView.delegate = self;
-//    //baseScrollView.backgroundColor=[UIColor orangeColor];
-    
-    
-//    UIButton * btn = [[UIButton alloc]initWithFrame:CGRectMake(100, 100, 200, 50)];
-//    [btn setTitle:@"立即体验" forState:UIControlStateNormal];
-//    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-//    [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:btn];
-//
-//    [_thirdImageView addSubview:btn];
+
 }
 
 - (void)didReceiveMemoryWarning {

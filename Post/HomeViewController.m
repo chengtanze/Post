@@ -7,8 +7,11 @@
 //
 
 #import "HomeViewController.h"
+#import "Custom_ScrollImageView.h"
 
 @interface HomeViewController ()
+
+@property(nonatomic, strong)Custom_ScrollImageView * srcollImage;
 
 @end
 
@@ -16,12 +19,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    NSLog(@"viewDidAppear");
+}
+
+-(void)viewDidLayoutSubviews{
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    NSString *str1 = @"1.jpg";
+    NSString *str2 = @"2.jpg";
+    NSString *str3 = @"3.jpg";
+    NSString *str4 = @"4.jpg";
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    NSArray * array = @[str1, str2, str3, str4];
+    
+    static BOOL bFirst = NO;
+    if (!bFirst) {
+        bFirst = YES;
+        self.srcollImage = [[Custom_ScrollImageView alloc]initWithFrame:self.cellForScrollView.frame  picArray:array];
+        [self.cellForScrollView addSubview:self.srcollImage];
+        [_srcollImage upDataScrollViewPoint];
+    }
+
+    NSLog(@"viewDidLayoutSubviews");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,27 +53,28 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)LoginBtn:(id)sender {
-    NSLog(@"LoginBtn");
+//设置tableview头部高度
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 1;
 }
-
 
 
 
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//#warning Potentially incomplete method implementation.
+//    // Return the number of sections.
+//    return 0;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//#warning Incomplete method implementation.
+//    // Return the number of rows in the section.
+//    return 0;
+//}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
