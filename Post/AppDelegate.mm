@@ -7,17 +7,38 @@
 //
 
 #import "AppDelegate.h"
-
-@interface AppDelegate ()
-
+#import "BMapKit.h"
+@interface AppDelegate ()<BMKGeneralDelegate>
+@property(nonatomic, strong)BMKMapManager* mapManager;
 @end
 
 @implementation AppDelegate
 
+/**
+ *返回网络错误
+ *@param iError 错误号
+ */
+- (void)onGetNetworkState:(int)iError{
+    NSLog(@"onGetNetworkState %d", iError);
+}
 
+/**
+ *返回授权验证错误
+ *@param iError 错误号 : 为0时验证通过，具体参加BMKPermissionCheckResultCode
+ */
+- (void)onGetPermissionState:(int)iError{
+    NSLog(@"onGetPermissionState %d", iError);
+    
+    
+}
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
+    self.mapManager = [[BMKMapManager alloc]init];
+    // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
+    BOOL ret = [self.mapManager start:@"GoP581yd8LAOFZ27DNVAP7mS" generalDelegate:self];
+    if (!ret) {
+        NSLog(@"manager start failed!");
+    }
     //[NSThread sleepForTimeInterval:2];
     return YES;
 }
