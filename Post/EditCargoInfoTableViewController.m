@@ -1,53 +1,28 @@
 //
-//  HomeViewController.m
+//  EditCargoInfoTableViewController.m
 //  Post
 //
-//  Created by wangsl-iMac on 15/1/28.
+//  Created by cheng on 15/1/31.
 //  Copyright (c) 2015年 cheng. All rights reserved.
 //
 
-#import "HomeViewController.h"
-#import "Custom_ScrollImageView.h"
+#import "EditCargoInfoTableViewController.h"
 
-@interface HomeViewController ()<CustromScrollImageViewTapDelegate>
+@interface EditCargoInfoTableViewController ()<UITextFieldDelegate>
 
-@property(nonatomic, strong)Custom_ScrollImageView * srcollImage;
 
 @end
 
-@implementation HomeViewController
+@implementation EditCargoInfoTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-
-}
-
--(void)viewDidAppear:(BOOL)animated
-{
-    NSLog(@"viewDidAppear");
-}
-
--(void)viewDidLayoutSubviews{
     
-    NSString *str1 = @"1.jpg";
-    NSString *str2 = @"2.jpg";
-    NSString *str3 = @"3.jpg";
-    NSString *str4 = @"4.jpg";
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
     
-    NSArray * array = @[str1, str2, str3, str4];
-    
-    static BOOL bFirst = NO;
-    if (!bFirst) {
-        bFirst = YES;
-        
-//        self.srcollImage = [[Custom_ScrollImageView alloc]initWithFrame:self.cellForScrollView.frame  picArray:array];
-//        self.srcollImage.delegate = self;
-//        [self.cellForScrollView addSubview:self.srcollImage];
-//        [_srcollImage upDataScrollViewPoint];
-    }
-
-    NSLog(@"viewDidLayoutSubviews");
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,16 +30,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-//设置tableview头部高度
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 1;
-}
 
--(void)ScrollImageViewdidSelectRowAtIndexPath:(NSInteger)index{
-    NSLog(@"ScrollImageViewdidSelectRowAtIndexPath :%ld", (long)index);
+- (IBAction)changeAddress:(id)sender {
+    //NSLog(@"changeAddress");
+    NSString * firstName = self.firstAddress.text;
+    NSString * secondName = self.secondAddress.text;
+    
+    if (![firstName isEqualToString:secondName]) {
+        self.firstAddress.text = secondName;
+        self.secondAddress.text = firstName;
+    }
 }
-
 
 #pragma mark - Table view data source
 
