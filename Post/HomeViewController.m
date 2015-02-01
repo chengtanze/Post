@@ -30,10 +30,10 @@
 
 -(void)viewDidLayoutSubviews{
     
-    NSString *str1 = @"1.jpg";
-    NSString *str2 = @"2.jpg";
-    NSString *str3 = @"3.jpg";
-    NSString *str4 = @"4.jpg";
+    NSString *str1 = @"1.JPG";
+    NSString *str2 = @"2.JPG";
+    NSString *str3 = @"3.JPG";
+    NSString *str4 = @"4.JPG";
     
     NSArray * array = @[str1, str2, str3, str4];
     
@@ -41,10 +41,10 @@
     if (!bFirst) {
         bFirst = YES;
         
-//        self.srcollImage = [[Custom_ScrollImageView alloc]initWithFrame:self.cellForScrollView.frame  picArray:array];
-//        self.srcollImage.delegate = self;
-//        [self.cellForScrollView addSubview:self.srcollImage];
-//        [_srcollImage upDataScrollViewPoint];
+        self.srcollImage = [[Custom_ScrollImageView alloc]initWithFrame:self.cellForScrollView.frame  picArray:array];
+        self.srcollImage.delegate = self;
+        [self.cellForScrollView addSubview:self.srcollImage];
+        [_srcollImage upDataScrollViewPoint];
     }
 
     NSLog(@"viewDidLayoutSubviews");

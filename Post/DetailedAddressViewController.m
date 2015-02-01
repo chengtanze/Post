@@ -160,6 +160,10 @@
     return YES;
 }
 
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    
+}
+
 -(BOOL)serachPOIByCity:(NSString *)city address:(NSString *)address{
     int curPage = 0;
     BMKCitySearchOption *citySearchOption = [[BMKCitySearchOption alloc]init];
