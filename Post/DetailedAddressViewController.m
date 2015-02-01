@@ -139,29 +139,77 @@
     return YES;
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+//- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     
-    if ([textField isEqual:self.areaText]) {
+//    if ([textField isEqual:self.areaText]) {
+//        NSLog(@"%@", string);
+//        if (string == nil || string.length <= 0) {
+//            return YES;
+//        }
+//        int aCharacter = [string characterAtIndex:0];
+//        if(aCharacter > 0x4e00 && aCharacter < 0x9fff){
+//            [self.searchString appendString:string];
+//            
+//            [self serachPOIByCity:self.cityText.text address:self.searchString];
+//        }
+//        else{
+//            //不是中文
+//        }
+//    }
+    
+//    return YES;
+//}
+
+- (void)textFieldDidChange:(NSNotification *)obj
+{
+    NSString * string = self.areaText.text;
+    
+    if (string == nil || string.length <= 0) {
+        return;
+    }
+    int aCharacter = [string characterAtIndex:0];
+    if(aCharacter > 0x4e00 && aCharacter < 0x9fff){
+        [self.searchString appendString:string];
+
         NSLog(@"%@", string);
-        if (string == nil || string.length <= 0) {
-            return YES;
-        }
-        int aCharacter = [string characterAtIndex:0];
-        if(aCharacter > 0x4e00 && aCharacter < 0x9fff){
-            [self.searchString appendString:string];
-            
-            [self serachPOIByCity:self.cityText.text address:self.searchString];
-        }
-        else{
-            //不是中文
-        }
+        //[self serachPOIByCity:self.cityText.text address:self.searchString];
+    }
+    else{
+        //不是中文
     }
     
-    return YES;
+    
+    
+    //}
+    //可以用note.object来获取产生该消息的UITextField
+//    if (self.areaText.text.length > 0) {
+//        int utfCode = 0;
+//        void *buffer = &utfCode;
+//        NSRange range = NSMakeRange(_activeTextField.text.length - 1, 1);
+//        NSString *word = [_activeTextField.text substringWithRange:range];
+//        BOOL b = [word getBytes:buffer maxLength:2 usedLength:NULL encoding:NSUTF16LittleEndianStringEncoding options:NSStringEncodingConversionExternalRepresentation range:range remainingRange:NULL];
+//        if (b && (utfCode >= 0x4e00 && utfCode <= 0x9fa5)) {
+//            NSLog(@"it is chinese,%@", word);
+//        }
+//    }
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField{
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    NSLog(@"textFieldDidBeginEditing%@", textField.text);
     
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:self.areaText];
+}
+
+//- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+//    NSLog(@"textFieldShouldEndEditing%@", textField.text);
+//    return YES;
+//}
+//
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    NSLog(@"textFieldDidEndEditing%@", textField.text);
+    
+     [[NSNotificationCenter defaultCenter]removeObserver:self name:UITextFieldTextDidChangeNotification object:self.areaText];
 }
 
 -(BOOL)serachPOIByCity:(NSString *)city address:(NSString *)address{
