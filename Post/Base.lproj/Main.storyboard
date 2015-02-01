@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Qc3-U5-HWG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="M0g-DP-N0H">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -574,6 +574,9 @@
                                                 <constraint firstItem="JKU-UI-3IB" firstAttribute="leading" secondItem="ghk-sp-7a5" secondAttribute="trailing" constant="15" id="zXv-bc-tIl"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="LUN-3e-9mg" kind="show" id="oze-ke-y0g"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -591,6 +594,87 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E1w-cR-rgN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3368" y="326"/>
+        </scene>
+        <!--详细地址-->
+        <scene sceneID="Vzm-nm-mHb">
+            <objects>
+                <viewController title="详细地址" id="LUN-3e-9mg" customClass="DetailedAddressViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Xe-u3-E7z"/>
+                        <viewControllerLayoutGuide type="bottom" id="KtE-po-rJQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="nBI-eU-naV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zy5-0L-KBj">
+                                <rect key="frame" x="0.0" y="64" width="600" height="70"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="街道、门牌号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HiB-cg-AKw">
+                                        <rect key="frame" x="20" y="45" width="150" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="mBl-jX-p7P"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j51-T9-WSw">
+                                        <rect key="frame" x="517" y="35" width="60" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="x1j-Eq-6RY"/>
+                                        </constraints>
+                                        <state key="normal" title="确认">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="省、市、区" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZDp-4y-paW">
+                                        <rect key="frame" x="21" y="8" width="150" height="17"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="Vlq-Nf-1ww"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="HiB-cg-AKw" firstAttribute="leading" secondItem="Zy5-0L-KBj" secondAttribute="leading" constant="20" id="D3S-0t-UOS"/>
+                                    <constraint firstItem="ZDp-4y-paW" firstAttribute="leading" secondItem="Zy5-0L-KBj" secondAttribute="leading" constant="21" id="SHs-FC-5vR"/>
+                                    <constraint firstAttribute="trailing" secondItem="j51-T9-WSw" secondAttribute="trailing" constant="23" id="Snr-hn-gKd"/>
+                                    <constraint firstAttribute="bottom" secondItem="j51-T9-WSw" secondAttribute="bottom" constant="5" id="Vux-bz-sEH"/>
+                                    <constraint firstItem="ZDp-4y-paW" firstAttribute="top" secondItem="Zy5-0L-KBj" secondAttribute="top" constant="8" id="g9R-6m-FDr"/>
+                                    <constraint firstAttribute="bottom" secondItem="HiB-cg-AKw" secondAttribute="bottom" constant="8" id="nFt-b3-whm"/>
+                                    <constraint firstAttribute="height" constant="70" id="rWe-2O-xAZ"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="k49-5V-PEh">
+                                <rect key="frame" x="16" y="154" width="568" height="387"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92156862750000001" green="0.92549019610000005" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="KtE-po-rJQ" firstAttribute="top" secondItem="k49-5V-PEh" secondAttribute="bottom" constant="10" id="L7J-U9-KSR"/>
+                            <constraint firstItem="Zy5-0L-KBj" firstAttribute="top" secondItem="1Xe-u3-E7z" secondAttribute="bottom" id="YNl-ff-sUW"/>
+                            <constraint firstItem="k49-5V-PEh" firstAttribute="top" secondItem="Zy5-0L-KBj" secondAttribute="bottom" constant="20" id="aBE-Lu-vwI"/>
+                            <constraint firstAttribute="centerX" secondItem="k49-5V-PEh" secondAttribute="centerX" id="btt-as-r3m"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="k49-5V-PEh" secondAttribute="trailing" id="dTd-M8-zMh"/>
+                            <constraint firstItem="k49-5V-PEh" firstAttribute="leading" secondItem="nBI-eU-naV" secondAttribute="leadingMargin" id="faj-vf-poL"/>
+                            <constraint firstItem="Zy5-0L-KBj" firstAttribute="leading" secondItem="nBI-eU-naV" secondAttribute="leading" id="jMh-1E-4Tl"/>
+                            <constraint firstAttribute="trailing" secondItem="Zy5-0L-KBj" secondAttribute="trailing" id="jcF-3d-iZu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addressTableView" destination="k49-5V-PEh" id="e2X-75-2CT"/>
+                        <outlet property="areaText" destination="HiB-cg-AKw" id="ygK-ra-5f3"/>
+                        <outlet property="cityText" destination="ZDp-4y-paW" id="DqE-Cc-LLW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kaC-rE-7J1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4063" y="326"/>
         </scene>
         <!--用户注册-->
         <scene sceneID="T7U-ma-Rpt">

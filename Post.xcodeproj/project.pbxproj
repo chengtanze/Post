@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		142B224F1A7DCE3000363BD9 /* DetailedAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 142B224E1A7DCE3000363BD9 /* DetailedAddressViewController.m */; };
+		142B22521A7DD4AA00363BD9 /* HZAreaPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 142B22511A7DD4AA00363BD9 /* HZAreaPickerView.m */; };
+		142B22541A7DD67200363BD9 /* HZAreaPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 142B22531A7DD67200363BD9 /* HZAreaPickerView.xib */; };
+		142B22581A7DD84100363BD9 /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 142B22571A7DD84100363BD9 /* area.plist */; };
 		143770291A74DF17005084CE /* IntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 143770281A74DF17005084CE /* IntroduceViewController.m */; };
 		14BD142A1A7C90E1007F9287 /* MapSearchViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14BD14291A7C90E1007F9287 /* MapSearchViewController.mm */; };
 		14BD14301A7C91D5007F9287 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 14BD142F1A7C91D5007F9287 /* mapapi.bundle */; };
@@ -57,6 +61,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		142B224D1A7DCE3000363BD9 /* DetailedAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailedAddressViewController.h; path = Post/DetailedAddressViewController.h; sourceTree = "<group>"; };
+		142B224E1A7DCE3000363BD9 /* DetailedAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailedAddressViewController.m; path = Post/DetailedAddressViewController.m; sourceTree = "<group>"; };
+		142B22501A7DD4AA00363BD9 /* HZAreaPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZAreaPickerView.h; sourceTree = "<group>"; };
+		142B22511A7DD4AA00363BD9 /* HZAreaPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HZAreaPickerView.m; sourceTree = "<group>"; };
+		142B22531A7DD67200363BD9 /* HZAreaPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HZAreaPickerView.xib; sourceTree = "<group>"; };
+		142B22571A7DD84100363BD9 /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
 		143770271A74DF17005084CE /* IntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroduceViewController.h; sourceTree = "<group>"; };
 		143770281A74DF17005084CE /* IntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroduceViewController.m; sourceTree = "<group>"; };
 		14BD14281A7C90E1007F9287 /* MapSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapSearchViewController.h; path = Post/MapSearchViewController.h; sourceTree = "<group>"; };
@@ -198,6 +208,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		142B22551A7DD81A00363BD9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				142B22561A7DD82400363BD9 /* city */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		142B22561A7DD82400363BD9 /* city */ = {
+			isa = PBXGroup;
+			children = (
+				142B22571A7DD84100363BD9 /* area.plist */,
+			);
+			name = city;
+			sourceTree = "<group>";
+		};
 		14BD6BA21A7C9295001A8535 /* framework */ = {
 			isa = PBXGroup;
 			children = (
@@ -404,6 +430,8 @@
 				14BD14291A7C90E1007F9287 /* MapSearchViewController.mm */,
 				14BD6BB11A7CE945001A8535 /* EditCargoInfoTableViewController.h */,
 				14BD6BB21A7CE945001A8535 /* EditCargoInfoTableViewController.m */,
+				142B224D1A7DCE3000363BD9 /* DetailedAddressViewController.h */,
+				142B224E1A7DCE3000363BD9 /* DetailedAddressViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -425,6 +453,7 @@
 		14CE5FE71A74D2B700A19C36 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				142B22551A7DD81A00363BD9 /* Data */,
 				14CE5FE91A74D33800A19C36 /* Image */,
 			);
 			name = Resource;
@@ -460,6 +489,9 @@
 				FC81BC811A7A0D4500D6C78F /* Custom_ScrollImageView.m */,
 				14BD6BA61A7CC3EE001A8535 /* CLLocationManager+CustomGPS.h */,
 				14BD6BA71A7CC3EE001A8535 /* CLLocationManager+CustomGPS.m */,
+				142B22501A7DD4AA00363BD9 /* HZAreaPickerView.h */,
+				142B22511A7DD4AA00363BD9 /* HZAreaPickerView.m */,
+				142B22531A7DD67200363BD9 /* HZAreaPickerView.xib */,
 			);
 			name = Coustom;
 			sourceTree = "<group>";
@@ -558,6 +590,7 @@
 			files = (
 				FC81BC8D1A7A0E6B00D6C78F /* 5.jpg in Resources */,
 				14CE5FED1A74D34A00A19C36 /* Default@2x.png in Resources */,
+				142B22581A7DD84100363BD9 /* area.plist in Resources */,
 				14BD6BAD1A7CE61D001A8535 /* icon_direction.png in Resources */,
 				14CE5FEE1A74D34A00A19C36 /* Default-568h@2x.png in Resources */,
 				FC81BC891A7A0E6B00D6C78F /* 1.JPG in Resources */,
@@ -565,6 +598,7 @@
 				FC81BC941A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_救援-d.png in Resources */,
 				14CE5FEF1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png in Resources */,
 				14CE5FCF1A74CF8400A19C36 /* LaunchScreen.xib in Resources */,
+				142B22541A7DD67200363BD9 /* HZAreaPickerView.xib in Resources */,
 				FC81BC8C1A7A0E6B00D6C78F /* 4.JPG in Resources */,
 				FC81BC951A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_行驶-d.png in Resources */,
 				FC81BC8B1A7A0E6B00D6C78F /* 3.JPG in Resources */,
@@ -589,8 +623,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				143770291A74DF17005084CE /* IntroduceViewController.m in Sources */,
+				142B22521A7DD4AA00363BD9 /* HZAreaPickerView.m in Sources */,
 				14BD142A1A7C90E1007F9287 /* MapSearchViewController.mm in Sources */,
 				14BD6BB31A7CE945001A8535 /* EditCargoInfoTableViewController.m in Sources */,
+				142B224F1A7DCE3000363BD9 /* DetailedAddressViewController.m in Sources */,
 				14CE5FC11A74CF8400A19C36 /* AppDelegate.mm in Sources */,
 				14CE5FBE1A74CF8400A19C36 /* main.m in Sources */,
 				14CE5FC71A74CF8400A19C36 /* ViewController.m in Sources */,
