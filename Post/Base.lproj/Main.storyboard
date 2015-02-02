@@ -552,37 +552,42 @@
                                                         <action selector="changeAddress:" destination="Vfu-lE-lcj" eventType="touchUpInside" id="xd6-HH-6cN"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="深圳市宝安区铁岗村" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SMn-3f-cYk">
-                                                    <rect key="frame" x="88" y="13" width="452" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="深圳市龙华区苹果园 " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKU-UI-3IB">
-                                                    <rect key="frame" x="88" y="56" width="452" height="18"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZM-Xi-ghv">
+                                                    <rect key="frame" x="88" y="7" width="452" height="30"/>
+                                                    <state key="normal" title="深圳市宝安区铁岗村">
+                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="LUN-3e-9mg" kind="show" identifier="sourceAddress" id="ef6-lK-jdl"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wvf-jh-bSq">
+                                                    <rect key="frame" x="88" y="50" width="452" height="30"/>
+                                                    <state key="normal" title="深圳市龙华区苹果园 ">
+                                                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="LUN-3e-9mg" kind="show" identifier="targetAddress" id="rxo-KA-fZE"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="centerY" secondItem="F6B-QQ-V2F" secondAttribute="centerY" id="7Fm-TV-ylc"/>
-                                                <constraint firstItem="JKU-UI-3IB" firstAttribute="centerY" secondItem="ghk-sp-7a5" secondAttribute="centerY" id="7ZA-fb-TEb"/>
+                                                <constraint firstItem="ghk-sp-7a5" firstAttribute="centerY" secondItem="Wvf-jh-bSq" secondAttribute="centerY" id="A6t-dO-EE3"/>
                                                 <constraint firstItem="ghk-sp-7a5" firstAttribute="leading" secondItem="VCp-74-FFH" secondAttribute="leadingMargin" constant="5" id="Ev5-wx-rAc"/>
                                                 <constraint firstItem="lBc-Xp-ueo" firstAttribute="leading" secondItem="VCp-74-FFH" secondAttribute="leadingMargin" constant="5" id="HFc-bO-dy3"/>
+                                                <constraint firstItem="Wvf-jh-bSq" firstAttribute="leading" secondItem="ghk-sp-7a5" secondAttribute="trailing" constant="15" id="Jdd-AO-Zal"/>
+                                                <constraint firstItem="bZM-Xi-ghv" firstAttribute="leading" secondItem="lBc-Xp-ueo" secondAttribute="trailing" constant="15" id="KBc-6Y-dzr"/>
                                                 <constraint firstItem="lBc-Xp-ueo" firstAttribute="top" secondItem="VCp-74-FFH" secondAttribute="topMargin" constant="5" id="L08-kS-PS2"/>
+                                                <constraint firstItem="lBc-Xp-ueo" firstAttribute="centerY" secondItem="bZM-Xi-ghv" secondAttribute="centerY" id="NTw-b5-Fdg"/>
+                                                <constraint firstItem="F6B-QQ-V2F" firstAttribute="leading" secondItem="Wvf-jh-bSq" secondAttribute="trailing" constant="20" id="Ohg-ko-cu7"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="F6B-QQ-V2F" secondAttribute="trailing" constant="10" id="f3s-Zw-tXf"/>
-                                                <constraint firstItem="F6B-QQ-V2F" firstAttribute="leading" secondItem="JKU-UI-3IB" secondAttribute="trailing" constant="20" id="hxk-KY-W9u"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="ghk-sp-7a5" secondAttribute="bottom" constant="5" id="iFG-CQ-hLy"/>
-                                                <constraint firstItem="SMn-3f-cYk" firstAttribute="leading" secondItem="lBc-Xp-ueo" secondAttribute="trailing" constant="15" id="kmF-vA-MAP"/>
-                                                <constraint firstItem="F6B-QQ-V2F" firstAttribute="leading" secondItem="SMn-3f-cYk" secondAttribute="trailing" constant="20" id="kvT-D4-uwF"/>
-                                                <constraint firstItem="lBc-Xp-ueo" firstAttribute="centerY" secondItem="SMn-3f-cYk" secondAttribute="centerY" id="txQ-ny-P3h"/>
-                                                <constraint firstItem="JKU-UI-3IB" firstAttribute="leading" secondItem="ghk-sp-7a5" secondAttribute="trailing" constant="15" id="zXv-bc-tIl"/>
+                                                <constraint firstItem="F6B-QQ-V2F" firstAttribute="leading" secondItem="bZM-Xi-ghv" secondAttribute="trailing" constant="20" id="jbL-O0-tqa"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="LUN-3e-9mg" kind="show" id="oze-ke-y0g"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -593,8 +598,8 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="firstAddress" destination="SMn-3f-cYk" id="jaC-9N-BuA"/>
-                        <outlet property="secondAddress" destination="JKU-UI-3IB" id="bX5-eZ-Pm0"/>
+                        <outlet property="firstAddress" destination="bZM-Xi-ghv" id="EwJ-JE-jzv"/>
+                        <outlet property="secondAddress" destination="Wvf-jh-bSq" id="DTh-Nu-bA8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E1w-cR-rgN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -633,6 +638,9 @@
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnClickGoback:" destination="LUN-3e-9mg" eventType="touchUpInside" id="jLU-Es-5Pu"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="省、市、区" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZDp-4y-paW">
                                         <rect key="frame" x="21" y="8" width="150" height="17"/>
@@ -996,4 +1004,7 @@
         <image name="2-1SMART-BOX-导航按钮_行驶-d.png" width="99" height="99"/>
         <image name="icon_direction.png" width="17" height="17"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="rxo-KA-fZE"/>
+    </inferredMetricsTieBreakers>
 </document>

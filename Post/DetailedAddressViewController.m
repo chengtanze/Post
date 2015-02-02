@@ -45,7 +45,8 @@
     self.BMKPoiInfoArray = [[NSMutableArray alloc]initWithCapacity:10];
     self.addressTableView.delegate = self;
     self.addressTableView.dataSource = self;
-
+    //self.addressType = 0;
+    
     [self initLocalData];
     // Do any additional setup after loading the view.
 }
@@ -324,6 +325,15 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"didSelectRowAtIndexPath :%ld", (long)indexPath.row);
+    
+    UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (cell != nil) {
+        self.areaText.text = cell.textLabel.text;
+    }
+}
+
 
 /*
 #pragma mark - Navigation
@@ -335,4 +345,12 @@
 }
 */
 
+- (IBAction)btnClickGoback:(id)sender {
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(setValue:Type:)])
+    {
+        [self.delegate setValue:self.areaText.text Type:self.addressType];
+    }
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

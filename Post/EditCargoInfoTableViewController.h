@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetailedAddressViewController.h"
 
-@interface EditCargoInfoTableViewController : UITableViewController
+
+@interface EditCargoInfoTableViewController : UITableViewController<GetAddressTypeDelegate>
 - (IBAction)changeAddress:(id)sender;
-@property (weak, nonatomic) IBOutlet UILabel *firstAddress;
-@property (weak, nonatomic) IBOutlet UILabel *secondAddress;
+@property (weak, nonatomic) IBOutlet UIButton *firstAddress;
+@property (weak, nonatomic) IBOutlet UIButton *secondAddress;
 
 @end

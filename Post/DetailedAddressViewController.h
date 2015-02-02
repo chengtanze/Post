@@ -18,10 +18,18 @@
 
 @end
 
+@protocol GetAddressTypeDelegate <NSObject>
+
+-(void)setValue:(NSString *)address Type:(NSInteger)type;
+
+@end
 
 @interface DetailedAddressViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *cityText;
 @property (weak, nonatomic) IBOutlet UITextField *areaText;
 @property (weak, nonatomic) IBOutlet UITableView *addressTableView;
+- (IBAction)btnClickGoback:(id)sender;
 
+@property(nonatomic,assign) NSInteger addressType;
+@property(nonatomic, weak)id<GetAddressTypeDelegate> delegate;
 @end

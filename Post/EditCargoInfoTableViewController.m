@@ -8,6 +8,7 @@
 
 #import "EditCargoInfoTableViewController.h"
 
+
 @interface EditCargoInfoTableViewController ()<UITextFieldDelegate>
 
 
@@ -33,13 +34,32 @@
 
 - (IBAction)changeAddress:(id)sender {
     //NSLog(@"changeAddress");
-    NSString * firstName = self.firstAddress.text;
-    NSString * secondName = self.secondAddress.text;
+    NSString * firstName = self.firstAddress.titleLabel.text ;
+    NSString * secondName = self.secondAddress.titleLabel.text ;
     
     if (![firstName isEqualToString:secondName]) {
-        self.firstAddress.text = secondName;
-        self.secondAddress.text = firstName;
+        [self.firstAddress setTitle:secondName forState:UIControlStateNormal];
+        [self.secondAddress setTitle:firstName forState:UIControlStateNormal];
     }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    DetailedAddressViewController *viewController = (DetailedAddressViewController *)segue.destinationViewController;
+    viewController.delegate = self;
+    NSInteger nType = 0;
+    if ([segue.identifier isEqualToString:@"sourceAddress"])
+    {
+        nType = 0;
+    }
+    else if ([segue.identifier isEqualToString:@"targetAddress"]){
+        nType = 1;
+    }
+    
+    viewController.addressType = nType;
+}
+
+-(void)setValue:(NSString *)address Type:(NSInteger)type{
+    NSLog(@"address :%@ Type :%ld", address, type);
 }
 
 #pragma mark - Table view data source
