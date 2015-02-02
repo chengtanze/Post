@@ -134,6 +134,8 @@
     if ([textField isEqual:self.areaText]) {
         NSLog(@"textfieldshouldreturn");
         [textField resignFirstResponder];
+        
+        [self serachPOIByCity:@"南山" address:@"清华信息港"];//self.cityText.text self.searchString
     }
     
     return YES;
@@ -198,18 +200,13 @@
 {
     NSLog(@"textFieldDidBeginEditing%@", textField.text);
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:self.areaText];
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textFieldDidChange:) name:UITextFieldTextDidChangeNotification object:self.areaText];
 }
 
-//- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
-//    NSLog(@"textFieldShouldEndEditing%@", textField.text);
-//    return YES;
-//}
-//
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     NSLog(@"textFieldDidEndEditing%@", textField.text);
     
-     [[NSNotificationCenter defaultCenter]removeObserver:self name:UITextFieldTextDidChangeNotification object:self.areaText];
+//     [[NSNotificationCenter defaultCenter]removeObserver:self name:UITextFieldTextDidChangeNotification object:self.areaText];
 }
 
 -(BOOL)serachPOIByCity:(NSString *)city address:(NSString *)address{
@@ -244,6 +241,12 @@
             [_BMKPoiInfoArray addObject:poi];
             NSLog(@"POI name:%@ address:%@ city:%@", poi.name, poi.address, poi.city);
         }
+        
+        //通知界面刷新
+        if ([self upDataDownLoadPOI]) {
+            [self reLoadTableViewData];
+        }
+        
     } else if (error == BMK_SEARCH_AMBIGUOUS_ROURE_ADDR){
         NSLog(@"起始点有歧义");
     } else {
@@ -251,6 +254,26 @@
         NSLog(@"onGetPoiResult Error:[%d]", error);
     }
 }
+
+-(BOOL)upDataDownLoadPOI{
+    NSInteger nCount = _BMKPoiInfoArray.count;
+    for (int nIndex = 0; nIndex < nCount; nIndex++) {
+        //[self.poiSearchData]
+        BMKPoiInfo* poi = _BMKPoiInfoArray[nIndex];
+        POIDataInfo * Data = [[POIDataInfo alloc]init];
+        Data.poiName = poi.name;
+        Data.address = poi.address;
+        
+        [self.poiSearchData addObject:Data];
+    }
+    
+    return nCount != 0 ? YES : NO;
+}
+
+-(void)reLoadTableViewData{
+    [self.addressTableView reloadData];
+}
+
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [super touchesBegan:touches withEvent:event];
