@@ -8,7 +8,7 @@
 
 #import "MapSearchViewController.h"
 #import "BMapKit.h"
-@interface MapSearchViewController ()<BMKGeneralDelegate, BMKMapViewDelegate, CLLocationManagerDelegate, BMKPoiSearchDelegate, BMKLocationServiceDelegate>
+@interface MapSearchViewController ()<BMKGeneralDelegate, BMKMapViewDelegate, CLLocationManagerDelegate, BMKPoiSearchDelegate, BMKLocationServiceDelegate, BMKGeoCodeSearchDelegate>
 {
     CLLocation *checkinLocation;
 }
@@ -17,7 +17,8 @@
 @property(nonatomic, strong)CLLocationManager * locationManager;
 @property(nonatomic, strong)BMKPoiSearch* poiSearch;
 
-@property(nonatomic, strong)BMKLocationService* locService;//定位服务
+@property(nonatomic, strong)BMKLocationService* locService; //定位服务
+@property(nonatomic, strong)BMKGeoCodeSearch* geoCodeSearch;//逆地理查询
 
 
 //保存查询poi点信息
@@ -33,8 +34,7 @@
     //[self initMap];
     [self initLocalData];
     [self initPOI];
-    
-    //[self serachPOIByCity:@"深圳" address:@"苹果园"];
+
     
 //    self.locationManager = [[CLLocationManager alloc]init];
 //    _locationManager.delegate = self;
@@ -44,46 +44,35 @@
     
     
     // 代码创建 BMKMapView
-    self.mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(0, 0, 320, 400)]; // self.view.bounds.size.width, self.view.bounds.size.height将创建的 BMKMapView 添加到 View 上
-//    _mapView.showsUserLocation = NO;//先关闭显示的定位图层
-//    _mapView.userTrackingMode = BMKUserTrackingModeNone;//设置定位的状态
-//    _mapView.showsUserLocation = YES;//显示定位图层
-//    //设置定位精确度，默认：kCLLocationAccuracyBest
-//    [BMKLocationService setLocationDesiredAccuracy:kCLLocationAccuracyNearestTenMeters];
-//    //指定最小距离更新(米)，默认：kCLDistanceFilterNone
-//    [BMKLocationService setLocationDistanceFilter:100.f];
-    
-    
+    self.mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64)]; // 将创建的 BMKMapView 添加到 View 上
+
     [self.view addSubview:self.mapView];
     
     
     
-    UIButton * but = [[UIButton alloc]initWithFrame:CGRectMake(0, 450, 100, 20)];
+    UIButton * but = [[UIButton alloc]initWithFrame:CGRectMake(0, 200, 100, 20)];
     but.backgroundColor = [UIColor redColor];
     [but addTarget:self action:@selector(handleButtonTap:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:but];
     
     [_locService startUserLocationService];
-    _mapView.showsUserLocation = NO;//先关闭显示的定位图层
-    _mapView.userTrackingMode = BMKUserTrackingModeNone;//设置定位的状态
-    _mapView.showsUserLocation = YES;//显示定位图层
-}
-
--(void)handleButtonTap:(id)sender{
-    //[_button setSelected:YES];
-    //[RadioButton buttonSelected:self];
-
-    
     _mapView.showsUserLocation = NO;
     _mapView.userTrackingMode = BMKUserTrackingModeFollow;
     _mapView.showsUserLocation = YES;
-    
+}
+
+-(void)handleButtonTap:(id)sender{
+    NSLog(@"handleButtonTap");
+    //[_mapView zoomIn];
+    _mapView.showsUserLocation = NO;
+    _mapView.userTrackingMode = BMKUserTrackingModeFollow;
+    _mapView.showsUserLocation = YES;
 }
 
 -(void)initPOI{
     self.poiSearch = [[BMKPoiSearch alloc]init];
     self.locService = [[BMKLocationService alloc]init];
-
+    self.geoCodeSearch = [[BMKGeoCodeSearch alloc]init];
 }
 
 -(void)initLocalData{
@@ -108,7 +97,7 @@
     _mapView.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
     _poiSearch.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
     self.locService.delegate = self;
-    
+    self.geoCodeSearch.delegate = self;
     
 }
 
@@ -121,48 +110,55 @@
     _mapView.delegate = nil; // 不用时，置nil
     _poiSearch.delegate = nil; // 不用时，置nil
     self.locService.delegate = nil;
+    self.geoCodeSearch.delegate = nil;
 }
 
-
-
--(BOOL)serachPOIByCity:(NSString *)city address:(NSString *)address{
-    int curPage = 0;
-    BMKCitySearchOption *citySearchOption = [[BMKCitySearchOption alloc]init];
-    citySearchOption.pageIndex = curPage;
-    citySearchOption.pageCapacity = 10;
-    citySearchOption.city= city;
-    citySearchOption.keyword = address;
-    BOOL flag = [self.poiSearch poiSearchInCity:citySearchOption];
+- (void)mapView:(BMKMapView *)mapView onClickedMapBlank:(CLLocationCoordinate2D)coordinate
+{
+    NSLog(@"onClickedMapBlank-latitude==%f,longitude==%f",coordinate.latitude,coordinate.longitude);
+    NSString* showmeg = [NSString stringWithFormat:@"您点击了地图空白处(blank click).\r\n当前经度:%f,当前纬度:%f,\r\nZoomLevel=%d;RotateAngle=%d;OverlookAngle=%d", coordinate.longitude,coordinate.latitude,
+                         (int)_mapView.zoomLevel,_mapView.rotation,_mapView.overlooking];
+    
+    //isGeoSearch = false;
+    CLLocationCoordinate2D pt = (CLLocationCoordinate2D){0, 0};
+    
+    pt = (CLLocationCoordinate2D){coordinate.latitude, coordinate.longitude};
+    
+    BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
+    reverseGeocodeSearchOption.reverseGeoPoint = pt;
+    BOOL flag = [self.geoCodeSearch reverseGeoCode:reverseGeocodeSearchOption];
     if(flag)
     {
-        NSLog(@"城市内检索发送成功");
+        NSLog(@"反geo检索发送成功");
     }
     else
     {
-        NSLog(@"城市内检索发送失败");
+        NSLog(@"反geo检索发送失败");
     }
-    
-    return flag;
 }
 
-#pragma mark -
-#pragma mark implement BMKSearchDelegate
-- (void)onGetPoiResult:(BMKPoiSearch *)searcher result:(BMKPoiResult*)result errorCode:(BMKSearchErrorCode)error
+-(void) onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error
 {
-    //清除之前的数据
-    [_BMKPoiInfoArray removeAllObjects];
-    if (error == BMK_SEARCH_NO_ERROR) {
-        for (int i = 0; i < result.poiInfoList.count; i++) {
-            BMKPoiInfo* poi = [result.poiInfoList objectAtIndex:i];
-            [_BMKPoiInfoArray addObject:poi];
-        }
-    } else if (error == BMK_SEARCH_AMBIGUOUS_ROURE_ADDR){
-        NSLog(@"起始点有歧义");
-    } else {
-        // 各种情况的判断。。。
-        NSLog(@"onGetPoiResult Error:[%d]", error);
+    NSArray* array = [NSArray arrayWithArray:_mapView.annotations];
+    [_mapView removeAnnotations:array];
+    array = [NSArray arrayWithArray:_mapView.overlays];
+    [_mapView removeOverlays:array];
+    if (error == 0) {
+        BMKPointAnnotation* item = [[BMKPointAnnotation alloc]init];
+        item.coordinate = result.location;
+        item.title = result.address;
+        [_mapView addAnnotation:item];
+        _mapView.centerCoordinate = result.location;
+        NSString* titleStr;
+        NSString* showmeg;
+        titleStr = @"反向地理编码";
+        showmeg = [NSString stringWithFormat:@"%@",item.title];
+        
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:titleStr message:showmeg delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定",nil];
+        [myAlertView show];
     }
 }
+
 
 
 /**
@@ -189,11 +185,8 @@
  */
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
-//    BMKUserLocation * location = [[BMKUserLocation alloc]init];
-//    location.location.coordinate.latitude = 22.287748;
-//    location.location.coordinate.longitude = 114.169702;
-  
-    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    //NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    
     [_mapView updateLocationData:userLocation];
 }
 /*用户方向更新后，会调用此函数
