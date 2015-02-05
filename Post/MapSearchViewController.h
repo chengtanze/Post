@@ -11,5 +11,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MapSearchViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end

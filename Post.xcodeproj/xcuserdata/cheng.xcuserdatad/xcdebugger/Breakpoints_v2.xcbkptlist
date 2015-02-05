@@ -10,13 +10,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Post/MapSearchViewController.mm"
-            timestampString = "444408287.076553"
+            timestampString = "444835119.615307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
-            landmarkName = "-onGetPoiResult:result:errorCode:"
-            landmarkType = "5">
+            startingLineNumber = "223"
+            endingLineNumber = "223"
+            landmarkName = "@implementation MapSearchViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -74,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Post/MapSearchViewController.mm"
-            timestampString = "444408287.076553"
+            timestampString = "444835119.615307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
-            landmarkName = "-didUpdateBMKUserLocation:"
+            startingLineNumber = "266"
+            endingLineNumber = "266"
+            landmarkName = "-willStartLocatingUser"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

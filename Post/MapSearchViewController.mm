@@ -8,10 +8,12 @@
 
 #import "MapSearchViewController.h"
 #import "BMapKit.h"
-@interface MapSearchViewController ()<BMKGeneralDelegate, BMKMapViewDelegate, CLLocationManagerDelegate, BMKPoiSearchDelegate, BMKLocationServiceDelegate, BMKGeoCodeSearchDelegate>
+@interface MapSearchViewController ()<BMKGeneralDelegate, BMKMapViewDelegate, CLLocationManagerDelegate, BMKPoiSearchDelegate, BMKLocationServiceDelegate, BMKGeoCodeSearchDelegate, UISearchBarDelegate>
 {
     CLLocation *checkinLocation;
 }
+
+@property(nonatomic, strong)UILabel * addressLabel;
 @property(nonatomic, strong)BMKMapManager* mapManager;
 @property(nonatomic, strong)BMKMapView *mapView;
 @property(nonatomic, strong)CLLocationManager * locationManager;
@@ -30,35 +32,45 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    //[self initMap];
+
     [self initLocalData];
     [self initPOI];
-
-    
-//    self.locationManager = [[CLLocationManager alloc]init];
-//    _locationManager.delegate = self;
-//    self.locationManager.distanceFilter = 200;
-//    _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-//    [self.locationManager startUpdatingLocation];
-    
-    
+    self.searchBar.delegate = self;
+   
     // 代码创建 BMKMapView
     self.mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(0, 64, self.view.bounds.size.width, self.view.bounds.size.height - 64)]; // 将创建的 BMKMapView 添加到 View 上
 
     [self.view addSubview:self.mapView];
     
-    
-    
-    UIButton * but = [[UIButton alloc]initWithFrame:CGRectMake(0, 200, 100, 20)];
-    but.backgroundColor = [UIColor redColor];
-    [but addTarget:self action:@selector(handleButtonTap:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:but];
-    
+    [self createWidget];
+
+     [self.view insertSubview:_searchBar atIndex:[[self.view subviews] count]];
     [_locService startUserLocationService];
     _mapView.showsUserLocation = NO;
     _mapView.userTrackingMode = BMKUserTrackingModeFollow;
     _mapView.showsUserLocation = YES;
+}
+
+#define POST_MAPVIEW_ADDRESSINFO_HEIGHT (50.0)
+
+-(void)createWidget{
+    
+    //底部地址框view
+    UIView * backGroup = [[UIView alloc]initWithFrame:CGRectMake(5, self.view.bounds.size.height - POST_MAPVIEW_ADDRESSINFO_HEIGHT, self.view.bounds.size.width - 10, POST_MAPVIEW_ADDRESSINFO_HEIGHT - 10)];
+    backGroup.backgroundColor = [UIColor whiteColor];
+    [backGroup setAlpha:0.7];
+    //地址框
+    self.addressLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 0, 200, POST_MAPVIEW_ADDRESSINFO_HEIGHT - 10)];
+    //self.addressLabel.text = @"苹果园";
+    [backGroup addSubview:self.addressLabel];
+    
+    //放大按钮
+    UIButton * but = [[UIButton alloc]initWithFrame:CGRectMake(10, self.view.bounds.size.height - POST_MAPVIEW_ADDRESSINFO_HEIGHT * 2, 20, 20)];
+    [but setBackgroundImage:[UIImage imageNamed:@"icon_direction"] forState:UIControlStateNormal];
+    [but addTarget:self action:@selector(handleButtonTap:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:but];
+    
+    [self.view addSubview:backGroup];
 }
 
 -(void)handleButtonTap:(id)sender{
@@ -113,17 +125,64 @@
     self.geoCodeSearch.delegate = nil;
 }
 
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+    BMKGeoCodeSearchOption *geocodeSearchOption = [[BMKGeoCodeSearchOption alloc]init];
+    geocodeSearchOption.city= @"深圳市";//_cityText.text;
+    geocodeSearchOption.address = searchBar.text;
+    BOOL flag = [self.geoCodeSearch geoCode:geocodeSearchOption];
+    if(flag)
+    {
+        NSLog(@"geo检索发送成功");
+    }
+    else
+    {
+        NSLog(@"geo检索发送失败");
+    }
+    
+    [searchBar resignFirstResponder];
+}
+
+- (void)onGetGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error
+{
+    NSArray* array = [NSArray arrayWithArray:_mapView.annotations];
+    [_mapView removeAnnotations:array];
+    array = [NSArray arrayWithArray:_mapView.overlays];
+    [_mapView removeOverlays:array];
+    if (error == 0) {
+        BMKPointAnnotation* item = [[BMKPointAnnotation alloc]init];
+        item.coordinate = result.location;
+        item.title = result.address;
+        [_mapView addAnnotation:item];
+        _mapView.centerCoordinate = result.location;
+    }
+}
+
+#pragma mark 底图手势操作
+/**
+ *点中底图标注后会回调此接口
+ *@param mapview 地图View
+ *@param mapPoi 标注点信息
+ */
+- (void)mapView:(BMKMapView *)mapView onClickedMapPoi:(BMKMapPoi*)mapPoi
+{
+    NSLog(@"onClickedMapPoi-%@",mapPoi.text);
+    NSString* showmeg = [NSString stringWithFormat:@"您点击了底图标注:%@,\r\n当前经度:%f,当前纬度:%f,\r\nZoomLevel=%d;RotateAngle=%d;OverlookAngle=%d", mapPoi.text,mapPoi.pt.longitude,mapPoi.pt.latitude, (int)_mapView.zoomLevel,_mapView.rotation,_mapView.overlooking];
+   
+    self.addressLabel.text = mapPoi.text;
+}
+
 - (void)mapView:(BMKMapView *)mapView onClickedMapBlank:(CLLocationCoordinate2D)coordinate
 {
     NSLog(@"onClickedMapBlank-latitude==%f,longitude==%f",coordinate.latitude,coordinate.longitude);
     NSString* showmeg = [NSString stringWithFormat:@"您点击了地图空白处(blank click).\r\n当前经度:%f,当前纬度:%f,\r\nZoomLevel=%d;RotateAngle=%d;OverlookAngle=%d", coordinate.longitude,coordinate.latitude,
                          (int)_mapView.zoomLevel,_mapView.rotation,_mapView.overlooking];
     
-    //isGeoSearch = false;
-    CLLocationCoordinate2D pt = (CLLocationCoordinate2D){0, 0};
-    
-    pt = (CLLocationCoordinate2D){coordinate.latitude, coordinate.longitude};
-    
+    CLLocationCoordinate2D pt = (CLLocationCoordinate2D){coordinate.latitude, coordinate.longitude};
+    [self reverseGeoSearch:pt];
+}
+
+-(void)reverseGeoSearch:(CLLocationCoordinate2D)pt{
     BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
     reverseGeocodeSearchOption.reverseGeoPoint = pt;
     BOOL flag = [self.geoCodeSearch reverseGeoCode:reverseGeocodeSearchOption];
@@ -154,8 +213,10 @@
         titleStr = @"反向地理编码";
         showmeg = [NSString stringWithFormat:@"%@",item.title];
         
-        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:titleStr message:showmeg delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定",nil];
-        [myAlertView show];
+        //UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:titleStr message:showmeg delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定",nil];
+        //[myAlertView show];
+        
+        self.addressLabel.text = result.address;
     }
 }
 
