@@ -13,7 +13,7 @@
 		142B22581A7DD84100363BD9 /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 142B22571A7DD84100363BD9 /* area.plist */; };
 		142B225B1A7E34BD00363BD9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 142B225A1A7E34BD00363BD9 /* LoginViewController.m */; };
 		143770291A74DF17005084CE /* IntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 143770281A74DF17005084CE /* IntroduceViewController.m */; };
-		1478BE3B1A83AAAA006B03ED /* OrderTrackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1478BE3A1A83AAAA006B03ED /* OrderTrackViewController.m */; };
+		1478BE3B1A83AAAA006B03ED /* OrderTrackViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1478BE3A1A83AAAA006B03ED /* OrderTrackViewController.mm */; };
 		14BD142A1A7C90E1007F9287 /* MapSearchViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14BD14291A7C90E1007F9287 /* MapSearchViewController.mm */; };
 		14BD14301A7C91D5007F9287 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 14BD142F1A7C91D5007F9287 /* mapapi.bundle */; };
 		14BD6BA81A7CC3EE001A8535 /* CLLocationManager+CustomGPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BD6BA71A7CC3EE001A8535 /* CLLocationManager+CustomGPS.m */; };
@@ -74,7 +74,7 @@
 		143770271A74DF17005084CE /* IntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroduceViewController.h; sourceTree = "<group>"; };
 		143770281A74DF17005084CE /* IntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroduceViewController.m; sourceTree = "<group>"; };
 		1478BE391A83AAAA006B03ED /* OrderTrackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderTrackViewController.h; path = Post/OrderTrackViewController.h; sourceTree = "<group>"; };
-		1478BE3A1A83AAAA006B03ED /* OrderTrackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderTrackViewController.m; path = Post/OrderTrackViewController.m; sourceTree = "<group>"; };
+		1478BE3A1A83AAAA006B03ED /* OrderTrackViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = OrderTrackViewController.mm; path = Post/OrderTrackViewController.mm; sourceTree = "<group>"; };
 		14BD14281A7C90E1007F9287 /* MapSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapSearchViewController.h; path = Post/MapSearchViewController.h; sourceTree = "<group>"; };
 		14BD14291A7C90E1007F9287 /* MapSearchViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MapSearchViewController.mm; path = Post/MapSearchViewController.mm; sourceTree = "<group>"; };
 		14BD142F1A7C91D5007F9287 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
@@ -441,7 +441,7 @@
 				142B22591A7E34BD00363BD9 /* LoginViewController.h */,
 				142B225A1A7E34BD00363BD9 /* LoginViewController.m */,
 				1478BE391A83AAAA006B03ED /* OrderTrackViewController.h */,
-				1478BE3A1A83AAAA006B03ED /* OrderTrackViewController.m */,
+				1478BE3A1A83AAAA006B03ED /* OrderTrackViewController.mm */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -637,7 +637,7 @@
 				14BD142A1A7C90E1007F9287 /* MapSearchViewController.mm in Sources */,
 				14BD6BB31A7CE945001A8535 /* EditCargoInfoTableViewController.m in Sources */,
 				142B224F1A7DCE3000363BD9 /* DetailedAddressViewController.m in Sources */,
-				1478BE3B1A83AAAA006B03ED /* OrderTrackViewController.m in Sources */,
+				1478BE3B1A83AAAA006B03ED /* OrderTrackViewController.mm in Sources */,
 				14CE5FC11A74CF8400A19C36 /* AppDelegate.mm in Sources */,
 				14CE5FBE1A74CF8400A19C36 /* main.m in Sources */,
 				14CE5FC71A74CF8400A19C36 /* ViewController.m in Sources */,
