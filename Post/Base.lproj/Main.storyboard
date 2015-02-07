@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H4h-1G-jPV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="M0g-DP-N0H">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -143,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOQ-22-k71" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2686" y="710"/>
+            <point key="canvasLocation" x="3384" y="1380"/>
         </scene>
         <!--订单跟踪-->
         <scene sceneID="2Qw-dO-GuD">
@@ -158,10 +158,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="xMo-0A-0oA">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="Uxv-Er-laT">
+                            <connections>
+                                <action selector="btn:" destination="H4h-1G-jPV" id="6GC-I8-f9J"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gOO-bJ-2cm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2679" y="1389"/>
+            <point key="canvasLocation" x="2640" y="648"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="dzF-Q5-tDe">
@@ -302,6 +311,9 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="ayZ-63-kxR" secondAttribute="bottom" constant="2" id="cGk-jp-mdy"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="H4h-1G-jPV" kind="show" id="866-Q6-IjT"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>

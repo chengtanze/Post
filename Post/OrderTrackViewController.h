@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface OrderTrackViewController : UIViewController
+- (IBAction)btn:(id)sender;
 
 @end
