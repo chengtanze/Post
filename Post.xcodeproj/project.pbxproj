@@ -19,7 +19,14 @@
 		1454D0821A861BF9003033D3 /* icon_nav_start@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1454D0801A861BF9003033D3 /* icon_nav_start@2x.png */; };
 		1454D0851A861E57003033D3 /* icon_center_point.png in Resources */ = {isa = PBXBuildFile; fileRef = 1454D0831A861E57003033D3 /* icon_center_point.png */; };
 		1454D0861A861E57003033D3 /* icon_center_point@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1454D0841A861E57003033D3 /* icon_center_point@2x.png */; };
+		1459912B1A89D76700710CF2 /* ConfirmTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1459912A1A89D76700710CF2 /* ConfirmTableViewController.m */; };
+		1459912E1A89DC7F00710CF2 /* PhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1459912D1A89DC7F00710CF2 /* PhotoGroupView.m */; };
+		145991371A89F42F00710CF2 /* PhotoGroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 145991361A89F42F00710CF2 /* PhotoGroupTableViewCell.m */; };
 		1478BE3B1A83AAAA006B03ED /* OrderTrackViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1478BE3A1A83AAAA006B03ED /* OrderTrackViewController.mm */; };
+		1483DA071A885293003A3B8B /* OrderTrack_UserItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1483DA061A885293003A3B8B /* OrderTrack_UserItem.xib */; };
+		1483DA0A1A8856CF003A3B8B /* 4-3SMART-BOX-任务_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 1483DA081A8856CF003A3B8B /* 4-3SMART-BOX-任务_11.png */; };
+		1483DA0B1A8856CF003A3B8B /* 4-4SMART-BOX-消息_启动预警.png in Resources */ = {isa = PBXBuildFile; fileRef = 1483DA091A8856CF003A3B8B /* 4-4SMART-BOX-消息_启动预警.png */; };
+		1483DA0E1A885896003A3B8B /* OrderTrack_UserItem_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1483DA0D1A885896003A3B8B /* OrderTrack_UserItem_Cell.m */; };
 		14BD142A1A7C90E1007F9287 /* MapSearchViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14BD14291A7C90E1007F9287 /* MapSearchViewController.mm */; };
 		14BD14301A7C91D5007F9287 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 14BD142F1A7C91D5007F9287 /* mapapi.bundle */; };
 		14BD6BA81A7CC3EE001A8535 /* CLLocationManager+CustomGPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BD6BA71A7CC3EE001A8535 /* CLLocationManager+CustomGPS.m */; };
@@ -85,8 +92,19 @@
 		1454D0801A861BF9003033D3 /* icon_nav_start@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_nav_start@2x.png"; path = "mapapi.bundle/images/icon_nav_start@2x.png"; sourceTree = "<group>"; };
 		1454D0831A861E57003033D3 /* icon_center_point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_center_point.png; path = mapapi.bundle/images/icon_center_point.png; sourceTree = "<group>"; };
 		1454D0841A861E57003033D3 /* icon_center_point@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_center_point@2x.png"; path = "mapapi.bundle/images/icon_center_point@2x.png"; sourceTree = "<group>"; };
+		145991291A89D76700710CF2 /* ConfirmTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfirmTableViewController.h; path = Post/ConfirmTableViewController.h; sourceTree = "<group>"; };
+		1459912A1A89D76700710CF2 /* ConfirmTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfirmTableViewController.m; path = Post/ConfirmTableViewController.m; sourceTree = "<group>"; };
+		1459912C1A89DC7F00710CF2 /* PhotoGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoGroupView.h; path = Post/PhotoGroupView.h; sourceTree = "<group>"; };
+		1459912D1A89DC7F00710CF2 /* PhotoGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoGroupView.m; path = Post/PhotoGroupView.m; sourceTree = "<group>"; };
+		145991351A89F42F00710CF2 /* PhotoGroupTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoGroupTableViewCell.h; path = Post/PhotoGroupTableViewCell.h; sourceTree = "<group>"; };
+		145991361A89F42F00710CF2 /* PhotoGroupTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoGroupTableViewCell.m; path = Post/PhotoGroupTableViewCell.m; sourceTree = "<group>"; };
 		1478BE391A83AAAA006B03ED /* OrderTrackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderTrackViewController.h; path = Post/OrderTrackViewController.h; sourceTree = "<group>"; };
 		1478BE3A1A83AAAA006B03ED /* OrderTrackViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = OrderTrackViewController.mm; path = Post/OrderTrackViewController.mm; sourceTree = "<group>"; };
+		1483DA061A885293003A3B8B /* OrderTrack_UserItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderTrack_UserItem.xib; sourceTree = "<group>"; };
+		1483DA081A8856CF003A3B8B /* 4-3SMART-BOX-任务_11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4-3SMART-BOX-任务_11.png"; sourceTree = "<group>"; };
+		1483DA091A8856CF003A3B8B /* 4-4SMART-BOX-消息_启动预警.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4-4SMART-BOX-消息_启动预警.png"; sourceTree = "<group>"; };
+		1483DA0C1A885896003A3B8B /* OrderTrack_UserItem_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderTrack_UserItem_Cell.h; path = Post/OrderTrack_UserItem_Cell.h; sourceTree = "<group>"; };
+		1483DA0D1A885896003A3B8B /* OrderTrack_UserItem_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderTrack_UserItem_Cell.m; path = Post/OrderTrack_UserItem_Cell.m; sourceTree = "<group>"; };
 		14BD14281A7C90E1007F9287 /* MapSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapSearchViewController.h; path = Post/MapSearchViewController.h; sourceTree = "<group>"; };
 		14BD14291A7C90E1007F9287 /* MapSearchViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MapSearchViewController.mm; path = Post/MapSearchViewController.mm; sourceTree = "<group>"; };
 		14BD142F1A7C91D5007F9287 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
@@ -454,6 +472,8 @@
 				142B225A1A7E34BD00363BD9 /* LoginViewController.m */,
 				1478BE391A83AAAA006B03ED /* OrderTrackViewController.h */,
 				1478BE3A1A83AAAA006B03ED /* OrderTrackViewController.mm */,
+				145991291A89D76700710CF2 /* ConfirmTableViewController.h */,
+				1459912A1A89D76700710CF2 /* ConfirmTableViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -494,6 +514,8 @@
 		14CE5FE91A74D33800A19C36 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				1483DA081A8856CF003A3B8B /* 4-3SMART-BOX-任务_11.png */,
+				1483DA091A8856CF003A3B8B /* 4-4SMART-BOX-消息_启动预警.png */,
 				1454D0831A861E57003033D3 /* icon_center_point.png */,
 				1454D0841A861E57003033D3 /* icon_center_point@2x.png */,
 				14BD6BAC1A7CE61D001A8535 /* icon_direction.png */,
@@ -520,6 +542,13 @@
 				142B22501A7DD4AA00363BD9 /* HZAreaPickerView.h */,
 				142B22511A7DD4AA00363BD9 /* HZAreaPickerView.m */,
 				142B22531A7DD67200363BD9 /* HZAreaPickerView.xib */,
+				1483DA061A885293003A3B8B /* OrderTrack_UserItem.xib */,
+				1483DA0C1A885896003A3B8B /* OrderTrack_UserItem_Cell.h */,
+				1483DA0D1A885896003A3B8B /* OrderTrack_UserItem_Cell.m */,
+				1459912C1A89DC7F00710CF2 /* PhotoGroupView.h */,
+				1459912D1A89DC7F00710CF2 /* PhotoGroupView.m */,
+				145991351A89F42F00710CF2 /* PhotoGroupTableViewCell.h */,
+				145991361A89F42F00710CF2 /* PhotoGroupTableViewCell.m */,
 			);
 			name = Coustom;
 			sourceTree = "<group>";
@@ -625,12 +654,14 @@
 				14CE5FEE1A74D34A00A19C36 /* Default-568h@2x.png in Resources */,
 				1454D0861A861E57003033D3 /* icon_center_point@2x.png in Resources */,
 				FC81BC891A7A0E6B00D6C78F /* 1.JPG in Resources */,
+				1483DA0B1A8856CF003A3B8B /* 4-4SMART-BOX-消息_启动预警.png in Resources */,
 				14CE5FCA1A74CF8400A19C36 /* Main.storyboard in Resources */,
 				FC81BC941A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_救援-d.png in Resources */,
 				14CE5FEF1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png in Resources */,
 				14CE5FCF1A74CF8400A19C36 /* LaunchScreen.xib in Resources */,
 				142B22541A7DD67200363BD9 /* HZAreaPickerView.xib in Resources */,
 				FC81BC8C1A7A0E6B00D6C78F /* 4.JPG in Resources */,
+				1483DA0A1A8856CF003A3B8B /* 4-3SMART-BOX-任务_11.png in Resources */,
 				FC81BC951A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_行驶-d.png in Resources */,
 				FC81BC8B1A7A0E6B00D6C78F /* 3.JPG in Resources */,
 				FC81BC8A1A7A0E6B00D6C78F /* 2.JPG in Resources */,
@@ -638,6 +669,7 @@
 				14CE5FCC1A74CF8400A19C36 /* Images.xcassets in Resources */,
 				1454D07D1A85F6F1003033D3 /* icon_nav_end.png in Resources */,
 				1454D07E1A85F6F1003033D3 /* icon_nav_start.png in Resources */,
+				1483DA071A885293003A3B8B /* OrderTrack_UserItem.xib in Resources */,
 				14BD14301A7C91D5007F9287 /* mapapi.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -656,7 +688,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1459912B1A89D76700710CF2 /* ConfirmTableViewController.m in Sources */,
 				143770291A74DF17005084CE /* IntroduceViewController.m in Sources */,
+				145991371A89F42F00710CF2 /* PhotoGroupTableViewCell.m in Sources */,
 				142B22521A7DD4AA00363BD9 /* HZAreaPickerView.m in Sources */,
 				14BD142A1A7C90E1007F9287 /* MapSearchViewController.mm in Sources */,
 				14BD6BB31A7CE945001A8535 /* EditCargoInfoTableViewController.m in Sources */,
@@ -668,6 +702,8 @@
 				FC7FC7ED1A7875C3004B3909 /* TabBarViewController.m in Sources */,
 				FC7FC7F31A787C4B004B3909 /* HomeViewController.m in Sources */,
 				14CE5FC41A74CF8400A19C36 /* Post.xcdatamodeld in Sources */,
+				1459912E1A89DC7F00710CF2 /* PhotoGroupView.m in Sources */,
+				1483DA0E1A885896003A3B8B /* OrderTrack_UserItem_Cell.m in Sources */,
 				FC81BC821A7A0D4500D6C78F /* Custom_ScrollImageView.m in Sources */,
 				FC7FC7F61A788972004B3909 /* RegisterViewController.m in Sources */,
 				14BD6BA81A7CC3EE001A8535 /* CLLocationManager+CustomGPS.m in Sources */,

@@ -1,24 +1,30 @@
 //
-//  EditCargoInfoTableViewController.m
+//  ConfirmTableViewController.m
 //  Post
 //
-//  Created by cheng on 15/1/31.
+//  Created by cheng on 15/2/10.
 //  Copyright (c) 2015年 cheng. All rights reserved.
 //
 
-#import "EditCargoInfoTableViewController.h"
+#import "ConfirmTableViewController.h"
 
-
-@interface EditCargoInfoTableViewController ()<UITextFieldDelegate>
-
+@interface ConfirmTableViewController ()
 
 @end
 
-@implementation EditCargoInfoTableViewController
+@implementation ConfirmTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+//    UIButton * button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
+//    [button setBackgroundImage:[UIImage imageNamed:@"4-4SMART-BOX-消息_启动预警.png"] forState:UIControlStateNormal];
+//    [button addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
+//  
+//    [self.PhotoGroupView addSubview:button];
+    
+    //[self.photoInfoCell insertSubview:self.PhotoGroupView atIndex:[[self.photoInfoCell subviews] count]];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -26,58 +32,32 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)click:(id)sender{
+    NSLog(@"click");
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-
-- (IBAction)changeAddress:(id)sender {
-    //NSLog(@"changeAddress");
-    NSString * firstName = self.firstAddress.titleLabel.text ;
-    NSString * secondName = self.secondAddress.titleLabel.text ;
-    
-    if (![firstName isEqualToString:secondName]) {
-        [self.firstAddress setTitle:secondName forState:UIControlStateNormal];
-        [self.secondAddress setTitle:firstName forState:UIControlStateNormal];
-    }
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-
-    if([segue.destinationViewController isKindOfClass:[DetailedAddressViewController class]])
-    {
-        DetailedAddressViewController *viewController = (DetailedAddressViewController *)segue.destinationViewController;
-        viewController.delegate = self;
-        NSInteger nType = 0;
-        if ([segue.identifier isEqualToString:@"sourceAddress"])
-        {
-            nType = 0;
-        }
-        else if ([segue.identifier isEqualToString:@"targetAddress"]){
-            nType = 1;
-        }
-        
-        viewController.addressType = nType;
-    }
-}
-
--(void)setValue:(NSString *)address Type:(NSInteger)type{
-    NSLog(@"address :%@ Type :%ld", address, type);
-}
+//-(void)updateViewConstraints{
+//    [super updateViewConstraints];
+//    _topFirstSep.constant = _topSecondSep.constant = (self.view.frame.size.width - 80 * 2.0) / 2.0;
+//}
 
 #pragma mark - Table view data source
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //#warning Potentially incomplete method implementation.
 //    // Return the number of sections.
-//    return 0;
+//    return 5;
 //}
-//
+
 //- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //#warning Incomplete method implementation.
 //    // Return the number of rows in the section.
-//    return 0;
+//    return 2;
 //}
 
 /*

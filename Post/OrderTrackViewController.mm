@@ -11,6 +11,7 @@
 
 #import "OrderTrackViewController.h"
 #import "BMapKit.h"
+#import "OrderTrack_UserItem_Cell.h"
 
 
 @interface RouteAnnotation : BMKPointAnnotation
@@ -34,7 +35,7 @@
     BMKPolyline* polyline;
     BMKGroundOverlay* groundStart;
     BMKGroundOverlay* groundEnd;
-
+    CGFloat TrackCellHeight;
 }
 @property(nonatomic, strong)UITableView * routeInfoTableView;
 @property(nonatomic, strong)BMKMapView *mapView;
@@ -49,7 +50,7 @@
     // Do any additional setup after loading the view.
     
     [self initMapView];
-    [self initRouteInfoTableView];
+    //[self initRouteInfoTableView];
     
     
     self.locService = [[BMKLocationService alloc]init];
@@ -86,7 +87,7 @@
     [self.view addSubview:self.routeInfoTableView];
     self.routeInfoTableView.delegate = self;
     self.routeInfoTableView.dataSource = self;
-    self.routeInfoTableView.alpha = 0.6;
+    self.routeInfoTableView.alpha = 0.8;
 }
 
 long cout = 5;
@@ -103,21 +104,52 @@ long cout = 5;
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    UITableViewCell * cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"SettingItem"];
+    UITableViewCell * cell = nil;
     
-    if (cell != nil) {
-
-        
-        NSString * time = @"2015-02-07 09:30:25";
-        NSString * info = @"深圳市宝安区桃花源科技园";
-
+    
+    if (indexPath.row == 0) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"SettingItem"];
+        NSString * time = @"状态：派单中";
+        NSString * info = @"单号：1234567890";
         cell.textLabel.text = time;
         cell.detailTextLabel.text = info;
-        //cell.imageView.image = [UIImage imageNamed:icon];
-        //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
+        
+    }else if(indexPath.row == 4){
+        OrderTrack_UserItem_Cell * Itemcell = [[[NSBundle mainBundle] loadNibNamed:@"OrderTrack_UserItem" owner:self options:nil] objectAtIndex:0];
+        
+        
+        Itemcell.strUserName = @"123";
+        Itemcell.strUserPhone = @"123";
+        [Itemcell upDateUserInfo];
+        TrackCellHeight = Itemcell.userHeaderImageView.frame.size.height;
+        return Itemcell;
     }
+    else{
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"SettingItem1"];
+        NSString * time = @"2015-02-07 09:30:25";
+        NSString * info = @"深圳市宝安区桃花源科技园";
+        
+        cell.textLabel.text = time;
+        cell.detailTextLabel.text = info;
+        
+    }
+    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:15];
+    cell.textLabel.numberOfLines = 0;
+    TrackCellHeight = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    
+    //CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    //NSLog(@"%f", height);
+    
     
     return cell;
+}
+
+//根据NSIndexPath 设置指定行的高度
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //NSLog(@"row height:%f", cellheight);
+    return TrackCellHeight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -133,18 +165,28 @@ long cout = 5;
     }
 }
 
--(void)moveRouteInfoTableView:(BOOL)bVisble{
-    if (!bVisble) {
+-(void)moveRouteInfoTableView{
+    
+    if (self.routeInfoTableView != nil) {
         [UIView animateWithDuration:0.3 animations:^{
             self.routeInfoTableView.alpha = 0.2;
         } completion:^(BOOL finished) {
             NSLog(@"completion");
             [self.routeInfoTableView removeFromSuperview];
+            self.routeInfoTableView = nil;
         }];
     }
     else{
         
+        [self initRouteInfoTableView];
+        
     }
+}
+
+- (IBAction)btn:(id)sender {
+    [self moveRouteInfoTableView];
+    //cout = 0;
+    //[self.routeInfoTableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -335,9 +377,5 @@ long cout = 5;
 }
 */
 
-- (IBAction)btn:(id)sender {
-    [self moveRouteInfoTableView:NO];
-    //cout = 0;
-    //[self.routeInfoTableView reloadData];
-}
+
 @end
