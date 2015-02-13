@@ -8,7 +8,22 @@
 
 #import "ConfirmTableViewController.h"
 
-@interface ConfirmTableViewController ()
+#import "PhotoGroupTableViewCell.h"
+#import "Media_Photo.h"
+#import "GoodsPhotoViewController.h"
+@implementation structPhotoInfo
+
+
+@end
+
+@interface ConfirmTableViewController () <getPhotoInfoDelegate, photoGroupDelegate>
+{
+    Media_Photo * mediaPhoto;
+    NSInteger selectPhotoIndex;
+}
+@property(nonatomic, strong)NSMutableArray *imageArray;
+
+@property (weak, nonatomic) IBOutlet PhotoGroupTableViewCell *photoInfoCell;
 
 @end
 
@@ -17,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
+    [self initLocalData];
 //    UIButton * button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
 //    [button setBackgroundImage:[UIImage imageNamed:@"4-4SMART-BOX-消息_启动预警.png"] forState:UIControlStateNormal];
 //    [button addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
@@ -32,14 +47,88 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
--(void)click:(id)sender{
-    NSLog(@"click");
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+-(void)initLocalData{
+    selectPhotoIndex = -1;
+    
+    self.photoInfoCell.delegate = self;
+    
+    self.imageArray = [[NSMutableArray alloc]initWithCapacity:5];
+    for (int index = 0; index < 5; index++) {
+        structPhotoInfo * imageInfo = [[structPhotoInfo alloc]init];
+        imageInfo.image = nil;
+        imageInfo.isPhoto = NO;
+        
+        NSMutableDictionary * dic = [[NSMutableDictionary alloc]initWithObjectsAndKeys:imageInfo, [NSString stringWithFormat:@"%d", index], nil];
+        [self.imageArray addObject:dic];
+    }
+    
+    
+    mediaPhoto = [[Media_Photo alloc]init];
+    if (mediaPhoto != nil) {
+        mediaPhoto.showInViewController = self;
+        mediaPhoto.delegate = self;
+    }
+}
+
+
+#pragma mark - Media_Photo delegate
+-(void)getPhoto:(UIImage *)image{
+
+    NSMutableDictionary * item = self.imageArray[selectPhotoIndex];
+    NSString * key = [NSString stringWithFormat:@"%ld", (long)selectPhotoIndex];
+    structPhotoInfo * info = [item objectForKey:key];
+    info.image = image;
+    info.isPhoto = YES;
+    
+    
+//    NSString * key = [NSString stringWithFormat:@"%ld", (long)selectPhotoIndex];
+//    structPhotoInfo * info = [[structPhotoInfo alloc]init];
+//    info.image = image;
+//    info.isPhoto = YES;
+//    NSDictionary * item = [[NSDictionary alloc]initWithObjectsAndKeys:info,key, nil];
+
+    
+//    [self.imageArray addObject:item];
+    
+    [_photoInfoCell setPhoto:image byIndex:selectPhotoIndex];
+
+}
+
+#pragma mark - PhotoGroupTableViewCell delegate
+-(void)selectPhotoIndex:(NSInteger)index{
+    selectPhotoIndex = index;
+    
+    NSDictionary * item = self.imageArray[selectPhotoIndex];
+    NSString * key = [NSString stringWithFormat:@"%ld", (long)selectPhotoIndex];
+    structPhotoInfo * info = [item objectForKey:key];
+    BOOL isPhoto = info.isPhoto;
+    if (isPhoto) {
+        //判断当前控件背景是默认还是用户拍摄的照片
+        
+        UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        GoodsPhotoViewController * infoView = [mainStoryboard instantiateViewControllerWithIdentifier:@"GoodsPhotoView"];
+        
+        infoView.photoImage = info.image;
+        
+        
+        [self.navigationController pushViewController:infoView animated:YES];
+        
+        [infoView updatePhoto];
+    }
+    else{
+        
+        
+        [mediaPhoto chooseImage];
+    }
+    
+}
+
 
 //-(void)updateViewConstraints{
 //    [super updateViewConstraints];

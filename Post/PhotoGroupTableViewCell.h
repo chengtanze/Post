@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PhotoGroupTableViewCell : UITableViewCell
+@protocol photoGroupDelegate <NSObject>
 
+-(void)selectPhotoIndex:(NSInteger)index;
+
+@end
+
+@interface PhotoGroupTableViewCell : UITableViewCell 
+
+@property(nonatomic, weak)id<photoGroupDelegate> delegate;
+
+-(void)setPhoto:(UIImage *)image byIndex:(NSInteger)index;
 @end

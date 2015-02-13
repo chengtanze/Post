@@ -10,7 +10,7 @@
 
 @interface HomeViewController : UITableViewController
 
-@property (strong, nonatomic) IBOutlet UITableView *HomeItemTableView;
+@property (weak, nonatomic) IBOutlet UITableView *HomeItemTableView;
 
 @property (weak, nonatomic) IBOutlet UIView *cellForScrollView;
 

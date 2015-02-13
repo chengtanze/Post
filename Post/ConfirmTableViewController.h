@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-#import "PhotoGroupView.h"
+@interface structPhotoInfo : NSObject
+
+@property(nonatomic, assign)BOOL isPhoto;
+@property(nonatomic, strong)UIImage * image;
+
+@end
+
 @interface ConfirmTableViewController : UITableViewController
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topFirstSep;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topSecondSep;
-@property (weak, nonatomic) IBOutlet UITableViewCell *photoInfoCell;
+
 @property (weak, nonatomic) IBOutlet UIView *PhotoGroupView;
 
 @end
