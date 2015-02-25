@@ -8,7 +8,7 @@
 
 #import "HomeViewController.h"
 #import "Custom_ScrollImageView.h"
-
+#import "QRCodesViewController.h"
 @interface HomeViewController ()<CustromScrollImageViewTapDelegate>
 
 @property(nonatomic, strong)Custom_ScrollImageView * srcollImage;
@@ -65,6 +65,17 @@
     NSLog(@"ScrollImageViewdidSelectRowAtIndexPath :%ld", (long)index);
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.section == 2 && indexPath.row == 0)
+    {
+        NSLog(@"二维码");
+        QRCodesViewController * rt = [[QRCodesViewController alloc]init];
+        [self presentViewController:rt animated:YES completion:^{
+            
+        }];
+    }
+
+}
 
 #pragma mark - Table view data source
 
