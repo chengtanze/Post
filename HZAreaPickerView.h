@@ -4,7 +4,7 @@
 //
 //  Created by Cloud Dai on 12-9-9.
 //  Copyright (c) 2012年 clouddai.com. All rights reserved.
-//
+//  城市列表选择器
 
 #import <UIKit/UIKit.h>
 #import "HZAreaPickerView.h"

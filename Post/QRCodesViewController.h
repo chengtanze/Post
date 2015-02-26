@@ -4,7 +4,7 @@
 //
 //  Created by 学鸿 张 on 13-11-29.
 //  Copyright (c) 2013年 Steven. All rights reserved.
-//
+//  扫描二维码
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
