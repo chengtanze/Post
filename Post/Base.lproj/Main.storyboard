@@ -194,13 +194,13 @@
         <!--进行中-->
         <scene sceneID="lG1-Do-Exh">
             <objects>
-                <tableViewController storyboardIdentifier="GoodsInProgressViewController" title="进行中" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zpg-QO-r6j" customClass="GoodsInProgressTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="GoodsInProgressViewController" title="进行中" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zpg-QO-r6j" customClass="GoodsInProgressViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="RMQ-N1-pfi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OrderID" id="XMj-ai-2ch">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OrderID" id="XMj-ai-2ch" customClass="GoodsInProgress_Order_Cell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XMj-ai-2ch" id="PqU-vN-8RV">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -225,14 +225,17 @@
                                         <constraint firstAttribute="centerY" secondItem="QB3-4T-gYE" secondAttribute="centerY" id="yYa-91-5yH"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="orderIDLable" destination="QB3-4T-gYE" id="aJw-v8-1Pz"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GoodsInfo" rowHeight="75" id="pmH-TI-Iej">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GoodsInfo" rowHeight="75" id="pmH-TI-Iej" customClass="GoodsInProgress_GoodsInfo_Cell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pmH-TI-Iej" id="Vc0-k0-ne3">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ASc-jF-0i6">
-                                            <rect key="frame" x="10" y="-1" width="80" height="76"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2-1SMART-BOX-导航按钮_救援-d.png" translatesAutoresizingMaskIntoConstraints="NO" id="ASc-jF-0i6">
+                                            <rect key="frame" x="10" y="-0.5" width="80" height="75"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="75" id="g4q-TL-CyS"/>
                                                 <constraint firstAttribute="width" constant="80" id="joq-Yk-YJm"/>
@@ -268,6 +271,10 @@
                                         <constraint firstItem="aDQ-IC-sEo" firstAttribute="leading" secondItem="ASc-jF-0i6" secondAttribute="trailing" constant="16" id="hwJ-VC-8am"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="goodsImageView" destination="ASc-jF-0i6" id="7xJ-TI-T7o"/>
+                                    <outlet property="goodsState" destination="WGR-Lm-uMN" id="Tqe-eJ-DUh"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -279,7 +286,102 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wdr-wo-gnf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1936" y="2840.5"/>
+            <point key="canvasLocation" x="1670" y="2841"/>
+        </scene>
+        <!--已完成-->
+        <scene sceneID="HPa-zc-x8L">
+            <objects>
+                <tableViewController title="已完成" id="UAz-aG-NOB" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="2GF-PU-IN6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wJk-s8-SGF">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wJk-s8-SGF" id="lvE-Mt-k9L">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="取货时间：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jd5-kK-5jW">
+                                            <rect key="frame" x="10" y="12" width="85" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-02-28 15:30:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXS-ls-o2s">
+                                            <rect key="frame" x="103" y="11.5" width="161.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="SXS-ls-o2s" firstAttribute="leading" secondItem="jd5-kK-5jW" secondAttribute="trailing" constant="8" id="WYg-Pn-ajy"/>
+                                        <constraint firstItem="jd5-kK-5jW" firstAttribute="leading" secondItem="lvE-Mt-k9L" secondAttribute="leading" constant="10" id="YOf-Zy-Kyj"/>
+                                        <constraint firstAttribute="centerY" secondItem="jd5-kK-5jW" secondAttribute="centerY" id="grh-Aw-qt8"/>
+                                        <constraint firstAttribute="centerY" secondItem="SXS-ls-o2s" secondAttribute="centerY" id="wVD-k9-aBa"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="yKF-Gr-fI5">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yKF-Gr-fI5" id="aIw-P5-Bhk">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="2-1SMART-BOX-导航按钮_行驶-d.png" translatesAutoresizingMaskIntoConstraints="NO" id="AVR-hC-dbt">
+                                            <rect key="frame" x="10" y="-1" width="80" height="76"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="75" id="4kh-n8-d62"/>
+                                                <constraint firstAttribute="width" constant="80" id="wJB-fG-hqT"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="鲜花" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhB-Y9-aZX">
+                                            <rect key="frame" x="106" y="8" width="34" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="状态:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nhs-hT-6Gj">
+                                            <rect key="frame" x="106" y="39" width="39" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已完成" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y75-GN-OVQ">
+                                            <rect key="frame" x="520" y="26.5" width="51" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="AVR-hC-dbt" firstAttribute="leading" secondItem="aIw-P5-Bhk" secondAttribute="leading" constant="10" id="0M3-0f-x8S"/>
+                                        <constraint firstAttribute="centerY" secondItem="AVR-hC-dbt" secondAttribute="centerY" id="4GC-wm-3XI"/>
+                                        <constraint firstItem="yhB-Y9-aZX" firstAttribute="leading" secondItem="AVR-hC-dbt" secondAttribute="trailing" constant="16" id="7fp-pf-hgd"/>
+                                        <constraint firstAttribute="centerY" secondItem="Y75-GN-OVQ" secondAttribute="centerY" id="ThF-fL-fjY"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Y75-GN-OVQ" secondAttribute="trailing" constant="21" id="ZpZ-Uf-l5z"/>
+                                        <constraint firstAttribute="bottom" secondItem="Nhs-hT-6Gj" secondAttribute="bottom" constant="15" id="hgN-eD-soP"/>
+                                        <constraint firstItem="yhB-Y9-aZX" firstAttribute="top" secondItem="aIw-P5-Bhk" secondAttribute="top" constant="8" id="nov-ns-rZA"/>
+                                        <constraint firstItem="Nhs-hT-6Gj" firstAttribute="leading" secondItem="yhB-Y9-aZX" secondAttribute="leading" id="pM8-MH-CmB"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ngU-yS-XAJ">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ngU-yS-XAJ" id="mnF-yP-A3B">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="UAz-aG-NOB" id="aFi-XX-Bme"/>
+                            <outlet property="delegate" destination="UAz-aG-NOB" id="jEc-Hc-e4T"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D4Q-oM-has" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2360" y="2840"/>
         </scene>
         <!--发货订单-->
         <scene sceneID="vTC-Qj-rbF">

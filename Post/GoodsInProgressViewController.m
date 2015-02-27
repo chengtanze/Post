@@ -7,6 +7,8 @@
 //
 
 #import "GoodsInProgressViewController.h"
+#import "GoodsInProgress_Order_Cell.h"
+#import "GoodsInProgress_GoodsInfo_Cell.h"
 
 @interface GoodsInProgressViewController ()
 
@@ -43,15 +45,30 @@
     return 2;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 1) {
+        return 75;
+    }
+    
+    return 44;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
+    UITableViewCell *cell;
     if (indexPath.row == 0 ) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"OrderID" forIndexPath:indexPath];
+        GoodsInProgress_Order_Cell * orderCell = [tableView dequeueReusableCellWithIdentifier:@"OrderID" forIndexPath:indexPath];
+        orderCell.orderIDLable.text = @"98765";
+        
+        cell = orderCell;
     }
     else{
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GoodsInfo" forIndexPath:indexPath];
+        GoodsInProgress_GoodsInfo_Cell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"GoodsInfo" forIndexPath:indexPath];
+        
+        goodsInfoCell.goodsState.text = @"派送中";
+        
+        cell = goodsInfoCell;
     }
 
     
