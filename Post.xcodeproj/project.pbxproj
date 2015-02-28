@@ -14,6 +14,10 @@
 		142B225B1A7E34BD00363BD9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 142B225A1A7E34BD00363BD9 /* LoginViewController.m */; };
 		143770291A74DF17005084CE /* IntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 143770281A74DF17005084CE /* IntroduceViewController.m */; };
 		144023571A8E35A400321C6F /* GoodsPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 144023561A8E35A400321C6F /* GoodsPhotoViewController.m */; };
+		14408D1F1AA1F17400EC6D79 /* GoodsInComplete_Times_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14408D1E1AA1F17400EC6D79 /* GoodsInComplete_Times_Cell.m */; };
+		14408D221AA1F20D00EC6D79 /* GoodsInComplete_State_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14408D211AA1F20D00EC6D79 /* GoodsInComplete_State_Cell.m */; };
+		14408D251AA1F22300EC6D79 /* GoodsInComplete_Address_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14408D241AA1F22300EC6D79 /* GoodsInComplete_Address_Cell.m */; };
+		14408D281AA1FCAE00EC6D79 /* GoodsInCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14408D271AA1FCAE00EC6D79 /* GoodsInCompleteViewController.m */; };
 		1441B9E91A8F7EDB003F9142 /* QRCodesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1441B9E81A8F7EDB003F9142 /* QRCodesViewController.m */; };
 		1443E92F1A9ED37E006BC700 /* SCPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1443E92E1A9ED37E006BC700 /* SCPopView.m */; };
 		1443E9E11A9EFC07006BC700 /* SCNavTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1443E9E01A9EFC07006BC700 /* SCNavTabBar.m */; };
@@ -98,6 +102,14 @@
 		143770281A74DF17005084CE /* IntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroduceViewController.m; sourceTree = "<group>"; };
 		144023551A8E35A400321C6F /* GoodsPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsPhotoViewController.h; path = Post/GoodsPhotoViewController.h; sourceTree = "<group>"; };
 		144023561A8E35A400321C6F /* GoodsPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsPhotoViewController.m; path = Post/GoodsPhotoViewController.m; sourceTree = "<group>"; };
+		14408D1D1AA1F17400EC6D79 /* GoodsInComplete_Times_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsInComplete_Times_Cell.h; path = Post/GoodsInComplete_Times_Cell.h; sourceTree = "<group>"; };
+		14408D1E1AA1F17400EC6D79 /* GoodsInComplete_Times_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsInComplete_Times_Cell.m; path = Post/GoodsInComplete_Times_Cell.m; sourceTree = "<group>"; };
+		14408D201AA1F20D00EC6D79 /* GoodsInComplete_State_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsInComplete_State_Cell.h; path = Post/GoodsInComplete_State_Cell.h; sourceTree = "<group>"; };
+		14408D211AA1F20D00EC6D79 /* GoodsInComplete_State_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsInComplete_State_Cell.m; path = Post/GoodsInComplete_State_Cell.m; sourceTree = "<group>"; };
+		14408D231AA1F22300EC6D79 /* GoodsInComplete_Address_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsInComplete_Address_Cell.h; path = Post/GoodsInComplete_Address_Cell.h; sourceTree = "<group>"; };
+		14408D241AA1F22300EC6D79 /* GoodsInComplete_Address_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsInComplete_Address_Cell.m; path = Post/GoodsInComplete_Address_Cell.m; sourceTree = "<group>"; };
+		14408D261AA1FCAE00EC6D79 /* GoodsInCompleteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsInCompleteViewController.h; path = Post/GoodsInCompleteViewController.h; sourceTree = "<group>"; };
+		14408D271AA1FCAE00EC6D79 /* GoodsInCompleteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsInCompleteViewController.m; path = Post/GoodsInCompleteViewController.m; sourceTree = "<group>"; };
 		1441B9E71A8F7EDB003F9142 /* QRCodesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRCodesViewController.h; path = Post/QRCodesViewController.h; sourceTree = "<group>"; };
 		1441B9E81A8F7EDB003F9142 /* QRCodesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRCodesViewController.m; path = Post/QRCodesViewController.m; sourceTree = "<group>"; };
 		1443E92D1A9ED37E006BC700 /* SCPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SCPopView.h; path = Post/SCPopView.h; sourceTree = "<group>"; };
@@ -289,6 +301,28 @@
 				142B22571A7DD84100363BD9 /* area.plist */,
 			);
 			name = city;
+			sourceTree = "<group>";
+		};
+		14408D1C1AA1EEC500EC6D79 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				1483DA061A885293003A3B8B /* OrderTrack_UserItem.xib */,
+				1483DA0C1A885896003A3B8B /* OrderTrack_UserItem_Cell.h */,
+				1483DA0D1A885896003A3B8B /* OrderTrack_UserItem_Cell.m */,
+				145991351A89F42F00710CF2 /* PhotoGroupTableViewCell.h */,
+				145991361A89F42F00710CF2 /* PhotoGroupTableViewCell.m */,
+				1459ABB11AA088FB0041CEBB /* GoodsInProgress_Order_Cell.h */,
+				1459ABB21AA088FB0041CEBB /* GoodsInProgress_Order_Cell.m */,
+				1459ABB41AA0893E0041CEBB /* GoodsInProgress_GoodsInfo_Cell.h */,
+				1459ABB51AA0893E0041CEBB /* GoodsInProgress_GoodsInfo_Cell.m */,
+				14408D1D1AA1F17400EC6D79 /* GoodsInComplete_Times_Cell.h */,
+				14408D1E1AA1F17400EC6D79 /* GoodsInComplete_Times_Cell.m */,
+				14408D201AA1F20D00EC6D79 /* GoodsInComplete_State_Cell.h */,
+				14408D211AA1F20D00EC6D79 /* GoodsInComplete_State_Cell.m */,
+				14408D231AA1F22300EC6D79 /* GoodsInComplete_Address_Cell.h */,
+				14408D241AA1F22300EC6D79 /* GoodsInComplete_Address_Cell.m */,
+			);
+			name = TableViewCell;
 			sourceTree = "<group>";
 		};
 		1458F34F1A8AF35500AB04D6 /* Share */ = {
@@ -524,6 +558,8 @@
 				1443E9E61A9F0257006BC700 /* GoodsOrderViewController.m */,
 				1443E9E81A9F1714006BC700 /* GoodsInProgressViewController.h */,
 				1443E9E91A9F1714006BC700 /* GoodsInProgressViewController.m */,
+				14408D261AA1FCAE00EC6D79 /* GoodsInCompleteViewController.h */,
+				14408D271AA1FCAE00EC6D79 /* GoodsInCompleteViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -585,6 +621,7 @@
 		FC81BC7F1A7A0D0A00D6C78F /* Coustom */ = {
 			isa = PBXGroup;
 			children = (
+				14408D1C1AA1EEC500EC6D79 /* TableViewCell */,
 				1443E9DF1A9EFC07006BC700 /* SCNavTabBar.h */,
 				1443E9E01A9EFC07006BC700 /* SCNavTabBar.m */,
 				1443E92D1A9ED37E006BC700 /* SCPopView.h */,
@@ -598,17 +635,8 @@
 				142B22501A7DD4AA00363BD9 /* HZAreaPickerView.h */,
 				142B22511A7DD4AA00363BD9 /* HZAreaPickerView.m */,
 				142B22531A7DD67200363BD9 /* HZAreaPickerView.xib */,
-				1483DA061A885293003A3B8B /* OrderTrack_UserItem.xib */,
-				1483DA0C1A885896003A3B8B /* OrderTrack_UserItem_Cell.h */,
-				1483DA0D1A885896003A3B8B /* OrderTrack_UserItem_Cell.m */,
 				1459912C1A89DC7F00710CF2 /* PhotoGroupView.h */,
 				1459912D1A89DC7F00710CF2 /* PhotoGroupView.m */,
-				145991351A89F42F00710CF2 /* PhotoGroupTableViewCell.h */,
-				145991361A89F42F00710CF2 /* PhotoGroupTableViewCell.m */,
-				1459ABB11AA088FB0041CEBB /* GoodsInProgress_Order_Cell.h */,
-				1459ABB21AA088FB0041CEBB /* GoodsInProgress_Order_Cell.m */,
-				1459ABB41AA0893E0041CEBB /* GoodsInProgress_GoodsInfo_Cell.h */,
-				1459ABB51AA0893E0041CEBB /* GoodsInProgress_GoodsInfo_Cell.m */,
 			);
 			name = Coustom;
 			sourceTree = "<group>";
@@ -750,12 +778,14 @@
 			files = (
 				144023571A8E35A400321C6F /* GoodsPhotoViewController.m in Sources */,
 				1459912B1A89D76700710CF2 /* ConfirmTableViewController.m in Sources */,
+				14408D221AA1F20D00EC6D79 /* GoodsInComplete_State_Cell.m in Sources */,
 				143770291A74DF17005084CE /* IntroduceViewController.m in Sources */,
 				1443E9E11A9EFC07006BC700 /* SCNavTabBar.m in Sources */,
 				1459ABB31AA088FB0041CEBB /* GoodsInProgress_Order_Cell.m in Sources */,
 				145991371A89F42F00710CF2 /* PhotoGroupTableViewCell.m in Sources */,
 				1443E9EA1A9F1714006BC700 /* GoodsInProgressViewController.m in Sources */,
 				142B22521A7DD4AA00363BD9 /* HZAreaPickerView.m in Sources */,
+				14408D251AA1F22300EC6D79 /* GoodsInComplete_Address_Cell.m in Sources */,
 				1459ABB61AA0893E0041CEBB /* GoodsInProgress_GoodsInfo_Cell.m in Sources */,
 				1441B9E91A8F7EDB003F9142 /* QRCodesViewController.m in Sources */,
 				14BD142A1A7C90E1007F9287 /* MapSearchViewController.mm in Sources */,
@@ -765,6 +795,7 @@
 				1478BE3B1A83AAAA006B03ED /* OrderTrackViewController.mm in Sources */,
 				14CE5FC11A74CF8400A19C36 /* AppDelegate.mm in Sources */,
 				14CE5FBE1A74CF8400A19C36 /* main.m in Sources */,
+				14408D281AA1FCAE00EC6D79 /* GoodsInCompleteViewController.m in Sources */,
 				1443E92F1A9ED37E006BC700 /* SCPopView.m in Sources */,
 				14CE5FC71A74CF8400A19C36 /* ViewController.m in Sources */,
 				1458F3521A8AF3A900AB04D6 /* Media_Photo.m in Sources */,
@@ -776,6 +807,7 @@
 				FC81BC821A7A0D4500D6C78F /* Custom_ScrollImageView.m in Sources */,
 				FC7FC7F61A788972004B3909 /* RegisterViewController.m in Sources */,
 				1443E9E41A9F012E006BC700 /* SCNavTabBarController.m in Sources */,
+				14408D1F1AA1F17400EC6D79 /* GoodsInComplete_Times_Cell.m in Sources */,
 				14BD6BA81A7CC3EE001A8535 /* CLLocationManager+CustomGPS.m in Sources */,
 				142B225B1A7E34BD00363BD9 /* LoginViewController.m in Sources */,
 			);

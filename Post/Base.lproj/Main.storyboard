@@ -291,13 +291,13 @@
         <!--已完成-->
         <scene sceneID="HPa-zc-x8L">
             <objects>
-                <tableViewController title="已完成" id="UAz-aG-NOB" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="GoodsInCompleteViewController" title="已完成" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UAz-aG-NOB" customClass="GoodsInCompleteViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="2GF-PU-IN6">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="wJk-s8-SGF">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Times" id="wJk-s8-SGF" customClass="GoodsInComplete_Times_Cell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wJk-s8-SGF" id="lvE-Mt-k9L">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -322,8 +322,11 @@
                                         <constraint firstAttribute="centerY" secondItem="SXS-ls-o2s" secondAttribute="centerY" id="wVD-k9-aBa"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="timeLable" destination="SXS-ls-o2s" id="2LP-rQ-11f"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="75" id="yKF-Gr-fI5">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="State" rowHeight="75" id="yKF-Gr-fI5" customClass="GoodsInComplete_State_Cell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yKF-Gr-fI5" id="aIw-P5-Bhk">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -348,9 +351,15 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已完成" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y75-GN-OVQ">
-                                            <rect key="frame" x="520" y="26.5" width="51" height="20.5"/>
+                                            <rect key="frame" x="520" y="27" width="51" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="已收货" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHo-4Q-tdQ">
+                                            <rect key="frame" x="160" y="38" width="51" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -363,14 +372,62 @@
                                         <constraint firstAttribute="bottom" secondItem="Nhs-hT-6Gj" secondAttribute="bottom" constant="15" id="hgN-eD-soP"/>
                                         <constraint firstItem="yhB-Y9-aZX" firstAttribute="top" secondItem="aIw-P5-Bhk" secondAttribute="top" constant="8" id="nov-ns-rZA"/>
                                         <constraint firstItem="Nhs-hT-6Gj" firstAttribute="leading" secondItem="yhB-Y9-aZX" secondAttribute="leading" id="pM8-MH-CmB"/>
+                                        <constraint firstItem="HHo-4Q-tdQ" firstAttribute="centerY" secondItem="Nhs-hT-6Gj" secondAttribute="centerY" id="tAw-Rg-6k0"/>
+                                        <constraint firstItem="HHo-4Q-tdQ" firstAttribute="leading" secondItem="Nhs-hT-6Gj" secondAttribute="trailing" constant="15" id="uU4-60-gs6"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="goodsImageView" destination="AVR-hC-dbt" id="Q7R-aE-MeX"/>
+                                    <outlet property="goodsNameLable" destination="yhB-Y9-aZX" id="yEi-yw-Hlj"/>
+                                    <outlet property="goodsState" destination="HHo-4Q-tdQ" id="fQ6-Oa-jUJ"/>
+                                    <outlet property="tipsLable" destination="Y75-GN-OVQ" id="1Dd-eu-9u4"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ngU-yS-XAJ">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Address" rowHeight="75" id="ngU-yS-XAJ" customClass="GoodsInComplete_Address_Cell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ngU-yS-XAJ" id="mnF-yP-A3B">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="始" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecN-gh-V9N">
+                                            <rect key="frame" x="10" y="10" width="17" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="终" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Km-l9-TWf">
+                                            <rect key="frame" x="10" y="44" width="42" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="深圳市宝安区西乡" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVq-Wq-9VS">
+                                            <rect key="frame" x="80" y="10" width="136" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="深圳市南山区科技园" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vlQ-Gd-d0l">
+                                            <rect key="frame" x="80" y="44" width="153" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ecN-gh-V9N" firstAttribute="top" secondItem="mnF-yP-A3B" secondAttribute="top" constant="10" id="0Jy-bQ-mFC"/>
+                                        <constraint firstItem="ecN-gh-V9N" firstAttribute="leading" secondItem="9Km-l9-TWf" secondAttribute="leading" id="HJ4-7K-xya"/>
+                                        <constraint firstAttribute="bottom" secondItem="9Km-l9-TWf" secondAttribute="bottom" constant="10" id="Lnp-xx-iQs"/>
+                                        <constraint firstItem="vlQ-Gd-d0l" firstAttribute="centerY" secondItem="9Km-l9-TWf" secondAttribute="centerY" id="Qur-od-kqw"/>
+                                        <constraint firstItem="nVq-Wq-9VS" firstAttribute="centerY" secondItem="ecN-gh-V9N" secondAttribute="centerY" id="nDa-sE-hC7"/>
+                                        <constraint firstItem="vlQ-Gd-d0l" firstAttribute="leading" secondItem="9Km-l9-TWf" secondAttribute="trailing" constant="53" id="pJg-WT-kkW"/>
+                                        <constraint firstItem="nVq-Wq-9VS" firstAttribute="leading" secondItem="ecN-gh-V9N" secondAttribute="trailing" constant="53" id="tmn-3u-T1O"/>
+                                        <constraint firstItem="ecN-gh-V9N" firstAttribute="leading" secondItem="mnF-yP-A3B" secondAttribute="leading" constant="10" id="zl8-JV-ndF"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="endAddress" destination="vlQ-Gd-d0l" id="1Dq-mg-6oW"/>
+                                    <outlet property="startAddress" destination="nVq-Wq-9VS" id="WGv-wf-qCV"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

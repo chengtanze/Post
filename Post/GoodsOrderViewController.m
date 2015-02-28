@@ -20,15 +20,13 @@
     // Do any additional setup after loading the view.
     UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController * oneViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"GoodsInProgressViewController"];
-    
-    //UIViewController *oneViewController = [[UIViewController alloc] init];
+
     oneViewController.title = @"进行中";
-    //oneViewController.view.backgroundColor = [UIColor brownColor];
-    
- 
-    UIViewController *twoViewController = [[UIViewController alloc] init];
+
+    UIViewController * twoViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"GoodsInCompleteViewController"];
+    //UIViewController *twoViewController = [[UIViewController alloc] init];
     twoViewController.title = @"已完成";
-    twoViewController.view.backgroundColor = [UIColor purpleColor];
+    
     
     UIViewController *threeViewController = [[UIViewController alloc] init];
     threeViewController.title = @"已取消";
