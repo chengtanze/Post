@@ -12,6 +12,9 @@
 #import "GoodsInComplete_State_Cell.h"
 #import "GoodsInComplete_Times_Cell.h"
 
+#import "SVProgressHUD.h"
+#import "GMDCircleLoader.h"
+
 @interface GoodsInCompleteViewController ()
 
 @end
@@ -20,6 +23,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //[SVProgressHUD show];
+    [GMDCircleLoader setOnView:self.view withTitle:@"Loading..." animated:YES];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -83,6 +89,11 @@
     return cell;
 }
 
+
+-(void)viewWillDisappear:(BOOL)animated{
+    NSLog(@"viewWillDisappear");
+    [GMDCircleLoader hideFromView:self.view animated:YES];
+}
 
 /*
 // Override to support conditional editing of the table view.
