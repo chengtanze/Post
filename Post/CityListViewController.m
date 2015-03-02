@@ -19,8 +19,8 @@
     self = [super init];
     if (self) {
         // Custom initialization
-        self.arrayHotCity = [NSMutableArray arrayWithObjects:@"广州市",@"北京市",@"天津市",@"西安市",@"重庆市",@"沈阳市",@"青岛市",@"济南市",@"深圳市",@"长沙市",@"无锡市", nil];
-        self.keys = [NSMutableArray array];
+        self.arrayHotCity = [NSArray arrayWithObjects:@"广州市", @"深圳", nil];
+        
         self.arrayCitys = [NSMutableArray array];
     }
     return self;
@@ -44,21 +44,24 @@
 #pragma mark - 获取城市数据
 -(void)getCityData
 {
+    self.arrayHotCity = [NSArray arrayWithObjects:@"广州市", @"深圳", nil];
+    
     NSString *path=[[NSBundle mainBundle] pathForResource:@"citydict.plist"
                                                    ofType:nil];
     self.cities = [NSMutableDictionary dictionaryWithContentsOfFile:path];
 
-    [self.keys addObjectsFromArray:[[self.cities allKeys] sortedArrayUsingSelector:@selector(compare:)]];
+    //[self.keys addObjectsFromArray:[[self.cities allKeys] sortedArrayUsingSelector:@selector(compare:)]];
     
-    NSArray * keyArray = [[self.cities allKeys] sortedArrayUsingSelector:@selector(compare:)];
-    self.keys = keyArray;
-    
-    NSLog(@"keys :%d", [self.cities count]);
+    self.keys = [[NSMutableArray alloc]initWithArray:[[self.cities allKeys] sortedArrayUsingSelector:@selector(compare:)]];
+
     
     //添加热门城市
     NSString *strHot = @"热";
+    
     [self.keys insertObject:strHot atIndex:0];
-    [self.cities setObject:_arrayHotCity forKey:strHot];
+    
+    
+    [self.cities setObject:self.arrayHotCity forKey:strHot];
 }
 
 #pragma mark - tableView
@@ -97,6 +100,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
+    NSLog(@"section: %d", [_keys count]);
     return [_keys count];
 }
 
