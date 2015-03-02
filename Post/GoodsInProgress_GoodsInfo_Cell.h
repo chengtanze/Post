@@ -11,5 +11,7 @@
 @interface GoodsInProgress_GoodsInfo_Cell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *goodsImageView;
 @property (weak, nonatomic) IBOutlet UILabel *goodsState;
+@property (weak, nonatomic) IBOutlet UIButton *modifyBtn;
+- (IBAction)modifyClick:(id)sender;
 
 @end

@@ -1,14 +1,14 @@
 //
-//  GoodsInProgress_GoodsInfo_Cell.m
+//  GoodsInCancle_State_Cell.m
 //  Post
 //
-//  Created by cheng on 15/2/27.
+//  Created by wangsl-iMac on 15/3/2.
 //  Copyright (c) 2015年 cheng. All rights reserved.
 //
 
-#import "GoodsInProgress_GoodsInfo_Cell.h"
+#import "GoodsInCancle_State_Cell.h"
 
-@implementation GoodsInProgress_GoodsInfo_Cell
+@implementation GoodsInCancle_State_Cell
 
 - (void)awakeFromNib {
     // Initialization code
@@ -20,6 +20,4 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)modifyClick:(id)sender {
-}
 @end

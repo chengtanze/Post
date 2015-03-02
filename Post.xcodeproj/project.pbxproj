@@ -78,6 +78,8 @@
 		FC81BC8D1A7A0E6B00D6C78F /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC81BC881A7A0E6B00D6C78F /* 5.jpg */; };
 		FC81BC941A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_救援-d.png in Resources */ = {isa = PBXBuildFile; fileRef = FC81BC921A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_救援-d.png */; };
 		FC81BC951A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_行驶-d.png in Resources */ = {isa = PBXBuildFile; fileRef = FC81BC931A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_行驶-d.png */; };
+		FC821BA21AA4561700F4B0C9 /* GoodsInCancleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC821BA11AA4561700F4B0C9 /* GoodsInCancleViewController.m */; };
+		FC821BA51AA45AC500F4B0C9 /* GoodsInCancle_State_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC821BA41AA45AC500F4B0C9 /* GoodsInCancle_State_Cell.m */; };
 		FCD6C5B61AA2FCC3008D5E23 /* GMDCircleLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6C5B51AA2FCC3008D5E23 /* GMDCircleLoader.m */; };
 		FCD6C5B81AA3144C008D5E23 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCD6C5B71AA3144C008D5E23 /* citydict.plist */; };
 		FCD6C5BB1AA31616008D5E23 /* CityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6C5BA1AA31616008D5E23 /* CityListViewController.m */; };
@@ -264,6 +266,10 @@
 		FC81BC881A7A0E6B00D6C78F /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
 		FC81BC921A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_救援-d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-1SMART-BOX-导航按钮_救援-d.png"; sourceTree = "<group>"; };
 		FC81BC931A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_行驶-d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2-1SMART-BOX-导航按钮_行驶-d.png"; sourceTree = "<group>"; };
+		FC821BA01AA4561700F4B0C9 /* GoodsInCancleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsInCancleViewController.h; path = Post/GoodsInCancleViewController.h; sourceTree = "<group>"; };
+		FC821BA11AA4561700F4B0C9 /* GoodsInCancleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsInCancleViewController.m; path = Post/GoodsInCancleViewController.m; sourceTree = "<group>"; };
+		FC821BA31AA45AC500F4B0C9 /* GoodsInCancle_State_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsInCancle_State_Cell.h; path = Post/GoodsInCancle_State_Cell.h; sourceTree = "<group>"; };
+		FC821BA41AA45AC500F4B0C9 /* GoodsInCancle_State_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsInCancle_State_Cell.m; path = Post/GoodsInCancle_State_Cell.m; sourceTree = "<group>"; };
 		FCD6C5B41AA2FCC3008D5E23 /* GMDCircleLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GMDCircleLoader.h; path = Post/GMDCircleLoader.h; sourceTree = "<group>"; };
 		FCD6C5B51AA2FCC3008D5E23 /* GMDCircleLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GMDCircleLoader.m; path = Post/GMDCircleLoader.m; sourceTree = "<group>"; };
 		FCD6C5B71AA3144C008D5E23 /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
@@ -333,6 +339,8 @@
 				14408D211AA1F20D00EC6D79 /* GoodsInComplete_State_Cell.m */,
 				14408D231AA1F22300EC6D79 /* GoodsInComplete_Address_Cell.h */,
 				14408D241AA1F22300EC6D79 /* GoodsInComplete_Address_Cell.m */,
+				FC821BA31AA45AC500F4B0C9 /* GoodsInCancle_State_Cell.h */,
+				FC821BA41AA45AC500F4B0C9 /* GoodsInCancle_State_Cell.m */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -570,6 +578,8 @@
 				1443E9E91A9F1714006BC700 /* GoodsInProgressViewController.m */,
 				14408D261AA1FCAE00EC6D79 /* GoodsInCompleteViewController.h */,
 				14408D271AA1FCAE00EC6D79 /* GoodsInCompleteViewController.m */,
+				FC821BA01AA4561700F4B0C9 /* GoodsInCancleViewController.h */,
+				FC821BA11AA4561700F4B0C9 /* GoodsInCancleViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -801,6 +811,7 @@
 				143770291A74DF17005084CE /* IntroduceViewController.m in Sources */,
 				1443E9E11A9EFC07006BC700 /* SCNavTabBar.m in Sources */,
 				1459ABB31AA088FB0041CEBB /* GoodsInProgress_Order_Cell.m in Sources */,
+				FC821BA21AA4561700F4B0C9 /* GoodsInCancleViewController.m in Sources */,
 				145991371A89F42F00710CF2 /* PhotoGroupTableViewCell.m in Sources */,
 				1443E9EA1A9F1714006BC700 /* GoodsInProgressViewController.m in Sources */,
 				142B22521A7DD4AA00363BD9 /* HZAreaPickerView.m in Sources */,
@@ -811,6 +822,7 @@
 				1443E9E71A9F0257006BC700 /* GoodsOrderViewController.m in Sources */,
 				14BD6BB31A7CE945001A8535 /* EditCargoInfoTableViewController.m in Sources */,
 				142B224F1A7DCE3000363BD9 /* DetailedAddressViewController.m in Sources */,
+				FC821BA51AA45AC500F4B0C9 /* GoodsInCancle_State_Cell.m in Sources */,
 				1478BE3B1A83AAAA006B03ED /* OrderTrackViewController.mm in Sources */,
 				FC670A221AA2F13E000BE7A0 /* SVProgressHUD.m in Sources */,
 				14CE5FC11A74CF8400A19C36 /* AppDelegate.mm in Sources */,

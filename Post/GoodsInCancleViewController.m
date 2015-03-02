@@ -1,20 +1,20 @@
 //
-//  GoodsInProgressViewController.m
+//  GoodsInCancleViewController.m
 //  Post
 //
-//  Created by cheng on 15/2/26.
+//  Created by wangsl-iMac on 15/3/2.
 //  Copyright (c) 2015年 cheng. All rights reserved.
 //
 
-#import "GoodsInProgressViewController.h"
-#import "GoodsInProgress_Order_Cell.h"
-#import "GoodsInProgress_GoodsInfo_Cell.h"
+#import "GoodsInCancleViewController.h"
+#import "GoodsInComplete_Times_Cell.h"
+#import "GoodsInCancle_State_Cell.h"
 
-@interface GoodsInProgressViewController ()
+@interface GoodsInCancleViewController ()
 
 @end
 
-@implementation GoodsInProgressViewController
+@implementation GoodsInCancleViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -47,42 +47,33 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 1) {
-        return 75;
+    if (indexPath.row == 0) {
+        return 44;
     }
     
-    return 44;
+    return 75;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     UITableViewCell *cell;
     if (indexPath.row == 0 ) {
-        GoodsInProgress_Order_Cell * orderCell = [tableView dequeueReusableCellWithIdentifier:@"OrderID" forIndexPath:indexPath];
-        orderCell.orderIDLable.text = @"98765";
+        GoodsInComplete_Times_Cell * timeCell = [tableView dequeueReusableCellWithIdentifier:@"Times" forIndexPath:indexPath];
+        timeCell.timeLable.text = @"2015-02-28 15:30:18";
         
-        cell = orderCell;
+        cell = timeCell;
     }
-    else{
-        
-
-        GoodsInProgress_GoodsInfo_Cell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"GoodsInfo" forIndexPath:indexPath];
-        
-        goodsInfoCell.goodsState.text = @"派送中";
-        
-        if (indexPath.section == 0) {
-            goodsInfoCell.modifyBtn.hidden = YES;
-        }
+    else if(indexPath.row == 1){
+        GoodsInCancle_State_Cell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"State" forIndexPath:indexPath];
+        goodsInfoCell.GoodsName.text = @"玩具";
+        goodsInfoCell.GoodsState.text = @"已取消";
         
         cell = goodsInfoCell;
     }
 
     
-    
-    
     return cell;
 }
-
 
 /*
 // Override to support conditional editing of the table view.

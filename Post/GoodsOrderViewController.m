@@ -24,13 +24,11 @@
     oneViewController.title = @"进行中";
 
     UIViewController * twoViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"GoodsInCompleteViewController"];
-    //UIViewController *twoViewController = [[UIViewController alloc] init];
     twoViewController.title = @"已完成";
     
     
-    UIViewController *threeViewController = [[UIViewController alloc] init];
+    UIViewController *threeViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"GoodsInCancleViewController"];
     threeViewController.title = @"已取消";
-    threeViewController.view.backgroundColor = [UIColor orangeColor];
     
     SCNavTabBarController *navTabBarController = [[SCNavTabBarController alloc] init];
     navTabBarController.subViewControllers = @[oneViewController, twoViewController, threeViewController];
