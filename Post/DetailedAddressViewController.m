@@ -105,6 +105,10 @@
     NSString * info;
     if (picker.pickerStyle == HZAreaPickerWithStateAndCityAndDistrict) {
         info = [NSString stringWithFormat:@"%@",  picker.locate.district];
+        if( [info length] == 0 )
+        {
+            info = [NSString stringWithFormat:@"%@",  picker.locate.city];
+        }
     } else{
         info = [NSString stringWithFormat:@"%@, %@", picker.locate.state, picker.locate.city];
     }
