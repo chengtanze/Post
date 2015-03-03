@@ -41,6 +41,7 @@
 		1483DA0A1A8856CF003A3B8B /* 4-3SMART-BOX-任务_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 1483DA081A8856CF003A3B8B /* 4-3SMART-BOX-任务_11.png */; };
 		1483DA0B1A8856CF003A3B8B /* 4-4SMART-BOX-消息_启动预警.png in Resources */ = {isa = PBXBuildFile; fileRef = 1483DA091A8856CF003A3B8B /* 4-4SMART-BOX-消息_启动预警.png */; };
 		1483DA0E1A885896003A3B8B /* OrderTrack_UserItem_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1483DA0D1A885896003A3B8B /* OrderTrack_UserItem_Cell.m */; };
+		148BC3A91AA5FE3100819910 /* OrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148BC3A81AA5FE3100819910 /* OrderDetailTableViewController.m */; };
 		14BD142A1A7C90E1007F9287 /* MapSearchViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14BD14291A7C90E1007F9287 /* MapSearchViewController.mm */; };
 		14BD14301A7C91D5007F9287 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 14BD142F1A7C91D5007F9287 /* mapapi.bundle */; };
 		14BD6BA81A7CC3EE001A8535 /* CLLocationManager+CustomGPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BD6BA71A7CC3EE001A8535 /* CLLocationManager+CustomGPS.m */; };
@@ -154,6 +155,8 @@
 		1483DA091A8856CF003A3B8B /* 4-4SMART-BOX-消息_启动预警.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "4-4SMART-BOX-消息_启动预警.png"; sourceTree = "<group>"; };
 		1483DA0C1A885896003A3B8B /* OrderTrack_UserItem_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderTrack_UserItem_Cell.h; path = Post/OrderTrack_UserItem_Cell.h; sourceTree = "<group>"; };
 		1483DA0D1A885896003A3B8B /* OrderTrack_UserItem_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderTrack_UserItem_Cell.m; path = Post/OrderTrack_UserItem_Cell.m; sourceTree = "<group>"; };
+		148BC3A71AA5FE3100819910 /* OrderDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDetailTableViewController.h; path = Post/OrderDetailTableViewController.h; sourceTree = "<group>"; };
+		148BC3A81AA5FE3100819910 /* OrderDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDetailTableViewController.m; path = Post/OrderDetailTableViewController.m; sourceTree = "<group>"; };
 		14BD14281A7C90E1007F9287 /* MapSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapSearchViewController.h; path = Post/MapSearchViewController.h; sourceTree = "<group>"; };
 		14BD14291A7C90E1007F9287 /* MapSearchViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MapSearchViewController.mm; path = Post/MapSearchViewController.mm; sourceTree = "<group>"; };
 		14BD142F1A7C91D5007F9287 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
@@ -580,6 +583,8 @@
 				14408D271AA1FCAE00EC6D79 /* GoodsInCompleteViewController.m */,
 				FC821BA01AA4561700F4B0C9 /* GoodsInCancleViewController.h */,
 				FC821BA11AA4561700F4B0C9 /* GoodsInCancleViewController.m */,
+				148BC3A71AA5FE3100819910 /* OrderDetailTableViewController.h */,
+				148BC3A81AA5FE3100819910 /* OrderDetailTableViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -815,6 +820,7 @@
 				145991371A89F42F00710CF2 /* PhotoGroupTableViewCell.m in Sources */,
 				1443E9EA1A9F1714006BC700 /* GoodsInProgressViewController.m in Sources */,
 				142B22521A7DD4AA00363BD9 /* HZAreaPickerView.m in Sources */,
+				148BC3A91AA5FE3100819910 /* OrderDetailTableViewController.m in Sources */,
 				14408D251AA1F22300EC6D79 /* GoodsInComplete_Address_Cell.m in Sources */,
 				1459ABB61AA0893E0041CEBB /* GoodsInProgress_GoodsInfo_Cell.m in Sources */,
 				1441B9E91A8F7EDB003F9142 /* QRCodesViewController.m in Sources */,
