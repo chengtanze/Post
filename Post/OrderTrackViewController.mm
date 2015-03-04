@@ -47,10 +47,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"订单跟踪";
     // Do any additional setup after loading the view.
     
     [self initMapView];
-    //[self initRouteInfoTableView];
+    [self initRouteInfoTableView];
     
     
     self.locService = [[BMKLocationService alloc]init];

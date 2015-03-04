@@ -14,14 +14,36 @@
 
 @implementation OrderDetailTableViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"订单详情";
+    
+    UIBarButtonItem *myButton = [[UIBarButtonItem alloc]
+                                  initWithTitle:@"跟踪"
+                                  style:UIBarButtonItemStyleBordered
+                                  target:self
+                                 action:@selector(barBtnAction:)];
+    
+    self.navigationItem.rightBarButtonItem = myButton;
+
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void)barBtnAction:(id)sender{
+    NSLog(@"barBtnAction");
+    
+    UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController * info = [mainStoryboard instantiateViewControllerWithIdentifier:@"OrderTrackViewController"];
+    
+    [self.navigationController pushViewController:info animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,17 +53,17 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//#warning Potentially incomplete method implementation.
+//    // Return the number of sections.
+//    return 0;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//#warning Incomplete method implementation.
+//    // Return the number of rows in the section.
+//    return 0;
+//}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

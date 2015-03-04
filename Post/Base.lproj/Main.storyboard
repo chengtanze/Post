@@ -119,7 +119,7 @@
                         <sections>
                             <tableViewSection id="QdG-AX-zaN">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="SnZ-HI-97o">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="65" id="SnZ-HI-97o">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SnZ-HI-97o" id="JjZ-vJ-zsC">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -164,7 +164,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="CjJ-IS-Kf5" kind="show" id="tPs-ro-QKa"/>
+                                            <segue destination="CjJ-IS-Kf5" kind="push" id="tPs-ro-QKa"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -175,9 +175,44 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LU4-1X-fRv" id="IYs-cj-Llp">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OcM-zl-JTK">
+                                                    <rect key="frame" x="5" y="8" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="OmL-6s-2oZ"/>
+                                                        <constraint firstAttribute="height" constant="50" id="x8w-cj-nRV"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="任务订单" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0l-MH-baT">
+                                                    <rect key="frame" x="65" y="5" width="68" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="无新通知" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9v-Ug-2SL">
+                                                    <rect key="frame" x="65" y="39" width="68" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="OcM-zl-JTK" secondAttribute="centerY" id="BMM-Ry-pnp"/>
+                                                <constraint firstItem="I9v-Ug-2SL" firstAttribute="leading" secondItem="x0l-MH-baT" secondAttribute="leading" id="QgZ-2j-teZ"/>
+                                                <constraint firstItem="x0l-MH-baT" firstAttribute="leading" secondItem="OcM-zl-JTK" secondAttribute="trailing" constant="10" id="S2k-jo-Pwx"/>
+                                                <constraint firstItem="x0l-MH-baT" firstAttribute="top" secondItem="IYs-cj-Llp" secondAttribute="top" constant="5" id="SmM-rh-Tox"/>
+                                                <constraint firstAttribute="bottom" secondItem="I9v-Ug-2SL" secondAttribute="bottom" constant="5" id="c8a-Az-7n2"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="I9v-Ug-2SL" secondAttribute="bottom" constant="5" id="h5w-75-Hbk"/>
+                                                <constraint firstItem="OcM-zl-JTK" firstAttribute="leading" secondItem="IYs-cj-Llp" secondAttribute="leading" constant="5" id="nd3-SY-ysr"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="h5w-75-Hbk"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="w87-65-Vm4" kind="show" id="eRj-ar-m1d"/>
+                                            <segue destination="bCI-Xp-u6d" kind="show" id="aDP-KN-5X3"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -192,7 +227,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="saI-hd-5bx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2690" y="1321"/>
+            <point key="canvasLocation" x="2690" y="1415"/>
         </scene>
         <!--进行中-->
         <scene sceneID="lG1-Do-Exh">
@@ -303,7 +338,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wdr-wo-gnf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1670" y="2841"/>
+            <point key="canvasLocation" x="1252" y="2851"/>
         </scene>
         <!--订单详情-->
         <scene sceneID="hvo-Pc-5ea">
@@ -659,28 +694,6 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Section-7" id="PO8-2c-Xzn">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="YKa-Ta-LRA">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YKa-Ta-LRA" id="MiH-8a-mDt">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="PrM-Zf-lLh">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PrM-Zf-lLh" id="E3V-fc-Rbs">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="EBt-Pf-iE4">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EBt-Pf-iE4" id="MxD-sM-9eE">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="wQQ-xT-w6J" id="kJS-86-yJL"/>
@@ -688,7 +701,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="1ff-dZ-Nlf"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <connections>
                         <outlet property="OrderNO" destination="UyO-03-Ucz" id="Hbj-mC-Hbm"/>
                         <outlet property="balanceLable" destination="CSn-4Y-eB7" id="g5B-uB-2uB"/>
@@ -706,7 +718,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YCH-Qw-8jl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1670" y="3587"/>
+            <point key="canvasLocation" x="1430" y="3599"/>
         </scene>
         <!--已完成-->
         <scene sceneID="HPa-zc-x8L">
@@ -858,7 +870,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D4Q-oM-has" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2360" y="2840"/>
+            <point key="canvasLocation" x="1870" y="2851"/>
         </scene>
         <!--已取消-->
         <scene sceneID="VWJ-OG-Jnf">
@@ -975,7 +987,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Fz-eP-mdF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3032" y="2849"/>
+            <point key="canvasLocation" x="2484" y="2851"/>
         </scene>
         <!--城市列表-->
         <scene sceneID="Yj7-gk-ywD">
@@ -993,7 +1005,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tTE-PM-fJA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3150" y="2125"/>
+            <point key="canvasLocation" x="4460" y="1800"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="9r7-lk-SI0">
+            <objects>
+                <viewController id="bCI-Xp-u6d" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yO4-cl-KDY"/>
+                        <viewControllerLayoutGuide type="bottom" id="kCN-y5-R9W"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="U0C-zm-XYc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="78J-h6-0Mk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3482" y="2194"/>
         </scene>
         <!--发货订单-->
         <scene sceneID="vTC-Qj-rbF">
@@ -1008,10 +1038,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="mss-Xe-c0r"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lar-DR-hmq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2350" y="2118"/>
+            <point key="canvasLocation" x="2026" y="2184"/>
         </scene>
         <!--订单-->
         <scene sceneID="GZT-Ls-dGr">
@@ -1069,7 +1100,7 @@
         <!--订单跟踪-->
         <scene sceneID="2Qw-dO-GuD">
             <objects>
-                <viewController title="订单跟踪" id="H4h-1G-jPV" customClass="OrderTrackViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrderTrackViewController" title="订单跟踪" useStoryboardIdentifierAsRestorationIdentifier="YES" id="H4h-1G-jPV" customClass="OrderTrackViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZD0-JY-oUQ"/>
                         <viewControllerLayoutGuide type="bottom" id="DMZ-Pk-dtw"/>
@@ -1081,7 +1112,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="xMo-0A-0oA">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Uxv-Er-laT">
+                        <barButtonItem key="rightBarButtonItem" image="pin_green.png" id="Uxv-Er-laT">
                             <connections>
                                 <action selector="btn:" destination="H4h-1G-jPV" id="6GC-I8-f9J"/>
                             </connections>
@@ -1091,7 +1122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gOO-bJ-2cm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4038" y="1814"/>
+            <point key="canvasLocation" x="2082" y="3599"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dzF-Q5-tDe">
@@ -1997,7 +2028,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Qc3-U5-HWG" kind="show" id="b43-a0-khK"/>
+                                            <segue destination="Qc3-U5-HWG" kind="show" id="jci-D5-DcV"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2355,6 +2386,7 @@
         <image name="2-1SMART-BOX-导航按钮_救援-d.png" width="99" height="99"/>
         <image name="2-1SMART-BOX-导航按钮_行驶-d.png" width="99" height="99"/>
         <image name="icon_direction.png" width="17" height="17"/>
+        <image name="pin_green.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rxo-KA-fZE"/>
