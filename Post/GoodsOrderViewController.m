@@ -21,14 +21,14 @@
     UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController * oneViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"GoodsInProgressViewController"];
 
-    oneViewController.title = @"进行中";
+    oneViewController.title = @"   进行中   ";
 
     UIViewController * twoViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"GoodsInCompleteViewController"];
-    twoViewController.title = @"已完成";
+    twoViewController.title = @"   已完成   ";
     
     
     UIViewController *threeViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"GoodsInCancleViewController"];
-    threeViewController.title = @"已取消";
+    threeViewController.title = @"   已取消   ";
     
     SCNavTabBarController *navTabBarController = [[SCNavTabBarController alloc] init];
     navTabBarController.subViewControllers = @[oneViewController, twoViewController, threeViewController];
