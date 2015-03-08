@@ -24,6 +24,9 @@
 		1443E9E41A9F012E006BC700 /* SCNavTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1443E9E31A9F012E006BC700 /* SCNavTabBarController.m */; };
 		1443E9E71A9F0257006BC700 /* GoodsOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1443E9E61A9F0257006BC700 /* GoodsOrderViewController.m */; };
 		1443E9EA1A9F1714006BC700 /* GoodsInProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1443E9E91A9F1714006BC700 /* GoodsInProgressViewController.m */; };
+		14456D6F1AAC373F0067068E /* TaskOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14456D6E1AAC373F0067068E /* TaskOrderViewController.m */; };
+		14456D721AAC3D780067068E /* TaskOrderUnfinishedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14456D711AAC3D780067068E /* TaskOrderUnfinishedViewController.m */; };
+		14456D751AAC44FB0067068E /* ConfirmDeliveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14456D741AAC44FB0067068E /* ConfirmDeliveryViewController.m */; };
 		1454D07D1A85F6F1003033D3 /* icon_nav_end.png in Resources */ = {isa = PBXBuildFile; fileRef = 1454D07B1A85F6F1003033D3 /* icon_nav_end.png */; };
 		1454D07E1A85F6F1003033D3 /* icon_nav_start.png in Resources */ = {isa = PBXBuildFile; fileRef = 1454D07C1A85F6F1003033D3 /* icon_nav_start.png */; };
 		1454D0811A861BF9003033D3 /* icon_nav_end@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1454D07F1A861BF9003033D3 /* icon_nav_end@2x.png */; };
@@ -130,6 +133,12 @@
 		1443E9E61A9F0257006BC700 /* GoodsOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsOrderViewController.m; path = Post/GoodsOrderViewController.m; sourceTree = "<group>"; };
 		1443E9E81A9F1714006BC700 /* GoodsInProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsInProgressViewController.h; path = Post/GoodsInProgressViewController.h; sourceTree = "<group>"; };
 		1443E9E91A9F1714006BC700 /* GoodsInProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsInProgressViewController.m; path = Post/GoodsInProgressViewController.m; sourceTree = "<group>"; };
+		14456D6D1AAC373F0067068E /* TaskOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskOrderViewController.h; path = Post/TaskOrderViewController.h; sourceTree = "<group>"; };
+		14456D6E1AAC373F0067068E /* TaskOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskOrderViewController.m; path = Post/TaskOrderViewController.m; sourceTree = "<group>"; };
+		14456D701AAC3D780067068E /* TaskOrderUnfinishedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskOrderUnfinishedViewController.h; path = Post/TaskOrderUnfinishedViewController.h; sourceTree = "<group>"; };
+		14456D711AAC3D780067068E /* TaskOrderUnfinishedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskOrderUnfinishedViewController.m; path = Post/TaskOrderUnfinishedViewController.m; sourceTree = "<group>"; };
+		14456D731AAC44FB0067068E /* ConfirmDeliveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfirmDeliveryViewController.h; path = Post/ConfirmDeliveryViewController.h; sourceTree = "<group>"; };
+		14456D741AAC44FB0067068E /* ConfirmDeliveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfirmDeliveryViewController.m; path = Post/ConfirmDeliveryViewController.m; sourceTree = "<group>"; };
 		1454D07B1A85F6F1003033D3 /* icon_nav_end.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_nav_end.png; path = mapapi.bundle/images/icon_nav_end.png; sourceTree = "<group>"; };
 		1454D07C1A85F6F1003033D3 /* icon_nav_start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_nav_start.png; path = mapapi.bundle/images/icon_nav_start.png; sourceTree = "<group>"; };
 		1454D07F1A861BF9003033D3 /* icon_nav_end@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_nav_end@2x.png"; path = "mapapi.bundle/images/icon_nav_end@2x.png"; sourceTree = "<group>"; };
@@ -585,6 +594,12 @@
 				FC821BA11AA4561700F4B0C9 /* GoodsInCancleViewController.m */,
 				148BC3A71AA5FE3100819910 /* OrderDetailTableViewController.h */,
 				148BC3A81AA5FE3100819910 /* OrderDetailTableViewController.m */,
+				14456D6D1AAC373F0067068E /* TaskOrderViewController.h */,
+				14456D6E1AAC373F0067068E /* TaskOrderViewController.m */,
+				14456D701AAC3D780067068E /* TaskOrderUnfinishedViewController.h */,
+				14456D711AAC3D780067068E /* TaskOrderUnfinishedViewController.m */,
+				14456D731AAC44FB0067068E /* ConfirmDeliveryViewController.h */,
+				14456D741AAC44FB0067068E /* ConfirmDeliveryViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -810,6 +825,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14456D751AAC44FB0067068E /* ConfirmDeliveryViewController.m in Sources */,
 				144023571A8E35A400321C6F /* GoodsPhotoViewController.m in Sources */,
 				1459912B1A89D76700710CF2 /* ConfirmTableViewController.m in Sources */,
 				14408D221AA1F20D00EC6D79 /* GoodsInComplete_State_Cell.m in Sources */,
@@ -817,6 +833,7 @@
 				1443E9E11A9EFC07006BC700 /* SCNavTabBar.m in Sources */,
 				1459ABB31AA088FB0041CEBB /* GoodsInProgress_Order_Cell.m in Sources */,
 				FC821BA21AA4561700F4B0C9 /* GoodsInCancleViewController.m in Sources */,
+				14456D6F1AAC373F0067068E /* TaskOrderViewController.m in Sources */,
 				145991371A89F42F00710CF2 /* PhotoGroupTableViewCell.m in Sources */,
 				1443E9EA1A9F1714006BC700 /* GoodsInProgressViewController.m in Sources */,
 				142B22521A7DD4AA00363BD9 /* HZAreaPickerView.m in Sources */,
@@ -842,6 +859,7 @@
 				FC7FC7F31A787C4B004B3909 /* HomeViewController.m in Sources */,
 				14CE5FC41A74CF8400A19C36 /* Post.xcdatamodeld in Sources */,
 				1459912E1A89DC7F00710CF2 /* PhotoGroupView.m in Sources */,
+				14456D721AAC3D780067068E /* TaskOrderUnfinishedViewController.m in Sources */,
 				1483DA0E1A885896003A3B8B /* OrderTrack_UserItem_Cell.m in Sources */,
 				FCD6C5B61AA2FCC3008D5E23 /* GMDCircleLoader.m in Sources */,
 				FC81BC821A7A0D4500D6C78F /* Custom_ScrollImageView.m in Sources */,

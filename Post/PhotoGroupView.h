@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PhotoGroupView : UIView
-
+@property(nonatomic, strong)NSMutableArray * photoArray;
 @end
