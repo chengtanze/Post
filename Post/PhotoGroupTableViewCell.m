@@ -12,6 +12,7 @@
 
 #define POST_PHOTOGROUPVIEW_ITEMHEIGHTSEP 5.0
 #define POST_PHOTOGROUPVIEW_PHOTOCOUNT 5.0
+#define POST_PHOTOGROUPVIEW_TIPLABELHEIGHT 25.0
 
 @interface PhotoGroupTableViewCell ()
 {
@@ -26,9 +27,9 @@
     // Initialization code
 
     [self initLocalData];
-//    NSArray * viewArray = [self subviews];
-//    UIView * view1 = viewArray[0];
-//    UIView * view2 = viewArray[1];
+    NSArray * viewArray = [self subviews];
+    UIView * view1 = viewArray[0];
+    //UIView * view2 = viewArray[1];
     //NSLog(@"index :%d,%d", view1.tag, view2.tag);
     
     CGFloat lableHeight = 0.0;
@@ -47,8 +48,11 @@
         for (long nIndex = 0; nIndex < POST_PHOTOGROUPVIEW_PHOTOCOUNT; nIndex++) {
             
             CGFloat x = nIndex * itemWidth + (nIndex + 1) * itemHorizontalSpacing;
-            CGFloat y = POST_PHOTOGROUPVIEW_ITEMHEIGHTSEP + lableHeight;
+            CGFloat y = y = POST_PHOTOGROUPVIEW_ITEMHEIGHTSEP + lableHeight;
             
+            if([view1 viewWithTag:1001] != nil)
+                y += POST_PHOTOGROUPVIEW_TIPLABELHEIGHT;
+                
             UIButton * button = [[UIButton alloc]initWithFrame:CGRectMake(x, y, itemHeight, itemWidth)];
             [button setBackgroundImage:[UIImage imageNamed:@"4-4SMART-BOX-消息_启动预警.png"] forState:UIControlStateNormal];
             button.tag = nIndex;
