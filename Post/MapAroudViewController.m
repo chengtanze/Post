@@ -8,13 +8,16 @@
 
 #import "MapAroudViewController.h"
 
-@interface MapAroudViewController ()
-
+@interface MapAroudViewController ()<MapViewDelegate>
+{
+    BMKCircle* circle;
+}
 @end
 
 @implementation MapAroudViewController
 
 - (void)viewDidLoad {
+    self.delegate = self;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
@@ -27,6 +30,29 @@
     // Dispose of any resources that can be recreated.
 }
 
+//创建地图上的控件
+-(void)createMapViewWidget{
+    NSLog(@"createMapViewWidget");
+}
+
+//绘制用户背景图
+-(void)createUserBackImage{
+    NSLog(@"createUserBackImage");
+    
+    
+}
+
+//添加内置覆盖物
+- (void)addOverlayView {
+    // 添加圆形覆盖物
+    if (circle == nil) {
+        CLLocationCoordinate2D coor;
+        coor.latitude = 39.915;
+        coor.longitude = 116.404;
+        circle = [BMKCircle circleWithCenterCoordinate:coor radius:600];
+    }
+    [self.mapView addOverlay:circle];
+}
 /*
 #pragma mark - Navigation
 

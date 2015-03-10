@@ -14,7 +14,7 @@
 }
 
 @property(nonatomic, strong)BMKMapManager* mapManager;
-@property(nonatomic, strong)BMKMapView *mapView;
+
 @property(nonatomic, strong)CLLocationManager * locationManager;
 @property(nonatomic, strong)BMKPoiSearch* poiSearch;
 
@@ -34,13 +34,21 @@
     
     [self.view addSubview:self.mapView];
     
-    //[self createWidget];
+    
     
     //[self.view insertSubview:_searchBar atIndex:[[self.view subviews] count]];
     [_locService startUserLocationService];
     _mapView.showsUserLocation = NO;
     _mapView.userTrackingMode = BMKUserTrackingModeFollow;
     _mapView.showsUserLocation = YES;
+    
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(createMapViewWidget)]) {
+        [self.delegate createMapViewWidget];
+    }
+    
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(createUserBackImage)]) {
+        [self.delegate createUserBackImage];
+    }
 
     NSLog(@"MapViewController viewDidLoad");
 }
