@@ -83,6 +83,9 @@
 		FC81BC951A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_行驶-d.png in Resources */ = {isa = PBXBuildFile; fileRef = FC81BC931A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_行驶-d.png */; };
 		FC821BA21AA4561700F4B0C9 /* GoodsInCancleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC821BA11AA4561700F4B0C9 /* GoodsInCancleViewController.m */; };
 		FC821BA51AA45AC500F4B0C9 /* GoodsInCancle_State_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC821BA41AA45AC500F4B0C9 /* GoodsInCancle_State_Cell.m */; };
+		FC84C0AF1AAEE9F70074F65C /* PeripheralsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC84C0AE1AAEE9F70074F65C /* PeripheralsTableViewController.m */; };
+		FC84C0B21AAF08630074F65C /* MapAroudViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC84C0B11AAF08630074F65C /* MapAroudViewController.m */; };
+		FC84C0B51AAF09160074F65C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC84C0B41AAF09160074F65C /* MapViewController.m */; };
 		FC98FBB81AAD8B66005E2DB0 /* ConfirmDeliveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC98FBB71AAD8B66005E2DB0 /* ConfirmDeliveryViewController.m */; };
 		FCD6C5B61AA2FCC3008D5E23 /* GMDCircleLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6C5B51AA2FCC3008D5E23 /* GMDCircleLoader.m */; };
 		FCD6C5B81AA3144C008D5E23 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCD6C5B71AA3144C008D5E23 /* citydict.plist */; };
@@ -280,6 +283,12 @@
 		FC821BA11AA4561700F4B0C9 /* GoodsInCancleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsInCancleViewController.m; path = Post/GoodsInCancleViewController.m; sourceTree = "<group>"; };
 		FC821BA31AA45AC500F4B0C9 /* GoodsInCancle_State_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsInCancle_State_Cell.h; path = Post/GoodsInCancle_State_Cell.h; sourceTree = "<group>"; };
 		FC821BA41AA45AC500F4B0C9 /* GoodsInCancle_State_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsInCancle_State_Cell.m; path = Post/GoodsInCancle_State_Cell.m; sourceTree = "<group>"; };
+		FC84C0AD1AAEE9F70074F65C /* PeripheralsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeripheralsTableViewController.h; path = Post/PeripheralsTableViewController.h; sourceTree = "<group>"; };
+		FC84C0AE1AAEE9F70074F65C /* PeripheralsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeripheralsTableViewController.m; path = Post/PeripheralsTableViewController.m; sourceTree = "<group>"; };
+		FC84C0B01AAF08630074F65C /* MapAroudViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapAroudViewController.h; path = Post/MapAroudViewController.h; sourceTree = "<group>"; };
+		FC84C0B11AAF08630074F65C /* MapAroudViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapAroudViewController.m; path = Post/MapAroudViewController.m; sourceTree = "<group>"; };
+		FC84C0B31AAF09160074F65C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = Post/MapViewController.h; sourceTree = "<group>"; };
+		FC84C0B41AAF09160074F65C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = Post/MapViewController.m; sourceTree = "<group>"; };
 		FC98FBB61AAD8B66005E2DB0 /* ConfirmDeliveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfirmDeliveryViewController.h; path = Post/ConfirmDeliveryViewController.h; sourceTree = "<group>"; };
 		FC98FBB71AAD8B66005E2DB0 /* ConfirmDeliveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfirmDeliveryViewController.m; path = Post/ConfirmDeliveryViewController.m; sourceTree = "<group>"; };
 		FCD6C5B41AA2FCC3008D5E23 /* GMDCircleLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GMDCircleLoader.h; path = Post/GMDCircleLoader.h; sourceTree = "<group>"; };
@@ -600,6 +609,12 @@
 				14456D711AAC3D780067068E /* TaskOrderUnfinishedViewController.m */,
 				FC98FBB61AAD8B66005E2DB0 /* ConfirmDeliveryViewController.h */,
 				FC98FBB71AAD8B66005E2DB0 /* ConfirmDeliveryViewController.m */,
+				FC84C0AD1AAEE9F70074F65C /* PeripheralsTableViewController.h */,
+				FC84C0AE1AAEE9F70074F65C /* PeripheralsTableViewController.m */,
+				FC84C0B01AAF08630074F65C /* MapAroudViewController.h */,
+				FC84C0B11AAF08630074F65C /* MapAroudViewController.m */,
+				FC84C0B31AAF09160074F65C /* MapViewController.h */,
+				FC84C0B41AAF09160074F65C /* MapViewController.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -830,6 +845,7 @@
 				1459912B1A89D76700710CF2 /* ConfirmTableViewController.m in Sources */,
 				14408D221AA1F20D00EC6D79 /* GoodsInComplete_State_Cell.m in Sources */,
 				143770291A74DF17005084CE /* IntroduceViewController.m in Sources */,
+				FC84C0B21AAF08630074F65C /* MapAroudViewController.m in Sources */,
 				1443E9E11A9EFC07006BC700 /* SCNavTabBar.m in Sources */,
 				1459ABB31AA088FB0041CEBB /* GoodsInProgress_Order_Cell.m in Sources */,
 				FC821BA21AA4561700F4B0C9 /* GoodsInCancleViewController.m in Sources */,
@@ -837,6 +853,7 @@
 				145991371A89F42F00710CF2 /* PhotoGroupTableViewCell.m in Sources */,
 				1443E9EA1A9F1714006BC700 /* GoodsInProgressViewController.m in Sources */,
 				142B22521A7DD4AA00363BD9 /* HZAreaPickerView.m in Sources */,
+				FC84C0B51AAF09160074F65C /* MapViewController.m in Sources */,
 				148BC3A91AA5FE3100819910 /* OrderDetailTableViewController.m in Sources */,
 				14408D251AA1F22300EC6D79 /* GoodsInComplete_Address_Cell.m in Sources */,
 				1459ABB61AA0893E0041CEBB /* GoodsInProgress_GoodsInfo_Cell.m in Sources */,
@@ -859,6 +876,7 @@
 				FC7FC7F31A787C4B004B3909 /* HomeViewController.m in Sources */,
 				14CE5FC41A74CF8400A19C36 /* Post.xcdatamodeld in Sources */,
 				1459912E1A89DC7F00710CF2 /* PhotoGroupView.m in Sources */,
+				FC84C0AF1AAEE9F70074F65C /* PeripheralsTableViewController.m in Sources */,
 				14456D721AAC3D780067068E /* TaskOrderUnfinishedViewController.m in Sources */,
 				1483DA0E1A885896003A3B8B /* OrderTrack_UserItem_Cell.m in Sources */,
 				FCD6C5B61AA2FCC3008D5E23 /* GMDCircleLoader.m in Sources */,
