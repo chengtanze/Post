@@ -20,7 +20,7 @@
     self.delegate = self;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [self addOverlayView];
     
     NSLog(@"MapAroudViewController viewDidLoad");
 }
@@ -39,19 +39,35 @@
 -(void)createUserBackImage{
     NSLog(@"createUserBackImage");
     
-    
+    [self addOverlayView];
 }
 
 //添加内置覆盖物
 - (void)addOverlayView {
     // 添加圆形覆盖物
     if (circle == nil) {
-        CLLocationCoordinate2D coor;
-        coor.latitude = 39.915;
-        coor.longitude = 116.404;
-        circle = [BMKCircle circleWithCenterCoordinate:coor radius:600];
+//        CLLocationCoordinate2D coor;
+//        coor.latitude = 22.599368;
+//        coor.longitude = 113.909327;
+        circle = [BMKCircle circleWithCenterCoordinate:self.userLocation.location.coordinate radius:600];
     }
     [self.mapView addOverlay:circle];
+}
+
+//根据overlay生成对应的View
+- (BMKOverlayView *)mapView:(BMKMapView *)mapView viewForOverlay:(id <BMKOverlay>)overlay
+{
+    if ([overlay isKindOfClass:[BMKCircle class]])
+    {
+        BMKCircleView* circleView = [[BMKCircleView alloc] initWithOverlay:overlay];
+        circleView.fillColor = [[UIColor redColor] colorWithAlphaComponent:0.5];
+        circleView.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.5];
+        circleView.lineWidth = 5.0;
+        
+        return circleView;
+    }
+    
+    return nil;
 }
 /*
 #pragma mark - Navigation

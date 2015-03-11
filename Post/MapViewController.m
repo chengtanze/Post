@@ -11,6 +11,7 @@
 @interface MapViewController ()<BMKGeneralDelegate, BMKMapViewDelegate, CLLocationManagerDelegate, BMKPoiSearchDelegate, BMKLocationServiceDelegate, BMKGeoCodeSearchDelegate, UISearchBarDelegate>
 {
     CLLocation *checkinLocation;
+    BOOL bGetGeo;
 }
 
 @property(nonatomic, strong)BMKMapManager* mapManager;
@@ -49,6 +50,8 @@
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(createUserBackImage)]) {
         [self.delegate createUserBackImage];
     }
+    
+    bGetGeo = NO;
 
     NSLog(@"MapViewController viewDidLoad");
 }
@@ -115,6 +118,8 @@
     [self reverseGeoSearch:pt];
 }
 
+//-()
+
 -(void)reverseGeoSearch:(CLLocationCoordinate2D)pt{
     BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
     reverseGeocodeSearchOption.reverseGeoPoint = pt;
@@ -150,9 +155,18 @@
         //[myAlertView show];
         
         //self.addressLabel.text = result.address;
+        
+        if (bGetGeo) {
+            bGetGeo = !bGetGeo;
+            self.addressDetail = result.addressDetail;
+        }
     }
 }
 
+-(void)getReverseGeoAddress{
+    bGetGeo = YES;
+    [self reverseGeoSearch:_userLocation.location.coordinate];
+}
 
 
 /**
@@ -179,8 +193,9 @@
  */
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
-    //NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
-    
+//    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+
+    self.userLocation = userLocation;
     [_mapView updateLocationData:userLocation];
 }
 /*用户方向更新后，会调用此函数

@@ -19,10 +19,14 @@
 //绘制用户背景图
 -(void)createUserBackImage;
 
+//获取当前用户逆地理
+
 @end
 
 @interface MapViewController : UIViewController
 
+@property(nonatomic, strong)BMKAddressComponent* addressDetail;    //记录用户逆地理地址
+@property(nonatomic, strong)BMKUserLocation * userLocation;         //记录用户gps地址
 @property(nonatomic, weak)id<MapViewDelegate> delegate;
 @property(nonatomic, strong)BMKMapView *mapView;
 
