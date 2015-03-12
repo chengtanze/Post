@@ -9,6 +9,8 @@
 
 #import "MapPulicFunction.h"
 
+static MapPulicFunction *sharedObj = nil; //第一步：静态实例，并初始化。
+
 @interface MapPulicFunction ()<BMKGeneralDelegate, BMKMapViewDelegate, CLLocationManagerDelegate, BMKPoiSearchDelegate, BMKLocationServiceDelegate, BMKGeoCodeSearchDelegate, UISearchBarDelegate>
 {
     CLLocation *checkinLocation;
@@ -27,12 +29,53 @@
 
 @implementation MapPulicFunction
 
++ (MapPulicFunction *)sharedInstance  //第二步：实例构造检查静态实例是否为nil
+{
+    @synchronized (self)
+    {
+        if (sharedObj == nil)
+        {
+            sharedObj = [[self alloc] init];
+        }
+    }
+    return sharedObj;
+}
+
+- (id)init
+{
+    @synchronized(self) {
+        if(self = [super init])//往往放一些要初始化的变量.
+        {
+            [self initPOI];
+        }
+        return self;
+    }
+}
 
 -(void)initPOI{
     self.poiSearch = [[BMKPoiSearch alloc]init];
     self.locService = [[BMKLocationService alloc]init];
     self.geoCodeSearch = [[BMKGeoCodeSearch alloc]init];
+
+    
+    [self startGetGps];
 }
+
+-(void)startGetGps{
+    self.locService.delegate = self;
+    self.geoCodeSearch.delegate = self;
+    self.poiSearch.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
+    
+    [_locService startUserLocationService];
+}
+
+-(void)stopGetGps{
+    self.locService.delegate = nil;
+    self.geoCodeSearch.delegate = nil;
+    self.poiSearch.delegate = nil; // 此处记得不用的时候需要置nil，否则影响内存的释放
+    [_locService stopUserLocationService];
+}
+
 
 -(void)reverseGeoSearch:(CLLocationCoordinate2D)pt{
     BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];
@@ -88,7 +131,7 @@
  */
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
-    //    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+        NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
     
     self.userLocation = userLocation;
     //[_mapView updateLocationData:userLocation];

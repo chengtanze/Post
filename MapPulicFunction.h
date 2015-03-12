@@ -14,4 +14,6 @@
 @property(nonatomic, strong)BMKAddressComponent* addressDetail;    //记录用户逆地理地址
 @property(nonatomic, strong)BMKUserLocation * userLocation;         //记录用户gps地址
 
+
++ (MapPulicFunction *)sharedInstance;
 @end

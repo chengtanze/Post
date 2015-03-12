@@ -506,12 +506,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Post/MapAroudViewController.m"
-            timestampString = "447774028.732593"
+            timestampString = "447863094.650692"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "-addOverlayView"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -521,13 +521,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Post/MapAroudViewController.m"
-            timestampString = "447774035.436034"
+            filePath = "MapPulicFunction.m"
+            timestampString = "447863451.701189"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "-createUserBackImage"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "-initPOI"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

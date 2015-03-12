@@ -7,6 +7,7 @@
 //
 
 #import "PeripheralsTableViewController.h"
+#import "MapPulicFunction.h"
 
 @interface PeripheralsTableViewController ()
 
@@ -16,6 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    MapPulicFunction * map = [MapPulicFunction sharedInstance];
+    
     
     self.tableView.rowHeight = 100;
     

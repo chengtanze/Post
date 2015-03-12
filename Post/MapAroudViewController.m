@@ -7,11 +7,12 @@
 //
 
 #import "MapAroudViewController.h"
-
+#import "MapPulicFunction.h"
 #define POST_TIMER_GETUSERGPS (5.0)
 
 @interface MapAroudViewController ()<MapViewDelegate>
 {
+    NSTimer* connectionTimer;
     BMKCircle* circle;
 }
 @end
@@ -24,6 +25,8 @@
     // Do any additional setup after loading the view.
     //[self addOverlayView];
     
+    
+    
     [self startGetUserGps];
     [self getReverseGeoAddress];
     NSLog(@"MapAroudViewController viewDidLoad");
@@ -34,12 +37,21 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+-(void)viewWillDisappear:(BOOL)animated{
+    if (connectionTimer != nil) {
+        [connectionTimer invalidate];
+        connectionTimer = nil;
+    }
+    
+}
 
 -(void)startGetUserGps{
     //创建一个定时器，定时获取用户GPS
-    NSTimer* connectionTimer = [NSTimer scheduledTimerWithTimeInterval:POST_TIMER_GETUSERGPS target:self selector:@selector(timerFiredGetGps:) userInfo:nil repeats:YES];
-    [connectionTimer fire];
+    if (connectionTimer == nil) {
+        connectionTimer = [NSTimer scheduledTimerWithTimeInterval:POST_TIMER_GETUSERGPS target:self selector:@selector(timerFiredGetGps:) userInfo:nil repeats:YES];
+        [connectionTimer fire];
+    }
+
 
 
     //[self.userLocation.location addObserver:self forKeyPath:@"coordinate" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionPrior|NSKeyValueObservingOptionInitial context:nil];
