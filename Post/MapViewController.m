@@ -35,14 +35,12 @@
     
     [self.view addSubview:self.mapView];
     
-    
-    
-    //[self.view insertSubview:_searchBar atIndex:[[self.view subviews] count]];
+
     [_locService startUserLocationService];
     _mapView.showsUserLocation = NO;
     _mapView.userTrackingMode = BMKUserTrackingModeFollow;
     _mapView.showsUserLocation = YES;
-    
+    _mapView.zoomLevel = 17.0;
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(createMapViewWidget)]) {
         [self.delegate createMapViewWidget];
     }
@@ -73,6 +71,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated {
     [_mapView viewWillDisappear];
+    [_locService stopUserLocationService];// 关闭定位功能
     _mapView.delegate = nil; // 不用时，置nil
     _poiSearch.delegate = nil; // 不用时，置nil
     self.locService.delegate = nil;
@@ -136,29 +135,35 @@
 
 -(void) onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error
 {
-    NSArray* array = [NSArray arrayWithArray:_mapView.annotations];
-    [_mapView removeAnnotations:array];
-    array = [NSArray arrayWithArray:_mapView.overlays];
-    [_mapView removeOverlays:array];
+
     if (error == 0) {
-        BMKPointAnnotation* item = [[BMKPointAnnotation alloc]init];
-        item.coordinate = result.location;
-        item.title = result.address;
-        [_mapView addAnnotation:item];
-        _mapView.centerCoordinate = result.location;
-        NSString* titleStr;
-        NSString* showmeg;
-        titleStr = @"反向地理编码";
-        showmeg = [NSString stringWithFormat:@"%@",item.title];
-        
-        //UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:titleStr message:showmeg delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定",nil];
-        //[myAlertView show];
-        
-        //self.addressLabel.text = result.address;
+
         
         if (bGetGeo) {
             bGetGeo = !bGetGeo;
             self.addressDetail = result.addressDetail;
+        }
+        else{
+            
+            NSArray* array = [NSArray arrayWithArray:_mapView.annotations];
+            [_mapView removeAnnotations:array];
+            array = [NSArray arrayWithArray:_mapView.overlays];
+            [_mapView removeOverlays:array];
+            
+            BMKPointAnnotation* item = [[BMKPointAnnotation alloc]init];
+            item.coordinate = result.location;
+            item.title = result.address;
+            [_mapView addAnnotation:item];
+            _mapView.centerCoordinate = result.location;
+            NSString* titleStr;
+            NSString* showmeg;
+            titleStr = @"反向地理编码";
+            showmeg = [NSString stringWithFormat:@"%@",item.title];
+            
+            //UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:titleStr message:showmeg delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定",nil];
+            //[myAlertView show];
+            
+            //self.addressLabel.text = result.address;
         }
     }
 }

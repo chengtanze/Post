@@ -69,6 +69,7 @@
 		14CE5FED1A74D34A00A19C36 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CE5FEA1A74D34A00A19C36 /* Default@2x.png */; };
 		14CE5FEE1A74D34A00A19C36 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CE5FEB1A74D34A00A19C36 /* Default-568h@2x.png */; };
 		14CE5FEF1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CE5FEC1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png */; };
+		FC3D78F11AB1B47A003C8153 /* MapPulicFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3D78F01AB1B47A003C8153 /* MapPulicFunction.m */; };
 		FC670A221AA2F13E000BE7A0 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FC670A211AA2F13E000BE7A0 /* SVProgressHUD.m */; };
 		FC7FC7ED1A7875C3004B3909 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7FC7EC1A7875C3004B3909 /* TabBarViewController.m */; };
 		FC7FC7F31A787C4B004B3909 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7FC7F21A787C4B004B3909 /* HomeViewController.m */; };
@@ -262,6 +263,8 @@
 		14CE5FEA1A74D34A00A19C36 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		14CE5FEB1A74D34A00A19C36 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		14CE5FEC1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0-SMART-BOX-启动750-1334.png"; sourceTree = "<group>"; };
+		FC3D78EF1AB1B47A003C8153 /* MapPulicFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPulicFunction.h; sourceTree = "<group>"; };
+		FC3D78F01AB1B47A003C8153 /* MapPulicFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPulicFunction.m; sourceTree = "<group>"; };
 		FC670A201AA2F13E000BE7A0 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = Post/SVProgressHUD.h; sourceTree = "<group>"; };
 		FC670A211AA2F13E000BE7A0 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = Post/SVProgressHUD.m; sourceTree = "<group>"; };
 		FC7FC7EB1A7875C3004B3909 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabBarViewController.h; path = Post/TabBarViewController.h; sourceTree = "<group>"; };
@@ -372,6 +375,8 @@
 				1443E9301A9ED3F6006BC700 /* CommonMacro.h */,
 				1458F3501A8AF3A900AB04D6 /* Media_Photo.h */,
 				1458F3511A8AF3A900AB04D6 /* Media_Photo.m */,
+				FC3D78EF1AB1B47A003C8153 /* MapPulicFunction.h */,
+				FC3D78F01AB1B47A003C8153 /* MapPulicFunction.m */,
 			);
 			name = Share;
 			sourceTree = "<group>";
@@ -860,6 +865,7 @@
 				1441B9E91A8F7EDB003F9142 /* QRCodesViewController.m in Sources */,
 				14BD142A1A7C90E1007F9287 /* MapSearchViewController.mm in Sources */,
 				1443E9E71A9F0257006BC700 /* GoodsOrderViewController.m in Sources */,
+				FC3D78F11AB1B47A003C8153 /* MapPulicFunction.m in Sources */,
 				14BD6BB31A7CE945001A8535 /* EditCargoInfoTableViewController.m in Sources */,
 				142B224F1A7DCE3000363BD9 /* DetailedAddressViewController.m in Sources */,
 				FC821BA51AA45AC500F4B0C9 /* GoodsInCancle_State_Cell.m in Sources */,

@@ -29,5 +29,6 @@
 @property(nonatomic, strong)BMKUserLocation * userLocation;         //记录用户gps地址
 @property(nonatomic, weak)id<MapViewDelegate> delegate;
 @property(nonatomic, strong)BMKMapView *mapView;
+-(void)getReverseGeoAddress;
 
 @end
