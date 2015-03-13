@@ -14,14 +14,12 @@ static MapPulicFunction *sharedObj = nil; //第一步：静态实例，并初始
 @interface MapPulicFunction ()<BMKGeneralDelegate, BMKMapViewDelegate, CLLocationManagerDelegate, BMKPoiSearchDelegate, BMKLocationServiceDelegate, BMKGeoCodeSearchDelegate, UISearchBarDelegate>
 {
     CLLocation *checkinLocation;
-    BOOL bGetGeo;
+    BOOL bGetGeoCallBack;
 }
 
 @property(nonatomic, strong)BMKMapManager* mapManager;
-
 @property(nonatomic, strong)CLLocationManager * locationManager;
 @property(nonatomic, strong)BMKPoiSearch* poiSearch;
-
 @property(nonatomic, strong)BMKLocationService* locService; //定位服务
 @property(nonatomic, strong)BMKGeoCodeSearch* geoCodeSearch;//逆地理查询
 
@@ -53,6 +51,7 @@ static MapPulicFunction *sharedObj = nil; //第一步：静态实例，并初始
 }
 
 -(void)initPOI{
+    bGetGeoCallBack = NO;
     self.poiSearch = [[BMKPoiSearch alloc]init];
     self.locService = [[BMKLocationService alloc]init];
     self.geoCodeSearch = [[BMKGeoCodeSearch alloc]init];
@@ -93,18 +92,75 @@ static MapPulicFunction *sharedObj = nil; //第一步：静态实例，并初始
 
 -(void) onGetReverseGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKReverseGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error
 {
+    BMKAddressComponent * customResult = nil;
     if (error == 0) {
-
+        customResult = result.addressDetail;
         self.addressDetail = result.addressDetail;
+    }
+    else{
+        NSLog(@"获取逆地理信息失败");
+    }
+    
+    if (bGetGeoCallBack) {
+        bGetGeoCallBack = NO;
+        //回调给上层
+        if (_delegate != nil && [self.delegate respondsToSelector:@selector(reverseGeoAddress:)])
+        {
+            [self.delegate reverseGeoAddress:customResult];
+        }
+        else{
+            NSLog(@"回调上层失败");
+        }
     }
 }
 
 -(void)getReverseGeoAddress{
+    bGetGeoCallBack = YES;
     [self reverseGeoSearch:_userLocation.location.coordinate];
 }
 
 -(void)getReverseGeoAddress:(CLLocationCoordinate2D)coordinate{
+    bGetGeoCallBack = YES;
     [self reverseGeoSearch:coordinate];
+}
+
+-(BOOL)getGPSFromAddress:(NSString *)address  city:(NSString *)city{
+    BMKGeoCodeSearchOption *geocodeSearchOption = [[BMKGeoCodeSearchOption alloc]init];
+    geocodeSearchOption.city= city;
+    geocodeSearchOption.address = address;
+    BOOL flag = [self.geoCodeSearch geoCode:geocodeSearchOption];
+    if(flag)
+    {
+        NSLog(@"geo检索发送成功");
+    }
+    else
+    {
+        NSLog(@"geo检索发送失败");
+    }
+
+    return flag;
+}
+
+- (void)onGetGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error
+{
+    BMKPointAnnotation* item = nil;
+    if (error == 0) {
+        item = [[BMKPointAnnotation alloc]init];
+        item.coordinate = result.location;
+        item.title = result.address;
+    }
+    else{
+        NSLog(@"获取gps信息失败");
+    }
+    
+    //回调给上层
+    if (_delegate != nil && [self.delegate respondsToSelector:@selector(GPSFromAddress:)])
+    {
+        [self.delegate GPSFromAddress:item.coordinate];
+    }
+    else{
+        NSLog(@"回调上层失败");
+    }
 }
 
 /**
@@ -131,7 +187,7 @@ static MapPulicFunction *sharedObj = nil; //第一步：静态实例，并初始
  */
 - (void)didUpdateBMKUserLocation:(BMKUserLocation *)userLocation
 {
-        NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
+    NSLog(@"didUpdateUserLocation lat %f,long %f",userLocation.location.coordinate.latitude,userLocation.location.coordinate.longitude);
     
     self.userLocation = userLocation;
     //[_mapView updateLocationData:userLocation];
