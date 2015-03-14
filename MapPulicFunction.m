@@ -9,6 +9,15 @@
 
 #import "MapPulicFunction.h"
 
+
+
+
+@implementation RouteAnnotation
+
+@synthesize type = _type;
+@synthesize degree = _degree;
+@end
+
 static MapPulicFunction *sharedObj = nil; //第一步：静态实例，并初始化。
 
 @interface MapPulicFunction ()<BMKGeneralDelegate, BMKMapViewDelegate, CLLocationManagerDelegate, BMKPoiSearchDelegate, BMKLocationServiceDelegate, BMKGeoCodeSearchDelegate, UISearchBarDelegate>

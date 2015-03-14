@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    MapPulicFunction * map = [MapPulicFunction sharedInstance];
+    //MapPulicFunction * map = [MapPulicFunction sharedInstance];
     
     
     self.tableView.rowHeight = 100;

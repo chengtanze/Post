@@ -7,7 +7,7 @@
 //  地图基类用于提供地图功能，供子类自定义界面
 
 #import "MapViewController.h"
-
+#import "MapPulicFunction.h"
 @interface MapViewController ()<BMKGeneralDelegate, BMKMapViewDelegate, CLLocationManagerDelegate, BMKPoiSearchDelegate, BMKLocationServiceDelegate, BMKGeoCodeSearchDelegate, UISearchBarDelegate>
 {
     CLLocation *checkinLocation;
@@ -52,6 +52,7 @@
     bGetGeo = NO;
 
     NSLog(@"MapViewController viewDidLoad");
+    
 }
 
 -(void)initPOI{
@@ -66,7 +67,6 @@
     _poiSearch.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
     self.locService.delegate = self;
     self.geoCodeSearch.delegate = self;
-    
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -117,7 +117,10 @@
     [self reverseGeoSearch:pt];
 }
 
-//-()
+
+
+
+
 
 -(void)reverseGeoSearch:(CLLocationCoordinate2D)pt{
     BMKReverseGeoCodeOption *reverseGeocodeSearchOption = [[BMKReverseGeoCodeOption alloc]init];

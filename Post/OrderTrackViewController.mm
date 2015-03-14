@@ -12,23 +12,23 @@
 #import "OrderTrackViewController.h"
 #import "BMapKit.h"
 #import "OrderTrack_UserItem_Cell.h"
-
-
-@interface RouteAnnotation : BMKPointAnnotation
-{
-    int _type; ///<0:起点 1：终点 2：用户点
-    int _degree;
-}
-
-@property (nonatomic) int type;
-@property (nonatomic) int degree;
-@end
-
-@implementation RouteAnnotation
-
-@synthesize type = _type;
-@synthesize degree = _degree;
-@end
+#import "MapPulicFunction.h"
+//
+//@interface RouteAnnotation : BMKPointAnnotation
+//{
+//    int _type; ///<0:起点 1：终点 2：用户点
+//    int _degree;
+//}
+//
+//@property (nonatomic) int type;
+//@property (nonatomic) int degree;
+//@end
+//
+//@implementation RouteAnnotation
+//
+//@synthesize type = _type;
+//@synthesize degree = _degree;
+//@end
 
 @interface OrderTrackViewController () <BMKMapViewDelegate, BMKLocationServiceDelegate, UITableViewDelegate, UITableViewDataSource>
 {
