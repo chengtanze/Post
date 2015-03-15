@@ -8,7 +8,7 @@
 
 #import "MapAroudViewController.h"
 #import "MapPulicFunction.h"
-
+#import "OrderDetailView.h"
 #define POST_TIMER_GETUSERGPS (2.0)
 
 
@@ -21,6 +21,7 @@
 }
 
 @property(nonatomic, strong)NSArray * deliveryPosision;
+@property(nonatomic, strong)OrderDetailView * orderDeatailView;
 @end
 
 @implementation MapAroudViewController
@@ -34,7 +35,7 @@
     [self startGetUserGps];
     [self getReverseGeoAddress];
     
-    
+    [self analysisAroudGoodsData];
     NSLog(@"MapAroudViewController viewDidLoad");
 }
 
@@ -137,12 +138,17 @@
     point2.y = coorsPoint2.longitude;
     NSValue *pointValue2 = [NSValue valueWithCGPoint:point2];
     
+    //设置货品名称
+    NSString * goodsType2 = @"数码产品";
+    NSString * startAddress2 = @"深圳市南山区同方信息港";
+    NSString * endAddress2 = @"深圳市南山区科技园";
     
-    NSDictionary * dic2 = [[NSDictionary alloc]initWithObjectsAndKeys: pointValue2, @"Point", goodsType, @"goodsType", startAddress, @"startAddress", endAddress, @"endAddress", valueDistance, @"valueDistance", time, @"time", nil];
+    
+    NSDictionary * dic2 = [[NSDictionary alloc]initWithObjectsAndKeys: pointValue2, @"Point", goodsType2, @"goodsType", startAddress2, @"startAddress", endAddress2, @"endAddress", valueDistance, @"valueDistance", time, @"time", nil];
     
     CLLocationCoordinate2D coorsPoint3;
-    coorsPoint3.latitude = 22.580852;
-    coorsPoint3.longitude = 113.893250;
+    coorsPoint3.latitude = 22.595651;
+    coorsPoint3.longitude = 113.895489;
     CGPoint point3;
     point3.x = coorsPoint3.latitude;
     point3.y = coorsPoint3.longitude;
@@ -196,8 +202,15 @@
         int nCount = self.deliveryPosision.count;
         for (int index = 0; index < nCount; index++) {
             CLLocationCoordinate2D coorsStart;
-            coorsStart.latitude = 22.596281;
-            coorsStart.longitude = 113.897950;
+            
+            NSDictionary * data = self.deliveryPosision[index];
+            if (data != nil) {
+                NSValue *value = [data valueForKey:@"Point"];
+                CGPoint point = value.CGPointValue;
+                coorsStart.latitude = point.x;
+                coorsStart.longitude = point.y;
+            }
+            
             RouteAnnotation* itemStart = [[RouteAnnotation alloc]init];
             itemStart.coordinate = coorsStart;
             itemStart.title = @"起点";
@@ -205,33 +218,6 @@
             [self.mapView addAnnotation:itemStart]; // 添加起点标注
         }
     }
-
-//    CLLocationCoordinate2D coorsStart;
-//    coorsStart.latitude = 22.596281;
-//    coorsStart.longitude = 113.897950;
-//    RouteAnnotation* itemStart = [[RouteAnnotation alloc]init];
-//    itemStart.coordinate = coorsStart;
-//    itemStart.title = @"起点";
-//    itemStart.type = 0;
-//    [self.mapView addAnnotation:itemStart]; // 添加起点标注
-//    
-//    CLLocationCoordinate2D coorsEnd;
-//    coorsEnd.latitude = 22.580852;
-//    coorsEnd.longitude = 113.893250;
-//    RouteAnnotation* itemEnd = [[RouteAnnotation alloc]init];
-//    itemEnd.coordinate = coorsEnd;
-//    itemEnd.title = @"终点";
-//    itemEnd.type = 1;
-//    [self.mapView addAnnotation:itemEnd]; // 添加起点标注
-//    
-//    CLLocationCoordinate2D coorsUser;
-//    coorsUser.latitude = 22.595651;
-//    coorsUser.longitude = 113.895489;
-//    RouteAnnotation* itemUser = [[RouteAnnotation alloc]init];
-//    itemUser.coordinate = coorsUser;
-//    itemUser.title = @"快递员";
-//    itemUser.type = 2;
-//    [self.mapView addAnnotation:itemUser]; // 添加起点标注
     
 }
 
@@ -242,55 +228,74 @@
         
         RouteAnnotation* routeAnnotation = (RouteAnnotation*)annotation;
         
-        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(functionButtonPressed)];
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(functionButtonPressed:)];
         
-        switch (routeAnnotation.type)
-        {
-//            case 0:
-//            {
-//                AnnotationView = [self.mapView dequeueReusableAnnotationViewWithIdentifier:@"start_node"];
-//                if (AnnotationView == nil) {
-//                    AnnotationView = [[BMKAnnotationView alloc]initWithAnnotation:routeAnnotation reuseIdentifier:@"start_node"];
-//                    AnnotationView.image = [UIImage imageNamed:@"icon_nav_start.png"];//[UIImage imageWithContentsOfFile:[self getMyBundlePath1:@"images/icon_nav_start.png"]];
-//                    AnnotationView.centerOffset = CGPointMake(0, -(AnnotationView.frame.size.height * 0.5));
-//                    AnnotationView.canShowCallout = TRUE;
-//                }
-//                AnnotationView.annotation = routeAnnotation;
-//            }
-//                break;
-//            case 1:{
-//                AnnotationView = [self.mapView dequeueReusableAnnotationViewWithIdentifier:@"end_node"];
-//                if (AnnotationView == nil) {
-//                    AnnotationView = [[BMKAnnotationView alloc]initWithAnnotation:routeAnnotation reuseIdentifier:@"end_node"];
-//                    AnnotationView.image = [UIImage imageNamed:@"icon_nav_end.png"];//[UIImage imageWithContentsOfFile:[self getMyBundlePath1:@"images/icon_nav_start.png"]];
-//                    AnnotationView.centerOffset = CGPointMake(0, -(AnnotationView.frame.size.height * 0.5));
-//                    AnnotationView.canShowCallout = TRUE;
-//                }
-//                AnnotationView.annotation = routeAnnotation;
-//            }
-//                break;
-//            case 2:{
-//                AnnotationView = [self.mapView dequeueReusableAnnotationViewWithIdentifier:@"user_node"];
-//                if (AnnotationView == nil) {
-//                    AnnotationView = [[BMKAnnotationView alloc]initWithAnnotation:routeAnnotation reuseIdentifier:@"user_node"];
-//                    AnnotationView.image = [UIImage imageNamed:@"icon_center_point.png"];
-//                    AnnotationView.centerOffset = CGPointMake(0, 0);
-//                    AnnotationView.canShowCallout = TRUE;
-//                }
-//                AnnotationView.annotation = routeAnnotation;
-//            }
-//                break;
+        AnnotationView = [self.mapView dequeueReusableAnnotationViewWithIdentifier:@"start_node"];
+        if (AnnotationView == nil) {
+            AnnotationView = [[BMKAnnotationView alloc]initWithAnnotation:routeAnnotation reuseIdentifier:@"start_node"];
+            AnnotationView.image = [UIImage imageNamed:@"icon_nav_start.png"];//[UIImage imageWithContentsOfFile:[self getMyBundlePath1:@"images/icon_nav_start.png"]];
+            AnnotationView.centerOffset = CGPointMake(0, -(AnnotationView.frame.size.height * 0.5));
+            AnnotationView.canShowCallout = TRUE;
+            AnnotationView.tag = routeAnnotation.type;
+            AnnotationView.annotation = routeAnnotation;
+            [AnnotationView addGestureRecognizer:tapGestureRecognizer];
         }
-        
-        [AnnotationView addGestureRecognizer:tapGestureRecognizer];
     }
     return AnnotationView;
 }
 
-- (void)functionButtonPressed
+- (void)functionButtonPressed:(UITapGestureRecognizer*)recognizer
 {
-    NSLog(@"functionButtonPressed");
+    if (self.orderDeatailView == nil) {
+        self.orderDeatailView = [[OrderDetailView alloc]init];
+    }
+    
+    //填充数据
+    NSDictionary * dicData = [self fillGoodsInfo:recognizer.view.tag];
+    if (dicData) {
+        NSValue *value = [dicData valueForKey:@"Point"];
+        //将地图焦点移动到用户选择的地方
+        CLLocationCoordinate2D coorsPoint;
+        coorsPoint.latitude = value.CGPointValue.x;
+        coorsPoint.longitude = value.CGPointValue.y;
+        [self.mapView setCenterCoordinate:coorsPoint];
+        
+        //地图上显示详细列表
+        [self.orderDeatailView showInView:self.view];
+        
+        //规划路径
+        [self NavigationPostion:[dicData valueForKey:@"startAddress"] endAddress:[dicData valueForKey:@"endAddress"]];
+    }
+    else{
+        NSLog(@"数据解析错误。");
+    }
+    
+
+    
+    //NSLog(@"functionButtonPressed %ld", recognizer.view.tag);
 }
+
+-(NSDictionary *)fillGoodsInfo:(NSInteger)index{
+    NSDictionary * dicData = self.deliveryPosision[index];
+    if (dicData) {
+        _orderDeatailView.goodsNameLabel.text = [dicData valueForKey:@"goodsType"];
+        _orderDeatailView.goodsStartLabel.text = [dicData valueForKey:@"startAddress"];
+        _orderDeatailView.goodsEndLabel.text = [dicData valueForKey:@"endAddress"];
+        _orderDeatailView.timeLabel.text = [dicData valueForKey:@"time"];
+
+        NSValue *value = [dicData valueForKey:@"valueDistance"];
+        CGPoint point = value.CGPointValue;
+        _orderDeatailView.toStartDistance.text = [NSString stringWithFormat:@"%.2fKM", point.x];
+        _orderDeatailView.toEndDistance.text = [NSString stringWithFormat:@"%.2fKM", point.y];
+    }
+    
+    return dicData;
+}
+
+-(void)NavigationPostion:(NSString *)startAddress endAddress:(NSString *)endAddress{
+    
+}
+
 /*
 #pragma mark - Navigation
 

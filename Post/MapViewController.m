@@ -40,7 +40,7 @@
     _mapView.showsUserLocation = NO;
     _mapView.userTrackingMode = BMKUserTrackingModeFollow;
     _mapView.showsUserLocation = YES;
-    _mapView.zoomLevel = 17.0;
+    _mapView.zoomLevel = 16.0;
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(createMapViewWidget)]) {
         [self.delegate createMapViewWidget];
     }
@@ -99,23 +99,23 @@
  *@param mapview 地图View
  *@param mapPoi 标注点信息
  */
-- (void)mapView:(BMKMapView *)mapView onClickedMapPoi:(BMKMapPoi*)mapPoi
-{
-    NSLog(@"onClickedMapPoi-%@",mapPoi.text);
-    NSString* showmeg = [NSString stringWithFormat:@"您点击了底图标注:%@,\r\n当前经度:%f,当前纬度:%f,\r\nZoomLevel=%d;RotateAngle=%d;OverlookAngle=%d", mapPoi.text,mapPoi.pt.longitude,mapPoi.pt.latitude, (int)_mapView.zoomLevel,_mapView.rotation,_mapView.overlooking];
-    
-    //self.addressLabel.text = mapPoi.text;
-}
-
-- (void)mapView:(BMKMapView *)mapView onClickedMapBlank:(CLLocationCoordinate2D)coordinate
-{
-    NSLog(@"onClickedMapBlank-latitude==%f,longitude==%f",coordinate.latitude,coordinate.longitude);
-    NSString* showmeg = [NSString stringWithFormat:@"您点击了地图空白处(blank click).\r\n当前经度:%f,当前纬度:%f,\r\nZoomLevel=%d;RotateAngle=%d;OverlookAngle=%d", coordinate.longitude,coordinate.latitude,
-                         (int)_mapView.zoomLevel,_mapView.rotation,_mapView.overlooking];
-    
-    CLLocationCoordinate2D pt = (CLLocationCoordinate2D){coordinate.latitude, coordinate.longitude};
-    [self reverseGeoSearch:pt];
-}
+//- (void)mapView:(BMKMapView *)mapView onClickedMapPoi:(BMKMapPoi*)mapPoi
+//{
+//    NSLog(@"onClickedMapPoi-%@",mapPoi.text);
+//    NSString* showmeg = [NSString stringWithFormat:@"您点击了底图标注:%@,\r\n当前经度:%f,当前纬度:%f,\r\nZoomLevel=%d;RotateAngle=%d;OverlookAngle=%d", mapPoi.text,mapPoi.pt.longitude,mapPoi.pt.latitude, (int)_mapView.zoomLevel,_mapView.rotation,_mapView.overlooking];
+//    
+//    //self.addressLabel.text = mapPoi.text;
+//}
+//
+//- (void)mapView:(BMKMapView *)mapView onClickedMapBlank:(CLLocationCoordinate2D)coordinate
+//{
+//    NSLog(@"onClickedMapBlank-latitude==%f,longitude==%f",coordinate.latitude,coordinate.longitude);
+//    NSString* showmeg = [NSString stringWithFormat:@"您点击了地图空白处(blank click).\r\n当前经度:%f,当前纬度:%f,\r\nZoomLevel=%d;RotateAngle=%d;OverlookAngle=%d", coordinate.longitude,coordinate.latitude,
+//                         (int)_mapView.zoomLevel,_mapView.rotation,_mapView.overlooking];
+//    
+//    CLLocationCoordinate2D pt = (CLLocationCoordinate2D){coordinate.latitude, coordinate.longitude};
+//    [self reverseGeoSearch:pt];
+//}
 
 
 

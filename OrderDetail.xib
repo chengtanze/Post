@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="TZR-7D-MAd" customClass="OrderDetailView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="深圳市南山区" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6d-VN-LLw">
+                    <rect key="frame" x="100" y="39" width="160" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="Fl5-Tl-NVi"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="O1s-5F-tFc">
+                    <rect key="frame" x="0.0" y="17" width="65" height="65"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="65" id="cez-83-JDQ"/>
+                        <constraint firstAttribute="height" constant="65" id="oov-QC-cMA"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="送货:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCO-Wc-cBv">
+                    <rect key="frame" x="73" y="0.0" width="34.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="鲜花" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NnT-oG-vcP">
+                    <rect key="frame" x="112" y="0.0" width="30" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:20" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sf-0c-mWH">
+                    <rect key="frame" x="273" y="0.0" width="38.5" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egT-5A-KBx">
+                    <rect key="frame" x="73" y="39" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="DfB-Fa-nxT"/>
+                        <constraint firstAttribute="width" constant="20" id="nxT-NI-bQJ"/>
+                    </constraints>
+                    <state key="normal" image="4-3SMART-BOX-任务_11.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhM-Ae-QqP">
+                    <rect key="frame" x="73" y="72" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="dyo-wg-4kw"/>
+                        <constraint firstAttribute="height" constant="20" id="lFb-9t-pfZ"/>
+                    </constraints>
+                    <state key="normal" image="4-3SMART-BOX-任务_11.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10.1KM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTE-KP-aT6">
+                    <rect key="frame" x="273" y="40" width="47" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2KM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNF-wd-kjG">
+                    <rect key="frame" x="292" y="74" width="28" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="深圳市宝安区" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9j-nK-kUy">
+                    <rect key="frame" x="100" y="73" width="160" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="160" id="4KV-LA-wOt"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="egT-5A-KBx" firstAttribute="top" secondItem="yCO-Wc-cBv" secondAttribute="bottom" constant="21" id="2gm-Dl-zIh"/>
+                <constraint firstItem="1sf-0c-mWH" firstAttribute="top" secondItem="TZR-7D-MAd" secondAttribute="top" id="3CA-0w-2hq"/>
+                <constraint firstItem="K6d-VN-LLw" firstAttribute="leading" secondItem="egT-5A-KBx" secondAttribute="trailing" constant="7" id="3ag-ok-aIz"/>
+                <constraint firstItem="uhM-Ae-QqP" firstAttribute="leading" secondItem="yCO-Wc-cBv" secondAttribute="leading" id="72J-Rz-pcv"/>
+                <constraint firstAttribute="trailing" secondItem="mNF-wd-kjG" secondAttribute="trailing" id="HDw-3B-rXf"/>
+                <constraint firstItem="uhM-Ae-QqP" firstAttribute="top" secondItem="egT-5A-KBx" secondAttribute="bottom" constant="13" id="LEp-Vj-pIz"/>
+                <constraint firstAttribute="trailing" secondItem="NTE-KP-aT6" secondAttribute="trailing" id="NgJ-rP-4QC"/>
+                <constraint firstItem="yCO-Wc-cBv" firstAttribute="top" secondItem="TZR-7D-MAd" secondAttribute="top" id="Pja-vu-aZB"/>
+                <constraint firstItem="f9j-nK-kUy" firstAttribute="centerY" secondItem="mNF-wd-kjG" secondAttribute="centerY" id="URk-8G-iwS"/>
+                <constraint firstItem="yCO-Wc-cBv" firstAttribute="leading" secondItem="O1s-5F-tFc" secondAttribute="trailing" constant="8" id="bZW-Hp-EP6"/>
+                <constraint firstItem="K6d-VN-LLw" firstAttribute="top" secondItem="NnT-oG-vcP" secondAttribute="bottom" constant="21" id="f2O-ed-iBr"/>
+                <constraint firstAttribute="centerY" secondItem="O1s-5F-tFc" secondAttribute="centerY" id="fyb-4A-jqc"/>
+                <constraint firstItem="NnT-oG-vcP" firstAttribute="top" secondItem="TZR-7D-MAd" secondAttribute="top" id="gxq-HL-F9p"/>
+                <constraint firstItem="f9j-nK-kUy" firstAttribute="centerY" secondItem="uhM-Ae-QqP" secondAttribute="centerY" id="hU7-Me-G2X"/>
+                <constraint firstItem="NnT-oG-vcP" firstAttribute="leading" secondItem="yCO-Wc-cBv" secondAttribute="trailing" constant="5" id="iQ0-h5-ofl"/>
+                <constraint firstItem="NTE-KP-aT6" firstAttribute="centerY" secondItem="K6d-VN-LLw" secondAttribute="centerY" id="j1M-w1-LQp"/>
+                <constraint firstItem="O1s-5F-tFc" firstAttribute="leading" secondItem="TZR-7D-MAd" secondAttribute="leading" id="jlT-t9-i74"/>
+                <constraint firstItem="uhM-Ae-QqP" firstAttribute="leading" secondItem="egT-5A-KBx" secondAttribute="leading" id="ln9-UY-Pad"/>
+                <constraint firstItem="f9j-nK-kUy" firstAttribute="top" secondItem="K6d-VN-LLw" secondAttribute="bottom" constant="12.5" id="ot6-Ws-6hF"/>
+                <constraint firstAttribute="trailing" secondItem="1sf-0c-mWH" secondAttribute="trailing" constant="8" id="ph3-JB-I8v"/>
+                <constraint firstItem="K6d-VN-LLw" firstAttribute="leading" secondItem="f9j-nK-kUy" secondAttribute="leading" id="r7e-FL-SNA"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="ot6-Ws-6hF"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="goodsEndLabel" destination="f9j-nK-kUy" id="sMu-gU-2kg"/>
+                <outlet property="goodsImageView" destination="O1s-5F-tFc" id="MFd-fj-vhG"/>
+                <outlet property="goodsNameLabel" destination="NnT-oG-vcP" id="LwE-VI-BwK"/>
+                <outlet property="goodsStartLabel" destination="K6d-VN-LLw" id="YVy-WE-Om8"/>
+                <outlet property="timeLabel" destination="1sf-0c-mWH" id="GwS-YN-zpa"/>
+                <outlet property="toEndDistance" destination="mNF-wd-kjG" id="FAA-3Y-ccQ"/>
+                <outlet property="toStartDistance" destination="NTE-KP-aT6" id="mbP-Jc-NdW"/>
+            </connections>
+            <point key="canvasLocation" x="284" y="290"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="4-3SMART-BOX-任务_11.png" width="97" height="97"/>
+        <image name="5.jpg" width="210" height="148"/>
+    </resources>
+</document>
