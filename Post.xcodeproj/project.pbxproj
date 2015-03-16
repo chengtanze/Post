@@ -44,6 +44,7 @@
 		1483DA0B1A8856CF003A3B8B /* 4-4SMART-BOX-消息_启动预警.png in Resources */ = {isa = PBXBuildFile; fileRef = 1483DA091A8856CF003A3B8B /* 4-4SMART-BOX-消息_启动预警.png */; };
 		1483DA0E1A885896003A3B8B /* OrderTrack_UserItem_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1483DA0D1A885896003A3B8B /* OrderTrack_UserItem_Cell.m */; };
 		148BC3A91AA5FE3100819910 /* OrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148BC3A81AA5FE3100819910 /* OrderDetailTableViewController.m */; };
+		14AB64DB1AB70A3D0064C032 /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AB64DA1AB70A3D0064C032 /* UIImage+Rotate.m */; };
 		14B700A41AB527360036211F /* OrderDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B700A31AB527360036211F /* OrderDetailView.m */; };
 		14B700A61AB5276C0036211F /* OrderDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B700A51AB5276C0036211F /* OrderDetail.xib */; };
 		14BD142A1A7C90E1007F9287 /* MapSearchViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 14BD14291A7C90E1007F9287 /* MapSearchViewController.mm */; };
@@ -170,6 +171,8 @@
 		1483DA0D1A885896003A3B8B /* OrderTrack_UserItem_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderTrack_UserItem_Cell.m; path = Post/OrderTrack_UserItem_Cell.m; sourceTree = "<group>"; };
 		148BC3A71AA5FE3100819910 /* OrderDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDetailTableViewController.h; path = Post/OrderDetailTableViewController.h; sourceTree = "<group>"; };
 		148BC3A81AA5FE3100819910 /* OrderDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDetailTableViewController.m; path = Post/OrderDetailTableViewController.m; sourceTree = "<group>"; };
+		14AB64D91AB70A3D0064C032 /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Rotate.h"; path = "Post/UIImage+Rotate.h"; sourceTree = "<group>"; };
+		14AB64DA1AB70A3D0064C032 /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Rotate.m"; path = "Post/UIImage+Rotate.m"; sourceTree = "<group>"; };
 		14B700A21AB527360036211F /* OrderDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDetailView.h; path = Post/OrderDetailView.h; sourceTree = "<group>"; };
 		14B700A31AB527360036211F /* OrderDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDetailView.m; path = Post/OrderDetailView.m; sourceTree = "<group>"; };
 		14B700A51AB5276C0036211F /* OrderDetail.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderDetail.xib; sourceTree = "<group>"; };
@@ -718,6 +721,8 @@
 		FC81BC7F1A7A0D0A00D6C78F /* Coustom */ = {
 			isa = PBXGroup;
 			children = (
+				14AB64D91AB70A3D0064C032 /* UIImage+Rotate.h */,
+				14AB64DA1AB70A3D0064C032 /* UIImage+Rotate.m */,
 				FCD6C5B91AA31616008D5E23 /* CityListViewController.h */,
 				FCD6C5BA1AA31616008D5E23 /* CityListViewController.m */,
 				FCD6C5B41AA2FCC3008D5E23 /* GMDCircleLoader.h */,
@@ -920,6 +925,7 @@
 				14408D281AA1FCAE00EC6D79 /* GoodsInCompleteViewController.m in Sources */,
 				1443E92F1A9ED37E006BC700 /* SCPopView.m in Sources */,
 				14CE5FC71A74CF8400A19C36 /* ViewController.m in Sources */,
+				14AB64DB1AB70A3D0064C032 /* UIImage+Rotate.m in Sources */,
 				1458F3521A8AF3A900AB04D6 /* Media_Photo.m in Sources */,
 				FC7FC7ED1A7875C3004B3909 /* TabBarViewController.m in Sources */,
 				FC7FC7F31A787C4B004B3909 /* HomeViewController.m in Sources */,

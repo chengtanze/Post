@@ -16,6 +16,7 @@
 
 @synthesize type = _type;
 @synthesize degree = _degree;
+@synthesize userTag = _userTag;
 @end
 
 static MapPulicFunction *sharedObj = nil; //第一步：静态实例，并初始化。

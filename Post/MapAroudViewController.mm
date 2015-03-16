@@ -9,6 +9,7 @@
 #import "MapAroudViewController.h"
 #import "MapPulicFunction.h"
 #import "OrderDetailView.h"
+#import "UIImage+Rotate.h"
 #define POST_TIMER_GETUSERGPS (2.0)
 
 
@@ -32,10 +33,15 @@
     // Do any additional setup after loading the view.
     //[self addOverlayView];
     
-    [self startGetUserGps];
+    //[self startGetUserGps];
     [self getReverseGeoAddress];
     
     [self analysisAroudGoodsData];
+    
+    
+    //[self NavigationPostion:@"宝安区铁岗水库" endAddress:@"宝安区凤凰岗村"];
+    
+    
     NSLog(@"MapAroudViewController viewDidLoad");
 }
 
@@ -113,8 +119,8 @@
     
     //设置货品名称
     NSString * goodsType = @"鲜花";
-    NSString * startAddress = @"深圳市南山区清华信息港";
-    NSString * endAddress = @"深圳市南山区蛇口南海大道";
+    NSString * startAddress = @"宝安区铁岗水库";
+    NSString * endAddress = @"宝安区凤凰岗村";
     
     //设置距离
     NSInteger userToStartDistance = 10.1;
@@ -140,8 +146,8 @@
     
     //设置货品名称
     NSString * goodsType2 = @"数码产品";
-    NSString * startAddress2 = @"深圳市南山区同方信息港";
-    NSString * endAddress2 = @"深圳市南山区科技园";
+    NSString * startAddress2 = @"宝安区铁岗水库";
+    NSString * endAddress2 = @"宝安区丽景城";
     
     
     NSDictionary * dic2 = [[NSDictionary alloc]initWithObjectsAndKeys: pointValue2, @"Point", goodsType2, @"goodsType", startAddress2, @"startAddress", endAddress2, @"endAddress", valueDistance, @"valueDistance", time, @"time", nil];
@@ -191,6 +197,13 @@
         
         return circleView;
     }
+    if ([overlay isKindOfClass:[BMKPolyline class]]) {
+        BMKPolylineView* polylineView = [[BMKPolylineView alloc] initWithOverlay:overlay];
+        polylineView.fillColor = [[UIColor cyanColor] colorWithAlphaComponent:1];
+        polylineView.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.7];
+        polylineView.lineWidth = 3.0;
+        return polylineView;
+    }
     
     return nil;
 }
@@ -215,6 +228,7 @@
             itemStart.coordinate = coorsStart;
             itemStart.title = @"起点";
             itemStart.type = 6;
+            itemStart.userTag = index;
             [self.mapView addAnnotation:itemStart]; // 添加起点标注
         }
     }
@@ -223,31 +237,10 @@
 
 - (BMKAnnotationView *)mapView:(BMKMapView *)view viewForAnnotation:(id <BMKAnnotation>)annotation
 {
-    BMKAnnotationView* AnnotationView = nil;
-//    if ([annotation isKindOfClass:[RouteAnnotation class]]) {
-//        
-//        RouteAnnotation* routeAnnotation = (RouteAnnotation*)annotation;
-//        
-//        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(functionButtonPressed:)];
-//        
-//        AnnotationView = [self.mapView dequeueReusableAnnotationViewWithIdentifier:@"start_node"];
-//        if (AnnotationView == nil) {
-//            AnnotationView = [[BMKAnnotationView alloc]initWithAnnotation:routeAnnotation reuseIdentifier:@"start_node"];
-//            AnnotationView.image = [UIImage imageNamed:@"icon_nav_start.png"];//[UIImage imageWithContentsOfFile:[self getMyBundlePath1:@"images/icon_nav_start.png"]];
-//            AnnotationView.centerOffset = CGPointMake(0, -(AnnotationView.frame.size.height * 0.5));
-//            AnnotationView.canShowCallout = TRUE;
-//            AnnotationView.tag = routeAnnotation.type;
-//            AnnotationView.annotation = routeAnnotation;
-//            [AnnotationView addGestureRecognizer:tapGestureRecognizer];
-//        }
-//    }
-    
     if ([annotation isKindOfClass:[RouteAnnotation class]]) {
         return [self getRouteAnnotationView:view viewForAnnotation:(RouteAnnotation*)annotation];
     }
     return nil;
-    
-    return AnnotationView;
 }
 
 - (void)functionButtonPressed:(UITapGestureRecognizer*)recognizer
@@ -257,7 +250,7 @@
     }
     
     //填充数据
-    NSDictionary * dicData = [self fillGoodsInfo:recognizer.view.tag];
+    NSDictionary * dicData = [self fillGoodsInfo:recognizer.view.tag];//
     if (dicData) {
         NSValue *value = [dicData valueForKey:@"Point"];
         //将地图焦点移动到用户选择的地方
@@ -323,7 +316,7 @@
 - (void)onGetDrivingRouteResult:(BMKRouteSearch*)searcher result:(BMKDrivingRouteResult*)result errorCode:(BMKSearchErrorCode)error
 {
     NSArray* array = [NSArray arrayWithArray:self.mapView.annotations];
-    [self.mapView removeAnnotations:array];
+//    [self.mapView removeAnnotations:array];
     array = [NSArray arrayWithArray:self.mapView.overlays];
     [self.mapView removeOverlays:array];
     if (error == BMK_SEARCH_NO_ERROR) {
@@ -415,6 +408,7 @@
             if (view == nil) {
                 view = [[BMKAnnotationView alloc]initWithAnnotation:routeAnnotation reuseIdentifier:@"start_node"];
                 view.image = [UIImage imageWithContentsOfFile:[self getMyBundlePath1:@"images/icon_nav_start.png"]];
+
                 view.centerOffset = CGPointMake(0, -(view.frame.size.height * 0.5));
                 view.canShowCallout = TRUE;
             }
@@ -488,17 +482,17 @@
             break;
         case 6:
         {
-            RouteAnnotation* routeAnnotation = (RouteAnnotation*)routeAnnotation;
+            //RouteAnnotation* routeAnnotation = (RouteAnnotation*)routeAnnotation;
             
             UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(functionButtonPressed:)];
             
-            view = [self.mapView dequeueReusableAnnotationViewWithIdentifier:@"start_node"];
+            view = [self.mapView dequeueReusableAnnotationViewWithIdentifier:@"user_node"];
             if (view == nil) {
-                view = [[BMKAnnotationView alloc]initWithAnnotation:routeAnnotation reuseIdentifier:@"start_node"];
+                view = [[BMKAnnotationView alloc]initWithAnnotation:routeAnnotation reuseIdentifier:@"user_node"];
                 view.image = [UIImage imageNamed:@"icon_nav_start.png"];//[UIImage imageWithContentsOfFile:[self getMyBundlePath1:@"images/icon_nav_start.png"]];
                 view.centerOffset = CGPointMake(0, -(view.frame.size.height * 0.5));
                 view.canShowCallout = TRUE;
-                view.tag = routeAnnotation.type;
+                view.tag = routeAnnotation.userTag;
                 view.annotation = routeAnnotation;
                 [view addGestureRecognizer:tapGestureRecognizer];
             }
@@ -509,6 +503,18 @@
     
     return view;
 }
+
+//- (BMKOverlayView*)mapView:(BMKMapView *)map viewForOverlay:(id<BMKOverlay>)overlay
+//{
+//    if ([overlay isKindOfClass:[BMKPolyline class]]) {
+//        BMKPolylineView* polylineView = [[BMKPolylineView alloc] initWithOverlay:overlay];
+//        polylineView.fillColor = [[UIColor cyanColor] colorWithAlphaComponent:1];
+//        polylineView.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.7];
+//        polylineView.lineWidth = 3.0;
+//        return polylineView;
+//    }
+//    return nil;
+//}
 
 //- (BMKAnnotationView *)mapView:(BMKMapView *)view viewForAnnotation:(id <BMKAnnotation>)annotation
 //{
