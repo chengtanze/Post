@@ -25,7 +25,15 @@
 
 @interface MapViewController : UIViewController
 
-@property(nonatomic, strong)BMKAddressComponent* addressDetail;    //记录用户逆地理地址
+
+@property(nonatomic, strong)BMKMapManager* mapManager;
+@property(nonatomic, strong)CLLocationManager * locationManager;
+@property(nonatomic, strong)BMKPoiSearch* poiSearch;
+@property(nonatomic, strong)BMKLocationService* locService;         //定位服务
+@property(nonatomic, strong)BMKGeoCodeSearch* geoCodeSearch;        //逆地理查询
+@property(nonatomic, strong)BMKRouteSearch *routeSearch;            //路径导航
+
+@property(nonatomic, strong)BMKAddressComponent* addressDetail;     //记录用户逆地理地址
 @property(nonatomic, strong)BMKUserLocation * userLocation;         //记录用户gps地址
 @property(nonatomic, weak)id<MapViewDelegate> delegate;
 @property(nonatomic, strong)BMKMapView *mapView;

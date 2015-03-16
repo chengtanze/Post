@@ -8,19 +8,12 @@
 
 #import "MapViewController.h"
 #import "MapPulicFunction.h"
-@interface MapViewController ()<BMKGeneralDelegate, BMKMapViewDelegate, CLLocationManagerDelegate, BMKPoiSearchDelegate, BMKLocationServiceDelegate, BMKGeoCodeSearchDelegate, UISearchBarDelegate>
+@interface MapViewController ()<BMKGeneralDelegate, BMKMapViewDelegate, CLLocationManagerDelegate, BMKPoiSearchDelegate, BMKLocationServiceDelegate, BMKGeoCodeSearchDelegate, UISearchBarDelegate, BMKRouteSearchDelegate>
 {
     CLLocation *checkinLocation;
     BOOL bGetGeo;
 }
 
-@property(nonatomic, strong)BMKMapManager* mapManager;
-
-@property(nonatomic, strong)CLLocationManager * locationManager;
-@property(nonatomic, strong)BMKPoiSearch* poiSearch;
-
-@property(nonatomic, strong)BMKLocationService* locService; //定位服务
-@property(nonatomic, strong)BMKGeoCodeSearch* geoCodeSearch;//逆地理查询
 
 @end
 
@@ -56,6 +49,7 @@
 }
 
 -(void)initPOI{
+    self.routeSearch = [[BMKRouteSearch alloc]init];
     self.poiSearch = [[BMKPoiSearch alloc]init];
     self.locService = [[BMKLocationService alloc]init];
     self.geoCodeSearch = [[BMKGeoCodeSearch alloc]init];
@@ -67,6 +61,7 @@
     _poiSearch.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
     self.locService.delegate = self;
     self.geoCodeSearch.delegate = self;
+    _routeSearch.delegate = self; // 此处记得不用的时候需要置nil，否则影响内存的释放
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -76,6 +71,7 @@
     _poiSearch.delegate = nil; // 不用时，置nil
     self.locService.delegate = nil;
     self.geoCodeSearch.delegate = nil;
+    _routeSearch.delegate = nil; // 不用时，置nil
 }
 
 - (void)onGetGeoCodeResult:(BMKGeoCodeSearch *)searcher result:(BMKGeoCodeResult *)result errorCode:(BMKSearchErrorCode)error

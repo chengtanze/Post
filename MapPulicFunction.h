@@ -12,7 +12,8 @@
 
 @interface RouteAnnotation : BMKPointAnnotation
 {
-    int _type; ///<0:起点 1：终点 2：用户点
+    int _type; ///<0:起点 1：终点 2：公交 3：地铁 4:驾乘 5:途经点 6：用户点
+    //int _type; ///<0:起点 1：终点
     int _degree;
 }
 
