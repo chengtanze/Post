@@ -91,6 +91,12 @@
 		FC84C0B21AAF08630074F65C /* MapAroudViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC84C0B11AAF08630074F65C /* MapAroudViewController.mm */; };
 		FC84C0B51AAF09160074F65C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC84C0B41AAF09160074F65C /* MapViewController.m */; };
 		FC98FBB81AAD8B66005E2DB0 /* ConfirmDeliveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC98FBB71AAD8B66005E2DB0 /* ConfirmDeliveryViewController.m */; };
+		FCA8C8041AB8151A00830AD5 /* fast_turn_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA8C8001AB8151A00830AD5 /* fast_turn_icon@2x.png */; };
+		FCA8C8051AB8151A00830AD5 /* over_speed_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA8C8011AB8151A00830AD5 /* over_speed_icon@2x.png */; };
+		FCA8C8061AB8151A00830AD5 /* poi_2.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA8C8021AB8151A00830AD5 /* poi_2.png */; };
+		FCA8C8071AB8151A00830AD5 /* poi_3.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA8C8031AB8151A00830AD5 /* poi_3.png */; };
+		FCA8C80A1AB815BA00830AD5 /* SelectRangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA8C8091AB815BA00830AD5 /* SelectRangeView.m */; };
+		FCA8C80C1AB815D900830AD5 /* SelectRange.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCA8C80B1AB815D900830AD5 /* SelectRange.xib */; };
 		FCD6C5B61AA2FCC3008D5E23 /* GMDCircleLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6C5B51AA2FCC3008D5E23 /* GMDCircleLoader.m */; };
 		FCD6C5B81AA3144C008D5E23 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCD6C5B71AA3144C008D5E23 /* citydict.plist */; };
 		FCD6C5BB1AA31616008D5E23 /* CityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6C5BA1AA31616008D5E23 /* CityListViewController.m */; };
@@ -302,6 +308,13 @@
 		FC84C0B41AAF09160074F65C /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = Post/MapViewController.m; sourceTree = "<group>"; };
 		FC98FBB61AAD8B66005E2DB0 /* ConfirmDeliveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfirmDeliveryViewController.h; path = Post/ConfirmDeliveryViewController.h; sourceTree = "<group>"; };
 		FC98FBB71AAD8B66005E2DB0 /* ConfirmDeliveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfirmDeliveryViewController.m; path = Post/ConfirmDeliveryViewController.m; sourceTree = "<group>"; };
+		FCA8C8001AB8151A00830AD5 /* fast_turn_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fast_turn_icon@2x.png"; path = "image/fast_turn_icon@2x.png"; sourceTree = "<group>"; };
+		FCA8C8011AB8151A00830AD5 /* over_speed_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "over_speed_icon@2x.png"; path = "image/over_speed_icon@2x.png"; sourceTree = "<group>"; };
+		FCA8C8021AB8151A00830AD5 /* poi_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = poi_2.png; path = image/poi_2.png; sourceTree = "<group>"; };
+		FCA8C8031AB8151A00830AD5 /* poi_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = poi_3.png; path = image/poi_3.png; sourceTree = "<group>"; };
+		FCA8C8081AB815BA00830AD5 /* SelectRangeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectRangeView.h; path = Post/SelectRangeView.h; sourceTree = "<group>"; };
+		FCA8C8091AB815BA00830AD5 /* SelectRangeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectRangeView.m; path = Post/SelectRangeView.m; sourceTree = "<group>"; };
+		FCA8C80B1AB815D900830AD5 /* SelectRange.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectRange.xib; path = Post/SelectRange.xib; sourceTree = "<group>"; };
 		FCD6C5B41AA2FCC3008D5E23 /* GMDCircleLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GMDCircleLoader.h; path = Post/GMDCircleLoader.h; sourceTree = "<group>"; };
 		FCD6C5B51AA2FCC3008D5E23 /* GMDCircleLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GMDCircleLoader.m; path = Post/GMDCircleLoader.m; sourceTree = "<group>"; };
 		FCD6C5B71AA3144C008D5E23 /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
@@ -700,6 +713,10 @@
 		14CE5FE91A74D33800A19C36 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				FCA8C8001AB8151A00830AD5 /* fast_turn_icon@2x.png */,
+				FCA8C8011AB8151A00830AD5 /* over_speed_icon@2x.png */,
+				FCA8C8021AB8151A00830AD5 /* poi_2.png */,
+				FCA8C8031AB8151A00830AD5 /* poi_3.png */,
 				1483DA081A8856CF003A3B8B /* 4-3SMART-BOX-任务_11.png */,
 				1483DA091A8856CF003A3B8B /* 4-4SMART-BOX-消息_启动预警.png */,
 				1454D0831A861E57003033D3 /* icon_center_point.png */,
@@ -750,6 +767,9 @@
 				14B700A21AB527360036211F /* OrderDetailView.h */,
 				14B700A31AB527360036211F /* OrderDetailView.m */,
 				14B700A51AB5276C0036211F /* OrderDetail.xib */,
+				FCA8C8081AB815BA00830AD5 /* SelectRangeView.h */,
+				FCA8C8091AB815BA00830AD5 /* SelectRangeView.m */,
+				FCA8C80B1AB815D900830AD5 /* SelectRange.xib */,
 			);
 			name = Coustom;
 			sourceTree = "<group>";
@@ -850,11 +870,14 @@
 				1454D0851A861E57003033D3 /* icon_center_point.png in Resources */,
 				FC81BC8D1A7A0E6B00D6C78F /* 5.jpg in Resources */,
 				14CE5FED1A74D34A00A19C36 /* Default@2x.png in Resources */,
+				FCA8C80C1AB815D900830AD5 /* SelectRange.xib in Resources */,
 				142B22581A7DD84100363BD9 /* area.plist in Resources */,
 				14BD6BAD1A7CE61D001A8535 /* icon_direction.png in Resources */,
 				1454D0821A861BF9003033D3 /* icon_nav_start@2x.png in Resources */,
 				14CE5FEE1A74D34A00A19C36 /* Default-568h@2x.png in Resources */,
 				1454D0861A861E57003033D3 /* icon_center_point@2x.png in Resources */,
+				FCA8C8061AB8151A00830AD5 /* poi_2.png in Resources */,
+				FCA8C8041AB8151A00830AD5 /* fast_turn_icon@2x.png in Resources */,
 				FC81BC891A7A0E6B00D6C78F /* 1.JPG in Resources */,
 				1483DA0B1A8856CF003A3B8B /* 4-4SMART-BOX-消息_启动预警.png in Resources */,
 				FCD6C5B81AA3144C008D5E23 /* citydict.plist in Resources */,
@@ -867,12 +890,14 @@
 				1483DA0A1A8856CF003A3B8B /* 4-3SMART-BOX-任务_11.png in Resources */,
 				FC81BC951A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_行驶-d.png in Resources */,
 				FC81BC8B1A7A0E6B00D6C78F /* 3.JPG in Resources */,
+				FCA8C8071AB8151A00830AD5 /* poi_3.png in Resources */,
 				FC81BC8A1A7A0E6B00D6C78F /* 2.JPG in Resources */,
 				1454D0811A861BF9003033D3 /* icon_nav_end@2x.png in Resources */,
 				14CE5FCC1A74CF8400A19C36 /* Images.xcassets in Resources */,
 				1454D07D1A85F6F1003033D3 /* icon_nav_end.png in Resources */,
 				1454D07E1A85F6F1003033D3 /* icon_nav_start.png in Resources */,
 				1483DA071A885293003A3B8B /* OrderTrack_UserItem.xib in Resources */,
+				FCA8C8051AB8151A00830AD5 /* over_speed_icon@2x.png in Resources */,
 				14BD14301A7C91D5007F9287 /* mapapi.bundle in Resources */,
 				14B700A61AB5276C0036211F /* OrderDetail.xib in Resources */,
 			);
@@ -904,6 +929,7 @@
 				FC821BA21AA4561700F4B0C9 /* GoodsInCancleViewController.m in Sources */,
 				14456D6F1AAC373F0067068E /* TaskOrderViewController.m in Sources */,
 				145991371A89F42F00710CF2 /* PhotoGroupTableViewCell.m in Sources */,
+				FCA8C80A1AB815BA00830AD5 /* SelectRangeView.m in Sources */,
 				1443E9EA1A9F1714006BC700 /* GoodsInProgressViewController.m in Sources */,
 				142B22521A7DD4AA00363BD9 /* HZAreaPickerView.m in Sources */,
 				FC84C0B51AAF09160074F65C /* MapViewController.m in Sources */,

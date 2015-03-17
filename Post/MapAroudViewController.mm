@@ -10,6 +10,8 @@
 #import "MapPulicFunction.h"
 #import "OrderDetailView.h"
 #import "UIImage+Rotate.h"
+#import "SelectRangeView.h"
+
 #define POST_TIMER_GETUSERGPS (2.0)
 
 
@@ -23,6 +25,7 @@
 
 @property(nonatomic, strong)NSArray * deliveryPosision;
 @property(nonatomic, strong)OrderDetailView * orderDeatailView;
+@property(nonatomic, strong)SelectRangeView * selectRangeView;
 @end
 
 @implementation MapAroudViewController
@@ -93,9 +96,41 @@
     //[self addGroundOverlay];
 }
 
+#define POST_MAPVIEW_ADDRESSINFO_HEIGHT (50.0)
+
 //创建地图上的控件
 -(void)createMapViewWidget{
     NSLog(@"createMapViewWidget");
+    
+    //定位按钮
+    UIButton * but = [[UIButton alloc]initWithFrame:CGRectMake(10, self.view.bounds.size.height - POST_MAPVIEW_ADDRESSINFO_HEIGHT * 2, 20, 20)];
+    [but setBackgroundImage:[UIImage imageNamed:@"fast_turn_icon"] forState:UIControlStateNormal];
+    [but addTarget:self action:@selector(handleButtonTap:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:but];
+    
+    //范围选择按钮
+    UIButton * butRange = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width - 30, self.view.bounds.size.height - POST_MAPVIEW_ADDRESSINFO_HEIGHT * 2, 20, 20)];
+    [butRange setBackgroundImage:[UIImage imageNamed:@"over_speed_icon"] forState:UIControlStateNormal];
+    [butRange addTarget:self action:@selector(handleButtonRangeTap:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:butRange];
+}
+
+-(void)handleButtonTap:(id)sender{
+    NSLog(@"handleButtonTap");
+
+    self.mapView.showsUserLocation = NO;
+    self.mapView.userTrackingMode = BMKUserTrackingModeFollow;
+    self.mapView.showsUserLocation = YES;
+}
+
+-(void)handleButtonRangeTap:(id)sender{
+    NSLog(@"handleButtonRangeTap");
+
+    if (self.selectRangeView == nil) {
+        self.selectRangeView = [[SelectRangeView alloc]init];
+    }
+    
+    [self.selectRangeView showInView:self.view];
 }
 
 //绘制用户背景图
@@ -313,12 +348,32 @@
     }
 }
 
-- (void)onGetDrivingRouteResult:(BMKRouteSearch*)searcher result:(BMKDrivingRouteResult*)result errorCode:(BMKSearchErrorCode)error
-{
+-(void)removeMapMark{
     NSArray* array = [NSArray arrayWithArray:self.mapView.annotations];
-//    [self.mapView removeAnnotations:array];
+
+    NSMutableArray *arrayAnnot = [[NSMutableArray alloc]initWithCapacity:array.count];
+    for(int nIndex = 0; nIndex < array.count; nIndex++)
+    {
+        RouteAnnotation* route = array[nIndex];
+        if (route != nil && route.type != 6) {
+            [arrayAnnot addObject:route];
+        }
+    }
+    
+    //删除上次导航的起始标记点
+    if (arrayAnnot.count > 0) {
+        [self.mapView removeAnnotations:arrayAnnot];
+    }
+    
+    //删除之前的路径规划点
     array = [NSArray arrayWithArray:self.mapView.overlays];
     [self.mapView removeOverlays:array];
+}
+
+- (void)onGetDrivingRouteResult:(BMKRouteSearch*)searcher result:(BMKDrivingRouteResult*)result errorCode:(BMKSearchErrorCode)error
+{
+    [self removeMapMark];
+    
     if (error == BMK_SEARCH_NO_ERROR) {
         BMKDrivingRouteLine* plan = (BMKDrivingRouteLine*)[result.routes objectAtIndex:0];
         // 计算路线方案中的路段数目
@@ -504,25 +559,6 @@
     return view;
 }
 
-//- (BMKOverlayView*)mapView:(BMKMapView *)map viewForOverlay:(id<BMKOverlay>)overlay
-//{
-//    if ([overlay isKindOfClass:[BMKPolyline class]]) {
-//        BMKPolylineView* polylineView = [[BMKPolylineView alloc] initWithOverlay:overlay];
-//        polylineView.fillColor = [[UIColor cyanColor] colorWithAlphaComponent:1];
-//        polylineView.strokeColor = [[UIColor blueColor] colorWithAlphaComponent:0.7];
-//        polylineView.lineWidth = 3.0;
-//        return polylineView;
-//    }
-//    return nil;
-//}
-
-//- (BMKAnnotationView *)mapView:(BMKMapView *)view viewForAnnotation:(id <BMKAnnotation>)annotation
-//{
-//    if ([annotation isKindOfClass:[RouteAnnotation class]]) {
-//        return [self getRouteAnnotationView:view viewForAnnotation:(RouteAnnotation*)annotation];
-//    }
-//    return nil;
-//}
 
 /*
 #pragma mark - Navigation

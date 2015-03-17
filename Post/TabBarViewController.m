@@ -26,13 +26,13 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     //判断是否是第一次登陆，隐藏主页
-    //self.view.hidden = YES;
+    self.view.hidden = YES;
 }
 
 -(void)viewDidAppear:(BOOL)animated{
     
     //判断是否是第一次登陆，显示引导页
-    //[self performSegueWithIdentifier:@"LeadView" sender:self];
+    [self performSegueWithIdentifier:@"LeadView" sender:self];
 }
 
 /*
