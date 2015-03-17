@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "BMapKit.h"
+#import "WWSideslipViewController.h"
+
+
 @interface AppDelegate ()<BMKGeneralDelegate>
 @property(nonatomic, strong)BMKMapManager* mapManager;
 @end
@@ -32,6 +35,27 @@
     
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController * MainViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"TabBarViewController"];
+    UIViewController * rightViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"OrderDetailTableViewController"];
+    
+    WWSideslipViewController * slide = [[WWSideslipViewController alloc]initWithLeftView:nil andMainView:MainViewController andRightView:nil andBackgroundImage:[UIImage imageNamed:@"bg.png"]];
+    
+    //滑动速度系数
+    [slide setSpeedf:0.5];
+    
+    //点击视图是是否恢复位置
+    slide.sideslipTapGes.enabled = YES;
+    
+    [self.window setRootViewController:slide];
+    
+    [self.window makeKeyAndVisible];
+    
     // Override point for customization after application launch.
     self.mapManager = [[BMKMapManager alloc]init];
     // 如果要关注网络及授权验证事件，请设定     generalDelegate参数
