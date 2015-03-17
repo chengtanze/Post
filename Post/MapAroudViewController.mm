@@ -17,8 +17,9 @@
 
 
 
-@interface MapAroudViewController ()<MapViewDelegate>
+@interface MapAroudViewController ()<MapViewDelegate, SelectRangeDelegate>
 {
+    NSInteger currRange;
     NSTimer* connectionTimer;
     BMKCircle* circle;
 }
@@ -36,11 +37,10 @@
     // Do any additional setup after loading the view.
     //[self addOverlayView];
     
-    //[self startGetUserGps];
+    [self startGetUserGps];
     [self getReverseGeoAddress];
-    
     [self analysisAroudGoodsData];
-    
+    currRange = 600;
     
     //[self NavigationPostion:@"宝安区铁岗水库" endAddress:@"宝安区凤凰岗村"];
     
@@ -128,6 +128,7 @@
 
     if (self.selectRangeView == nil) {
         self.selectRangeView = [[SelectRangeView alloc]init];
+        self.selectRangeView.delegate = self;
     }
     
     [self.selectRangeView showInView:self.view];
@@ -209,12 +210,12 @@
 //        CLLocationCoordinate2D coor;
 //        coor.latitude = 22.599368;
 //        coor.longitude = 113.909327;
-        circle = [BMKCircle circleWithCenterCoordinate:self.userLocation.location.coordinate radius:600];//
+        circle = [BMKCircle circleWithCenterCoordinate:self.userLocation.location.coordinate radius:currRange];//
     }
     else{
         [self.mapView removeOverlay:circle];
         circle = nil;
-        circle = [BMKCircle circleWithCenterCoordinate:self.userLocation.location.coordinate radius:600];
+        circle = [BMKCircle circleWithCenterCoordinate:self.userLocation.location.coordinate radius:currRange];
     }
     
     [self.mapView addOverlay:circle];
@@ -557,6 +558,11 @@
     }
     
     return view;
+}
+
+- (void)pickerDidChaneStatus:(SelectRangeView *)picker{
+    NSString * str = picker.distance;
+    currRange = [str integerValue];
 }
 
 
