@@ -38,6 +38,7 @@
 		145991371A89F42F00710CF2 /* PhotoGroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 145991361A89F42F00710CF2 /* PhotoGroupTableViewCell.m */; };
 		1459ABB31AA088FB0041CEBB /* GoodsInProgress_Order_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1459ABB21AA088FB0041CEBB /* GoodsInProgress_Order_Cell.m */; };
 		1459ABB61AA0893E0041CEBB /* GoodsInProgress_GoodsInfo_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1459ABB51AA0893E0041CEBB /* GoodsInProgress_GoodsInfo_Cell.m */; };
+		1477174E1AB9B41900540E65 /* 5-SMART-BOX-more-user.png in Resources */ = {isa = PBXBuildFile; fileRef = 1477174D1AB9B41900540E65 /* 5-SMART-BOX-more-user.png */; };
 		1478BE3B1A83AAAA006B03ED /* OrderTrackViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1478BE3A1A83AAAA006B03ED /* OrderTrackViewController.mm */; };
 		1483DA071A885293003A3B8B /* OrderTrack_UserItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1483DA061A885293003A3B8B /* OrderTrack_UserItem.xib */; };
 		1483DA0A1A8856CF003A3B8B /* 4-3SMART-BOX-任务_11.png in Resources */ = {isa = PBXBuildFile; fileRef = 1483DA081A8856CF003A3B8B /* 4-3SMART-BOX-任务_11.png */; };
@@ -170,6 +171,7 @@
 		1459ABB21AA088FB0041CEBB /* GoodsInProgress_Order_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsInProgress_Order_Cell.m; path = Post/GoodsInProgress_Order_Cell.m; sourceTree = "<group>"; };
 		1459ABB41AA0893E0041CEBB /* GoodsInProgress_GoodsInfo_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsInProgress_GoodsInfo_Cell.h; path = Post/GoodsInProgress_GoodsInfo_Cell.h; sourceTree = "<group>"; };
 		1459ABB51AA0893E0041CEBB /* GoodsInProgress_GoodsInfo_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsInProgress_GoodsInfo_Cell.m; path = Post/GoodsInProgress_GoodsInfo_Cell.m; sourceTree = "<group>"; };
+		1477174D1AB9B41900540E65 /* 5-SMART-BOX-more-user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "5-SMART-BOX-more-user.png"; path = "image/5-SMART-BOX-more-user.png"; sourceTree = "<group>"; };
 		1478BE391A83AAAA006B03ED /* OrderTrackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderTrackViewController.h; path = Post/OrderTrackViewController.h; sourceTree = "<group>"; };
 		1478BE3A1A83AAAA006B03ED /* OrderTrackViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = OrderTrackViewController.mm; path = Post/OrderTrackViewController.mm; sourceTree = "<group>"; };
 		1483DA061A885293003A3B8B /* OrderTrack_UserItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderTrack_UserItem.xib; sourceTree = "<group>"; };
@@ -720,6 +722,7 @@
 		14CE5FE91A74D33800A19C36 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				1477174D1AB9B41900540E65 /* 5-SMART-BOX-more-user.png */,
 				14A668601AB86E4400C534E0 /* bg.png */,
 				FCA8C8001AB8151A00830AD5 /* fast_turn_icon@2x.png */,
 				FCA8C8011AB8151A00830AD5 /* over_speed_icon@2x.png */,
@@ -882,6 +885,7 @@
 				142B22581A7DD84100363BD9 /* area.plist in Resources */,
 				14BD6BAD1A7CE61D001A8535 /* icon_direction.png in Resources */,
 				1454D0821A861BF9003033D3 /* icon_nav_start@2x.png in Resources */,
+				1477174E1AB9B41900540E65 /* 5-SMART-BOX-more-user.png in Resources */,
 				14CE5FEE1A74D34A00A19C36 /* Default-568h@2x.png in Resources */,
 				1454D0861A861E57003033D3 /* icon_center_point@2x.png in Resources */,
 				FCA8C8061AB8151A00830AD5 /* poi_2.png in Resources */,
