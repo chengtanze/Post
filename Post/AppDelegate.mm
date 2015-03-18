@@ -44,10 +44,10 @@
     UIViewController * MainViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"TabBarViewController"];
     UIViewController * rightViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"OrderDetailTableViewController"];
     
-    WWSideslipViewController * slide = [[WWSideslipViewController alloc]initWithLeftView:nil andMainView:MainViewController andRightView:nil andBackgroundImage:[UIImage imageNamed:@"bg.png"]];
+    WWSideslipViewController * slide = [[WWSideslipViewController alloc]initWithLeftView:nil andMainView:MainViewController andRightView:rightViewController andBackgroundImage:[UIImage imageNamed:@"bg.png"]];
     
     //滑动速度系数
-    [slide setSpeedf:0.5];
+    [slide setSpeedf:0.8];
     
     //点击视图是是否恢复位置
     slide.sideslipTapGes.enabled = YES;

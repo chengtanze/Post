@@ -69,15 +69,21 @@
         sideslipTapGes= [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handeTap:)];
         [sideslipTapGes setNumberOfTapsRequired:1];
         
-        //[mainControl.view addGestureRecognizer:sideslipTapGes];
+       // [mainControl.view addGestureRecognizer:sideslipTapGes];
         
         leftControl.view.hidden = YES;
         righControl.view.hidden = YES;
+        
+        CGRect rect = righControl.view.frame;
+        rect.origin.x = mainControl.view.frame.size.width;
+        righControl.view.frame = rect;
         
         [self.view addSubview:leftControl.view];
         [self.view addSubview:righControl.view];
         
         [self.view addSubview:mainControl.view];
+        
+
         
     }
     return self;
@@ -92,8 +98,9 @@
     
     CGPoint point = [rec translationInView:self.view];
     
+    NSLog(@"scalef1 %f", scalef);
     scalef = (point.x*speedf+scalef);
-
+    NSLog(@"scalef2 %f", scalef);
     //根据视图位置判断是左滑还是右边滑动
     if (rec.view.frame.origin.x>=0){
         rec.view.center = CGPointMake(rec.view.center.x + point.x*speedf,rec.view.center.y);
@@ -102,10 +109,15 @@
         
         righControl.view.hidden = YES;
         leftControl.view.hidden = NO;
+
         
     }
     else
     {
+//        if (rec.view.center.x < 0) {
+//            scalef = 0;
+//            return;
+//        }
         rec.view.center = CGPointMake(rec.view.center.x + point.x*speedf,rec.view.center.y);
         rec.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1+scalef/1000,1+scalef/1000);
         [rec setTranslation:CGPointMake(0, 0) inView:self.view];
@@ -113,20 +125,35 @@
         
         righControl.view.hidden = NO;
         leftControl.view.hidden = YES;
+        
+        CGRect rect = righControl.view.frame;
+        rect.origin.x = rec.view.frame.origin.x + rec.view.frame.size.width;
+        righControl.view.frame = rect;
     }
 
     
     
     //手势结束后修正位置
     if (rec.state == UIGestureRecognizerStateEnded) {
-        if (scalef>140*speedf){
+        if (scalef>250*speedf){
             [self showLeftView];
         }
         else if (scalef<-140*speedf) {
-            [self showRighView];        }
+            [mainControl.view addGestureRecognizer:sideslipTapGes];
+            
+            [self showRighView];
+            
+            [UIView beginAnimations:nil context:nil];
+            CGRect rect = righControl.view.frame;
+            rect.origin.x = rec.view.frame.origin.x + rec.view.frame.size.width;
+            righControl.view.frame = rect;
+            [UIView commitAnimations];
+        }
         else
         {
+            
             [self showMainView];
+            
             scalef = 0;
         }
     }
@@ -144,8 +171,13 @@
         [UIView commitAnimations];
         scalef = 0;
 
+        [UIView beginAnimations:nil context:nil];
+        CGRect rect = righControl.view.frame;
+        rect.origin.x = tap.view.frame.origin.x + tap.view.frame.size.width;
+        righControl.view.frame = rect;
+        [UIView commitAnimations];
     }
-
+    [mainControl.view removeGestureRecognizer:sideslipTapGes];
 }
 
 #pragma mark - 修改视图位置
@@ -169,15 +201,15 @@
 //显示右视图
 -(void)showRighView{
     [UIView beginAnimations:nil context:nil];
-    mainControl.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,0.8,0.8);
-    mainControl.view.center = CGPointMake(-60,[UIScreen mainScreen].bounds.size.height/2);
+    mainControl.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,0.9,0.9);
+    mainControl.view.center = CGPointMake(10,[UIScreen mainScreen].bounds.size.height/2);
     [UIView commitAnimations];
 }
 
 #warning 为了界面美观，所以隐藏了状态栏。如果需要显示则去掉此代码
-- (BOOL)prefersStatusBarHidden
-{
-    return YES; //返回NO表示要显示，返回YES将hiden
-}
+//- (BOOL)prefersStatusBarHidden
+//{
+//    return YES; //返回NO表示要显示，返回YES将hiden
+//}
 
 @end
