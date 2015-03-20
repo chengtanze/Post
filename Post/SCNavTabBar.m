@@ -126,9 +126,14 @@
     for (NSString *title in titles)
     {
         CGSize size = [title sizeWithFont:[UIFont systemFontOfSize:[UIFont systemFontSize]]];
-        NSNumber *width = [NSNumber numberWithFloat:size.width + 40.0f];
+        //NSNumber *width = [NSNumber numberWithFloat:size.width + 40.0f];
+        //[widths addObject:width];
+        
+        NSNumber *width = [NSNumber numberWithFloat:[UIScreen mainScreen].bounds.size.width / 3.0];
         [widths addObject:width];
+        
     }
+    
     
     return widths;
 }
@@ -236,6 +241,7 @@
 
 - (void)updateData
 {
+    //调整item宽度
     _arrowButton.backgroundColor = self.backgroundColor;
     
     _itemsWidth = [self getButtonsWidthWithTitles:_itemTitles];
