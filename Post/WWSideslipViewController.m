@@ -89,18 +89,19 @@
     return self;
 }
 
-
+-(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
+    [super touchesCancelled:touches withEvent:event];
+    NSLog(@"touchesCancelled");
+}
 
 #pragma mark - 滑动手势
-
+static CGFloat gScalef;
 //滑动手势
 - (void) handlePan: (UIPanGestureRecognizer *)rec{
-    
     CGPoint point = [rec translationInView:self.view];
+
+    scalef = (point.x * speedf+ scalef);
     
-    NSLog(@"scalef1 %f", scalef);
-    scalef = (point.x*speedf+scalef);
-    NSLog(@"scalef2 %f", scalef);
     //根据视图位置判断是左滑还是右边滑动
     if (rec.view.frame.origin.x>=0){
         rec.view.center = CGPointMake(rec.view.center.x + point.x*speedf,rec.view.center.y);
@@ -110,14 +111,9 @@
         righControl.view.hidden = YES;
         leftControl.view.hidden = NO;
 
-        
     }
     else
     {
-//        if (rec.view.center.x < 0) {
-//            scalef = 0;
-//            return;
-//        }
         rec.view.center = CGPointMake(rec.view.center.x + point.x*speedf,rec.view.center.y);
         rec.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1+scalef/1000,1+scalef/1000);
         [rec setTranslation:CGPointMake(0, 0) inView:self.view];
@@ -129,10 +125,10 @@
         CGRect rect = righControl.view.frame;
         rect.origin.x = rec.view.frame.origin.x + rec.view.frame.size.width;
         righControl.view.frame = rect;
+        
+        NSLog(@"+++++");
     }
 
-    
-    
     //手势结束后修正位置
     if (rec.state == UIGestureRecognizerStateEnded) {
         if (scalef>250*speedf){
@@ -151,10 +147,15 @@
         }
         else
         {
-            
             [self showMainView];
             
             scalef = 0;
+            
+            [UIView beginAnimations:nil context:nil];
+            CGRect rect = righControl.view.frame;
+            rect.origin.x = rec.view.frame.origin.x + rec.view.frame.size.width;
+            righControl.view.frame = rect;
+            [UIView commitAnimations];
         }
     }
 
