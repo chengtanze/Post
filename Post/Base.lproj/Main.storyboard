@@ -3589,7 +3589,7 @@
         <!--申请快递人-->
         <scene sceneID="KUg-ms-VNB">
             <objects>
-                <tableViewController title="申请快递人" id="bdt-Gg-u7e" sceneMemberID="viewController">
+                <tableViewController title="申请快递人" id="bdt-Gg-u7e" customClass="ApplyCourierController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="qpk-Bn-q8f">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3661,6 +3661,9 @@
                             <outlet property="delegate" destination="bdt-Gg-u7e" id="c3k-s2-kkM"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="ApplyTableView" destination="qpk-Bn-q8f" id="6Un-aq-vsv"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0jI-Wb-pVN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

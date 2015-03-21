@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		140B6DCB1ABDB24C0037055C /* ApplyCourierController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140B6DCA1ABDB24C0037055C /* ApplyCourierController.m */; };
+		140B6DCF1ABDB7940037055C /* QCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 140B6DCE1ABDB7940037055C /* QCheckBox.m */; };
+		140B6DD41ABDBACD0037055C /* checkbox1_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 140B6DD01ABDBACD0037055C /* checkbox1_checked.png */; };
+		140B6DD51ABDBACD0037055C /* checkbox1_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 140B6DD11ABDBACD0037055C /* checkbox1_checked@2x.png */; };
+		140B6DD61ABDBACD0037055C /* checkbox1_unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 140B6DD21ABDBACD0037055C /* checkbox1_unchecked.png */; };
+		140B6DD71ABDBACD0037055C /* checkbox1_unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 140B6DD31ABDBACD0037055C /* checkbox1_unchecked@2x.png */; };
 		142B224F1A7DCE3000363BD9 /* DetailedAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 142B224E1A7DCE3000363BD9 /* DetailedAddressViewController.m */; };
 		142B22521A7DD4AA00363BD9 /* HZAreaPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 142B22511A7DD4AA00363BD9 /* HZAreaPickerView.m */; };
 		142B22541A7DD67200363BD9 /* HZAreaPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 142B22531A7DD67200363BD9 /* HZAreaPickerView.xib */; };
@@ -128,6 +134,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		140B6DC91ABDB24C0037055C /* ApplyCourierController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApplyCourierController.h; path = Post/ApplyCourierController.h; sourceTree = "<group>"; };
+		140B6DCA1ABDB24C0037055C /* ApplyCourierController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApplyCourierController.m; path = Post/ApplyCourierController.m; sourceTree = "<group>"; };
+		140B6DCD1ABDB7940037055C /* QCheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QCheckBox.h; path = Post/QCheckBox.h; sourceTree = "<group>"; };
+		140B6DCE1ABDB7940037055C /* QCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCheckBox.m; path = Post/QCheckBox.m; sourceTree = "<group>"; };
+		140B6DD01ABDBACD0037055C /* checkbox1_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkbox1_checked.png; path = image/checkbox1_checked.png; sourceTree = "<group>"; };
+		140B6DD11ABDBACD0037055C /* checkbox1_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "checkbox1_checked@2x.png"; path = "image/checkbox1_checked@2x.png"; sourceTree = "<group>"; };
+		140B6DD21ABDBACD0037055C /* checkbox1_unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = checkbox1_unchecked.png; path = image/checkbox1_unchecked.png; sourceTree = "<group>"; };
+		140B6DD31ABDBACD0037055C /* checkbox1_unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "checkbox1_unchecked@2x.png"; path = "image/checkbox1_unchecked@2x.png"; sourceTree = "<group>"; };
 		142B224D1A7DCE3000363BD9 /* DetailedAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DetailedAddressViewController.h; path = Post/DetailedAddressViewController.h; sourceTree = "<group>"; };
 		142B224E1A7DCE3000363BD9 /* DetailedAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DetailedAddressViewController.m; path = Post/DetailedAddressViewController.m; sourceTree = "<group>"; };
 		142B22501A7DD4AA00363BD9 /* HZAreaPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HZAreaPickerView.h; sourceTree = "<group>"; };
@@ -393,6 +407,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		140B6DCC1ABDB7370037055C /* Open */ = {
+			isa = PBXGroup;
+			children = (
+				140B6DCD1ABDB7940037055C /* QCheckBox.h */,
+				140B6DCE1ABDB7940037055C /* QCheckBox.m */,
+				142B22501A7DD4AA00363BD9 /* HZAreaPickerView.h */,
+				142B22511A7DD4AA00363BD9 /* HZAreaPickerView.m */,
+				142B22531A7DD67200363BD9 /* HZAreaPickerView.xib */,
+				1443E9DF1A9EFC07006BC700 /* SCNavTabBar.h */,
+				1443E9E01A9EFC07006BC700 /* SCNavTabBar.m */,
+				1443E92D1A9ED37E006BC700 /* SCPopView.h */,
+				1443E92E1A9ED37E006BC700 /* SCPopView.m */,
+				1441B9E71A8F7EDB003F9142 /* QRCodesViewController.h */,
+				1441B9E81A8F7EDB003F9142 /* QRCodesViewController.m */,
+				FC81BC801A7A0D4500D6C78F /* Custom_ScrollImageView.h */,
+				FC81BC811A7A0D4500D6C78F /* Custom_ScrollImageView.m */,
+				14AB64D91AB70A3D0064C032 /* UIImage+Rotate.h */,
+				14AB64DA1AB70A3D0064C032 /* UIImage+Rotate.m */,
+				FCD6C5B41AA2FCC3008D5E23 /* GMDCircleLoader.h */,
+				FCD6C5B51AA2FCC3008D5E23 /* GMDCircleLoader.m */,
+				1443E9E21A9F012E006BC700 /* SCNavTabBarController.h */,
+				1443E9E31A9F012E006BC700 /* SCNavTabBarController.m */,
+				FC670A201AA2F13E000BE7A0 /* SVProgressHUD.h */,
+				FC670A211AA2F13E000BE7A0 /* SVProgressHUD.m */,
+			);
+			name = Open;
+			sourceTree = "<group>";
+		};
 		142B22551A7DD81A00363BD9 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -510,6 +552,8 @@
 				1447CD911ABD030100EDECCF /* AccountInComeController.m */,
 				1447CD931ABD06A500EDECCF /* AccountExpendController.h */,
 				1447CD941ABD06A500EDECCF /* AccountExpendController.m */,
+				140B6DC91ABDB24C0037055C /* ApplyCourierController.h */,
+				140B6DCA1ABDB24C0037055C /* ApplyCourierController.m */,
 			);
 			name = "我";
 			sourceTree = "<group>";
@@ -766,6 +810,10 @@
 		14CE5FE91A74D33800A19C36 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				140B6DD01ABDBACD0037055C /* checkbox1_checked.png */,
+				140B6DD11ABDBACD0037055C /* checkbox1_checked@2x.png */,
+				140B6DD21ABDBACD0037055C /* checkbox1_unchecked.png */,
+				140B6DD31ABDBACD0037055C /* checkbox1_unchecked@2x.png */,
 				1477174D1AB9B41900540E65 /* 5-SMART-BOX-more-user.png */,
 				14A668601AB86E4400C534E0 /* bg.png */,
 				FCA8C8001AB8151A00830AD5 /* fast_turn_icon@2x.png */,
@@ -819,30 +867,10 @@
 		FC81BC7F1A7A0D0A00D6C78F /* Coustom */ = {
 			isa = PBXGroup;
 			children = (
-				14AB64D91AB70A3D0064C032 /* UIImage+Rotate.h */,
-				14AB64DA1AB70A3D0064C032 /* UIImage+Rotate.m */,
-				FCD6C5B91AA31616008D5E23 /* CityListViewController.h */,
-				FCD6C5BA1AA31616008D5E23 /* CityListViewController.m */,
-				FCD6C5B41AA2FCC3008D5E23 /* GMDCircleLoader.h */,
-				FCD6C5B51AA2FCC3008D5E23 /* GMDCircleLoader.m */,
-				1443E9E21A9F012E006BC700 /* SCNavTabBarController.h */,
-				1443E9E31A9F012E006BC700 /* SCNavTabBarController.m */,
-				FC670A201AA2F13E000BE7A0 /* SVProgressHUD.h */,
-				FC670A211AA2F13E000BE7A0 /* SVProgressHUD.m */,
+				140B6DCC1ABDB7370037055C /* Open */,
 				14408D1C1AA1EEC500EC6D79 /* TableViewCell */,
-				1443E9DF1A9EFC07006BC700 /* SCNavTabBar.h */,
-				1443E9E01A9EFC07006BC700 /* SCNavTabBar.m */,
-				1443E92D1A9ED37E006BC700 /* SCPopView.h */,
-				1443E92E1A9ED37E006BC700 /* SCPopView.m */,
-				1441B9E71A8F7EDB003F9142 /* QRCodesViewController.h */,
-				1441B9E81A8F7EDB003F9142 /* QRCodesViewController.m */,
-				FC81BC801A7A0D4500D6C78F /* Custom_ScrollImageView.h */,
-				FC81BC811A7A0D4500D6C78F /* Custom_ScrollImageView.m */,
 				14BD6BA61A7CC3EE001A8535 /* CLLocationManager+CustomGPS.h */,
 				14BD6BA71A7CC3EE001A8535 /* CLLocationManager+CustomGPS.m */,
-				142B22501A7DD4AA00363BD9 /* HZAreaPickerView.h */,
-				142B22511A7DD4AA00363BD9 /* HZAreaPickerView.m */,
-				142B22531A7DD67200363BD9 /* HZAreaPickerView.xib */,
 				1459912C1A89DC7F00710CF2 /* PhotoGroupView.h */,
 				1459912D1A89DC7F00710CF2 /* PhotoGroupView.m */,
 				14B700A21AB527360036211F /* OrderDetailView.h */,
@@ -851,6 +879,8 @@
 				FCA8C8081AB815BA00830AD5 /* SelectRangeView.h */,
 				FCA8C8091AB815BA00830AD5 /* SelectRangeView.m */,
 				FCA8C80B1AB815D900830AD5 /* SelectRange.xib */,
+				FCD6C5B91AA31616008D5E23 /* CityListViewController.h */,
+				FCD6C5BA1AA31616008D5E23 /* CityListViewController.m */,
 			);
 			name = Coustom;
 			sourceTree = "<group>";
@@ -958,6 +988,7 @@
 				1477174E1AB9B41900540E65 /* 5-SMART-BOX-more-user.png in Resources */,
 				14CE5FEE1A74D34A00A19C36 /* Default-568h@2x.png in Resources */,
 				1454D0861A861E57003033D3 /* icon_center_point@2x.png in Resources */,
+				140B6DD61ABDBACD0037055C /* checkbox1_unchecked.png in Resources */,
 				FCA8C8061AB8151A00830AD5 /* poi_2.png in Resources */,
 				FCA8C8041AB8151A00830AD5 /* fast_turn_icon@2x.png in Resources */,
 				FC81BC891A7A0E6B00D6C78F /* 1.JPG in Resources */,
@@ -969,10 +1000,13 @@
 				14CE5FCF1A74CF8400A19C36 /* LaunchScreen.xib in Resources */,
 				142B22541A7DD67200363BD9 /* HZAreaPickerView.xib in Resources */,
 				FC81BC8C1A7A0E6B00D6C78F /* 4.JPG in Resources */,
+				140B6DD41ABDBACD0037055C /* checkbox1_checked.png in Resources */,
 				1483DA0A1A8856CF003A3B8B /* 4-3SMART-BOX-任务_11.png in Resources */,
 				FC81BC951A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_行驶-d.png in Resources */,
+				140B6DD71ABDBACD0037055C /* checkbox1_unchecked@2x.png in Resources */,
 				FC81BC8B1A7A0E6B00D6C78F /* 3.JPG in Resources */,
 				FCA8C8071AB8151A00830AD5 /* poi_3.png in Resources */,
+				140B6DD51ABDBACD0037055C /* checkbox1_checked@2x.png in Resources */,
 				FC81BC8A1A7A0E6B00D6C78F /* 2.JPG in Resources */,
 				1454D0811A861BF9003033D3 /* icon_nav_end@2x.png in Resources */,
 				14CE5FCC1A74CF8400A19C36 /* Images.xcassets in Resources */,
@@ -1028,6 +1062,7 @@
 				FC4F73A91ABBFF0800953D95 /* AFHTTPSessionManager.m in Sources */,
 				14BD142A1A7C90E1007F9287 /* MapSearchViewController.mm in Sources */,
 				1443E9E71A9F0257006BC700 /* GoodsOrderViewController.m in Sources */,
+				140B6DCF1ABDB7940037055C /* QCheckBox.m in Sources */,
 				FC3D78F11AB1B47A003C8153 /* MapPulicFunction.m in Sources */,
 				14BD6BB31A7CE945001A8535 /* EditCargoInfoTableViewController.m in Sources */,
 				142B224F1A7DCE3000363BD9 /* DetailedAddressViewController.m in Sources */,
@@ -1053,6 +1088,7 @@
 				1459912E1A89DC7F00710CF2 /* PhotoGroupView.m in Sources */,
 				FC84C0AF1AAEE9F70074F65C /* PeripheralsTableViewController.m in Sources */,
 				14456D721AAC3D780067068E /* TaskOrderUnfinishedViewController.m in Sources */,
+				140B6DCB1ABDB24C0037055C /* ApplyCourierController.m in Sources */,
 				1483DA0E1A885896003A3B8B /* OrderTrack_UserItem_Cell.m in Sources */,
 				FCD6C5B61AA2FCC3008D5E23 /* GMDCircleLoader.m in Sources */,
 				FC81BC821A7A0D4500D6C78F /* Custom_ScrollImageView.m in Sources */,
