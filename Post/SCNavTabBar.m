@@ -129,7 +129,7 @@
         //NSNumber *width = [NSNumber numberWithFloat:size.width + 40.0f];
         //[widths addObject:width];
         
-        NSNumber *width = [NSNumber numberWithFloat:[UIScreen mainScreen].bounds.size.width / 3.0];
+        NSNumber *width = [NSNumber numberWithFloat:[UIScreen mainScreen].bounds.size.width / titles.count];
         [widths addObject:width];
         
     }

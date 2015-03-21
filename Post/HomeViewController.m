@@ -17,15 +17,30 @@
 
 @implementation HomeViewController
 
+-(void)loadView{
+    [super loadView];
+    //self.title = @"首页";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    
+}
 
+//滑动手势
+- (void) handlePan: (UIPanGestureRecognizer *)rec{
+    
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     NSLog(@"viewDidAppear");
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    
 }
 
 -(void)viewDidLayoutSubviews{

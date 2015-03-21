@@ -62,7 +62,19 @@
         
         //滑动手势
         UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handlePan:)];
-        [mainControl.view addGestureRecognizer:pan];
+//        NSArray * arrayChild = mainControl.childViewControllers;
+//        if (arrayChild != nil) {
+//            for (int nIndex = 0; nIndex < arrayChild.count; nIndex++) {
+//                UIViewController * viewCtrl = arrayChild[nIndex];
+//                NSLog(@"title:%@", viewCtrl.title);
+//                //if (viewCtrl != nil && [viewCtrl.title isEqualToString:@"首页"])
+//                if (nIndex == 0) {
+//                    [viewCtrl.view addGestureRecognizer:pan];
+//                }
+//            }
+//        }
+        
+//        [mainControl.view addGestureRecognizer:pan];
         
         
         //单击手势
@@ -95,7 +107,7 @@
 }
 
 #pragma mark - 滑动手势
-static CGFloat gScalef;
+
 //滑动手势
 - (void) handlePan: (UIPanGestureRecognizer *)rec{
     CGPoint point = [rec translationInView:self.view];
@@ -125,8 +137,6 @@ static CGFloat gScalef;
         CGRect rect = righControl.view.frame;
         rect.origin.x = rec.view.frame.origin.x + rec.view.frame.size.width;
         righControl.view.frame = rect;
-        
-        NSLog(@"+++++");
     }
 
     //手势结束后修正位置
