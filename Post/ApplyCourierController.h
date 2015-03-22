@@ -17,5 +17,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneCallLabel;
 
 @property (weak, nonatomic) IBOutlet UIImageView *userHeaderImageView;
+- (IBAction)obverseImage:(id)sender;
+- (IBAction)reverseImage:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *obverseButton;
+@property (weak, nonatomic) IBOutlet UIButton *reverserButton;
 
+//  
 @end

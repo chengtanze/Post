@@ -3815,61 +3815,60 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CardID.png" translatesAutoresizingMaskIntoConstraints="NO" id="Vmm-Oi-2aK">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CardID.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Vmm-Oi-2aK">
                                                     <rect key="frame" x="18" y="47" width="277" height="80"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="IaS-ii-VSV"/>
                                                         <constraint firstAttribute="height" constant="80" id="r9e-Cz-Tu4"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CardID.png" translatesAutoresizingMaskIntoConstraints="NO" id="NdZ-6w-GAr">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CardID.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="NdZ-6w-GAr">
                                                     <rect key="frame" x="18" y="143" width="277" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="Ix1-vp-d7m"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="aTD-u0-GWF">
-                                                    <rect key="frame" x="305" y="47" width="277" height="80"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="80" id="oRX-pr-HqK"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="Yqr-FT-tLg">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Odp-L4-gJm">
                                                     <rect key="frame" x="305" y="143" width="277" height="80"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="80" id="e1V-Wd-KlM"/>
+                                                        <constraint firstAttribute="height" constant="80" id="OLe-5u-u2e"/>
                                                     </constraints>
-                                                </imageView>
+                                                    <state key="normal" title="Button" image="2.JPG">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="reverseImage:" destination="bdt-Gg-u7e" eventType="touchUpInside" id="H1y-bp-5AF"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXA-dC-FSh">
+                                                    <rect key="frame" x="305" y="47" width="277" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="80" id="GIR-W6-tmO"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button" image="1.JPG">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="obverseImage:" destination="bdt-Gg-u7e" eventType="touchUpInside" id="h6h-39-c3H"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Yqr-FT-tLg" firstAttribute="leading" secondItem="NdZ-6w-GAr" secondAttribute="trailing" constant="10" id="0RV-Jg-hOj"/>
-                                                <constraint firstItem="aTD-u0-GWF" firstAttribute="width" secondItem="NdZ-6w-GAr" secondAttribute="width" id="GgB-5n-Ebd"/>
+                                                <constraint firstItem="Odp-L4-gJm" firstAttribute="leading" secondItem="dXA-dC-FSh" secondAttribute="leading" id="0Rk-fW-Y9F"/>
+                                                <constraint firstItem="Vmm-Oi-2aK" firstAttribute="top" secondItem="dXA-dC-FSh" secondAttribute="top" id="1ut-hx-oHi"/>
                                                 <constraint firstItem="Vmm-Oi-2aK" firstAttribute="leading" secondItem="zLR-Cu-AYm" secondAttribute="leadingMargin" constant="10" id="JMN-Mt-B2v"/>
-                                                <constraint firstItem="aTD-u0-GWF" firstAttribute="top" secondItem="CE7-Ur-JrH" secondAttribute="bottom" constant="7.5" id="LVZ-aU-fAm"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Yqr-FT-tLg" secondAttribute="trailing" constant="10" id="Lzc-uZ-kZt"/>
-                                                <constraint firstItem="Yqr-FT-tLg" firstAttribute="top" secondItem="Vmm-Oi-2aK" secondAttribute="bottom" constant="16" id="PM5-2f-asT"/>
-                                                <constraint firstItem="aTD-u0-GWF" firstAttribute="height" secondItem="Yqr-FT-tLg" secondAttribute="height" id="ShX-A1-E0q"/>
                                                 <constraint firstItem="NdZ-6w-GAr" firstAttribute="leading" secondItem="zLR-Cu-AYm" secondAttribute="leadingMargin" constant="10" id="Tya-dp-OPo"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="aTD-u0-GWF" secondAttribute="trailing" constant="10" id="UzZ-KL-xkp"/>
-                                                <constraint firstItem="aTD-u0-GWF" firstAttribute="width" secondItem="Yqr-FT-tLg" secondAttribute="width" id="XJL-q1-mFd"/>
+                                                <constraint firstItem="NdZ-6w-GAr" firstAttribute="width" secondItem="Vmm-Oi-2aK" secondAttribute="width" id="XAf-lb-9mV"/>
+                                                <constraint firstItem="Vmm-Oi-2aK" firstAttribute="width" secondItem="dXA-dC-FSh" secondAttribute="width" id="Xhg-yG-TjL"/>
                                                 <constraint firstItem="CE7-Ur-JrH" firstAttribute="top" secondItem="zLR-Cu-AYm" secondAttribute="topMargin" id="aqV-0D-r8E"/>
+                                                <constraint firstItem="dXA-dC-FSh" firstAttribute="leading" secondItem="Vmm-Oi-2aK" secondAttribute="trailing" constant="10" id="bWf-53-iBi"/>
                                                 <constraint firstItem="Vmm-Oi-2aK" firstAttribute="top" secondItem="CE7-Ur-JrH" secondAttribute="bottom" constant="7.5" id="cvB-Gk-VeA"/>
+                                                <constraint firstItem="Vmm-Oi-2aK" firstAttribute="width" secondItem="Odp-L4-gJm" secondAttribute="width" id="eeU-GQ-D4t"/>
                                                 <constraint firstItem="CE7-Ur-JrH" firstAttribute="leading" secondItem="zLR-Cu-AYm" secondAttribute="leadingMargin" constant="10" id="gO0-Gw-m2v"/>
-                                                <constraint firstItem="aTD-u0-GWF" firstAttribute="leading" secondItem="Vmm-Oi-2aK" secondAttribute="trailing" constant="10" id="rEk-Of-Zz4"/>
-                                                <constraint firstItem="aTD-u0-GWF" firstAttribute="height" secondItem="NdZ-6w-GAr" secondAttribute="height" id="soW-sg-9To"/>
-                                                <constraint firstItem="aTD-u0-GWF" firstAttribute="width" secondItem="Vmm-Oi-2aK" secondAttribute="width" id="uy1-NO-6v9"/>
+                                                <constraint firstItem="Odp-L4-gJm" firstAttribute="top" secondItem="NdZ-6w-GAr" secondAttribute="top" id="pij-WP-Y2U"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="dXA-dC-FSh" secondAttribute="trailing" constant="10" id="sA6-1w-BGf"/>
                                                 <constraint firstItem="NdZ-6w-GAr" firstAttribute="top" secondItem="Vmm-Oi-2aK" secondAttribute="bottom" constant="16" id="wPz-wa-pq9"/>
-                                                <constraint firstItem="aTD-u0-GWF" firstAttribute="height" secondItem="Vmm-Oi-2aK" secondAttribute="height" id="wnr-oS-0Vi"/>
                                             </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="身份证照" id="qGJ-ix-c6J">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="86" id="0SB-ex-1rC">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0SB-ex-1rC" id="5RE-Ud-1nJ">
-                                            <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -3884,7 +3883,9 @@
                         <outlet property="ApplyTableView" destination="qpk-Bn-q8f" id="6Un-aq-vsv"/>
                         <outlet property="IDCardLabel" destination="Mcx-Ro-t8O" id="E5G-nM-Kev"/>
                         <outlet property="contactPersonLabel" destination="r73-vU-kZ2" id="qje-nP-RsR"/>
+                        <outlet property="obverseButton" destination="dXA-dC-FSh" id="q3Y-ul-zln"/>
                         <outlet property="phoneCallLabel" destination="DtF-8h-Xc2" id="AZ0-hz-g21"/>
+                        <outlet property="reverserButton" destination="Odp-L4-gJm" id="7RN-GU-Tc7"/>
                         <outlet property="userHeaderImageView" destination="ubd-Hm-wwp" id="Vw2-2z-g5O"/>
                         <outlet property="userNameLabel" destination="8iN-rR-fa4" id="TQG-fe-Lq4"/>
                     </connections>
@@ -3914,13 +3915,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="1.JPG" width="685" height="1024"/>
         <image name="2-1SMART-BOX-导航按钮_救援-d.png" width="99" height="99"/>
         <image name="2-1SMART-BOX-导航按钮_行驶-d.png" width="99" height="99"/>
         <image name="2.JPG" width="682" height="1024"/>
-        <image name="3.JPG" width="682" height="1024"/>
         <image name="4.JPG" width="640" height="960"/>
         <image name="5-SMART-BOX-more-user.png" width="270" height="270"/>
-        <image name="CardID.png" width="400" height="265"/>
+        <image name="CardID.jpg" width="400" height="265"/>
         <image name="bg.png" width="744" height="1392"/>
         <image name="icon_direction.png" width="17" height="17"/>
         <image name="pin_green.png" width="30" height="30"/>

@@ -8,11 +8,13 @@
 
 #import "ApplyCourierController.h"
 #import "QCheckBox.h"
+#import "Media_Photo.h"
 
-@interface ApplyCourierController ()<QCheckBoxDelegate, UITextFieldDelegate>
+@interface ApplyCourierController ()<getPhotoInfoDelegate, QCheckBoxDelegate, UITextFieldDelegate>
 
 @property(nonatomic, assign)BOOL checked;
-
+@property(nonatomic, strong)Media_Photo * mediaPhoto;
+@property(nonatomic, assign)NSUInteger imageIndex;
 @end
 
 @implementation ApplyCourierController
@@ -28,7 +30,7 @@
     
     [self addConfirmViewAtBottom];
     [self configLocalData];
-    _checked = NO;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,6 +50,21 @@
     
     self.userHeaderImageView.layer.cornerRadius = 32.0;
     self.userHeaderImageView.layer.masksToBounds = YES;
+    
+    _mediaPhoto = [[Media_Photo alloc]init];
+    if (_mediaPhoto != nil) {
+        _mediaPhoto.showInViewController = self;
+        _mediaPhoto.delegate = self;
+    }
+    
+    _checked = NO;
+    _imageIndex = 0;
+}
+
+-(void)SingleTap:(UITapGestureRecognizer*)recognizer
+{
+    //处理单击操作
+    NSLog(@"index:%ld", (long)recognizer.view.tag);
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -120,6 +137,36 @@
     self.checked = checked;
 }
 
+- (IBAction)obverseImage:(id)sender {
+    _imageIndex = 0;
+    [_mediaPhoto chooseImage];
+}
+
+- (IBAction)reverseImage:(id)sender {
+     _imageIndex = 1;
+    [_mediaPhoto chooseImage];
+}
+
+#pragma mark - Media_Photo delegate
+-(void)getPhoto:(UIImage *)image{
+    if (_imageIndex == 0) {
+        self.obverseButton.imageView.image = image;
+    }else if (_imageIndex == 1){
+        self.reverserButton.imageView.image = image;
+    }
+    else{
+        self.userHeaderImageView.image = image;
+    }
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 1) {
+        _imageIndex = 2;
+        [_mediaPhoto chooseImage];
+    }
+}
+
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
@@ -173,5 +220,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end

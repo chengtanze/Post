@@ -19,7 +19,7 @@
 		142B22581A7DD84100363BD9 /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 142B22571A7DD84100363BD9 /* area.plist */; };
 		142B225B1A7E34BD00363BD9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 142B225A1A7E34BD00363BD9 /* LoginViewController.m */; };
 		143770291A74DF17005084CE /* IntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 143770281A74DF17005084CE /* IntroduceViewController.m */; };
-		1439DBF91ABE7EB9004C45C2 /* CardID.png in Resources */ = {isa = PBXBuildFile; fileRef = 1439DBF81ABE7EB9004C45C2 /* CardID.png */; };
+		1439DBF91ABE7EB9004C45C2 /* CardID.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1439DBF81ABE7EB9004C45C2 /* CardID.jpg */; };
 		144023571A8E35A400321C6F /* GoodsPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 144023561A8E35A400321C6F /* GoodsPhotoViewController.m */; };
 		14408D1F1AA1F17400EC6D79 /* GoodsInComplete_Times_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14408D1E1AA1F17400EC6D79 /* GoodsInComplete_Times_Cell.m */; };
 		14408D221AA1F20D00EC6D79 /* GoodsInComplete_State_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14408D211AA1F20D00EC6D79 /* GoodsInComplete_State_Cell.m */; };
@@ -153,7 +153,7 @@
 		142B225A1A7E34BD00363BD9 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginViewController.m; path = Post/LoginViewController.m; sourceTree = "<group>"; };
 		143770271A74DF17005084CE /* IntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroduceViewController.h; sourceTree = "<group>"; };
 		143770281A74DF17005084CE /* IntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroduceViewController.m; sourceTree = "<group>"; };
-		1439DBF81ABE7EB9004C45C2 /* CardID.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CardID.png; path = image/CardID.png; sourceTree = "<group>"; };
+		1439DBF81ABE7EB9004C45C2 /* CardID.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = CardID.jpg; path = image/CardID.jpg; sourceTree = "<group>"; };
 		144023551A8E35A400321C6F /* GoodsPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsPhotoViewController.h; path = Post/GoodsPhotoViewController.h; sourceTree = "<group>"; };
 		144023561A8E35A400321C6F /* GoodsPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsPhotoViewController.m; path = Post/GoodsPhotoViewController.m; sourceTree = "<group>"; };
 		14408D1D1AA1F17400EC6D79 /* GoodsInComplete_Times_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsInComplete_Times_Cell.h; path = Post/GoodsInComplete_Times_Cell.h; sourceTree = "<group>"; };
@@ -812,7 +812,7 @@
 		14CE5FE91A74D33800A19C36 /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				1439DBF81ABE7EB9004C45C2 /* CardID.png */,
+				1439DBF81ABE7EB9004C45C2 /* CardID.jpg */,
 				140B6DD01ABDBACD0037055C /* checkbox1_checked.png */,
 				140B6DD11ABDBACD0037055C /* checkbox1_checked@2x.png */,
 				140B6DD21ABDBACD0037055C /* checkbox1_unchecked.png */,
@@ -949,6 +949,7 @@
 				TargetAttributes = {
 					14CE5FB71A74CF8400A19C36 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = YW2H34RU7V;
 					};
 					14CE5FD31A74CF8400A19C36 = {
 						CreatedOnToolsVersion = 6.1;
@@ -992,7 +993,7 @@
 				14CE5FEE1A74D34A00A19C36 /* Default-568h@2x.png in Resources */,
 				1454D0861A861E57003033D3 /* icon_center_point@2x.png in Resources */,
 				140B6DD61ABDBACD0037055C /* checkbox1_unchecked.png in Resources */,
-				1439DBF91ABE7EB9004C45C2 /* CardID.png in Resources */,
+				1439DBF91ABE7EB9004C45C2 /* CardID.jpg in Resources */,
 				FCA8C8061AB8151A00830AD5 /* poi_2.png in Resources */,
 				FCA8C8041AB8151A00830AD5 /* fast_turn_icon@2x.png in Resources */,
 				FC81BC891A7A0E6B00D6C78F /* 1.JPG in Resources */,
