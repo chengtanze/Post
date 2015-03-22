@@ -9,7 +9,7 @@
 #import "ApplyCourierController.h"
 #import "QCheckBox.h"
 
-@interface ApplyCourierController ()<QCheckBoxDelegate>
+@interface ApplyCourierController ()<QCheckBoxDelegate, UITextFieldDelegate>
 
 @property(nonatomic, assign)BOOL checked;
 
@@ -19,14 +19,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    _checked = NO;
-    [self addConfirmViewAtBottom];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [self addConfirmViewAtBottom];
+    [self configLocalData];
+    _checked = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,6 +37,28 @@
 }
 
 #pragma mark - Table view data source
+
+
+
+-(void)configLocalData{
+    self.userNameLabel.delegate = self;
+    self.IDCardLabel.delegate = self;
+    self.contactPersonLabel.delegate = self;
+    self.phoneCallLabel.delegate = self;
+    
+    self.userHeaderImageView.layer.cornerRadius = 32.0;
+    self.userHeaderImageView.layer.masksToBounds = YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    NSLog(@"textfieldshouldreturn");
+    [self.userNameLabel resignFirstResponder];
+    [self.IDCardLabel resignFirstResponder];
+    [self.contactPersonLabel resignFirstResponder];
+    [self.phoneCallLabel resignFirstResponder];
+    return YES;
+}
 
 - (void)addConfirmViewAtBottom
 {

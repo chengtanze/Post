@@ -11,4 +11,11 @@
 @interface ApplyCourierController : UITableViewController
 
 @property (strong, nonatomic) IBOutlet UITableView *ApplyTableView;
+@property (weak, nonatomic) IBOutlet UITextField *userNameLabel;
+@property (weak, nonatomic) IBOutlet UITextField *IDCardLabel;
+@property (weak, nonatomic) IBOutlet UITextField *contactPersonLabel;
+@property (weak, nonatomic) IBOutlet UITextField *phoneCallLabel;
+
+@property (weak, nonatomic) IBOutlet UIImageView *userHeaderImageView;
+
 @end
