@@ -85,6 +85,7 @@
 		14CE5FED1A74D34A00A19C36 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CE5FEA1A74D34A00A19C36 /* Default@2x.png */; };
 		14CE5FEE1A74D34A00A19C36 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CE5FEB1A74D34A00A19C36 /* Default-568h@2x.png */; };
 		14CE5FEF1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CE5FEC1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png */; };
+		FC2E651A1ABFFD65006BD470 /* CommonAddressController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2E65191ABFFD65006BD470 /* CommonAddressController.m */; };
 		FC3D78F11AB1B47A003C8153 /* MapPulicFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3D78F01AB1B47A003C8153 /* MapPulicFunction.m */; };
 		FC4F73A71ABBFF0800953D95 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4F73951ABBFF0800953D95 /* AFHTTPRequestOperation.m */; };
 		FC4F73A81ABBFF0800953D95 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4F73971ABBFF0800953D95 /* AFHTTPRequestOperationManager.m */; };
@@ -318,6 +319,8 @@
 		14CE5FEA1A74D34A00A19C36 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		14CE5FEB1A74D34A00A19C36 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		14CE5FEC1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0-SMART-BOX-启动750-1334.png"; sourceTree = "<group>"; };
+		FC2E65181ABFFD65006BD470 /* CommonAddressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonAddressController.h; path = Post/CommonAddressController.h; sourceTree = "<group>"; };
+		FC2E65191ABFFD65006BD470 /* CommonAddressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonAddressController.m; path = Post/CommonAddressController.m; sourceTree = "<group>"; };
 		FC3D78EF1AB1B47A003C8153 /* MapPulicFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPulicFunction.h; sourceTree = "<group>"; };
 		FC3D78F01AB1B47A003C8153 /* MapPulicFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapPulicFunction.m; sourceTree = "<group>"; };
 		FC4F73941ABBFF0800953D95 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -556,6 +559,8 @@
 				1447CD941ABD06A500EDECCF /* AccountExpendController.m */,
 				140B6DC91ABDB24C0037055C /* ApplyCourierController.h */,
 				140B6DCA1ABDB24C0037055C /* ApplyCourierController.m */,
+				FC2E65181ABFFD65006BD470 /* CommonAddressController.h */,
+				FC2E65191ABFFD65006BD470 /* CommonAddressController.m */,
 			);
 			name = "我";
 			sourceTree = "<group>";
@@ -1095,6 +1100,7 @@
 				14456D721AAC3D780067068E /* TaskOrderUnfinishedViewController.m in Sources */,
 				140B6DCB1ABDB24C0037055C /* ApplyCourierController.m in Sources */,
 				1483DA0E1A885896003A3B8B /* OrderTrack_UserItem_Cell.m in Sources */,
+				FC2E651A1ABFFD65006BD470 /* CommonAddressController.m in Sources */,
 				FCD6C5B61AA2FCC3008D5E23 /* GMDCircleLoader.m in Sources */,
 				FC81BC821A7A0D4500D6C78F /* Custom_ScrollImageView.m in Sources */,
 				FC7FC7F61A788972004B3909 /* RegisterViewController.m in Sources */,
