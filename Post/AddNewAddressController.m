@@ -1,36 +1,29 @@
 //
-//  ApplyCourierController.m
+//  AddNewAddressController.m
 //  Post
 //
-//  Created by cheng on 15/3/21.
+//  Created by cheng on 15/3/24.
 //  Copyright (c) 2015年 cheng. All rights reserved.
 //
 
-#import "ApplyCourierController.h"
-#import "QCheckBox.h"
-#import "Media_Photo.h"
+#import "AddNewAddressController.h"
 
-@interface ApplyCourierController ()<getPhotoInfoDelegate, QCheckBoxDelegate, UITextFieldDelegate>
+@interface AddNewAddressController ()<UITextFieldDelegate>
 
-@property(nonatomic, assign)BOOL checked;
-@property(nonatomic, strong)Media_Photo * mediaPhoto;
-@property(nonatomic, assign)NSUInteger imageIndex;
 @end
 
-@implementation ApplyCourierController
+@implementation AddNewAddressController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    [self addConfirmViewAtBottom];
     [self configLocalData];
-    
+    [self addConfirmViewAtBottom];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,42 +31,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-
-
 -(void)configLocalData{
-    self.userNameLabel.delegate = self;
-    self.IDCardLabel.delegate = self;
-    self.contactPersonLabel.delegate = self;
-    self.phoneCallLabel.delegate = self;
-    
-    self.userHeaderImageView.layer.cornerRadius = 32.0;
-    self.userHeaderImageView.layer.masksToBounds = YES;
-    
-    _mediaPhoto = [[Media_Photo alloc]init];
-    if (_mediaPhoto != nil) {
-        _mediaPhoto.showInViewController = self;
-        _mediaPhoto.delegate = self;
-    }
-    
-    _checked = NO;
-    _imageIndex = 0;
-}
-
--(void)SingleTap:(UITapGestureRecognizer*)recognizer
-{
-    //处理单击操作
-    NSLog(@"index:%ld", (long)recognizer.view.tag);
+    self.contactName.delegate = self;
+    self.phoneNumber.delegate = self;
+    self.area.delegate = self;
+    self.detailAddress.delegate = self;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     NSLog(@"textfieldshouldreturn");
-    [self.userNameLabel resignFirstResponder];
-    [self.IDCardLabel resignFirstResponder];
-    [self.contactPersonLabel resignFirstResponder];
-    [self.phoneCallLabel resignFirstResponder];
+    [self.contactName resignFirstResponder];
+    [self.phoneNumber resignFirstResponder];
+    [self.area resignFirstResponder];
+    [self.detailAddress resignFirstResponder];
     return YES;
 }
 
@@ -82,26 +53,20 @@
     // 1,创建一个footerView,将它作为tableView的TableFooterView
     UIView *footerView = [[UIView alloc] init];
     // tableView的TableFooterView的宽度固定是320,只有高度可调节
-    footerView.frame = CGRectMake(0, 0, self.ApplyTableView.bounds.size.width, 100);
+    footerView.frame = CGRectMake(0, 0, self.tableView.bounds.size.width, 100);
     // 将刚才创建的footerView作为tableView的TableFooterView,目的是防止用户点击底部dockItem时不小心点到了退出按钮,因此要设置一个额外的空间,补充一下TableFooterView的宽度固定是320
-    self.ApplyTableView.tableFooterView = footerView;
-    
-    
-    QCheckBox *_check2 = [[QCheckBox alloc] initWithDelegate:self];
-    _check2.frame = CGRectMake(10, 5, 250, 40);
-    [_check2 setTitle:@"同意并接受《全名快递申请协议》" forState:UIControlStateNormal];
-    [_check2 setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    [_check2.titleLabel setFont:[UIFont boldSystemFontOfSize:13.0f]];
-    [self.ApplyTableView.tableFooterView addSubview:_check2];
+    self.tableView.tableFooterView = footerView;
     
 
-
+    
+    
+    
     // 2,创建退出按钮 并添加到tableView的最底部的TableFooterView
     UIButton *btnExit = [UIButton buttonWithType:UIButtonTypeCustom];
     // footerView是作为tableView的TableFooterView存在,按钮是加到了footerView里面,这儿按钮的frame x 10 y 5是相对于footerView的
     btnExit.backgroundColor = [UIColor orangeColor];
     
-    btnExit.frame = CGRectMake(20, 45, self.tableView.bounds.size.width - 20 * 2, 30);
+    btnExit.frame = CGRectMake(20, 25, self.tableView.bounds.size.width - 20 * 2, 30);
     // 按钮上字体大小
     btnExit.titleLabel.font = [UIFont systemFontOfSize:17];
     // 按钮的监听点击事件
@@ -117,55 +82,30 @@
     
     // 3,最重要的一步,将刚才创建的 退出按钮 添加到tableView的TableFooterView
     //[footerView addSubview:btnExit];
-    [self.ApplyTableView.tableFooterView addSubview:btnExit];
+    [self.tableView.tableFooterView addSubview:btnExit];
     
 }
 
 // 点击 按钮
 - (void)exitBtnClick
 {
-    if (self.checked) {
-        
-    }
-    else{
-        
-    }
+
 }
 
-#pragma arguments QCheckBoxDelegate
-- (void)didSelectedCheckBox:(QCheckBox *)checkbox checked:(BOOL)checked{
-    self.checked = checked;
-}
 
-- (IBAction)obverseImage:(id)sender {
-    _imageIndex = 0;
-    [_mediaPhoto chooseImage];
-}
+#pragma mark - Table view data source
 
-- (IBAction)reverseImage:(id)sender {
-     _imageIndex = 1;
-    [_mediaPhoto chooseImage];
-}
-
-#pragma mark - Media_Photo delegate
--(void)getPhoto:(UIImage *)image{
-    if (_imageIndex == 0) {
-        self.obverseButton.imageView.image = image;
-    }else if (_imageIndex == 1){
-        self.reverserButton.imageView.image = image;
-    }
-    else{
-        self.userHeaderImageView.image = image;
-    }
-    
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 1) {
-        _imageIndex = 2;
-        [_mediaPhoto chooseImage];
-    }
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//#warning Potentially incomplete method implementation.
+//    // Return the number of sections.
+//    return 0;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//#warning Incomplete method implementation.
+//    // Return the number of rows in the section.
+//    return 0;
+//}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -220,6 +160,5 @@
     // Pass the selected object to the new view controller.
 }
 */
-
 
 @end
