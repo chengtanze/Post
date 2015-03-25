@@ -13,5 +13,5 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
 @property (weak, nonatomic) IBOutlet UITextField *area;
 @property (weak, nonatomic) IBOutlet UITextField *detailAddress;
-@property(nonatomic, strong)NSArray *userInfo;
+@property(nonatomic, strong)NSMutableArray *userInfo;
 @end

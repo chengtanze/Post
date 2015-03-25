@@ -32,7 +32,7 @@
     
     _didSelectIndex = -1;
     
-    if(self.userInfo != nil)
+    if(self.userInfo == nil)
     {
         self.userInfo = [[NSMutableArray alloc]initWithCapacity:10];
     }
@@ -48,7 +48,6 @@
     [self.userInfo addObject:dic2];
     [self.userInfo addObject:dic3];
     [self.userInfo addObject:dic4];
-    //self.userInfo = [[NSArray alloc]initWithObjects:dic1, dic2, dic3, dic4, nil];
 }
 
 - (void)didReceiveMemoryWarning {

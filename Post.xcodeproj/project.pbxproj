@@ -48,6 +48,7 @@
 		145991371A89F42F00710CF2 /* PhotoGroupTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 145991361A89F42F00710CF2 /* PhotoGroupTableViewCell.m */; };
 		1459ABB31AA088FB0041CEBB /* GoodsInProgress_Order_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1459ABB21AA088FB0041CEBB /* GoodsInProgress_Order_Cell.m */; };
 		1459ABB61AA0893E0041CEBB /* GoodsInProgress_GoodsInfo_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1459ABB51AA0893E0041CEBB /* GoodsInProgress_GoodsInfo_Cell.m */; };
+		146F82351AC2EC15004C16AE /* OftenGoodsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146F82341AC2EC15004C16AE /* OftenGoodsController.m */; };
 		1477174E1AB9B41900540E65 /* 5-SMART-BOX-more-user.png in Resources */ = {isa = PBXBuildFile; fileRef = 1477174D1AB9B41900540E65 /* 5-SMART-BOX-more-user.png */; };
 		1478BE3B1A83AAAA006B03ED /* OrderTrackViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1478BE3A1A83AAAA006B03ED /* OrderTrackViewController.mm */; };
 		1483DA071A885293003A3B8B /* OrderTrack_UserItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1483DA061A885293003A3B8B /* OrderTrack_UserItem.xib */; };
@@ -209,6 +210,8 @@
 		1459ABB21AA088FB0041CEBB /* GoodsInProgress_Order_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsInProgress_Order_Cell.m; path = Post/GoodsInProgress_Order_Cell.m; sourceTree = "<group>"; };
 		1459ABB41AA0893E0041CEBB /* GoodsInProgress_GoodsInfo_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsInProgress_GoodsInfo_Cell.h; path = Post/GoodsInProgress_GoodsInfo_Cell.h; sourceTree = "<group>"; };
 		1459ABB51AA0893E0041CEBB /* GoodsInProgress_GoodsInfo_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsInProgress_GoodsInfo_Cell.m; path = Post/GoodsInProgress_GoodsInfo_Cell.m; sourceTree = "<group>"; };
+		146F82331AC2EC15004C16AE /* OftenGoodsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OftenGoodsController.h; path = Post/OftenGoodsController.h; sourceTree = "<group>"; };
+		146F82341AC2EC15004C16AE /* OftenGoodsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OftenGoodsController.m; path = Post/OftenGoodsController.m; sourceTree = "<group>"; };
 		1477174D1AB9B41900540E65 /* 5-SMART-BOX-more-user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "5-SMART-BOX-more-user.png"; path = "image/5-SMART-BOX-more-user.png"; sourceTree = "<group>"; };
 		1478BE391A83AAAA006B03ED /* OrderTrackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderTrackViewController.h; path = Post/OrderTrackViewController.h; sourceTree = "<group>"; };
 		1478BE3A1A83AAAA006B03ED /* OrderTrackViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = OrderTrackViewController.mm; path = Post/OrderTrackViewController.mm; sourceTree = "<group>"; };
@@ -576,6 +579,8 @@
 				FC2B862D1AC2A54D00926FA6 /* CommonDetailAddressController.m */,
 				FC2B862F1AC2AC5300926FA6 /* CommonAddressTableViewCell.h */,
 				FC2B86301AC2AC5300926FA6 /* CommonAddressTableViewCell.m */,
+				146F82331AC2EC15004C16AE /* OftenGoodsController.h */,
+				146F82341AC2EC15004C16AE /* OftenGoodsController.m */,
 			);
 			name = "我";
 			sourceTree = "<group>";
@@ -1107,6 +1112,7 @@
 				1443E92F1A9ED37E006BC700 /* SCPopView.m in Sources */,
 				14CE5FC71A74CF8400A19C36 /* ViewController.m in Sources */,
 				14AB64DB1AB70A3D0064C032 /* UIImage+Rotate.m in Sources */,
+				146F82351AC2EC15004C16AE /* OftenGoodsController.m in Sources */,
 				1458F3521A8AF3A900AB04D6 /* Media_Photo.m in Sources */,
 				FC7FC7ED1A7875C3004B3909 /* TabBarViewController.m in Sources */,
 				FC7FC7F31A787C4B004B3909 /* HomeViewController.m in Sources */,

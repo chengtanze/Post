@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    //NSLog(@"AddNewAddressController");
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -89,10 +89,23 @@
 // 点击 按钮
 - (void)exitBtnClick
 {
+    [self upDateUserInfo];
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-
+-(void)upDateUserInfo{
+    NSString *contactName = _contactName.text;
+    NSString *phoneNumber = _phoneNumber.text;
+    NSString *area = _area.text;
+    NSString *detailAddress = _detailAddress.text;
+    
+    NSDictionary * dicNewData = [[NSDictionary alloc]initWithObjectsAndKeys:contactName, @"userName" , phoneNumber, @"userPhone" ,area, @"city" , detailAddress, @"address" ,nil];
+    
+    if (self.userInfo != nil) {
+        [self.userInfo addObject:dicNewData];
+    }
+}
 
 
 
