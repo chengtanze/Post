@@ -10,4 +10,8 @@
 
 @interface CommonAddressController : UITableViewController
 
+@property(nonatomic, assign)NSInteger didSelectIndex;
+@property(nonatomic, strong)NSMutableArray *userInfo;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+
 @end

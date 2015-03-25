@@ -86,6 +86,8 @@
 		14CE5FED1A74D34A00A19C36 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CE5FEA1A74D34A00A19C36 /* Default@2x.png */; };
 		14CE5FEE1A74D34A00A19C36 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CE5FEB1A74D34A00A19C36 /* Default-568h@2x.png */; };
 		14CE5FEF1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CE5FEC1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png */; };
+		FC2B862E1AC2A54D00926FA6 /* CommonDetailAddressController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2B862D1AC2A54D00926FA6 /* CommonDetailAddressController.m */; };
+		FC2B86311AC2AC5300926FA6 /* CommonAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2B86301AC2AC5300926FA6 /* CommonAddressTableViewCell.m */; };
 		FC2E651A1ABFFD65006BD470 /* CommonAddressController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2E65191ABFFD65006BD470 /* CommonAddressController.m */; };
 		FC3D78F11AB1B47A003C8153 /* MapPulicFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3D78F01AB1B47A003C8153 /* MapPulicFunction.m */; };
 		FC4F73A71ABBFF0800953D95 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4F73951ABBFF0800953D95 /* AFHTTPRequestOperation.m */; };
@@ -322,6 +324,10 @@
 		14CE5FEA1A74D34A00A19C36 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		14CE5FEB1A74D34A00A19C36 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		14CE5FEC1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0-SMART-BOX-启动750-1334.png"; sourceTree = "<group>"; };
+		FC2B862C1AC2A54D00926FA6 /* CommonDetailAddressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonDetailAddressController.h; path = Post/CommonDetailAddressController.h; sourceTree = "<group>"; };
+		FC2B862D1AC2A54D00926FA6 /* CommonDetailAddressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonDetailAddressController.m; path = Post/CommonDetailAddressController.m; sourceTree = "<group>"; };
+		FC2B862F1AC2AC5300926FA6 /* CommonAddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonAddressTableViewCell.h; path = Post/CommonAddressTableViewCell.h; sourceTree = "<group>"; };
+		FC2B86301AC2AC5300926FA6 /* CommonAddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonAddressTableViewCell.m; path = Post/CommonAddressTableViewCell.m; sourceTree = "<group>"; };
 		FC2E65181ABFFD65006BD470 /* CommonAddressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonAddressController.h; path = Post/CommonAddressController.h; sourceTree = "<group>"; };
 		FC2E65191ABFFD65006BD470 /* CommonAddressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonAddressController.m; path = Post/CommonAddressController.m; sourceTree = "<group>"; };
 		FC3D78EF1AB1B47A003C8153 /* MapPulicFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapPulicFunction.h; sourceTree = "<group>"; };
@@ -566,6 +572,10 @@
 				FC2E65191ABFFD65006BD470 /* CommonAddressController.m */,
 				14C8B4C91AC1A4D900AAF5E1 /* AddNewAddressController.h */,
 				14C8B4CA1AC1A4D900AAF5E1 /* AddNewAddressController.m */,
+				FC2B862C1AC2A54D00926FA6 /* CommonDetailAddressController.h */,
+				FC2B862D1AC2A54D00926FA6 /* CommonDetailAddressController.m */,
+				FC2B862F1AC2AC5300926FA6 /* CommonAddressTableViewCell.h */,
+				FC2B86301AC2AC5300926FA6 /* CommonAddressTableViewCell.m */,
 			);
 			name = "我";
 			sourceTree = "<group>";
@@ -1072,6 +1082,7 @@
 				148BC3A91AA5FE3100819910 /* OrderDetailTableViewController.m in Sources */,
 				FC4F73AD1ABBFF0800953D95 /* AFURLRequestSerialization.m in Sources */,
 				14408D251AA1F22300EC6D79 /* GoodsInComplete_Address_Cell.m in Sources */,
+				FC2B862E1AC2A54D00926FA6 /* CommonDetailAddressController.m in Sources */,
 				1459ABB61AA0893E0041CEBB /* GoodsInProgress_GoodsInfo_Cell.m in Sources */,
 				1441B9E91A8F7EDB003F9142 /* QRCodesViewController.m in Sources */,
 				1447CD951ABD06A500EDECCF /* AccountExpendController.m in Sources */,
@@ -1092,6 +1103,7 @@
 				14CE5FBE1A74CF8400A19C36 /* main.m in Sources */,
 				FCD6C5BB1AA31616008D5E23 /* CityListViewController.m in Sources */,
 				14408D281AA1FCAE00EC6D79 /* GoodsInCompleteViewController.m in Sources */,
+				FC2B86311AC2AC5300926FA6 /* CommonAddressTableViewCell.m in Sources */,
 				1443E92F1A9ED37E006BC700 /* SCPopView.m in Sources */,
 				14CE5FC71A74CF8400A19C36 /* ViewController.m in Sources */,
 				14AB64DB1AB70A3D0064C032 /* UIImage+Rotate.m in Sources */,
