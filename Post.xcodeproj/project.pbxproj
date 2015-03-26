@@ -101,6 +101,9 @@
 		FC4F73AE1ABBFF0800953D95 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4F73A41ABBFF0800953D95 /* AFURLResponseSerialization.m */; };
 		FC4F73AF1ABBFF0800953D95 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4F73A61ABBFF0800953D95 /* AFURLSessionManager.m */; };
 		FC670A221AA2F13E000BE7A0 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FC670A211AA2F13E000BE7A0 /* SVProgressHUD.m */; };
+		FC79E50A1AC3FC5600F2AD3E /* EditGoodsController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC79E5091AC3FC5600F2AD3E /* EditGoodsController.m */; };
+		FC79E50D1AC3FCEC00F2AD3E /* GoodsDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC79E50C1AC3FCEC00F2AD3E /* GoodsDetailController.m */; };
+		FC79E5101AC3FECE00F2AD3E /* OftenGoodsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC79E50F1AC3FECE00F2AD3E /* OftenGoodsTableViewCell.m */; };
 		FC7FC7ED1A7875C3004B3909 /* TabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7FC7EC1A7875C3004B3909 /* TabBarViewController.m */; };
 		FC7FC7F31A787C4B004B3909 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7FC7F21A787C4B004B3909 /* HomeViewController.m */; };
 		FC7FC7F61A788972004B3909 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7FC7F51A788972004B3909 /* RegisterViewController.m */; };
@@ -356,6 +359,12 @@
 		FC4F73A61ABBFF0800953D95 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
 		FC670A201AA2F13E000BE7A0 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = Post/SVProgressHUD.h; sourceTree = "<group>"; };
 		FC670A211AA2F13E000BE7A0 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = Post/SVProgressHUD.m; sourceTree = "<group>"; };
+		FC79E5081AC3FC5600F2AD3E /* EditGoodsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EditGoodsController.h; path = Post/EditGoodsController.h; sourceTree = "<group>"; };
+		FC79E5091AC3FC5600F2AD3E /* EditGoodsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditGoodsController.m; path = Post/EditGoodsController.m; sourceTree = "<group>"; };
+		FC79E50B1AC3FCEC00F2AD3E /* GoodsDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsDetailController.h; path = Post/GoodsDetailController.h; sourceTree = "<group>"; };
+		FC79E50C1AC3FCEC00F2AD3E /* GoodsDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsDetailController.m; path = Post/GoodsDetailController.m; sourceTree = "<group>"; };
+		FC79E50E1AC3FECE00F2AD3E /* OftenGoodsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OftenGoodsTableViewCell.h; path = Post/OftenGoodsTableViewCell.h; sourceTree = "<group>"; };
+		FC79E50F1AC3FECE00F2AD3E /* OftenGoodsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OftenGoodsTableViewCell.m; path = Post/OftenGoodsTableViewCell.m; sourceTree = "<group>"; };
 		FC7FC7EB1A7875C3004B3909 /* TabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TabBarViewController.h; path = Post/TabBarViewController.h; sourceTree = "<group>"; };
 		FC7FC7EC1A7875C3004B3909 /* TabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TabBarViewController.m; path = Post/TabBarViewController.m; sourceTree = "<group>"; };
 		FC7FC7F11A787C4B004B3909 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Post/HomeViewController.h; sourceTree = "<group>"; };
@@ -581,6 +590,12 @@
 				FC2B86301AC2AC5300926FA6 /* CommonAddressTableViewCell.m */,
 				146F82331AC2EC15004C16AE /* OftenGoodsController.h */,
 				146F82341AC2EC15004C16AE /* OftenGoodsController.m */,
+				FC79E5081AC3FC5600F2AD3E /* EditGoodsController.h */,
+				FC79E5091AC3FC5600F2AD3E /* EditGoodsController.m */,
+				FC79E50B1AC3FCEC00F2AD3E /* GoodsDetailController.h */,
+				FC79E50C1AC3FCEC00F2AD3E /* GoodsDetailController.m */,
+				FC79E50E1AC3FECE00F2AD3E /* OftenGoodsTableViewCell.h */,
+				FC79E50F1AC3FECE00F2AD3E /* OftenGoodsTableViewCell.m */,
 			);
 			name = "我";
 			sourceTree = "<group>";
@@ -1073,6 +1088,7 @@
 				1447CD8F1ABD021700EDECCF /* AccountInfoViewController.m in Sources */,
 				FC84C0B21AAF08630074F65C /* MapAroudViewController.mm in Sources */,
 				14C8B4CB1AC1A4D900AAF5E1 /* AddNewAddressController.m in Sources */,
+				FC79E50A1AC3FC5600F2AD3E /* EditGoodsController.m in Sources */,
 				14B700A41AB527360036211F /* OrderDetailView.m in Sources */,
 				1447CD921ABD030100EDECCF /* AccountInComeController.m in Sources */,
 				1443E9E11A9EFC07006BC700 /* SCNavTabBar.m in Sources */,
@@ -1118,11 +1134,13 @@
 				FC7FC7F31A787C4B004B3909 /* HomeViewController.m in Sources */,
 				FC4F73AF1ABBFF0800953D95 /* AFURLSessionManager.m in Sources */,
 				FC4F73AA1ABBFF0800953D95 /* AFNetworkReachabilityManager.m in Sources */,
+				FC79E5101AC3FECE00F2AD3E /* OftenGoodsTableViewCell.m in Sources */,
 				14CE5FC41A74CF8400A19C36 /* Post.xcdatamodeld in Sources */,
 				1459912E1A89DC7F00710CF2 /* PhotoGroupView.m in Sources */,
 				FC84C0AF1AAEE9F70074F65C /* PeripheralsTableViewController.m in Sources */,
 				14456D721AAC3D780067068E /* TaskOrderUnfinishedViewController.m in Sources */,
 				140B6DCB1ABDB24C0037055C /* ApplyCourierController.m in Sources */,
+				FC79E50D1AC3FCEC00F2AD3E /* GoodsDetailController.m in Sources */,
 				1483DA0E1A885896003A3B8B /* OrderTrack_UserItem_Cell.m in Sources */,
 				FC2E651A1ABFFD65006BD470 /* CommonAddressController.m in Sources */,
 				FCD6C5B61AA2FCC3008D5E23 /* GMDCircleLoader.m in Sources */,

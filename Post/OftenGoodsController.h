@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface OftenGoodsController : UITableViewController
-
+@property(nonatomic, strong)NSMutableArray *userInfo;
+@property(nonatomic, assign)NSInteger didSelectIndex;
 @end
