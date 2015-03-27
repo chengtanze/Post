@@ -9,6 +9,8 @@
 #import "OftenGoodsController.h"
 #import "OftenGoodsTableViewCell.h"
 #import "EditGoodsController.h"
+#import "GoodsDetailController.h"
+
 @interface OftenGoodsController ()
 
 @end
@@ -31,19 +33,26 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self.tableView reloadData];
+    NSLog(@"viewWillAppear");
+}
+
 -(void)configLocalData{
     
     if(self.userInfo == nil)
     {
         self.userInfo = [[NSMutableArray alloc]initWithCapacity:10];
     }
-    NSMutableDictionary * dic1 = [[NSMutableDictionary alloc]initWithObjectsAndKeys:@"鲜花", @"goodsName", @"鲜花", @"goodsType", @"200元", @"goodsVaule", @"1公斤", @"goodsWeigth", @"公交", @"vehicle", nil];
+    NSMutableDictionary * dic1 = [[NSMutableDictionary alloc]initWithObjectsAndKeys:@"鲜花", @"goodsName", @"鲜花", @"goodsType", @"200元", @"goodsVaule", @"1公斤", @"goodsWeight", @"公交", @"vehicle", nil];
     
-    NSMutableDictionary * dic2 = [[NSMutableDictionary alloc]initWithObjectsAndKeys:@"电器", @"goodsName", @"冰箱", @"goodsType", @"1200元", @"goodsVaule", @"1公斤", @"goodsWeigth", @"公交", @"vehicle", nil];
+    NSMutableDictionary * dic2 = [[NSMutableDictionary alloc]initWithObjectsAndKeys:@"电器", @"goodsName", @"冰箱", @"goodsType", @"1200元", @"goodsVaule", @"1公斤", @"goodsWeight", @"公交", @"vehicle", nil];
     
-    NSMutableDictionary * dic3 = [[NSMutableDictionary alloc]initWithObjectsAndKeys:@"电器", @"goodsName", @"空调", @"goodsType", @"2200元", @"goodsVaule", @"1公斤", @"goodsWeigth", @"公交", @"vehicle", nil];
+    NSMutableDictionary * dic3 = [[NSMutableDictionary alloc]initWithObjectsAndKeys:@"电器", @"goodsName", @"空调", @"goodsType", @"2200元", @"goodsVaule", @"1公斤", @"goodsWeight", @"公交", @"vehicle", nil];
     
-    NSMutableDictionary * dic4 = [[NSMutableDictionary alloc]initWithObjectsAndKeys:@"数码产品", @"goodsName", @"相机", @"goodsType", @"200元", @"goodsVaule", @"1公斤", @"goodsWeigth", @"公交", @"vehicle", nil];
+    NSMutableDictionary * dic4 = [[NSMutableDictionary alloc]initWithObjectsAndKeys:@"数码产品", @"goodsName", @"相机", @"goodsType", @"200元", @"goodsVaule", @"1公斤", @"goodsWeight", @"公交", @"vehicle", nil];
     
     [self.userInfo addObject:dic1];
     [self.userInfo addObject:dic2];
@@ -77,7 +86,7 @@
             cell.goodsNameLable.text = [dicData valueForKey:@"goodsName"];
             cell.goodsType.text = [dicData valueForKey:@"goodsType"];
             cell.goodsVaule.text = [dicData valueForKey:@"goodsVaule"];
-            cell.goodsWeight.text = [dicData valueForKey:@"goodsWeigth"];
+            cell.goodsWeight.text = [dicData valueForKey:@"goodsWeight"];
             cell.vehicle.text = [dicData valueForKey:@"vehicle"];
         }
         
@@ -94,21 +103,22 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
-    if ([segue.identifier isEqualToString:@"showEditGoods"]) {
+    if ([segue.identifier isEqualToString:@"showAddGoods"]) {
         //NSLog(@"showCommonAddress");
         
         EditGoodsController * viewController = segue.destinationViewController;
         if (_didSelectIndex >= 0 && viewController != nil) {
-            viewController.goodsInfo = self.userInfo[_didSelectIndex];
+            viewController.goodsInfo = self.userInfo;
         }
         
     }
-    else if ([segue.identifier isEqualToString:@"addAddress"])
+    else if ([segue.identifier isEqualToString:@"showGoodsDetail"])
     {
-//        AddNewAddressController * viewController = segue.destinationViewController;
-//        if (viewController != nil) {
-//            viewController.userInfo = self.userInfo;
-//        }
+        GoodsDetailController * viewController = segue.destinationViewController;
+        if (viewController != nil) {
+
+            viewController.detailInfo = self.userInfo[_didSelectIndex];
+        }
     }
 }
 

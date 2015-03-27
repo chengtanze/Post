@@ -14,5 +14,5 @@
 @property (weak, nonatomic) IBOutlet UITextField *goodsVaule;
 @property (weak, nonatomic) IBOutlet UITextField *goodsWeight;
 - (IBAction)EditClick:(id)sender;
-
+@property (strong, nonatomic)NSMutableDictionary * detailInfo;
 @end

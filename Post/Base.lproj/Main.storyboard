@@ -4198,7 +4198,7 @@
                                     <outlet property="goodsVaule" destination="h45-7u-ylb" id="JKn-yZ-otc"/>
                                     <outlet property="goodsWeight" destination="UQH-5w-PZn" id="bVN-IA-8bM"/>
                                     <outlet property="vehicle" destination="Dq1-YY-3oW" id="tLs-5g-bO3"/>
-                                    <segue destination="VFm-9e-Js8" kind="show" identifier="showEditGoods" id="Ff1-XB-nQV"/>
+                                    <segue destination="VFm-9e-Js8" kind="show" identifier="showGoodsDetail" id="Ff1-XB-nQV"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -4211,7 +4211,7 @@
                     <navigationItem key="navigationItem" title="常发货物" id="7DT-6g-TQ4">
                         <barButtonItem key="rightBarButtonItem" title="添加" id="ih4-7o-fve">
                             <connections>
-                                <segue destination="7j2-65-GZ9" kind="show" id="Tue-iX-hja"/>
+                                <segue destination="7j2-65-GZ9" kind="show" identifier="showAddGoods" id="Tue-iX-hja"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -4219,7 +4219,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tz4-sL-Pdg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2006" y="-2537"/>
+            <point key="canvasLocation" x="1352" y="-2553"/>
         </scene>
         <!--编辑货物-->
         <scene sceneID="1O7-PN-KtN">
@@ -4344,10 +4344,16 @@
                             <outlet property="delegate" destination="7j2-65-GZ9" id="wVz-Zk-ajM"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="goodsName" destination="PuY-OC-BYc" id="uwY-ly-BCz"/>
+                        <outlet property="goodsType" destination="ah2-3M-BOK" id="GH0-E9-Der"/>
+                        <outlet property="goodsVaule" destination="oSc-2X-6MN" id="8XY-R4-x9L"/>
+                        <outlet property="goodsWeight" destination="E6u-Yy-tG1" id="Ysf-gg-ozu"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9a-bR-I3n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1315" y="-2537"/>
+            <point key="canvasLocation" x="2011" y="-2553"/>
         </scene>
         <!--常用地址-->
         <scene sceneID="GRN-p6-SpH">
@@ -4749,7 +4755,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b4o-ED-3kS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2680" y="-2537"/>
+            <point key="canvasLocation" x="684" y="-2553"/>
         </scene>
     </scenes>
     <resources>

@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface EditGoodsController : UITableViewController
-@property(nonatomic, strong)NSMutableDictionary * goodsInfo;
+@property(nonatomic, strong)NSMutableArray * goodsInfo;
+@property (weak, nonatomic) IBOutlet UITextField *goodsName;
+@property (weak, nonatomic) IBOutlet UITextField *goodsType;
+@property (weak, nonatomic) IBOutlet UITextField *goodsVaule;
+@property (weak, nonatomic) IBOutlet UITextField *goodsWeight;
+
 @end
