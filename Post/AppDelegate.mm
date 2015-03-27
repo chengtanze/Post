@@ -42,7 +42,7 @@
     
     UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController * MainViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"TabBarViewController"];
-    UIViewController * rightViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"OrderDetailTableViewController"];
+    UIViewController * rightViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"PersonalDataController"];
     
     WWSideslipViewController * slide = [[WWSideslipViewController alloc]initWithLeftView:nil andMainView:MainViewController andRightView:rightViewController andBackgroundImage:[UIImage imageNamed:@"bg.png"]];
     

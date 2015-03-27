@@ -74,7 +74,7 @@
 //            }
 //        }
         
-//        [mainControl.view addGestureRecognizer:pan];
+        [mainControl.view addGestureRecognizer:pan];
         
         
         //单击手势
@@ -213,7 +213,7 @@
 -(void)showRighView{
     [UIView beginAnimations:nil context:nil];
     mainControl.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,0.9,0.9);
-    mainControl.view.center = CGPointMake(10,[UIScreen mainScreen].bounds.size.height/2);
+    mainControl.view.center = CGPointMake(0,[UIScreen mainScreen].bounds.size.height/2);
     [UIView commitAnimations];
 }
 
