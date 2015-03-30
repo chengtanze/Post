@@ -9,6 +9,8 @@
 #import "HomeViewController.h"
 #import "Custom_ScrollImageView.h"
 #import "QRCodesViewController.h"
+#import "WWSideslipViewController.h"
+
 @interface HomeViewController ()<CustromScrollImageViewTapDelegate>
 
 @property(nonatomic, strong)Custom_ScrollImageView * srcollImage;
@@ -36,6 +38,9 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
+    
+    [sides addPanGsetureToHomeView];
     NSLog(@"viewDidAppear");
 }
 
@@ -90,6 +95,14 @@
         }];
     }
 
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
+    
+    [sides removeGestureToHomeView];
+    
+    NSLog(@"prepareForSegue");
 }
 
 #pragma mark - Table view data source

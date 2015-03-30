@@ -12,6 +12,8 @@
 
 #import "WWSideslipViewController.h"
 
+static WWSideslipViewController *sharedObj = nil;
+
 @interface WWSideslipViewController ()
 
 @end
@@ -42,7 +44,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-
++(instancetype)sharedInstance:(UIViewController *)LeftView
+                  andMainView:(UIViewController *)MainView
+                 andRightView:(UIViewController *)RighView
+           andBackgroundImage:(UIImage *)image;
+{
+    @synchronized (self)
+    {
+        if (sharedObj == nil)
+        {
+            sharedObj = [[self alloc] initWithLeftView:LeftView andMainView:MainView andRightView:RighView andBackgroundImage:image];
+        }
+    }
+    return sharedObj;
+}
 
 -(instancetype)initWithLeftView:(UIViewController *)LeftView
                     andMainView:(UIViewController *)MainView
@@ -61,20 +76,9 @@
         [self.view addSubview:imgview];
         
         //滑动手势
-        UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handlePan:)];
-//        NSArray * arrayChild = mainControl.childViewControllers;
-//        if (arrayChild != nil) {
-//            for (int nIndex = 0; nIndex < arrayChild.count; nIndex++) {
-//                UIViewController * viewCtrl = arrayChild[nIndex];
-//                NSLog(@"title:%@", viewCtrl.title);
-//                //if (viewCtrl != nil && [viewCtrl.title isEqualToString:@"首页"])
-//                if (nIndex == 0) {
-//                    [viewCtrl.view addGestureRecognizer:pan];
-//                }
-//            }
-//        }
-        
-        [mainControl.view addGestureRecognizer:pan];
+        self.sidesPanGes = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(handlePan:)];
+
+        //[mainControl.view addGestureRecognizer:pan];
         
         
         //单击手势
@@ -99,6 +103,20 @@
         
     }
     return self;
+}
+
+-(void)addPanGsetureToHomeView{
+    if (_sidesPanGes != nil) {
+        [mainControl.view addGestureRecognizer:_sidesPanGes];
+    }
+    
+}
+
+-(void)removeGestureToHomeView{
+    if (_sidesPanGes != nil) {
+        [mainControl.view removeGestureRecognizer:_sidesPanGes];
+    }
+    
 }
 
 -(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -213,7 +231,7 @@
 -(void)showRighView{
     [UIView beginAnimations:nil context:nil];
     mainControl.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,0.9,0.9);
-    mainControl.view.center = CGPointMake(0,[UIScreen mainScreen].bounds.size.height/2);
+    mainControl.view.center = CGPointMake(-[UIScreen mainScreen].bounds.size.width / 4.0, [UIScreen mainScreen].bounds.size.height/2);
     [UIView commitAnimations];
 }
 

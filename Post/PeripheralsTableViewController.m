@@ -8,6 +8,7 @@
 
 #import "PeripheralsTableViewController.h"
 #import "MapPulicFunction.h"
+#import "WWSideslipViewController.h"
 
 @interface PeripheralsTableViewController ()
 
@@ -58,6 +59,21 @@
     return cell;
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
+    
+    [sides addPanGsetureToHomeView];
+    NSLog(@"viewDidAppear");
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
+    
+    [sides removeGestureToHomeView];
+    
+    NSLog(@"prepareForSegue");
+}
 
 /*
 // Override to support conditional editing of the table view.

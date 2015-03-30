@@ -30,7 +30,15 @@
 //是否允许点击视图恢复视图位置。默认为yes
 @property (strong) UITapGestureRecognizer *sideslipTapGes;
 
+@property (strong, nonatomic) UIPanGestureRecognizer * sidesPanGes;
+
+
 //初始化
++(instancetype)sharedInstance:(UIViewController *)LeftView
+                  andMainView:(UIViewController *)MainView
+                 andRightView:(UIViewController *)RighView
+           andBackgroundImage:(UIImage *)image;
+
 -(instancetype)initWithLeftView:(UIViewController *)LeftView
                     andMainView:(UIViewController *)MainView
                    andRightView:(UIViewController *)RighView
@@ -46,6 +54,8 @@
 //显示右视图
 -(void)showRighView;
 
+-(void)addPanGsetureToHomeView;
 
+-(void)removeGestureToHomeView;
 
 @end

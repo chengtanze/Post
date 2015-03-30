@@ -18,9 +18,18 @@
     [super viewDidLoad];
     
     
-    _userInfo.backgroundColor=[UIColor clearColor];//关键语句
-    //[_userInfo setCellInfo:dic];//自定义类目方法
+    _userInfo.backgroundColor = [UIColor clearColor];//关键语句
+    _changePasswordCell.backgroundColor = [UIColor clearColor];
+    _changePhoneCell.backgroundColor = [UIColor clearColor];
+    _feedBackCell.backgroundColor = [UIColor clearColor];
+    _aboutCell.backgroundColor = [UIColor clearColor];
+    
     [self setBackGroupImage:nil];
+    
+    //userHeaderImageView
+    self.userHeaderImageView.layer.cornerRadius = self.userHeaderImageView.bounds.size.width / 2.0;
+    self.userHeaderImageView.layer.masksToBounds = YES;
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
