@@ -189,6 +189,21 @@ static WWSideslipViewController *sharedObj = nil;
 
 }
 
+-(void)restoreViewState{
+    //[UIView beginAnimations:nil context:nil];
+    mainControl.view.transform = CGAffineTransformScale(CGAffineTransformIdentity,1.0,1.0);
+    mainControl.view.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,[UIScreen mainScreen].bounds.size.height/2);
+    //[UIView commitAnimations];
+    scalef = 0;
+    
+    //[UIView beginAnimations:nil context:nil];
+    CGRect rect = righControl.view.frame;
+    rect.origin.x = mainControl.view.frame.origin.x + mainControl.view.frame.size.width;
+    righControl.view.frame = rect;
+    //[UIView commitAnimations];
+    
+    [mainControl.view removeGestureRecognizer:sideslipTapGes];
+}
 
 #pragma mark - 单击手势
 -(void)handeTap:(UITapGestureRecognizer *)tap{
@@ -199,13 +214,14 @@ static WWSideslipViewController *sharedObj = nil;
         tap.view.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,[UIScreen mainScreen].bounds.size.height/2);
         [UIView commitAnimations];
         scalef = 0;
-
+        
         [UIView beginAnimations:nil context:nil];
         CGRect rect = righControl.view.frame;
         rect.origin.x = tap.view.frame.origin.x + tap.view.frame.size.width;
         righControl.view.frame = rect;
         [UIView commitAnimations];
     }
+    
     [mainControl.view removeGestureRecognizer:sideslipTapGes];
 }
 

@@ -127,6 +127,7 @@
 		FCA8C8071AB8151A00830AD5 /* poi_3.png in Resources */ = {isa = PBXBuildFile; fileRef = FCA8C8031AB8151A00830AD5 /* poi_3.png */; };
 		FCA8C80A1AB815BA00830AD5 /* SelectRangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA8C8091AB815BA00830AD5 /* SelectRangeView.m */; };
 		FCA8C80C1AB815D900830AD5 /* SelectRange.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCA8C80B1AB815D900830AD5 /* SelectRange.xib */; };
+		FCAEEB531ACA3BAE00D24E73 /* PersonlDataNaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAEEB521ACA3BAE00D24E73 /* PersonlDataNaviViewController.m */; };
 		FCB960E31AC55BB100FC3FF9 /* PersonalDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB960E21AC55BB100FC3FF9 /* PersonalDataController.m */; };
 		FCD6C5B61AA2FCC3008D5E23 /* GMDCircleLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6C5B51AA2FCC3008D5E23 /* GMDCircleLoader.m */; };
 		FCD6C5B81AA3144C008D5E23 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCD6C5B71AA3144C008D5E23 /* citydict.plist */; };
@@ -400,6 +401,8 @@
 		FCA8C8081AB815BA00830AD5 /* SelectRangeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SelectRangeView.h; path = Post/SelectRangeView.h; sourceTree = "<group>"; };
 		FCA8C8091AB815BA00830AD5 /* SelectRangeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SelectRangeView.m; path = Post/SelectRangeView.m; sourceTree = "<group>"; };
 		FCA8C80B1AB815D900830AD5 /* SelectRange.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SelectRange.xib; path = Post/SelectRange.xib; sourceTree = "<group>"; };
+		FCAEEB511ACA3BAE00D24E73 /* PersonlDataNaviViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonlDataNaviViewController.h; path = Post/PersonlDataNaviViewController.h; sourceTree = "<group>"; };
+		FCAEEB521ACA3BAE00D24E73 /* PersonlDataNaviViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonlDataNaviViewController.m; path = Post/PersonlDataNaviViewController.m; sourceTree = "<group>"; };
 		FCB960E11AC55BB100FC3FF9 /* PersonalDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonalDataController.h; path = Post/PersonalDataController.h; sourceTree = "<group>"; };
 		FCB960E21AC55BB100FC3FF9 /* PersonalDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonalDataController.m; path = Post/PersonalDataController.m; sourceTree = "<group>"; };
 		FCD6C5B41AA2FCC3008D5E23 /* GMDCircleLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GMDCircleLoader.h; path = Post/GMDCircleLoader.h; sourceTree = "<group>"; };
@@ -518,6 +521,8 @@
 				FC7FC7F21A787C4B004B3909 /* HomeViewController.m */,
 				FC7FC7F41A788972004B3909 /* RegisterViewController.h */,
 				FC7FC7F51A788972004B3909 /* RegisterViewController.m */,
+				FCAEEB511ACA3BAE00D24E73 /* PersonlDataNaviViewController.h */,
+				FCAEEB521ACA3BAE00D24E73 /* PersonlDataNaviViewController.m */,
 			);
 			name = "首页";
 			sourceTree = "<group>";
@@ -1122,6 +1127,7 @@
 				FC821BA51AA45AC500F4B0C9 /* GoodsInCancle_State_Cell.m in Sources */,
 				FC4F73AB1ABBFF0800953D95 /* AFSecurityPolicy.m in Sources */,
 				FC4F73A81ABBFF0800953D95 /* AFHTTPRequestOperationManager.m in Sources */,
+				FCAEEB531ACA3BAE00D24E73 /* PersonlDataNaviViewController.m in Sources */,
 				FCB960E31AC55BB100FC3FF9 /* PersonalDataController.m in Sources */,
 				1478BE3B1A83AAAA006B03ED /* OrderTrackViewController.mm in Sources */,
 				FC670A221AA2F13E000BE7A0 /* SVProgressHUD.m in Sources */,

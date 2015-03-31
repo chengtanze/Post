@@ -42,8 +42,8 @@
     
     UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController * MainViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"TabBarViewController"];
-    UIViewController * rightViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"PersonalDataController"];
     
+    UIViewController * rightViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"PersonalDataController"];//[mainStoryboard instantiateViewControllerWithIdentifier:@"PersonlDataNaviViewController"];//
     WWSideslipViewController * slide = [WWSideslipViewController sharedInstance:nil andMainView:MainViewController andRightView:rightViewController andBackgroundImage:[UIImage imageNamed:@"bg.png"]];
     
     //滑动速度系数

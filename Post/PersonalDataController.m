@@ -7,6 +7,7 @@
 //
 
 #import "PersonalDataController.h"
+#import "WWSideslipViewController.h"
 
 @interface PersonalDataController ()
 
@@ -51,6 +52,31 @@
     [backImageView setImage:[UIImage imageNamed:@"bg.png"]];
     self.tableView.backgroundView = backImageView;
 }
+
+//#warning 为了界面美观，所以隐藏了状态栏。如果需要显示则去掉此代码
+//- (BOOL)prefersStatusBarHidden
+//{
+//    return YES; //返回NO表示要显示，返回YES将hiden
+//}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row == 0) {
+        
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    NSLog(@"prepareForSegue");
+    if ([segue.identifier isEqualToString:@"showPersonlData"]) {
+            WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
+        
+        [sides restoreViewState];
+    }
+    
+}
+
+
 
 #pragma mark - Table view data source
 //

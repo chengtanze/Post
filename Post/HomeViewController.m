@@ -10,7 +10,7 @@
 #import "Custom_ScrollImageView.h"
 #import "QRCodesViewController.h"
 #import "WWSideslipViewController.h"
-
+//#import "EditPersonController.h"
 @interface HomeViewController ()<CustromScrollImageViewTapDelegate>
 
 @property(nonatomic, strong)Custom_ScrollImageView * srcollImage;
@@ -103,6 +103,13 @@
     [sides removeGestureToHomeView];
     
     NSLog(@"prepareForSegue");
+}
+
+-(void)showEditPersonDataView{
+    UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController * info = [mainStoryboard instantiateViewControllerWithIdentifier:@"EditPersonController"];
+    
+    [self.navigationController pushViewController:info animated:NO];
 }
 
 #pragma mark - Table view data source

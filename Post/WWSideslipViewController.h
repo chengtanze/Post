@@ -47,6 +47,7 @@
 
 //恢复位置
 -(void)showMainView;
+-(void)restoreViewState;
 
 //显示左视图
 -(void)showLeftView;
@@ -57,5 +58,7 @@
 -(void)addPanGsetureToHomeView;
 
 -(void)removeGestureToHomeView;
+
+
 
 @end
