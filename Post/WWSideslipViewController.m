@@ -20,6 +20,8 @@ static WWSideslipViewController *sharedObj = nil;
 
 @implementation WWSideslipViewController
 @synthesize speedf,sideslipTapGes;
+//@synthesize righControl = _righControl;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

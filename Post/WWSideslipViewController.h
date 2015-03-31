@@ -13,11 +13,11 @@
 #import <UIKit/UIKit.h>
 
 @interface WWSideslipViewController : UIViewController{
-@private
-    UIViewController * leftControl;
+@public
+    
     UIViewController * mainControl;
     UIViewController * righControl;
-    
+    UIViewController * leftControl;
     UIImageView * imgBackground;
     
     CGFloat scalef;

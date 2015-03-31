@@ -11,7 +11,7 @@
 
 @protocol GetSelectIndexDelegate <NSObject>
 
--(void)setIndex:(NSUInteger) index;
+-(void)setIndex:(NSUInteger)index;
 
 @end
 
@@ -21,8 +21,8 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *changePhoneCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *feedBackCell;
 @property (weak, nonatomic) IBOutlet UITableViewCell *aboutCell;
-
-
 @property (weak, nonatomic) IBOutlet UIImageView *userHeaderImageView;
+
+@property (weak, nonatomic) id<GetSelectIndexDelegate> delegate;
 
 @end

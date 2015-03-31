@@ -10,8 +10,9 @@
 #import "Custom_ScrollImageView.h"
 #import "QRCodesViewController.h"
 #import "WWSideslipViewController.h"
+#import "PersonalDataController.h"
 //#import "EditPersonController.h"
-@interface HomeViewController ()<CustromScrollImageViewTapDelegate>
+@interface HomeViewController ()<CustromScrollImageViewTapDelegate, GetSelectIndexDelegate>
 
 @property(nonatomic, strong)Custom_ScrollImageView * srcollImage;
 
@@ -26,8 +27,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
+    
+    PersonalDataController * dataCtrl = (PersonalDataController *)sides->righControl;
+    dataCtrl.delegate = self;
 
     
+    [sides addPanGsetureToHomeView];
 }
 
 //滑动手势
@@ -106,10 +113,23 @@
 }
 
 -(void)showEditPersonDataView{
+    
+    //先显示首页
+    
     UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController * info = [mainStoryboard instantiateViewControllerWithIdentifier:@"EditPersonController"];
     
     [self.navigationController pushViewController:info animated:NO];
+//    self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+//    [self presentViewController:info animated:YES completion:^{
+//        
+//    }];
+}
+
+-(void)setIndex:(NSUInteger)index{
+    if (index == 0) {
+        [self showEditPersonDataView];
+    }
 }
 
 #pragma mark - Table view data source

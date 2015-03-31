@@ -1,41 +1,27 @@
 //
-//  PersonalDataController.m
+//  EditPersonController.m
 //  Post
 //
-//  Created by wangsl-iMac on 15/3/27.
+//  Created by wangsl-iMac on 15/3/31.
 //  Copyright (c) 2015年 cheng. All rights reserved.
 //
 
-#import "PersonalDataController.h"
-#import "WWSideslipViewController.h"
+#import "EditPersonController.h"
 
-@interface PersonalDataController ()
+@interface EditPersonController ()
 
 @end
 
-@implementation PersonalDataController
+@implementation EditPersonController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    _userInfo.backgroundColor = [UIColor clearColor];//关键语句
-    _changePasswordCell.backgroundColor = [UIColor clearColor];
-    _changePhoneCell.backgroundColor = [UIColor clearColor];
-    _feedBackCell.backgroundColor = [UIColor clearColor];
-    _aboutCell.backgroundColor = [UIColor clearColor];
-    
-    [self setBackGroupImage:nil];
-    
-    //userHeaderImageView
-    self.userHeaderImageView.layer.cornerRadius = self.userHeaderImageView.bounds.size.width / 2.0;
-    self.userHeaderImageView.layer.masksToBounds = YES;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,56 +29,8 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)setBackGroupImage:(UIImage *)image{
-    UIView *backgroundView = [[UIView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.png"]];
-    
-    
-    UIImageView *backImageView=[[UIImageView alloc]initWithFrame:self.view.bounds];
-    [backImageView setImage:[UIImage imageNamed:@"bg.png"]];
-    self.tableView.backgroundView = backImageView;
-}
-
-//#warning 为了界面美观，所以隐藏了状态栏。如果需要显示则去掉此代码
-//- (BOOL)prefersStatusBarHidden
-//{
-//    return YES; //返回NO表示要显示，返回YES将hiden
-//}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
-        
-        UITabBarController * tabController = (UITabBarController *) sides->mainControl;
-        
-        if (tabController.selectedIndex != 0) {
-            tabController.selectedIndex = 0;
-        }
-        
-        [sides restoreViewState];
-        
-        if (_delegate != nil && [self.delegate respondsToSelector:@selector(setIndex:)])
-        {
-            [_delegate setIndex:indexPath.row];
-        }
-    }
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    
-    NSLog(@"prepareForSegue");
-//    if ([segue.identifier isEqualToString:@"showPersonlData"]) {
-//            WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
-//        
-//        [sides restoreViewState];
-//    }
-    
-}
-
-
-
 #pragma mark - Table view data source
-//
+
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //#warning Potentially incomplete method implementation.
 //    // Return the number of sections.
@@ -159,4 +97,7 @@
 }
 */
 
+- (IBAction)goBackClick:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES]; 
+}
 @end
