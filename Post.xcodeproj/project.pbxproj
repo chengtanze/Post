@@ -87,6 +87,7 @@
 		14CE5FED1A74D34A00A19C36 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CE5FEA1A74D34A00A19C36 /* Default@2x.png */; };
 		14CE5FEE1A74D34A00A19C36 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CE5FEB1A74D34A00A19C36 /* Default-568h@2x.png */; };
 		14CE5FEF1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CE5FEC1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png */; };
+		14E99CDE1ACBEA8500DF606E /* HttpProtocolAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E99CDD1ACBEA8500DF606E /* HttpProtocolAPI.m */; };
 		FC2B862E1AC2A54D00926FA6 /* CommonDetailAddressController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2B862D1AC2A54D00926FA6 /* CommonDetailAddressController.m */; };
 		FC2B86311AC2AC5300926FA6 /* CommonAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2B86301AC2AC5300926FA6 /* CommonAddressTableViewCell.m */; };
 		FC2E651A1ABFFD65006BD470 /* CommonAddressController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2E65191ABFFD65006BD470 /* CommonAddressController.m */; };
@@ -333,6 +334,8 @@
 		14CE5FEA1A74D34A00A19C36 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		14CE5FEB1A74D34A00A19C36 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		14CE5FEC1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0-SMART-BOX-启动750-1334.png"; sourceTree = "<group>"; };
+		14E99CDC1ACBEA8500DF606E /* HttpProtocolAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpProtocolAPI.h; path = Post/HttpProtocolAPI.h; sourceTree = "<group>"; };
+		14E99CDD1ACBEA8500DF606E /* HttpProtocolAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpProtocolAPI.m; path = Post/HttpProtocolAPI.m; sourceTree = "<group>"; };
 		FC2B862C1AC2A54D00926FA6 /* CommonDetailAddressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonDetailAddressController.h; path = Post/CommonDetailAddressController.h; sourceTree = "<group>"; };
 		FC2B862D1AC2A54D00926FA6 /* CommonDetailAddressController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonDetailAddressController.m; path = Post/CommonDetailAddressController.m; sourceTree = "<group>"; };
 		FC2B862F1AC2AC5300926FA6 /* CommonAddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonAddressTableViewCell.h; path = Post/CommonAddressTableViewCell.h; sourceTree = "<group>"; };
@@ -841,6 +844,7 @@
 		14CE5FE61A74CFDF00A19C36 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				14E99CDB1ACBE9A400DF606E /* Http */,
 			);
 			name = Modal;
 			sourceTree = "<group>";
@@ -894,6 +898,15 @@
 				14CE5FE81A74D32D00A19C36 /* Introduce */,
 			);
 			name = Image;
+			sourceTree = "<group>";
+		};
+		14E99CDB1ACBE9A400DF606E /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				14E99CDC1ACBEA8500DF606E /* HttpProtocolAPI.h */,
+				14E99CDD1ACBEA8500DF606E /* HttpProtocolAPI.m */,
+			);
+			name = Http;
 			sourceTree = "<group>";
 		};
 		FC4F73931ABBFEEC00953D95 /* NetWork */ = {
@@ -1094,6 +1107,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC4F73A71ABBFF0800953D95 /* AFHTTPRequestOperation.m in Sources */,
+				14E99CDE1ACBEA8500DF606E /* HttpProtocolAPI.m in Sources */,
 				FC98FBB81AAD8B66005E2DB0 /* ConfirmDeliveryViewController.m in Sources */,
 				144023571A8E35A400321C6F /* GoodsPhotoViewController.m in Sources */,
 				1459912B1A89D76700710CF2 /* ConfirmTableViewController.m in Sources */,

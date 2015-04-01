@@ -11,6 +11,8 @@
 #import "QRCodesViewController.h"
 #import "WWSideslipViewController.h"
 #import "PersonalDataController.h"
+
+#import "HttpProtocolAPI.h"
 //#import "EditPersonController.h"
 @interface HomeViewController ()<CustromScrollImageViewTapDelegate, GetSelectIndexDelegate>
 
@@ -27,6 +29,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[HttpProtocolAPI sharedClient] login];
+    
+    
     
     WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
     
