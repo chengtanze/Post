@@ -34,4 +34,9 @@
 }
 */
 
+- (IBAction)getAuthCodeClick:(id)sender {
+}
+
+- (IBAction)completeClick:(id)sender {
+}
 @end

@@ -517,6 +517,8 @@
 		144F17521AB5CCC100AE56F7 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
+				142B22591A7E34BD00363BD9 /* LoginViewController.h */,
+				142B225A1A7E34BD00363BD9 /* LoginViewController.m */,
 				14A6685D1AB86CB300C534E0 /* WWSideslipViewController.h */,
 				14A6685E1AB86CB300C534E0 /* WWSideslipViewController.m */,
 				FC7FC7EB1A7875C3004B3909 /* TabBarViewController.h */,
@@ -542,8 +544,6 @@
 				14BD6BB21A7CE945001A8535 /* EditCargoInfoTableViewController.m */,
 				142B224D1A7DCE3000363BD9 /* DetailedAddressViewController.h */,
 				142B224E1A7DCE3000363BD9 /* DetailedAddressViewController.m */,
-				142B22591A7E34BD00363BD9 /* LoginViewController.h */,
-				142B225A1A7E34BD00363BD9 /* LoginViewController.m */,
 				1478BE391A83AAAA006B03ED /* OrderTrackViewController.h */,
 				1478BE3A1A83AAAA006B03ED /* OrderTrackViewController.mm */,
 				145991291A89D76700710CF2 /* ConfirmTableViewController.h */,

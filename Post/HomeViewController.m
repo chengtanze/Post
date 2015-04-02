@@ -30,15 +30,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[HttpProtocolAPI sharedClient] login:^(NSDictionary *data, NSError *error) {
-        if (data != nil) {
-            
-        }else{
-            
-        }
-        
-        
-    }];
+//    [[HttpProtocolAPI sharedClient] login:^(NSDictionary *data, NSError *error) {
+//        if (data != nil) {
+//            
+//        }else{
+//            
+//        }
+//        
+//        
+//    }];
     
     
     

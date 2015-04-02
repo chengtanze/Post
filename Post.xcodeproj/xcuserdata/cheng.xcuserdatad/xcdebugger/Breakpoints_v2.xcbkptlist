@@ -374,22 +374,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Post/RegisterViewController.h"
-            timestampString = "445242893.567143"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "13"
-            endingLineNumber = "13"
-            landmarkName = "@interface RegisterViewController"
-            landmarkType = "2">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -505,13 +489,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Post/HttpProtocolAPI.m"
-            timestampString = "449573337.335105"
+            filePath = "Post/LoginViewController.m"
+            timestampString = "449663199.319525"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "-login"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "-loginClick:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -521,13 +505,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Post/HttpProtocolAPI.m"
-            timestampString = "449573343.574051"
+            filePath = "Post/LoginViewController.m"
+            timestampString = "449663208.842963"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "-login"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "-responseNetWorkData:errorCode:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -537,13 +521,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Post/HttpProtocolAPI.m"
-            timestampString = "449573366.37721"
+            filePath = "Post/LoginViewController.m"
+            timestampString = "449663216.294782"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "-login"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "-responseNetWorkData:errorCode:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
