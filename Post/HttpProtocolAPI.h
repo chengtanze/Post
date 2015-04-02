@@ -11,5 +11,5 @@
 @interface HttpProtocolAPI : AFHTTPSessionManager
 + (instancetype)sharedClient;
 
--(NSURLSessionDataTask *)login;
+-(NSURLSessionDataTask *)login:(void(^) (NSDictionary * data, NSError *error))block;
 @end
