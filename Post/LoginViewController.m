@@ -38,6 +38,7 @@
 - (IBAction)loginClick:(id)sender {
     NSString * strUserName;
     NSString * strUserPassWord;
+    
 #ifdef USERTEST
     strUserName = self.phoneNumber.text;
     strUserPassWord = self.userPassWord.text;

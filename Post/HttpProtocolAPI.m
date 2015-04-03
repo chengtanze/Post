@@ -60,7 +60,7 @@ static NSString * const APIBaseURLString = @"http://114.215.132.245/";
     }];
 }
 
--(NSURLSessionDataTask *)register:(NSDictionary *)params setBlock:(void(^) (NSDictionary * data, NSError *error))block{
+-(NSURLSessionDataTask *)registerUser:(NSDictionary *)params setBlock:(void(^) (NSDictionary * data, NSError *error))block{
     
     [HttpProtocolAPI sharedClient].responseSerializer = [AFHTTPResponseSerializer serializer];
     
@@ -85,5 +85,41 @@ static NSString * const APIBaseURLString = @"http://114.215.132.245/";
                 }
             }];
 }
+
+-(NSURLSessionDataTask *)getAuthCode:(NSString *)phoneNum authType:(NSUInteger)type setBlock:(void(^) (NSDictionary * data, NSError *error))block
+{
+    [HttpProtocolAPI sharedClient].responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    NSError * retError = nil;
+    
+    NSNumber * numberType = [[NSNumber alloc]initWithInt:type];
+    NSMutableDictionary * params= [[NSMutableDictionary alloc]init];
+    [params setObject: phoneNum forKey:@"phoneNum"];
+    [params setObject: numberType forKey:@"type"];
+    
+    return [[HttpProtocolAPI sharedClient] POST:@"qmld/api/getVerifyCode.php?" parameters:params success:^(NSURLSessionDataTask * __unused task, id responseObject)
+            {
+                NSString * xmlstring = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                NSLog(@"%@",xmlstring);
+                NSData* data = [xmlstring dataUsingEncoding:NSUTF8StringEncoding];
+                NSDictionary * retDictData = [NSJSONSerialization  JSONObjectWithData:data options:0 error:nil];
+                
+                if (block != nil)
+                {
+                    block(retDictData, retError);
+                }
+                
+            } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+                if (block != nil)
+                {
+                    block(nil, error);
+                }
+            }];
+    return nil;
+}
+
+
+
+
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "RegisterViewController.h"
-
+#import "HttpProtocolAPI.h"
 @interface RegisterViewController ()
 
 @end
@@ -35,8 +35,99 @@
 */
 
 - (IBAction)getAuthCodeClick:(id)sender {
+    [[HttpProtocolAPI sharedClient] getAuthCode:@"13691790130" authType:0 setBlock:^(NSDictionary *data, NSError *error) {
+        [self responseAuthCodeNetWorkData:data errorCode:error];
+    }];
+}
+
+-(BOOL)verifyAuthCode:(NSString *)strAuthCode{
+    BOOL verify = NO;
+    
+    if ([strAuthCode isEqualToString:@""]) {
+        NSLog(@"效验码为空");
+    }else if(strAuthCode.length != 6){
+        NSLog(@"效验码长度错误");
+    }
+    else{
+        verify = YES;
+    }
+    
+    return verify;
 }
 
 - (IBAction)completeClick:(id)sender {
+    NSString * strUserName;
+    NSString * strUserPassWord;
+    
+#ifdef USERTEST
+    strUserName = self.phoneNumber.text;
+    strUserPassWord = self.userPassWord.text;
+#else
+    strUserName = @"13691790130";
+    strUserPassWord = @"123456";
+#endif
+    
+    if (![self verifyAuthCode:self.authCode.text]) {
+        //提示验证码格式错误
+        return;
+    }
+    
+    NSNumber * numberType = [[NSNumber alloc]initWithInt:0];
+    NSMutableDictionary * params= [[NSMutableDictionary alloc]init];
+    [params setObject: strUserName forKey:@"phoneNum"];
+    [params setObject: strUserPassWord forKey:@"password"];
+    [params setObject: numberType forKey:@"type"];
+    [params setObject: self.authCode.text forKey:@"verifyCode"];
+    
+    [[HttpProtocolAPI sharedClient] registerUser:params setBlock:^(NSDictionary *data, NSError *error) {
+        [self responseRegisterNetWorkData:data errorCode:error];
+    }];
 }
+
+-(void)responseAuthCodeNetWorkData:(NSDictionary *)data errorCode:(NSError *)error{
+    if (data != nil) {
+        //解析数据
+        NSNumber * state = [data valueForKey:@"state"];
+        if (state.intValue == 0) {
+            //获取验证码成功
+            NSLog(@"获取验证码成功");
+        }
+        else{
+            //获取验证码失败
+            NSLog(@"获取验证码失败");
+        }
+        
+    }else{
+        //网络错误
+        NSLog(@"网络错误");
+        
+    }
+}
+
+-(void)responseRegisterNetWorkData:(NSDictionary *)data errorCode:(NSError *)error{
+    if (data != nil) {
+        //解析数据
+        NSNumber * state = [data valueForKey:@"state"];
+        if (state.intValue == 0) {
+            //注册成功
+            NSLog(@"注册成功");
+        }
+        else{
+            //注册失败
+            NSLog(@"注册失败:%@", state);
+        }
+        
+    }else{
+        //网络错误
+        NSLog(@"网络错误");
+        
+    }
+}
+
+
+
+
+
+
+
 @end
