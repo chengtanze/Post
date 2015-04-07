@@ -40,6 +40,14 @@
 //        
 //    }];
     
+    [[HttpProtocolAPI sharedClient]getGoodsTypeList:^(NSDictionary *data, NSError *error) {
+        if (data != nil) {
+            
+        }else{
+            
+        }
+    }];
+    
     
     
     WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="SfT-KD-ZbZ" customClass="GoodsTypeView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="piz-b6-h3E">
+                    <rect key="frame" x="0.0" y="30" width="320" height="180"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="b6L-K9-tYe"/>
+                        <constraint firstAttribute="height" constant="180" id="xMU-Zh-Arh"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="b6L-K9-tYe"/>
+                        </mask>
+                    </variation>
+                </pickerView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jye-Be-oE5">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5eo-7N-8bc">
+                            <rect key="frame" x="240" y="10" width="70" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="70" id="3gI-bW-rIZ"/>
+                            </constraints>
+                            <state key="normal" title="完成">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="okClick:" destination="SfT-KD-ZbZ" eventType="touchUpInside" id="nYK-jW-RM2"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iz7-vj-uDf">
+                            <rect key="frame" x="10" y="10" width="70" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="70" id="3kv-my-d2V"/>
+                            </constraints>
+                            <state key="normal" title="取消">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="cancleClick:" destination="SfT-KD-ZbZ" eventType="touchUpInside" id="Var-dd-S72"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="5eo-7N-8bc" secondAttribute="trailing" constant="10" id="8xl-la-aJZ"/>
+                        <constraint firstAttribute="centerY" secondItem="iz7-vj-uDf" secondAttribute="centerY" id="VT8-fB-Uff"/>
+                        <constraint firstAttribute="centerY" secondItem="5eo-7N-8bc" secondAttribute="centerY" id="Xvo-oD-BUU"/>
+                        <constraint firstItem="5eo-7N-8bc" firstAttribute="top" secondItem="jye-Be-oE5" secondAttribute="top" constant="10" id="des-Lv-SuH"/>
+                        <constraint firstItem="iz7-vj-uDf" firstAttribute="top" secondItem="jye-Be-oE5" secondAttribute="top" constant="10" id="eCo-6C-Q57"/>
+                        <constraint firstAttribute="height" constant="50" id="lgz-ob-AQX"/>
+                        <constraint firstItem="iz7-vj-uDf" firstAttribute="leading" secondItem="jye-Be-oE5" secondAttribute="leading" constant="10" id="txs-yW-Emk"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="jye-Be-oE5" firstAttribute="top" secondItem="SfT-KD-ZbZ" secondAttribute="top" id="0Ax-Kw-l74"/>
+                <constraint firstItem="piz-b6-h3E" firstAttribute="leading" secondItem="SfT-KD-ZbZ" secondAttribute="leading" id="BeN-LE-lUU"/>
+                <constraint firstAttribute="trailing" secondItem="piz-b6-h3E" secondAttribute="trailing" id="HqU-NH-7Vw"/>
+                <constraint firstAttribute="bottom" secondItem="piz-b6-h3E" secondAttribute="bottom" constant="20" id="kzK-Pf-Gu3"/>
+                <constraint firstAttribute="trailing" secondItem="jye-Be-oE5" secondAttribute="trailing" id="qbw-Gu-GLf"/>
+                <constraint firstItem="jye-Be-oE5" firstAttribute="leading" secondItem="SfT-KD-ZbZ" secondAttribute="leading" id="uoQ-bg-3Qb"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="goodsPickView" destination="piz-b6-h3E" id="vFD-FA-2W6"/>
+            </connections>
+            <point key="canvasLocation" x="407" y="760"/>
+        </view>
+    </objects>
+</document>

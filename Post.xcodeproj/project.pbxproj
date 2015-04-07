@@ -131,6 +131,8 @@
 		FCAEEB531ACA3BAE00D24E73 /* PersonlDataNaviViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAEEB521ACA3BAE00D24E73 /* PersonlDataNaviViewController.m */; };
 		FCAEEB561ACA858A00D24E73 /* EditPersonController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCAEEB551ACA858A00D24E73 /* EditPersonController.m */; };
 		FCB960E31AC55BB100FC3FF9 /* PersonalDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCB960E21AC55BB100FC3FF9 /* PersonalDataController.m */; };
+		FCC7CA0D1ACE794100347105 /* GoodsTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC7CA0C1ACE794100347105 /* GoodsTypeView.m */; };
+		FCC7CA0F1ACE7A6700347105 /* GoodsType.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCC7CA0E1ACE7A6700347105 /* GoodsType.xib */; };
 		FCD6C5B61AA2FCC3008D5E23 /* GMDCircleLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6C5B51AA2FCC3008D5E23 /* GMDCircleLoader.m */; };
 		FCD6C5B81AA3144C008D5E23 /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCD6C5B71AA3144C008D5E23 /* citydict.plist */; };
 		FCD6C5BB1AA31616008D5E23 /* CityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCD6C5BA1AA31616008D5E23 /* CityListViewController.m */; };
@@ -411,6 +413,9 @@
 		FCAEEB551ACA858A00D24E73 /* EditPersonController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EditPersonController.m; path = Post/EditPersonController.m; sourceTree = "<group>"; };
 		FCB960E11AC55BB100FC3FF9 /* PersonalDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PersonalDataController.h; path = Post/PersonalDataController.h; sourceTree = "<group>"; };
 		FCB960E21AC55BB100FC3FF9 /* PersonalDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PersonalDataController.m; path = Post/PersonalDataController.m; sourceTree = "<group>"; };
+		FCC7CA0B1ACE794100347105 /* GoodsTypeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodsTypeView.h; sourceTree = "<group>"; };
+		FCC7CA0C1ACE794100347105 /* GoodsTypeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodsTypeView.m; sourceTree = "<group>"; };
+		FCC7CA0E1ACE7A6700347105 /* GoodsType.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GoodsType.xib; path = Post/GoodsType.xib; sourceTree = "<group>"; };
 		FCD6C5B41AA2FCC3008D5E23 /* GMDCircleLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GMDCircleLoader.h; path = Post/GMDCircleLoader.h; sourceTree = "<group>"; };
 		FCD6C5B51AA2FCC3008D5E23 /* GMDCircleLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GMDCircleLoader.m; path = Post/GMDCircleLoader.m; sourceTree = "<group>"; };
 		FCD6C5B71AA3144C008D5E23 /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
@@ -527,6 +532,8 @@
 				143770281A74DF17005084CE /* IntroduceViewController.m */,
 				FC7FC7F11A787C4B004B3909 /* HomeViewController.h */,
 				FC7FC7F21A787C4B004B3909 /* HomeViewController.m */,
+				14BD6BB11A7CE945001A8535 /* EditCargoInfoTableViewController.h */,
+				14BD6BB21A7CE945001A8535 /* EditCargoInfoTableViewController.m */,
 				FC7FC7F41A788972004B3909 /* RegisterViewController.h */,
 				FC7FC7F51A788972004B3909 /* RegisterViewController.m */,
 				FCAEEB511ACA3BAE00D24E73 /* PersonlDataNaviViewController.h */,
@@ -540,8 +547,6 @@
 			children = (
 				14BD14281A7C90E1007F9287 /* MapSearchViewController.h */,
 				14BD14291A7C90E1007F9287 /* MapSearchViewController.mm */,
-				14BD6BB11A7CE945001A8535 /* EditCargoInfoTableViewController.h */,
-				14BD6BB21A7CE945001A8535 /* EditCargoInfoTableViewController.m */,
 				142B224D1A7DCE3000363BD9 /* DetailedAddressViewController.h */,
 				142B224E1A7DCE3000363BD9 /* DetailedAddressViewController.m */,
 				1478BE391A83AAAA006B03ED /* OrderTrackViewController.h */,
@@ -960,6 +965,9 @@
 				FCA8C80B1AB815D900830AD5 /* SelectRange.xib */,
 				FCD6C5B91AA31616008D5E23 /* CityListViewController.h */,
 				FCD6C5BA1AA31616008D5E23 /* CityListViewController.m */,
+				FCC7CA0B1ACE794100347105 /* GoodsTypeView.h */,
+				FCC7CA0C1ACE794100347105 /* GoodsTypeView.m */,
+				FCC7CA0E1ACE7A6700347105 /* GoodsType.xib */,
 			);
 			name = Coustom;
 			sourceTree = "<group>";
@@ -1089,6 +1097,7 @@
 				FCA8C8071AB8151A00830AD5 /* poi_3.png in Resources */,
 				140B6DD51ABDBACD0037055C /* checkbox1_checked@2x.png in Resources */,
 				FC81BC8A1A7A0E6B00D6C78F /* 2.JPG in Resources */,
+				FCC7CA0F1ACE7A6700347105 /* GoodsType.xib in Resources */,
 				1454D0811A861BF9003033D3 /* icon_nav_end@2x.png in Resources */,
 				14CE5FCC1A74CF8400A19C36 /* Images.xcassets in Resources */,
 				1454D07D1A85F6F1003033D3 /* icon_nav_end.png in Resources */,
@@ -1127,6 +1136,7 @@
 				14C8B4CB1AC1A4D900AAF5E1 /* AddNewAddressController.m in Sources */,
 				FC79E50A1AC3FC5600F2AD3E /* EditGoodsController.m in Sources */,
 				14B700A41AB527360036211F /* OrderDetailView.m in Sources */,
+				FCC7CA0D1ACE794100347105 /* GoodsTypeView.m in Sources */,
 				1447CD921ABD030100EDECCF /* AccountInComeController.m in Sources */,
 				1443E9E11A9EFC07006BC700 /* SCNavTabBar.m in Sources */,
 				1459ABB31AA088FB0041CEBB /* GoodsInProgress_Order_Cell.m in Sources */,

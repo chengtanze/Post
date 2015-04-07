@@ -118,7 +118,33 @@ static NSString * const APIBaseURLString = @"http://114.215.132.245/";
     return nil;
 }
 
-
+-(NSURLSessionDataTask *)getGoodsTypeList:(void(^) (NSDictionary * data, NSError *error))block{
+    
+    [HttpProtocolAPI sharedClient].responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    NSError * retError = nil;
+    NSMutableDictionary * params= [[NSMutableDictionary alloc]init];
+    return [[HttpProtocolAPI sharedClient] POST:@"qmld/api/getGoodsTypeList.php?" parameters:params success:^(NSURLSessionDataTask * __unused task, id responseObject)
+            {
+                NSString * xmlstring = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                NSLog(@"%@",xmlstring);
+                NSData* data = [xmlstring dataUsingEncoding:NSUTF8StringEncoding];
+                NSDictionary * retDictData = [NSJSONSerialization  JSONObjectWithData:data options:0 error:nil];
+                
+                if (block != nil)
+                {
+                    block(retDictData, retError);
+                }
+                
+            } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+                if (block != nil)
+                {
+                    block(nil, error);
+                }
+            }];
+    
+    return nil;
+}
 
 
 

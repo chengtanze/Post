@@ -77,7 +77,7 @@
                 NSString *nickName = [dataArray valueForKey:@"nickName"];
                 NSString *phoneNum = [dataArray valueForKey:@"phoneNum"];
                 NSString *honestRank = [dataArray valueForKey:@"honestRank"];   //诚信指数
-                NSString *avator = [dataArray valueForKey:@"avator"];           //头像链接
+                NSString *avator = [dataArray valueForKey:@"avatar"];           //头像链接
                 NSString *rank = [dataArray valueForKey:@"rank"];               //用户等级，0普通用户，1快递人，默认为0
                 NSString *sid = [dataArray valueForKey:@"sid"];                 //sessionId
                 

@@ -122,8 +122,6 @@
 {
     if ([textField isEqual:self.cityText]) {
         [self cancelLocatePicker];
-
-        [self cancelLocatePicker];
         self.pickCityView = [[HZAreaPickerView alloc] initWithStyle:HZAreaPickerWithStateAndCityAndDistrict delegate:self];
         [self.pickCityView showInView:self.view];
         

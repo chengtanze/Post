@@ -7,7 +7,7 @@
 //
 
 #import "EditCargoInfoTableViewController.h"
-
+#import "GoodsTypeView.h"
 
 @interface EditCargoInfoTableViewController ()<UITextFieldDelegate>
 
@@ -18,6 +18,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSDictionary *dic1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"1", @"id", @"数码", @"type",@"0", @"isActive",nil];
+    NSDictionary *dic2 = [[NSDictionary alloc]initWithObjectsAndKeys:@"2", @"id", @"电器", @"type",@"0", @"isActive",nil];
+    NSDictionary *dic3 = [[NSDictionary alloc]initWithObjectsAndKeys:@"3", @"id", @"生活用品", @"type",@"1", @"isActive",nil];
+    NSDictionary *dic4 = [[NSDictionary alloc]initWithObjectsAndKeys:@"1", @"id", @"数码", @"type",@"0", @"isActive",nil];
+    NSDictionary *dic5 = [[NSDictionary alloc]initWithObjectsAndKeys:@"2", @"id", @"电器", @"type",@"0", @"isActive",nil];
+    NSDictionary *dic6 = [[NSDictionary alloc]initWithObjectsAndKeys:@"3", @"id", @"生活用品", @"type",@"1", @"isActive",nil];
+    
+    self.goodsTypeArray = [[NSArray alloc]initWithObjects:dic1, dic2, dic3, dic4, dic5, dic6,nil];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -63,7 +72,18 @@
 }
 
 -(void)setValue:(NSString *)address Type:(NSInteger)type{
-    NSLog(@"address :%@ Type :%ld", address, type);
+    NSLog(@"address :%@ Type :%ld", address, (long)type);
+}
+
+- (IBAction)goodsTypeBtn:(id)sender {
+    
+    if (self.goodsTypeView == nil) {
+        self.goodsTypeView = [[GoodsTypeView alloc]init];
+        self.goodsTypeView .goodsTypeArray = _goodsTypeArray;
+        self.goodsTypeView .delegate = self;
+    }
+
+    [self.goodsTypeView  showInView:self.view];
 }
 
 #pragma mark - Table view data source
@@ -133,5 +153,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end
