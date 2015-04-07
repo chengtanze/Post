@@ -21,16 +21,18 @@
     
     [self initLocalData];
     
-    [self initNetWorkData];
-    
-//    NSDictionary *dic1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"1", @"id", @"数码", @"type",@"0", @"isActive",nil];
-//    NSDictionary *dic2 = [[NSDictionary alloc]initWithObjectsAndKeys:@"2", @"id", @"电器", @"type",@"0", @"isActive",nil];
-//    NSDictionary *dic3 = [[NSDictionary alloc]initWithObjectsAndKeys:@"3", @"id", @"生活用品", @"type",@"1", @"isActive",nil];
-//    NSDictionary *dic4 = [[NSDictionary alloc]initWithObjectsAndKeys:@"1", @"id", @"数码", @"type",@"0", @"isActive",nil];
-//    NSDictionary *dic5 = [[NSDictionary alloc]initWithObjectsAndKeys:@"2", @"id", @"电器", @"type",@"0", @"isActive",nil];
-//    NSDictionary *dic6 = [[NSDictionary alloc]initWithObjectsAndKeys:@"3", @"id", @"生活用品", @"type",@"1", @"isActive",nil];
-//    
-//    self.goodsTypeArray = [[NSArray alloc]initWithObjects:dic1, dic2, dic3, dic4, dic5, dic6,nil];
+    //[self initNetWorkData];
+    [[HttpProtocolAPI sharedClient] addSenderOrder:nil setBlock:^(NSDictionary *data, NSError *error) {
+       
+        if (data != nil) {
+            NSDictionary * result =  [data valueForKey:@"data"];
+            
+            
+            //NSString * orderID = [result valueForKey:@"orderId"];
+        }
+        
+    }];
+
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -61,6 +63,15 @@
             
         }
     }];
+    
+    //    NSDictionary *dic1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"1", @"id", @"数码", @"type",@"0", @"isActive",nil];
+    //    NSDictionary *dic2 = [[NSDictionary alloc]initWithObjectsAndKeys:@"2", @"id", @"电器", @"type",@"0", @"isActive",nil];
+    //    NSDictionary *dic3 = [[NSDictionary alloc]initWithObjectsAndKeys:@"3", @"id", @"生活用品", @"type",@"1", @"isActive",nil];
+    //    NSDictionary *dic4 = [[NSDictionary alloc]initWithObjectsAndKeys:@"1", @"id", @"数码", @"type",@"0", @"isActive",nil];
+    //    NSDictionary *dic5 = [[NSDictionary alloc]initWithObjectsAndKeys:@"2", @"id", @"电器", @"type",@"0", @"isActive",nil];
+    //    NSDictionary *dic6 = [[NSDictionary alloc]initWithObjectsAndKeys:@"3", @"id", @"生活用品", @"type",@"1", @"isActive",nil];
+    //
+    //    self.goodsTypeArray = [[NSArray alloc]initWithObjects:dic1, dic2, dic3, dic4, dic5, dic6,nil];
 }
 
 - (IBAction)changeAddress:(id)sender {
@@ -78,10 +89,6 @@
 
     if([segue.destinationViewController isKindOfClass:[DetailedAddressViewController class]])
     {
-        
-        
-        
-        
         DetailedAddressViewController *viewController = (DetailedAddressViewController *)segue.destinationViewController;
         viewController.delegate = self;
         NSInteger nType = 0;
