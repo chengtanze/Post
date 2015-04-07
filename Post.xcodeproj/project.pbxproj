@@ -534,6 +534,8 @@
 				FC7FC7F21A787C4B004B3909 /* HomeViewController.m */,
 				14BD6BB11A7CE945001A8535 /* EditCargoInfoTableViewController.h */,
 				14BD6BB21A7CE945001A8535 /* EditCargoInfoTableViewController.m */,
+				14BD14281A7C90E1007F9287 /* MapSearchViewController.h */,
+				14BD14291A7C90E1007F9287 /* MapSearchViewController.mm */,
 				FC7FC7F41A788972004B3909 /* RegisterViewController.h */,
 				FC7FC7F51A788972004B3909 /* RegisterViewController.m */,
 				FCAEEB511ACA3BAE00D24E73 /* PersonlDataNaviViewController.h */,
@@ -545,8 +547,6 @@
 		144F17531AB5CD1400AE56F7 /* 订单 */ = {
 			isa = PBXGroup;
 			children = (
-				14BD14281A7C90E1007F9287 /* MapSearchViewController.h */,
-				14BD14291A7C90E1007F9287 /* MapSearchViewController.mm */,
 				142B224D1A7DCE3000363BD9 /* DetailedAddressViewController.h */,
 				142B224E1A7DCE3000363BD9 /* DetailedAddressViewController.m */,
 				1478BE391A83AAAA006B03ED /* OrderTrackViewController.h */,

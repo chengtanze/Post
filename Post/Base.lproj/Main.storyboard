@@ -1669,7 +1669,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar alpha="0.69999999999999973" contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Px2-ej-cem">
+                            <searchBar alpha="0.69999999999999973" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Px2-ej-cem">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
@@ -1677,11 +1677,39 @@
                                     <string>Title</string>
                                 </scopeButtonTitles>
                             </searchBar>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2vF-Wu-daf">
+                                <rect key="frame" x="16" y="502" width="568" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5qT-G3-d2a">
+                                        <rect key="frame" x="21" y="11" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMm-Kp-Gzy">
+                                        <rect key="frame" x="458" y="7" width="90" height="30"/>
+                                        <state key="normal" title="设为发货地址">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="5qT-G3-d2a" firstAttribute="leading" secondItem="2vF-Wu-daf" secondAttribute="leading" constant="21" id="UBM-et-VwH"/>
+                                    <constraint firstAttribute="centerY" secondItem="5qT-G3-d2a" secondAttribute="centerY" id="e8w-32-Zs6"/>
+                                    <constraint firstAttribute="centerY" secondItem="BMm-Kp-Gzy" secondAttribute="centerY" id="jBs-pC-Qfk"/>
+                                    <constraint firstAttribute="height" constant="44" id="jUp-4j-dvh"/>
+                                    <constraint firstAttribute="trailing" secondItem="BMm-Kp-Gzy" secondAttribute="trailing" constant="20" id="zps-ev-DwB"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="2vF-Wu-daf" secondAttribute="trailing" id="2mi-ec-wfD"/>
                             <constraint firstAttribute="width" secondItem="Px2-ej-cem" secondAttribute="width" id="H2p-AM-QZS"/>
-                            <constraint firstItem="Px2-ej-cem" firstAttribute="top" secondItem="5UH-P7-u19" secondAttribute="bottom" constant="44" id="LKz-ZG-5tX"/>
+                            <constraint firstItem="Px2-ej-cem" firstAttribute="top" secondItem="5UH-P7-u19" secondAttribute="bottom" id="LKz-ZG-5tX"/>
+                            <constraint firstItem="2vF-Wu-daf" firstAttribute="leading" secondItem="l6a-G8-b1O" secondAttribute="leadingMargin" id="RDg-Q5-2QJ"/>
+                            <constraint firstItem="P7c-qb-LiC" firstAttribute="top" secondItem="2vF-Wu-daf" secondAttribute="bottom" constant="5" id="b9a-pf-4nz"/>
                             <constraint firstAttribute="centerX" secondItem="Px2-ej-cem" secondAttribute="centerX" id="kgd-ee-PdD"/>
                         </constraints>
                     </view>
@@ -1691,7 +1719,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HOQ-22-k71" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4300" y="1078"/>
+            <point key="canvasLocation" x="4043" y="1078"/>
         </scene>
         <!--订单跟踪-->
         <scene sceneID="2Qw-dO-GuD">

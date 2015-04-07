@@ -55,13 +55,15 @@
 
 -(void)createWidget{
     
+    
+    NSLog(@"%f, %f", self.view.frame.size.height, self.view.bounds.size.width);
     //底部地址框view
-    UIView * backGroup = [[UIView alloc]initWithFrame:CGRectMake(5, self.view.bounds.size.height - POST_MAPVIEW_ADDRESSINFO_HEIGHT, self.view.bounds.size.width - 10, POST_MAPVIEW_ADDRESSINFO_HEIGHT - 10)];
+    UIView * backGroup = [[UIView alloc]initWithFrame:CGRectMake(5, self.view.bounds.size.height - POST_MAPVIEW_ADDRESSINFO_HEIGHT * 2, self.view.bounds.size.width - 10, POST_MAPVIEW_ADDRESSINFO_HEIGHT - 10)];
     backGroup.backgroundColor = [UIColor whiteColor];
     [backGroup setAlpha:0.7];
     //地址框
     self.addressLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 0, 200, POST_MAPVIEW_ADDRESSINFO_HEIGHT - 10)];
-    //self.addressLabel.text = @"苹果园";
+    self.addressLabel.text = @"苹果园";
     [backGroup addSubview:self.addressLabel];
     
     //放大按钮
