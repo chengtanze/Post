@@ -2658,7 +2658,7 @@
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TM0-8k-6qW">
                                                     <rect key="frame" x="88" y="7" width="459" height="30"/>
-                                                    <state key="normal" title="蛋糕">
+                                                    <state key="normal">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
@@ -2690,7 +2690,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mwO-ew-UDa" id="r3s-Dj-zRW">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="爱心蛋糕" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WOa-uS-Bzo">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WOa-uS-Bzo">
                                                     <rect key="frame" x="88" y="14" width="459" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="180" id="xXH-bf-jxw"/>
@@ -2752,7 +2752,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sMc-7H-SaG" id="Cbf-lK-W83">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="获取重量" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GqZ-UX-IXO">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="货物重量" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GqZ-UX-IXO">
                                                     <rect key="frame" x="13" y="13" width="60" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -2883,6 +2883,8 @@
                     </tableView>
                     <connections>
                         <outlet property="firstAddress" destination="bZM-Xi-ghv" id="EwJ-JE-jzv"/>
+                        <outlet property="goodsNameTF" destination="WOa-uS-Bzo" id="zfo-fs-Zd1"/>
+                        <outlet property="goodsTypeBtn" destination="TM0-8k-6qW" id="YfD-LE-kMy"/>
                         <outlet property="secondAddress" destination="Wvf-jh-bSq" id="DTh-Nu-bA8"/>
                     </connections>
                 </tableViewController>

@@ -146,6 +146,41 @@ static NSString * const APIBaseURLString = @"http://114.215.132.245/";
     return nil;
 }
 
-
-
+-(NSURLSessionDataTask *)addSenderOrder:(NSDictionary *)params setBlock:(void(^) (NSDictionary * data, NSError *error))block
+{
+    //    NSString * phoneNum = @"18576430783";
+    //    NSString * password = @"123456";
+    //    NSString * imei = @"12345678";
+    //    NSString * ip = @"192.168.0.26";
+    
+    //NSMutableDictionary * params= [[NSMutableDictionary alloc]init];
+    //    [params setObject: phoneNum forKey:@"phoneNum"];
+    //    [params setObject: password forKey:@"password"];
+    //    [params setObject: imei forKey:@"imei"];
+    //    [params setObject: ip forKey:@"ip"];
+    
+    [HttpProtocolAPI sharedClient].responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    NSError * retError = nil;
+    
+    return [[HttpProtocolAPI sharedClient] POST:@"qmld/api/login.php?" parameters:params success:^(NSURLSessionDataTask * __unused task, id responseObject)
+            {
+                NSString * xmlstring = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                NSLog(@"%@",xmlstring);
+                NSData* data = [xmlstring dataUsingEncoding:NSUTF8StringEncoding];
+                NSDictionary * retDictData = [NSJSONSerialization  JSONObjectWithData:data options:0 error:nil];
+                
+                if (block != nil)
+                {
+                    block(retDictData, retError);
+                }
+                
+            } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+                if (block != nil)
+                {
+                    block(nil, error);
+                }
+            }];
+    return nil;
+}
 @end

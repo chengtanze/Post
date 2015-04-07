@@ -8,8 +8,8 @@
 
 #import "EditCargoInfoTableViewController.h"
 #import "GoodsTypeView.h"
-
-@interface EditCargoInfoTableViewController ()<UITextFieldDelegate>
+#import "HttpProtocolAPI.h"
+@interface EditCargoInfoTableViewController ()<UITextFieldDelegate, GetAddressTypeDelegate, SelectTypeDelegate>
 
 
 @end
@@ -19,14 +19,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSDictionary *dic1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"1", @"id", @"数码", @"type",@"0", @"isActive",nil];
-    NSDictionary *dic2 = [[NSDictionary alloc]initWithObjectsAndKeys:@"2", @"id", @"电器", @"type",@"0", @"isActive",nil];
-    NSDictionary *dic3 = [[NSDictionary alloc]initWithObjectsAndKeys:@"3", @"id", @"生活用品", @"type",@"1", @"isActive",nil];
-    NSDictionary *dic4 = [[NSDictionary alloc]initWithObjectsAndKeys:@"1", @"id", @"数码", @"type",@"0", @"isActive",nil];
-    NSDictionary *dic5 = [[NSDictionary alloc]initWithObjectsAndKeys:@"2", @"id", @"电器", @"type",@"0", @"isActive",nil];
-    NSDictionary *dic6 = [[NSDictionary alloc]initWithObjectsAndKeys:@"3", @"id", @"生活用品", @"type",@"1", @"isActive",nil];
+    [self initLocalData];
     
-    self.goodsTypeArray = [[NSArray alloc]initWithObjects:dic1, dic2, dic3, dic4, dic5, dic6,nil];
+    [self initNetWorkData];
+    
+//    NSDictionary *dic1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"1", @"id", @"数码", @"type",@"0", @"isActive",nil];
+//    NSDictionary *dic2 = [[NSDictionary alloc]initWithObjectsAndKeys:@"2", @"id", @"电器", @"type",@"0", @"isActive",nil];
+//    NSDictionary *dic3 = [[NSDictionary alloc]initWithObjectsAndKeys:@"3", @"id", @"生活用品", @"type",@"1", @"isActive",nil];
+//    NSDictionary *dic4 = [[NSDictionary alloc]initWithObjectsAndKeys:@"1", @"id", @"数码", @"type",@"0", @"isActive",nil];
+//    NSDictionary *dic5 = [[NSDictionary alloc]initWithObjectsAndKeys:@"2", @"id", @"电器", @"type",@"0", @"isActive",nil];
+//    NSDictionary *dic6 = [[NSDictionary alloc]initWithObjectsAndKeys:@"3", @"id", @"生活用品", @"type",@"1", @"isActive",nil];
+//    
+//    self.goodsTypeArray = [[NSArray alloc]initWithObjects:dic1, dic2, dic3, dic4, dic5, dic6,nil];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -40,6 +44,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)initLocalData{
+    self.addOrderParams = [[NSMutableArray alloc]initWithCapacity:15];
+    
+    
+}
+
+-(void)initNetWorkData{
+    [[HttpProtocolAPI sharedClient]getGoodsTypeList:^(NSDictionary *data, NSError *error) {
+        if (data != nil) {
+            
+            self.goodsTypeArray = [data valueForKey:@"data"];
+            
+            
+        }else{
+            
+        }
+    }];
+}
 
 - (IBAction)changeAddress:(id)sender {
     //NSLog(@"changeAddress");
@@ -56,6 +78,10 @@
 
     if([segue.destinationViewController isKindOfClass:[DetailedAddressViewController class]])
     {
+        
+        
+        
+        
         DetailedAddressViewController *viewController = (DetailedAddressViewController *)segue.destinationViewController;
         viewController.delegate = self;
         NSInteger nType = 0;
@@ -71,6 +97,8 @@
     }
 }
 
+
+
 -(void)setValue:(NSString *)address Type:(NSInteger)type{
     NSLog(@"address :%@ Type :%ld", address, (long)type);
 }
@@ -79,11 +107,23 @@
     
     if (self.goodsTypeView == nil) {
         self.goodsTypeView = [[GoodsTypeView alloc]init];
-        self.goodsTypeView .goodsTypeArray = _goodsTypeArray;
-        self.goodsTypeView .delegate = self;
+        self.goodsTypeView.goodsTypeArray = _goodsTypeArray;
+        self.goodsTypeView.delegate = self;
     }
 
     [self.goodsTypeView  showInView:self.view];
+}
+
+- (void)pickerDidChaneStatus:(NSUInteger)nindex{
+    //用户选择货物类型
+    
+    if(_goodsTypeArray != nil && nindex <= _goodsTypeArray.count){
+        
+        NSString * name = [_goodsTypeArray[nindex] valueForKey:@"type"];
+        
+        [_goodsTypeBtn setTitle:name forState:UIControlStateNormal];
+        _goodsNameTF.text = name;
+    }
 }
 
 #pragma mark - Table view data source

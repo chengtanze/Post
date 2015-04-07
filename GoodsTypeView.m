@@ -69,12 +69,17 @@
 {
     switch (component) {
         case 0:
-            return [self.goodsTypeArray count];
+        {
+            if (self.goodsTypeArray != nil)
+                return [self.goodsTypeArray count];
             break;
+        }
         default:
             return 0;
             break;
     }
+    
+    return 0;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
@@ -83,10 +88,13 @@
     switch (component) {
         case 0:
         {
-            NSDictionary * dicData = self.goodsTypeArray[row];
-            if (dicData != nil) {
-                return [dicData valueForKey:@"type"];
+            if (self.goodsTypeArray != nil) {
+                NSDictionary * dicData = self.goodsTypeArray[row];
+                if (dicData != nil) {
+                    return [dicData valueForKey:@"type"];
+                }
             }
+            
             return @"";
         }
             break;

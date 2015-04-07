@@ -23,5 +23,6 @@
 //获取货物类型
 -(NSURLSessionDataTask *)getGoodsTypeList:(void(^) (NSDictionary * data, NSError *error))block;
 
-
+//添加发货协议
+-(NSURLSessionDataTask *)addSenderOrder:(NSDictionary *)params setBlock:(void(^) (NSDictionary * data, NSError *error))block;
 @end

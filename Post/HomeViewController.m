@@ -40,13 +40,7 @@
 //        
 //    }];
     
-    [[HttpProtocolAPI sharedClient]getGoodsTypeList:^(NSDictionary *data, NSError *error) {
-        if (data != nil) {
-            
-        }else{
-            
-        }
-    }];
+
     
     
     

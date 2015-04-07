@@ -10,13 +10,21 @@
 #import "DetailedAddressViewController.h"
 @class GoodsTypeView;
 
-@interface EditCargoInfoTableViewController : UITableViewController<GetAddressTypeDelegate>
-- (IBAction)changeAddress:(id)sender;
+@interface EditCargoInfoTableViewController : UITableViewController
+
 @property (weak, nonatomic) IBOutlet UIButton *firstAddress;
 @property (weak, nonatomic) IBOutlet UIButton *secondAddress;
+@property (weak, nonatomic) IBOutlet UITextField *goodsNameTF;
+@property (weak, nonatomic) IBOutlet UIButton *goodsTypeBtn;
+
+- (IBAction)changeAddress:(id)sender;
+- (IBAction)goodsTypeBtn:(id)sender;
+
+
+
 @property (strong, nonatomic) NSArray * goodsTypeArray;
 @property (strong, nonatomic) GoodsTypeView * goodsTypeView;
+@property (strong, nonatomic) NSMutableArray * addOrderParams;
 
-- (IBAction)goodsTypeBtn:(id)sender;
 
 @end
