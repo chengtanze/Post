@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *secondAddress;
 @property (weak, nonatomic) IBOutlet UITextField *goodsNameTF;
 @property (weak, nonatomic) IBOutlet UIButton *goodsTypeBtn;
+@property (weak, nonatomic) IBOutlet UITextField *goodsVaulesTF;
+@property (weak, nonatomic) IBOutlet UITextField *goodsWeight;
 
 - (IBAction)changeAddress:(id)sender;
 - (IBAction)goodsTypeBtn:(id)sender;
