@@ -8,7 +8,7 @@
 
 #import "LoginViewController.h"
 #import "HttpProtocolAPI.h"
-
+#import "PublicFunction.h"
 @interface LoginViewController ()
 
 @end
@@ -53,7 +53,9 @@
     
     NSMutableDictionary * params= [[NSMutableDictionary alloc]init];
     [params setObject: strUserName forKey:@"phoneNum"];
-    [params setObject: strUserPassWord forKey:@"password"];
+    
+    NSString * md5_PassWord = [PublicFunction md5:strUserPassWord];
+    [params setObject: md5_PassWord forKey:@"password"];
     [params setObject: imei forKey:@"imei"];
     [params setObject: ip forKey:@"ip"];
     
