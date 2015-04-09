@@ -59,6 +59,7 @@
 		148BC3A91AA5FE3100819910 /* OrderDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 148BC3A81AA5FE3100819910 /* OrderDetailTableViewController.m */; };
 		14A6685F1AB86CB300C534E0 /* WWSideslipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A6685E1AB86CB300C534E0 /* WWSideslipViewController.m */; };
 		14A668611AB86E4400C534E0 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A668601AB86E4400C534E0 /* bg.png */; };
+		14A77B5A1AD669C10040F846 /* UserDataInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A77B591AD669C10040F846 /* UserDataInterface.m */; };
 		14AB64DB1AB70A3D0064C032 /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14AB64DA1AB70A3D0064C032 /* UIImage+Rotate.m */; };
 		14B700A41AB527360036211F /* OrderDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B700A31AB527360036211F /* OrderDetailView.m */; };
 		14B700A61AB5276C0036211F /* OrderDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B700A51AB5276C0036211F /* OrderDetail.xib */; };
@@ -237,6 +238,8 @@
 		14A6685D1AB86CB300C534E0 /* WWSideslipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WWSideslipViewController.h; path = Post/WWSideslipViewController.h; sourceTree = "<group>"; };
 		14A6685E1AB86CB300C534E0 /* WWSideslipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WWSideslipViewController.m; path = Post/WWSideslipViewController.m; sourceTree = "<group>"; };
 		14A668601AB86E4400C534E0 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg.png; path = image/bg.png; sourceTree = "<group>"; };
+		14A77B581AD669C10040F846 /* UserDataInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserDataInterface.h; path = Post/UserDataInterface.h; sourceTree = "<group>"; };
+		14A77B591AD669C10040F846 /* UserDataInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserDataInterface.m; path = Post/UserDataInterface.m; sourceTree = "<group>"; };
 		14AB64D91AB70A3D0064C032 /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Rotate.h"; path = "Post/UIImage+Rotate.h"; sourceTree = "<group>"; };
 		14AB64DA1AB70A3D0064C032 /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Rotate.m"; path = "Post/UIImage+Rotate.m"; sourceTree = "<group>"; };
 		14B700A21AB527360036211F /* OrderDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDetailView.h; path = Post/OrderDetailView.h; sourceTree = "<group>"; };
@@ -949,6 +952,8 @@
 		FC607AF21ACCE95600604E09 /* UserDataInfo */ = {
 			isa = PBXGroup;
 			children = (
+				14A77B581AD669C10040F846 /* UserDataInterface.h */,
+				14A77B591AD669C10040F846 /* UserDataInterface.m */,
 			);
 			name = UserDataInfo;
 			sourceTree = "<group>";
@@ -1168,6 +1173,7 @@
 				FC3D78F11AB1B47A003C8153 /* MapPulicFunction.m in Sources */,
 				14BD6BB31A7CE945001A8535 /* EditCargoInfoTableViewController.m in Sources */,
 				142B224F1A7DCE3000363BD9 /* DetailedAddressViewController.m in Sources */,
+				14A77B5A1AD669C10040F846 /* UserDataInterface.m in Sources */,
 				FC821BA51AA45AC500F4B0C9 /* GoodsInCancle_State_Cell.m in Sources */,
 				FC4F73AB1ABBFF0800953D95 /* AFSecurityPolicy.m in Sources */,
 				FC4F73A81ABBFF0800953D95 /* AFHTTPRequestOperationManager.m in Sources */,

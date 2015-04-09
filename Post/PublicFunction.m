@@ -24,10 +24,7 @@
     for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++)
         
         [result appendFormat:@"%02x", digest[i]];
-    
-    
-    
-    
+
     return [result lowercaseString];
 }
     

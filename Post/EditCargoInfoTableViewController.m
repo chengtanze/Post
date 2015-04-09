@@ -21,17 +21,17 @@
     
     [self initLocalData];
     
-    //[self initNetWorkData];
-    [[HttpProtocolAPI sharedClient] addSenderOrder:nil setBlock:^(NSDictionary *data, NSError *error) {
-       
-        if (data != nil) {
-            NSDictionary * result =  [data valueForKey:@"data"];
-            
-            
-            //NSString * orderID = [result valueForKey:@"orderId"];
-        }
-        
-    }];
+    [self initNetWorkData];
+//    [[HttpProtocolAPI sharedClient] addSenderOrder:nil setBlock:^(NSDictionary *data, NSError *error) {
+//       
+//        if (data != nil) {
+//            NSDictionary * result =  [data valueForKey:@"data"];
+//            
+//            
+//            //NSString * orderID = [result valueForKey:@"orderId"];
+//        }
+//        
+//    }];
 
     
     // Uncomment the following line to preserve selection between presentations.

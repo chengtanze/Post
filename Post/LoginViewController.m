@@ -9,6 +9,8 @@
 #import "LoginViewController.h"
 #import "HttpProtocolAPI.h"
 #import "PublicFunction.h"
+#import "UserDataInterface.h"
+
 @interface LoginViewController ()
 
 @end
@@ -43,7 +45,7 @@
     strUserName = self.phoneNumber.text;
     strUserPassWord = self.userPassWord.text;
 #else
-    strUserName = @"18576430783";
+    strUserName = @"13691790130";//@"18576430783";
     strUserPassWord = @"123456";
 #endif
     
@@ -56,8 +58,8 @@
     
     NSString * md5_PassWord = [PublicFunction md5:strUserPassWord];
     [params setObject: md5_PassWord forKey:@"password"];
-    [params setObject: imei forKey:@"imei"];
-    [params setObject: ip forKey:@"ip"];
+    //[params setObject: imei forKey:@"imei"];
+    //[params setObject: ip forKey:@"ip"];
     
     [[HttpProtocolAPI sharedClient] login:params setBlock:^(NSDictionary *data, NSError *error) {
         
@@ -75,14 +77,16 @@
             NSDictionary * dataArray = [data valueForKey:@"data"];
             
             if (dataArray != nil) {
-                NSString *id = [dataArray valueForKey:@"id"];
-                NSString *nickName = [dataArray valueForKey:@"nickName"];
-                NSString *phoneNum = [dataArray valueForKey:@"phoneNum"];
-                NSString *honestRank = [dataArray valueForKey:@"honestRank"];   //诚信指数
-                NSString *avator = [dataArray valueForKey:@"avatar"];           //头像链接
-                NSString *rank = [dataArray valueForKey:@"rank"];               //用户等级，0普通用户，1快递人，默认为0
-                NSString *sid = [dataArray valueForKey:@"sid"];                 //sessionId
+//                NSString *id = [dataArray valueForKey:@"id"];
+//                NSString *nickName = [dataArray valueForKey:@"nickName"];
+//                NSString *phoneNum = [dataArray valueForKey:@"phoneNum"];
+//                NSString *honestRank = [dataArray valueForKey:@"honestRank"];   //诚信指数
+//                NSString *avator = [dataArray valueForKey:@"avatar"];           //头像链接
+//                NSString *rank = [dataArray valueForKey:@"rank"];               //用户等级，0普通用户，1快递人，默认为0
+//                NSString *sid = [dataArray valueForKey:@"sid"];                 //sessionId
+//                NSString *key = [dataArray valueForKey:@"key"];
                 
+                [UserDataInterface sharedClient].dicUserInfo = dataArray;
                 
             }
         }

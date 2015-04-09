@@ -7,6 +7,7 @@
 //
 
 #import "HttpProtocolAPI.h"
+#import "UserDataInterface.h"
 
 //http://114.215.132.245/qmkd_server/api
 static NSString * const APIBaseURLString = @"http://114.215.132.245/";
@@ -66,7 +67,7 @@ static NSString * const APIBaseURLString = @"http://114.215.132.245/";
     
     NSError * retError = nil;
     
-    return [[HttpProtocolAPI sharedClient] POST:@"qmld/api/login.php?" parameters:params success:^(NSURLSessionDataTask * __unused task, id responseObject)
+    return [[HttpProtocolAPI sharedClient] POST:@"qmld/api/register.php?" parameters:params success:^(NSURLSessionDataTask * __unused task, id responseObject)
             {
                 NSString * xmlstring = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
                 NSLog(@"%@",xmlstring);
@@ -124,6 +125,17 @@ static NSString * const APIBaseURLString = @"http://114.215.132.245/";
     
     NSError * retError = nil;
     NSMutableDictionary * params= [[NSMutableDictionary alloc]init];
+    
+    NSString * uid = [UserDataInterface sharedClient].userID;
+    NSString * key = [UserDataInterface sharedClient].userKey;
+    
+    [params setObject: uid forKey:@"uid"];
+    [params setObject: @"" forKey:@"imei"];
+    [params setObject: @"" forKey:@"ip"];
+    [params setObject: @"" forKey:@"mac"];
+    [params setObject: key forKey:@"key"];
+
+    
     return [[HttpProtocolAPI sharedClient] POST:@"qmld/api/getGoodsTypeList.php?" parameters:params success:^(NSURLSessionDataTask * __unused task, id responseObject)
             {
                 NSString * xmlstring = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];

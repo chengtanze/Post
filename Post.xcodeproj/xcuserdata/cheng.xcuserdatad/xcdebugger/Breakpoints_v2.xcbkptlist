@@ -489,13 +489,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Post/LoginViewController.m"
-            timestampString = "450191651.692573"
+            filePath = "Post/RegisterViewController.m"
+            timestampString = "450264294.047267"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "-responseNetWorkData:errorCode:"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "-responseRegisterNetWorkData:errorCode:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -505,13 +505,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Post/LoginViewController.m"
-            timestampString = "450191651.692573"
+            filePath = "Post/HttpProtocolAPI.m"
+            timestampString = "450266146.817967"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "-responseNetWorkData:errorCode:"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "-registerUser:setBlock:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -521,13 +521,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Post/LoginViewController.m"
-            timestampString = "450191641.367003"
+            filePath = "Post/HttpProtocolAPI.m"
+            timestampString = "450266143.917665"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "-loginClick:"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "-getGoodsTypeList:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
