@@ -22,11 +22,13 @@
     [[HttpProtocolAPI sharedClient] getOrderByState:nil setBlock:^(NSDictionary *data, NSError *error) {
         
         if (data != nil) {
-            //NSDictionary * result =  [data valueForKey:@"data"];
-            NSArray * resultArray =  [data valueForKey:@"data"];
             
-            NSInteger item = resultArray.count;
-            NSDictionary * item1 = resultArray[0];
+            self.arrayProgressData = [data valueForKey:@"data"];
+            
+            [self.tableView reloadData];
+            
+            //NSInteger item = resultArray.count;
+            //NSDictionary * item1 = resultArray[0];
             
             
             //NSString * orderID = [result valueForKey:@"orderId"];
@@ -51,7 +53,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
     // Return the number of sections.
-    return 2;
+    return self.arrayProgressData.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -74,19 +76,39 @@
     UITableViewCell *cell;
     if (indexPath.row == 0 ) {
         GoodsInProgress_Order_Cell * orderCell = [tableView dequeueReusableCellWithIdentifier:@"OrderID" forIndexPath:indexPath];
-        orderCell.orderIDLable.text = @"98765";
+        
+        if (self.arrayProgressData != nil) {
+            NSDictionary * dicData = self.arrayProgressData[indexPath.section];
+            if (dicData != nil) {
+                orderCell.orderIDLable.text = [dicData valueForKey:@"num"];
+            }
+        }
+        
         
         cell = orderCell;
     }
     else{
-        
-
         GoodsInProgress_GoodsInfo_Cell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"GoodsInfo" forIndexPath:indexPath];
         
         goodsInfoCell.goodsState.text = @"派送中";
-        
-        if (indexPath.section == 0) {
-            goodsInfoCell.modifyBtn.hidden = YES;
+
+        if (self.arrayProgressData != nil) {
+            NSDictionary * dicData = self.arrayProgressData[indexPath.section];
+            if (dicData != nil) {
+                goodsInfoCell.goodsName.text = [dicData valueForKey:@"name"];
+                NSNumber * numType = [dicData valueForKey:@"deliveryState"];
+                NSInteger type = numType.integerValue;
+                
+                goodsInfoCell.goodsState.text = [self getGoodsType:type];
+                
+                if (type == 2) {
+                    goodsInfoCell.modifyBtn.hidden = NO;
+                }
+                else
+                    goodsInfoCell.modifyBtn.hidden = YES;
+            }
+            
+
         }
         
         cell = goodsInfoCell;
@@ -98,6 +120,37 @@
     return cell;
 }
 
+-(NSString *)getGoodsType:(NSInteger)type{
+    
+    NSString * strType = @"未知";
+    switch (type) {
+        case 0:
+            strType = @"待接单";
+            break;
+        case 1:
+            strType = @"已接单";
+            break;
+        case 2:
+            strType = @"待取件";
+            break;
+        case 3:
+            strType = @"取件中";
+            break;
+        case 4:
+            strType = @"已取件";
+            break;
+        case 5:
+            strType = @"派送中";
+            break;
+        case 6:
+            strType = @"已签收";
+            break;
+        default:
+            break;
+    }
+    
+    return strType;
+}
 
 /*
 // Override to support conditional editing of the table view.

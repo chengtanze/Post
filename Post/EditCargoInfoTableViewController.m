@@ -21,7 +21,7 @@
     
     [self initLocalData];
     
-    //[self initNetWorkData];
+    [self initNetWorkData];
     
     
     
@@ -52,6 +52,12 @@
             
             self.goodsTypeArray = [data valueForKey:@"data"];
             
+            for (int nIndex = 0; nIndex < self.goodsTypeArray.count; nIndex++) {
+                NSDictionary * dicData = self.goodsTypeArray[nIndex];
+                if (dicData != nil) {
+                    NSLog(@"%@:%@",[dicData valueForKey:@"id"], [dicData valueForKey:@"type"]) ;
+                }
+            }
             
         }else{
             

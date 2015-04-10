@@ -280,24 +280,24 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="鲜花" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDQ-IC-sEo">
-                                            <rect key="frame" x="106" y="8" width="34" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="106" y="8" width="30" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="状态：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXp-xR-Rgw">
-                                            <rect key="frame" x="106" y="39" width="51" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="106" y="41" width="45" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="派送中" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGR-Lm-uMN">
-                                            <rect key="frame" x="167" y="39" width="51" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="156" y="41" width="45" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mwb-Kp-v3y">
+                                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mwb-Kp-v3y">
                                             <rect key="frame" x="557" y="22" width="30" height="30"/>
                                             <state key="normal" title="修改">
                                                 <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -316,7 +316,7 @@
                                         <constraint firstItem="ASc-jF-0i6" firstAttribute="leading" secondItem="Vc0-k0-ne3" secondAttribute="leading" constant="10" id="80A-dp-uXr"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Mwb-Kp-v3y" secondAttribute="trailing" constant="5" id="D5v-aS-uUC"/>
                                         <constraint firstItem="rXp-xR-Rgw" firstAttribute="leading" secondItem="aDQ-IC-sEo" secondAttribute="leading" id="Oqv-6M-fvh"/>
-                                        <constraint firstItem="WGR-Lm-uMN" firstAttribute="leading" secondItem="rXp-xR-Rgw" secondAttribute="trailing" constant="10" id="Oz7-5P-0YR"/>
+                                        <constraint firstItem="WGR-Lm-uMN" firstAttribute="leading" secondItem="rXp-xR-Rgw" secondAttribute="trailing" constant="5" id="Oz7-5P-0YR"/>
                                         <constraint firstItem="aDQ-IC-sEo" firstAttribute="top" secondItem="Vc0-k0-ne3" secondAttribute="top" constant="8" id="TeN-QM-eoL"/>
                                         <constraint firstAttribute="bottom" secondItem="rXp-xR-Rgw" secondAttribute="bottom" constant="15" id="gDf-FU-oRk"/>
                                         <constraint firstItem="aDQ-IC-sEo" firstAttribute="leading" secondItem="ASc-jF-0i6" secondAttribute="trailing" constant="16" id="hwJ-VC-8am"/>
@@ -324,6 +324,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="goodsImageView" destination="ASc-jF-0i6" id="7xJ-TI-T7o"/>
+                                    <outlet property="goodsName" destination="aDQ-IC-sEo" id="oaj-tR-KE3"/>
                                     <outlet property="goodsState" destination="WGR-Lm-uMN" id="Tqe-eJ-DUh"/>
                                     <outlet property="modifyBtn" destination="Mwb-Kp-v3y" id="yBN-oG-6Gv"/>
                                 </connections>

@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *goodsState;
 @property (weak, nonatomic) IBOutlet UIButton *modifyBtn;
 - (IBAction)modifyClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *goodsName;
 
 @end
