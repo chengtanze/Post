@@ -9,7 +9,7 @@
 #import "GoodsInProgressViewController.h"
 #import "GoodsInProgress_Order_Cell.h"
 #import "GoodsInProgress_GoodsInfo_Cell.h"
-
+#import "HttpProtocolAPI.h"
 @interface GoodsInProgressViewController ()
 
 @end
@@ -18,6 +18,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [[HttpProtocolAPI sharedClient] getOrderByState:nil setBlock:^(NSDictionary *data, NSError *error) {
+        
+        if (data != nil) {
+            //NSDictionary * result =  [data valueForKey:@"data"];
+            NSArray * resultArray =  [data valueForKey:@"data"];
+            
+            NSInteger item = resultArray.count;
+            NSDictionary * item1 = resultArray[0];
+            
+            
+            //NSString * orderID = [result valueForKey:@"orderId"];
+        }
+        
+    }];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

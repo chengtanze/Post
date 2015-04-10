@@ -12,6 +12,7 @@
 {
     NSString * _userNickName;
     NSString * _userID;
+    NSInteger _userID_Int;
     NSString * _userPhoneNum;
     NSString * _userKey;
     
@@ -21,6 +22,7 @@
 @property(strong, nonatomic)NSDictionary * dicUserInfo;
 @property(strong, nonatomic)NSString * userNickName;
 @property(strong, nonatomic)NSString * userID;
+@property(assign, nonatomic)NSInteger userID_Int;
 @property(strong, nonatomic)NSString * userPhoneNum;
 @property(strong, nonatomic)NSString * userKey;
 

@@ -11,6 +11,7 @@
 @implementation UserDataInterface
 @synthesize userNickName = _userNickName;
 @synthesize userID = _userID;
+@synthesize userID_Int = _userID_Int;
 @synthesize userPhoneNum = _userPhoneNum;
 @synthesize userKey = _userKey;
 
@@ -30,6 +31,11 @@
 
 -(NSString *)userID{
     return (_dicUserInfo != nil ? [_dicUserInfo valueForKey:@"id"] : @"");
+}
+
+-(NSInteger)userID_Int
+{
+    return (_dicUserInfo != nil ? [[_dicUserInfo valueForKey:@"id"] integerValue] : -1);
 }
 
 -(NSString *) userPhoneNum{

@@ -10,4 +10,6 @@
 
 @interface GoodsInProgressViewController : UITableViewController
 
+@property(strong, nonatomic)NSArray * arrayProgressData;
+
 @end

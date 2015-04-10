@@ -242,4 +242,85 @@ static NSString * const APIBaseURLString = @"http://114.215.132.245/";
             }];
     return nil;
 }
+
+-(NSURLSessionDataTask *)getOrders:(NSDictionary *)params setBlock:(void(^) (NSDictionary * data, NSError *error))block{
+    [HttpProtocolAPI sharedClient].responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    NSError * retError = nil;
+    NSMutableDictionary * paramsTest= [[NSMutableDictionary alloc]init];
+    
+    NSInteger uid = [UserDataInterface sharedClient].userID_Int;
+    NSNumber * userID = [[NSNumber alloc]initWithInt:uid];
+    NSString * key = [UserDataInterface sharedClient].userKey;
+    
+    [paramsTest setObject: userID forKey:@"uid"];
+    [paramsTest setObject: @"" forKey:@"imei"];
+    [paramsTest setObject: @"" forKey:@"ip"];
+    [paramsTest setObject: @"" forKey:@"mac"];
+    [paramsTest setObject: key forKey:@"key"];
+    
+    return [[HttpProtocolAPI sharedClient] POST:@"qmld/api/getOrders.php?" parameters:params success:^(NSURLSessionDataTask * __unused task, id responseObject)
+            {
+                NSString * xmlstring = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                NSLog(@"%@",xmlstring);
+                NSData* data = [xmlstring dataUsingEncoding:NSUTF8StringEncoding];
+                NSDictionary * retDictData = [NSJSONSerialization  JSONObjectWithData:data options:0 error:nil];
+                
+                if (block != nil)
+                {
+                    block(retDictData, retError);
+                }
+                
+            } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+                if (block != nil)
+                {
+                    block(nil, error);
+                }
+            }];
+    
+    return nil;
+}
+
+-(NSURLSessionDataTask *)getOrderByState:(NSDictionary *)params setBlock:(void(^) (NSDictionary * data, NSError *error))block{
+    [HttpProtocolAPI sharedClient].responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    NSError * retError = nil;
+    NSMutableDictionary * paramsTest= [[NSMutableDictionary alloc]init];
+    
+    NSInteger uid = [UserDataInterface sharedClient].userID_Int;
+    NSNumber * userID = [[NSNumber alloc]initWithInt:uid];
+    NSString * key = [UserDataInterface sharedClient].userKey;
+    NSNumber * state = [[NSNumber alloc]initWithInt:0];
+    
+    [paramsTest setObject: userID forKey:@"uid"];
+    [paramsTest setObject: @"123" forKey:@"imei"];
+    [paramsTest setObject: @"192.168.0.1" forKey:@"ip"];
+    [paramsTest setObject: @"12" forKey:@"mac"];
+    [paramsTest setObject: key forKey:@"key"];
+    [paramsTest setObject: state forKey:@"state"];
+    
+    NSLog(@"uid:%@,imei:%@,ip:%@,mac:%@,key:%@,state:%@", userID, @"",@"",@"", key, state);
+    
+    return [[HttpProtocolAPI sharedClient] POST:@"qmld/api/getOrderByState.php?" parameters:paramsTest success:^(NSURLSessionDataTask * __unused task, id responseObject)
+            {
+                NSString * xmlstring = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                NSLog(@"%@",xmlstring);
+                NSData* data = [xmlstring dataUsingEncoding:NSUTF8StringEncoding];
+                NSDictionary * retDictData = [NSJSONSerialization  JSONObjectWithData:data options:0 error:nil];
+                
+                if (block != nil)
+                {
+                    block(retDictData, retError);
+                }
+                
+            } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+                if (block != nil)
+                {
+                    block(nil, error);
+                }
+            }];
+    
+    return nil;
+}
+
 @end
