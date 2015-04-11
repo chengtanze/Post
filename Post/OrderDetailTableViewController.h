@@ -22,4 +22,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *messrsLable;
 @property (weak, nonatomic) IBOutlet UILabel *messrsPhoneNOText;
 
+
+@property(strong, nonatomic)NSDictionary * selectData;
 @end

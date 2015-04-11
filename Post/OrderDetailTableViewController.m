@@ -19,22 +19,45 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"订单详情";
-    
-    UIBarButtonItem *myButton = [[UIBarButtonItem alloc]
-                                  initWithTitle:@"跟踪"
-                                  style:UIBarButtonItemStyleBordered
-                                  target:self
-                                 action:@selector(barBtnAction:)];
-    
-    self.navigationItem.rightBarButtonItem = myButton;
+    [self initCustomData];
 
+    [self initLocalData];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void)initCustomData{
+    
+    self.title = @"订单详情";
+    
+    UIBarButtonItem *myButton = [[UIBarButtonItem alloc]
+                                 initWithTitle:@"跟踪"
+                                 style:UIBarButtonItemStyleBordered
+                                 target:self
+                                 action:@selector(barBtnAction:)];
+    
+    self.navigationItem.rightBarButtonItem = myButton;
+}
+
+-(void)initLocalData{
+    if (self.selectData != nil) {
+        
+        self.goodsName.text = [_selectData valueForKey:@"name"];
+        self.goodsType.text = [_selectData valueForKey:@"type"];
+        self.goodsVaule.text = [_selectData valueForKey:@"value"];
+        self.OrderNO.text = [_selectData valueForKey:@""];
+        self.orderState.text = [_selectData valueForKey:@"deliveryState"];
+        self.vehicleType.text = [_selectData valueForKey:@""];
+        self.goodsWeight.text = [_selectData valueForKey:@""];
+        //self.balanceLable.
+        self.shipperPhoneNOText.text = [_selectData valueForKey:@""];
+        self.messrsLable.text = [_selectData valueForKey:@""];
+        self.messrsPhoneNOText = [_selectData valueForKey:@""];
+    }
 }
 
 -(void)barBtnAction:(id)sender{

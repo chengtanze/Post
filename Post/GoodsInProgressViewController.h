@@ -11,5 +11,6 @@
 @interface GoodsInProgressViewController : UITableViewController
 
 @property(strong, nonatomic)NSArray * arrayProgressData;
+@property(assign, nonatomic)NSInteger selectIndex;
 
 @end

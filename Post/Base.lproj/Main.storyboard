@@ -305,7 +305,6 @@
                                             </state>
                                             <connections>
                                                 <action selector="modifyClick:" destination="pmH-TI-Iej" eventType="touchUpInside" id="CdR-sB-c1z"/>
-                                                <segue destination="wQQ-xT-w6J" kind="push" id="spX-Ou-95c"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -327,6 +326,7 @@
                                     <outlet property="goodsName" destination="aDQ-IC-sEo" id="oaj-tR-KE3"/>
                                     <outlet property="goodsState" destination="WGR-Lm-uMN" id="Tqe-eJ-DUh"/>
                                     <outlet property="modifyBtn" destination="Mwb-Kp-v3y" id="yBN-oG-6Gv"/>
+                                    <segue destination="wQQ-xT-w6J" kind="show" id="xHG-Er-p5a"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -719,7 +719,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YCH-Qw-8jl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1430" y="3599"/>
+            <point key="canvasLocation" x="1252" y="3609"/>
         </scene>
         <!--已完成-->
         <scene sceneID="HPa-zc-x8L">

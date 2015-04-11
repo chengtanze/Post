@@ -10,6 +10,8 @@
 #import "GoodsInProgress_Order_Cell.h"
 #import "GoodsInProgress_GoodsInfo_Cell.h"
 #import "HttpProtocolAPI.h"
+#import "OrderDetailTableViewController.h"
+
 @interface GoodsInProgressViewController ()
 
 @end
@@ -18,6 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _selectIndex = -1;
     
     [[HttpProtocolAPI sharedClient] getOrderByState:nil setBlock:^(NSDictionary *data, NSError *error) {
         
@@ -26,12 +29,6 @@
             self.arrayProgressData = [data valueForKey:@"data"];
             
             [self.tableView reloadData];
-            
-            //NSInteger item = resultArray.count;
-            //NSDictionary * item1 = resultArray[0];
-            
-            
-            //NSString * orderID = [result valueForKey:@"orderId"];
         }
         
     }];
@@ -71,6 +68,33 @@
     return 44;
 }
 
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    _selectIndex = indexPath.section;
+    return indexPath;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.destinationViewController isKindOfClass:[OrderDetailTableViewController class]])
+    {
+        OrderDetailTableViewController *viewController = (OrderDetailTableViewController *)segue.destinationViewController;
+        
+        NSLog(@"%ld", (long)_selectIndex);
+
+        viewController.selectData = self.arrayProgressData[_selectIndex];
+//        viewController.delegate = self;
+//        NSInteger nType = 0;
+//        if ([segue.identifier isEqualToString:@"sourceAddress"])
+//        {
+//            nType = 0;
+//        }
+//        else if ([segue.identifier isEqualToString:@"targetAddress"]){
+//            nType = 1;
+//        }
+//        
+//        viewController.addressType = nType;
+    }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell;
@@ -78,6 +102,7 @@
         GoodsInProgress_Order_Cell * orderCell = [tableView dequeueReusableCellWithIdentifier:@"OrderID" forIndexPath:indexPath];
         
         if (self.arrayProgressData != nil) {
+            NSLog(@"%ld", indexPath.row);
             NSDictionary * dicData = self.arrayProgressData[indexPath.section];
             if (dicData != nil) {
                 orderCell.orderIDLable.text = [dicData valueForKey:@"num"];
@@ -90,7 +115,7 @@
     else{
         GoodsInProgress_GoodsInfo_Cell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"GoodsInfo" forIndexPath:indexPath];
         
-        goodsInfoCell.goodsState.text = @"派送中";
+        //goodsInfoCell.goodsState.text = @"派送中";
 
         if (self.arrayProgressData != nil) {
             NSDictionary * dicData = self.arrayProgressData[indexPath.section];
@@ -107,16 +132,11 @@
                 else
                     goodsInfoCell.modifyBtn.hidden = YES;
             }
-            
-
         }
         
         cell = goodsInfoCell;
     }
 
-    
-    
-    
     return cell;
 }
 
