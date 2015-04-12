@@ -10,4 +10,7 @@
 
 @interface GoodsInCancleViewController : UITableViewController
 
+@property(strong, nonatomic)NSArray * arrayCancleData;
+@property(assign, nonatomic)NSInteger selectIndex;
+
 @end

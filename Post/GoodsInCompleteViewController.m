@@ -128,8 +128,6 @@
     }
     else if(indexPath.row == 1){
         GoodsInComplete_State_Cell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"State" forIndexPath:indexPath];
-        //goodsInfoCell.goodsNameLable.text = @"玩具";
-        //goodsInfoCell.goodsState.text = @"派送中";
         
         if (self.arrayCompleteData != nil) {
             NSLog(@"%ld", (long)indexPath.row);

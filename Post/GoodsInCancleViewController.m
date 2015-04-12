@@ -9,6 +9,8 @@
 #import "GoodsInCancleViewController.h"
 #import "GoodsInComplete_Times_Cell.h"
 #import "GoodsInCancle_State_Cell.h"
+#import "HttpProtocolAPI.h"
+#import "OrderDetailTableViewController.h"
 
 @interface GoodsInCancleViewController ()
 
@@ -18,7 +20,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _selectIndex = -1;
     
+    [[HttpProtocolAPI sharedClient] getOrderByState:2 setBlock:^(NSDictionary *data, NSError *error) {
+        
+        if (data != nil && [self getRetDataState:data]) {
+            
+            self.arrayCancleData = [data valueForKey:@"data"];
+            
+            [self.tableView reloadData];
+        }
+    }];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -31,12 +43,25 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(BOOL)getRetDataState:(NSDictionary *)data{
+    BOOL ret = NO;
+    if (data != nil) {
+        NSNumber * numberState = [data valueForKey:@"state"];
+        NSInteger state = numberState.integerValue;
+        if (state == 0) {
+            ret = YES;
+        }
+    }
+    
+    return ret;
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
     // Return the number of sections.
-    return 2;
+    return (self.arrayCancleData != nil ? self.arrayCancleData.count : 0);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -54,26 +79,103 @@
     return 75;
 }
 
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    _selectIndex = indexPath.section;
+    return indexPath;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
     if (indexPath.row == 0 ) {
         GoodsInComplete_Times_Cell * timeCell = [tableView dequeueReusableCellWithIdentifier:@"Times" forIndexPath:indexPath];
-        timeCell.timeLable.text = @"2015-02-28 15:30:18";
         
+        if (self.arrayCancleData != nil) {
+            
+            NSDictionary * dicData = self.arrayCancleData[indexPath.section];
+            if (dicData != nil) {
+                timeCell.timeLable.text = [dicData valueForKey:@"num"];
+            }
+        }
         cell = timeCell;
     }
     else if(indexPath.row == 1){
         GoodsInCancle_State_Cell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"State" forIndexPath:indexPath];
-        goodsInfoCell.GoodsName.text = @"玩具";
+
         goodsInfoCell.GoodsState.text = @"已取消";
         
+        if (self.arrayCancleData != nil) {
+            
+            NSDictionary * dicData = self.arrayCancleData[indexPath.section];
+            if (dicData != nil) {
+                goodsInfoCell.GoodsName.text = [dicData valueForKey:@"name"];
+                
+                NSNumber * numberState = [dicData valueForKey:@"deliveryState"];
+                
+                goodsInfoCell.GoodsState.text = [self getGoodsType:numberState.integerValue];
+                
+            }
+        }
         cell = goodsInfoCell;
     }
 
     
     return cell;
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.destinationViewController isKindOfClass:[OrderDetailTableViewController class]])
+    {
+        OrderDetailTableViewController *viewController = (OrderDetailTableViewController *)segue.destinationViewController;
+        
+        NSLog(@"%ld", (long)_selectIndex);
+        
+        viewController.selectData = self.arrayCancleData[_selectIndex];
+        //        viewController.delegate = self;
+        //        NSInteger nType = 0;
+        //        if ([segue.identifier isEqualToString:@"sourceAddress"])
+        //        {
+        //            nType = 0;
+        //        }
+        //        else if ([segue.identifier isEqualToString:@"targetAddress"]){
+        //            nType = 1;
+        //        }
+        //        
+        //        viewController.addressType = nType;
+    }
+}
+
+-(NSString *)getGoodsType:(NSInteger)type{
+    
+    NSString * strType = @"未知";
+    switch (type) {
+        case 0:
+            strType = @"待接单";
+            break;
+        case 1:
+            strType = @"已接单";
+            break;
+        case 2:
+            strType = @"待取件";
+            break;
+        case 3:
+            strType = @"取件中";
+            break;
+        case 4:
+            strType = @"已取件";
+            break;
+        case 5:
+            strType = @"派送中";
+            break;
+        case 6:
+            strType = @"已签收";
+            break;
+        default:
+            break;
+    }
+    
+    return strType;
+}
+
 
 /*
 // Override to support conditional editing of the table view.
