@@ -16,8 +16,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *orderState;
 @property (weak, nonatomic) IBOutlet UILabel *vehicleType;
 @property (weak, nonatomic) IBOutlet UILabel *goodsWeight;
-@property (weak, nonatomic) IBOutlet UIView *balanceLable;
-@property (weak, nonatomic) IBOutlet UIView *shipperText;
+@property (weak, nonatomic) IBOutlet UILabel *balanceLable;
+
+@property (weak, nonatomic) IBOutlet UILabel *shipperText;
+
 @property (weak, nonatomic) IBOutlet UILabel *shipperPhoneNOText;
 @property (weak, nonatomic) IBOutlet UILabel *messrsLable;
 @property (weak, nonatomic) IBOutlet UILabel *messrsPhoneNOText;

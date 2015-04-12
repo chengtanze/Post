@@ -10,4 +10,7 @@
 
 @interface GoodsInCompleteViewController : UITableViewController
 
+@property(strong, nonatomic)NSArray * arrayCompleteData;
+@property(assign, nonatomic)NSInteger selectIndex;
+
 @end

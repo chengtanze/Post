@@ -15,6 +15,9 @@
 #import "SVProgressHUD.h"
 #import "GMDCircleLoader.h"
 
+#import "HttpProtocolAPI.h"
+#import "OrderDetailTableViewController.h"
+
 @interface GoodsInCompleteViewController ()
 
 @end
@@ -25,13 +28,39 @@
     [super viewDidLoad];
     
     //[SVProgressHUD show];
-    [GMDCircleLoader setOnView:self.view withTitle:@"Loading..." animated:YES];
+    //[GMDCircleLoader setOnView:self.view withTitle:@"Loading..." animated:YES];
+    
+    _selectIndex = -1;
+    
+    [[HttpProtocolAPI sharedClient] getOrderByState:0 setBlock:^(NSDictionary *data, NSError *error) {
+        
+        if (data != nil && [self getRetDataState:data]) {
+            
+            self.arrayCompleteData = [data valueForKey:@"data"];
+            
+            [self.tableView reloadData];
+        }
+        
+    }];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(BOOL)getRetDataState:(NSDictionary *)data{
+    BOOL ret = NO;
+    if (data != nil) {
+        NSNumber * numberState = [data valueForKey:@"state"];
+        NSInteger state = numberState.integerValue;
+        if (state == 0) {
+            ret = YES;
+        }
+    }
+
+    return ret;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,13 +76,13 @@
         return 44;
     }
     
-    return 75;
+    return 60;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
+    
     // Return the number of sections.
-    return 2;
+    return self.arrayCompleteData.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -62,6 +91,32 @@
     return 3;
 }
 
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    _selectIndex = indexPath.section;
+    return indexPath;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.destinationViewController isKindOfClass:[OrderDetailTableViewController class]])
+    {
+        OrderDetailTableViewController *viewController = (OrderDetailTableViewController *)segue.destinationViewController;
+        
+        NSLog(@"%ld", (long)_selectIndex);
+        
+        viewController.selectData = self.arrayCompleteData[_selectIndex];
+        //        viewController.delegate = self;
+        //        NSInteger nType = 0;
+        //        if ([segue.identifier isEqualToString:@"sourceAddress"])
+        //        {
+        //            nType = 0;
+        //        }
+        //        else if ([segue.identifier isEqualToString:@"targetAddress"]){
+        //            nType = 1;
+        //        }
+        //        
+        //        viewController.addressType = nType;
+    }
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
@@ -73,15 +128,38 @@
     }
     else if(indexPath.row == 1){
         GoodsInComplete_State_Cell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"State" forIndexPath:indexPath];
-        goodsInfoCell.goodsNameLable.text = @"玩具";
-        goodsInfoCell.goodsState.text = @"派送中";
+        //goodsInfoCell.goodsNameLable.text = @"玩具";
+        //goodsInfoCell.goodsState.text = @"派送中";
+        
+        if (self.arrayCompleteData != nil) {
+            NSLog(@"%ld", (long)indexPath.row);
+            NSDictionary * dicData = self.arrayCompleteData[indexPath.section];
+            if (dicData != nil) {
+                goodsInfoCell.goodsNameLable.text = [dicData valueForKey:@"name"];
+                
+                NSNumber * numberState = [dicData valueForKey:@"deliveryState"];
+                
+                goodsInfoCell.goodsState.text = [self getGoodsType:numberState.integerValue];
+            }
+        }
+        
         
         cell = goodsInfoCell;
     }
     else{
         GoodsInComplete_Address_Cell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"Address" forIndexPath:indexPath];
-        goodsInfoCell.startAddress.text = @"深圳市宝安区西乡";
-        goodsInfoCell.endAddress.text = @"深圳市南山区科技园";
+//        goodsInfoCell.startAddress.text = @"深圳市宝安区西乡";
+//        goodsInfoCell.endAddress.text = @"深圳市南山区科技园";
+        
+        if (self.arrayCompleteData != nil) {
+            NSLog(@"%ld", (long)indexPath.row);
+            NSDictionary * dicData = self.arrayCompleteData[indexPath.section];
+            if (dicData != nil) {
+                goodsInfoCell.startAddress.text = [dicData valueForKey:@"pgAddress"];
+                goodsInfoCell.endAddress.text = [dicData valueForKey:@"rgAddress"];
+
+            }
+        }
         
         cell = goodsInfoCell;
     }
@@ -93,6 +171,38 @@
 -(void)viewWillDisappear:(BOOL)animated{
     NSLog(@"viewWillDisappear");
     [GMDCircleLoader hideFromView:self.view animated:YES];
+}
+
+-(NSString *)getGoodsType:(NSInteger)type{
+    
+    NSString * strType = @"未知";
+    switch (type) {
+        case 0:
+            strType = @"待接单";
+            break;
+        case 1:
+            strType = @"已接单";
+            break;
+        case 2:
+            strType = @"待取件";
+            break;
+        case 3:
+            strType = @"取件中";
+            break;
+        case 4:
+            strType = @"已取件";
+            break;
+        case 5:
+            strType = @"派送中";
+            break;
+        case 6:
+            strType = @"已签收";
+            break;
+        default:
+            break;
+    }
+    
+    return strType;
 }
 
 /*

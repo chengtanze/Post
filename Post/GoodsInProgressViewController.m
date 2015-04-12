@@ -22,15 +22,14 @@
     [super viewDidLoad];
     _selectIndex = -1;
     
-    [[HttpProtocolAPI sharedClient] getOrderByState:nil setBlock:^(NSDictionary *data, NSError *error) {
+    [[HttpProtocolAPI sharedClient] getOrderByState:0 setBlock:^(NSDictionary *data, NSError *error) {
         
-        if (data != nil) {
+        if (data != nil && [self getRetDataState:data]) {
             
             self.arrayProgressData = [data valueForKey:@"data"];
             
             [self.tableView reloadData];
         }
-        
     }];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -38,6 +37,19 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(BOOL)getRetDataState:(NSDictionary *)data{
+    BOOL ret = NO;
+    if (data != nil) {
+        NSNumber * numberState = [data valueForKey:@"state"];
+        NSInteger state = numberState.integerValue;
+        if (state == 0) {
+            ret = YES;
+        }
+    }
+    
+    return ret;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,7 +62,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
     // Return the number of sections.
-    return self.arrayProgressData.count;
+    return (self.arrayProgressData != nil ? self.arrayProgressData.count : 0);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -102,7 +114,7 @@
         GoodsInProgress_Order_Cell * orderCell = [tableView dequeueReusableCellWithIdentifier:@"OrderID" forIndexPath:indexPath];
         
         if (self.arrayProgressData != nil) {
-            NSLog(@"%ld", indexPath.row);
+            NSLog(@"%ld", (long)indexPath.row);
             NSDictionary * dicData = self.arrayProgressData[indexPath.section];
             if (dicData != nil) {
                 orderCell.orderIDLable.text = [dicData valueForKey:@"num"];

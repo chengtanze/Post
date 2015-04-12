@@ -281,7 +281,7 @@ static NSString * const APIBaseURLString = @"http://114.215.132.245/";
     return nil;
 }
 
--(NSURLSessionDataTask *)getOrderByState:(NSDictionary *)params setBlock:(void(^) (NSDictionary * data, NSError *error))block{
+-(NSURLSessionDataTask *)getOrderByState:(NSUInteger)state setBlock:(void(^) (NSDictionary * data, NSError *error))block{
     [HttpProtocolAPI sharedClient].responseSerializer = [AFHTTPResponseSerializer serializer];
     
     NSError * retError = nil;
@@ -290,16 +290,16 @@ static NSString * const APIBaseURLString = @"http://114.215.132.245/";
     NSInteger uid = [UserDataInterface sharedClient].userID_Int;
     NSNumber * userID = [[NSNumber alloc]initWithInt:uid];
     NSString * key = [UserDataInterface sharedClient].userKey;
-    NSNumber * state = [[NSNumber alloc]initWithInt:0];
+    NSNumber * numberState = [[NSNumber alloc]initWithInt:state];
     
     [paramsTest setObject: userID forKey:@"uid"];
-    [paramsTest setObject: @"123" forKey:@"imei"];
-    [paramsTest setObject: @"192.168.0.1" forKey:@"ip"];
-    [paramsTest setObject: @"12" forKey:@"mac"];
+    [paramsTest setObject: @"" forKey:@"imei"];
+    [paramsTest setObject: @"" forKey:@"ip"];
+    [paramsTest setObject: @"" forKey:@"mac"];
     [paramsTest setObject: key forKey:@"key"];
-    [paramsTest setObject: state forKey:@"state"];
+    [paramsTest setObject: numberState forKey:@"state"];
     
-    NSLog(@"uid:%@,imei:%@,ip:%@,mac:%@,key:%@,state:%@", userID, @"",@"",@"", key, state);
+    NSLog(@"uid:%@,imei:%@,ip:%@,mac:%@,key:%@,state:%@", userID, @"",@"",@"", key, numberState);
     
     return [[HttpProtocolAPI sharedClient] POST:@"qmld/api/getOrderByState.php?" parameters:paramsTest success:^(NSURLSessionDataTask * __unused task, id responseObject)
             {

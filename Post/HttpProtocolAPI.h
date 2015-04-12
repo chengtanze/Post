@@ -30,7 +30,7 @@
 -(NSURLSessionDataTask *)getOrders:(NSDictionary *)params setBlock:(void(^) (NSDictionary * data, NSError *error))block;
 
 //获取指定状态订单
--(NSURLSessionDataTask *)getOrderByState:(NSDictionary *)params setBlock:(void(^) (NSDictionary * data, NSError *error))block;
+-(NSURLSessionDataTask *)getOrderByState:(NSUInteger)state setBlock:(void(^) (NSDictionary * data, NSError *error))block;
 
 
 
