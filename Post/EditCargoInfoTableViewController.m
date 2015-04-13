@@ -127,6 +127,14 @@
 
 -(void)setValue:(NSString *)address Type:(NSInteger)type{
     NSLog(@"address :%@ Type :%ld", address, (long)type);
+    
+    if (type == 0) {
+        [self.firstAddress setTitle:address forState:UIControlStateNormal];
+    }
+    else{
+        [self.secondAddress setTitle:address forState:UIControlStateNormal];
+    }
+    
 }
 
 - (IBAction)goodsTypeBtn:(id)sender {

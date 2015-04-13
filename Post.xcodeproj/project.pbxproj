@@ -556,6 +556,8 @@
 				FC7FC7F51A788972004B3909 /* RegisterViewController.m */,
 				FCAEEB511ACA3BAE00D24E73 /* PersonlDataNaviViewController.h */,
 				FCAEEB521ACA3BAE00D24E73 /* PersonlDataNaviViewController.m */,
+				142B224D1A7DCE3000363BD9 /* DetailedAddressViewController.h */,
+				142B224E1A7DCE3000363BD9 /* DetailedAddressViewController.m */,
 			);
 			name = "首页";
 			sourceTree = "<group>";
@@ -563,8 +565,6 @@
 		144F17531AB5CD1400AE56F7 /* 订单 */ = {
 			isa = PBXGroup;
 			children = (
-				142B224D1A7DCE3000363BD9 /* DetailedAddressViewController.h */,
-				142B224E1A7DCE3000363BD9 /* DetailedAddressViewController.m */,
 				1478BE391A83AAAA006B03ED /* OrderTrackViewController.h */,
 				1478BE3A1A83AAAA006B03ED /* OrderTrackViewController.mm */,
 				145991291A89D76700710CF2 /* ConfirmTableViewController.h */,

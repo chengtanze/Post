@@ -38,6 +38,27 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+
+    //self.addressType = 0;
+    [self initCustomData];
+    [self initLocalData];
+    // Do any additional setup after loading the view.
+}
+
+-(void)initCustomData{
+    self.title = @"设置地址";
+    
+    UIBarButtonItem *myButton = [[UIBarButtonItem alloc]
+                                 initWithTitle:@"地图"
+                                 style:UIBarButtonItemStyleBordered
+                                 target:self
+                                 action:@selector(barBtnAction:)];
+    
+    self.navigationItem.rightBarButtonItem = myButton;
+}
+
+-(void)initLocalData{
+    
     self.cityText.delegate = self;
     self.areaText.delegate = self;
     self.searchString = [[NSMutableString alloc]initWithCapacity:20];
@@ -45,13 +66,6 @@
     self.BMKPoiInfoArray = [[NSMutableArray alloc]initWithCapacity:10];
     self.addressTableView.delegate = self;
     self.addressTableView.dataSource = self;
-    //self.addressType = 0;
-    
-    [self initLocalData];
-    // Do any additional setup after loading the view.
-}
-
--(void)initLocalData{
     
     POIDataInfo * UserGPS = [[POIDataInfo alloc]init];
     UserGPS.poiName = @"龙峰二路102号";
@@ -73,7 +87,7 @@
     //NSInteger nCount = _poiSearchData.count;
     
     [self.poiTableViewData addObject:self.poiCurrGPSData];
-    [self.poiTableViewData addObject:self.poiHistoryData];
+    //[self.poiTableViewData addObject:self.poiHistoryData];
     [self.poiTableViewData addObject:self.poiSearchData];
     
     //NSInteger nCount = _poiTableViewData.count;
@@ -83,6 +97,17 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)barBtnAction:(id)sender{
+    NSLog(@"barBtnAction");
+    
+    UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController * info = [mainStoryboard instantiateViewControllerWithIdentifier:@"MapSearchViewController"];
+    
+    [self.navigationController pushViewController:info animated:NO];
+    
+}
+
 -(void)cancelLocatePicker
 {
     [self.pickCityView cancelPicker];
@@ -138,7 +163,8 @@
         NSLog(@"textfieldshouldreturn");
         [textField resignFirstResponder];
         
-        [self serachPOIByCity:@"南山" address:@"清华信息港"];//self.cityText.text self.searchString
+        
+        [self serachPOIByCity:self.cityText.text address:self.areaText.text];//self.cityText.text
     }
     
     return YES;
