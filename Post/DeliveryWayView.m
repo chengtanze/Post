@@ -41,7 +41,7 @@
     [view addSubview:self];
     
     [UIView animateWithDuration:0.3 animations:^{
-        self.frame = CGRectMake(0, view.frame.size.height - self.frame.size.height - 45, self.frame.size.width, self.frame.size.height);
+        self.frame = CGRectMake(0, view.frame.size.height - self.frame.size.height - 100, self.frame.size.width, self.frame.size.height);
     }];
     
 }
@@ -113,8 +113,8 @@
             break;
     }
     
-    if([self.delegate respondsToSelector:@selector(pickerDidChaneStatus:)]) {
-        [self.delegate pickerDidChaneStatus:row];
+    if([self.delegate respondsToSelector:@selector(pickerDidChaneStly:Type:)]) {
+        [self.delegate pickerDidChaneStly:row Type:_typeStly];
     }
 }
 

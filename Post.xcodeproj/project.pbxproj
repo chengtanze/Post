@@ -33,6 +33,8 @@
 		1443E9EA1A9F1714006BC700 /* GoodsInProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1443E9E91A9F1714006BC700 /* GoodsInProgressViewController.m */; };
 		14447ABF1ADB5328005E6974 /* DeliveryWayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14447ABE1ADB5328005E6974 /* DeliveryWayView.m */; };
 		14447AC11ADB5366005E6974 /* DeliveryWay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14447AC01ADB5366005E6974 /* DeliveryWay.xib */; };
+		14447AC31ADBAC40005E6974 /* TimerPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14447AC21ADBAC40005E6974 /* TimerPicker.xib */; };
+		14447AC61ADBAF3B005E6974 /* TimerPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14447AC51ADBAF3B005E6974 /* TimerPickerView.m */; };
 		14456D6F1AAC373F0067068E /* TaskOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14456D6E1AAC373F0067068E /* TaskOrderViewController.m */; };
 		14456D721AAC3D780067068E /* TaskOrderUnfinishedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14456D711AAC3D780067068E /* TaskOrderUnfinishedViewController.m */; };
 		1447CD8F1ABD021700EDECCF /* AccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447CD8E1ABD021700EDECCF /* AccountInfoViewController.m */; };
@@ -198,6 +200,9 @@
 		14447ABD1ADB5328005E6974 /* DeliveryWayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeliveryWayView.h; path = Post/DeliveryWayView.h; sourceTree = "<group>"; };
 		14447ABE1ADB5328005E6974 /* DeliveryWayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeliveryWayView.m; path = Post/DeliveryWayView.m; sourceTree = "<group>"; };
 		14447AC01ADB5366005E6974 /* DeliveryWay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeliveryWay.xib; sourceTree = "<group>"; };
+		14447AC21ADBAC40005E6974 /* TimerPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimerPicker.xib; sourceTree = "<group>"; };
+		14447AC41ADBAF3B005E6974 /* TimerPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimerPickerView.h; path = Post/TimerPickerView.h; sourceTree = "<group>"; };
+		14447AC51ADBAF3B005E6974 /* TimerPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimerPickerView.m; path = Post/TimerPickerView.m; sourceTree = "<group>"; };
 		14456D6D1AAC373F0067068E /* TaskOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskOrderViewController.h; path = Post/TaskOrderViewController.h; sourceTree = "<group>"; };
 		14456D6E1AAC373F0067068E /* TaskOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskOrderViewController.m; path = Post/TaskOrderViewController.m; sourceTree = "<group>"; };
 		14456D701AAC3D780067068E /* TaskOrderUnfinishedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskOrderUnfinishedViewController.h; path = Post/TaskOrderUnfinishedViewController.h; sourceTree = "<group>"; };
@@ -986,6 +991,9 @@
 				14447ABD1ADB5328005E6974 /* DeliveryWayView.h */,
 				14447ABE1ADB5328005E6974 /* DeliveryWayView.m */,
 				14447AC01ADB5366005E6974 /* DeliveryWay.xib */,
+				14447AC41ADBAF3B005E6974 /* TimerPickerView.h */,
+				14447AC51ADBAF3B005E6974 /* TimerPickerView.m */,
+				14447AC21ADBAC40005E6974 /* TimerPicker.xib */,
 			);
 			name = Coustom;
 			sourceTree = "<group>";
@@ -1090,6 +1098,7 @@
 				FCA8C80C1AB815D900830AD5 /* SelectRange.xib in Resources */,
 				14A668611AB86E4400C534E0 /* bg.png in Resources */,
 				142B22581A7DD84100363BD9 /* area.plist in Resources */,
+				14447AC31ADBAC40005E6974 /* TimerPicker.xib in Resources */,
 				14BD6BAD1A7CE61D001A8535 /* icon_direction.png in Resources */,
 				1454D0821A861BF9003033D3 /* icon_nav_start@2x.png in Resources */,
 				1477174E1AB9B41900540E65 /* 5-SMART-BOX-more-user.png in Resources */,
@@ -1170,6 +1179,7 @@
 				148BC3A91AA5FE3100819910 /* OrderDetailTableViewController.m in Sources */,
 				FC4F73AD1ABBFF0800953D95 /* AFURLRequestSerialization.m in Sources */,
 				14408D251AA1F22300EC6D79 /* GoodsInComplete_Address_Cell.m in Sources */,
+				14447AC61ADBAF3B005E6974 /* TimerPickerView.m in Sources */,
 				FC2B862E1AC2A54D00926FA6 /* CommonDetailAddressController.m in Sources */,
 				FCAEEB561ACA858A00D24E73 /* EditPersonController.m in Sources */,
 				1459ABB61AA0893E0041CEBB /* GoodsInProgress_GoodsInfo_Cell.m in Sources */,

@@ -17,7 +17,7 @@
                     </constraints>
                 </pickerView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zd-Lp-j3y">
-                    <rect key="frame" x="15" y="191" width="30" height="30"/>
+                    <rect key="frame" x="15" y="185" width="30" height="30"/>
                     <state key="normal" title="取消">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -26,7 +26,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64q-cI-cjc">
-                    <rect key="frame" x="275" y="191" width="30" height="30"/>
+                    <rect key="frame" x="275" y="185" width="30" height="30"/>
                     <state key="normal" title="完成">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -40,10 +40,10 @@
                 <constraint firstItem="kFD-Nw-eTl" firstAttribute="leading" secondItem="Zry-nU-uE3" secondAttribute="leading" id="JFo-BC-WC4"/>
                 <constraint firstItem="kFD-Nw-eTl" firstAttribute="top" secondItem="Zry-nU-uE3" secondAttribute="top" id="Ke5-36-MtM"/>
                 <constraint firstAttribute="trailing" secondItem="64q-cI-cjc" secondAttribute="trailing" constant="15" id="Q0h-l8-NcT"/>
+                <constraint firstItem="64q-cI-cjc" firstAttribute="top" secondItem="kFD-Nw-eTl" secondAttribute="bottom" constant="5" id="bfZ-s3-xaV"/>
                 <constraint firstItem="9zd-Lp-j3y" firstAttribute="leading" secondItem="Zry-nU-uE3" secondAttribute="leading" constant="15" id="hgH-b1-RBe"/>
+                <constraint firstItem="9zd-Lp-j3y" firstAttribute="top" secondItem="kFD-Nw-eTl" secondAttribute="bottom" constant="5" id="mp1-9W-F2f"/>
                 <constraint firstAttribute="trailing" secondItem="kFD-Nw-eTl" secondAttribute="trailing" id="y3s-KF-huv"/>
-                <constraint firstAttribute="bottom" secondItem="64q-cI-cjc" secondAttribute="bottom" constant="8" id="z94-Ny-2Sc"/>
-                <constraint firstAttribute="bottom" secondItem="9zd-Lp-j3y" secondAttribute="bottom" constant="8" id="zZI-M7-Sta"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

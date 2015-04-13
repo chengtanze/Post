@@ -10,6 +10,7 @@
 #import "DetailedAddressViewController.h"
 @class GoodsTypeView;
 @class DeliveryWayView;
+@class TimerPickerView;
 @interface EditCargoInfoTableViewController : UITableViewController
 
 @property (weak, nonatomic) IBOutlet UIButton *firstAddress;
@@ -22,14 +23,23 @@
 - (IBAction)changeAddress:(id)sender;
 - (IBAction)goodsTypeBtn:(id)sender;
 - (IBAction)pgWayBtn:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *pgWay;
+@property (weak, nonatomic) IBOutlet UIButton *rgWayBtn;
+- (IBAction)rgWayClick:(id)sender;
 
+- (IBAction)startTimeClick:(id)sender;
+- (IBAction)endTimeClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *startTimeBtn;
+@property (weak, nonatomic) IBOutlet UIButton *endTimeBtn;
 
 
 @property (strong, nonatomic) NSArray * goodsTypeArray;
 @property (strong, nonatomic) NSArray * deliveryWayArray;
+@property (strong, nonatomic) NSArray * consigneeWayArray;
 
 @property (strong, nonatomic) GoodsTypeView * goodsTypeView;
 @property (strong, nonatomic) DeliveryWayView * deliveryWayView;
+@property (strong, nonatomic) TimerPickerView * timerPickerView;
 
 @property (strong, nonatomic) NSMutableArray * addOrderParams;
 

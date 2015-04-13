@@ -10,8 +10,9 @@
 #import "GoodsTypeView.h"
 #import "HttpProtocolAPI.h"
 #import "DeliveryWayView.h"
+#import "TimerPickerView.h"
 
-@interface EditCargoInfoTableViewController ()<UITextFieldDelegate, GetAddressTypeDelegate, SelectTypeDelegate, SelectStlyDelegate>
+@interface EditCargoInfoTableViewController ()<UITextFieldDelegate, GetAddressTypeDelegate, SelectTypeDelegate, SelectStlyDelegate, SelectDateTimeDelegate>
 
 
 @end
@@ -46,6 +47,9 @@
     self.addOrderParams = [[NSMutableArray alloc]initWithCapacity:15];
     
     self.deliveryWayArray = [[NSArray alloc]initWithObjects:@"协商", @"上门取件", @"到指定点取件", @"到代收点取件", nil];
+    
+    self.consigneeWayArray = [[NSArray alloc]initWithObjects:@"协商", @"送件上门", @"到指定点取件", @"到代收点取件", nil];
+
 }
 
 -(void)initNetWorkData{
@@ -139,11 +143,56 @@
 - (IBAction)pgWayBtn:(id)sender {
     if (self.deliveryWayView == nil) {
         self.deliveryWayView = [[DeliveryWayView alloc]init];
-        self.deliveryWayView.goodsStlyArray = _deliveryWayArray;
         self.deliveryWayView.delegate = self;
     }
     
+    self.deliveryWayView.goodsStlyArray = _deliveryWayArray;
+    self.deliveryWayView.typeStly = 0;
     [self.deliveryWayView showInView:self.view];
+}
+
+
+- (IBAction)rgWayClick:(id)sender {
+    if (self.deliveryWayView == nil) {
+        self.deliveryWayView = [[DeliveryWayView alloc]init];
+        self.deliveryWayView.delegate = self;
+    }
+    
+    self.deliveryWayView.goodsStlyArray = _consigneeWayArray;
+    self.deliveryWayView.typeStly = 1;
+    [self.deliveryWayView showInView:self.view];
+}
+
+- (IBAction)startTimeClick:(id)sender {
+    
+    if (self.timerPickerView == nil) {
+        self.timerPickerView = [[TimerPickerView alloc]init];
+        self.timerPickerView.delegate = self;
+    }
+    
+    self.timerPickerView.index = 0;
+    [self.timerPickerView showInView:self.view];
+}
+
+- (IBAction)endTimeClick:(id)sender {
+    if (self.timerPickerView == nil) {
+        self.timerPickerView = [[TimerPickerView alloc]init];
+        self.timerPickerView.delegate = self;
+    }
+    
+    self.timerPickerView.index = 1;
+    [self.timerPickerView showInView:self.view];
+}
+
+- (void)pickerDidDateTime:(NSString *)strDate type:(NSUInteger)index{
+    
+    if (index == 0) {
+        [self.startTimeBtn setTitle:strDate forState:UIControlStateNormal];
+    }
+    else{
+        [self.endTimeBtn setTitle:strDate forState:UIControlStateNormal];
+    }
+    
 }
 
 - (void)pickerDidChaneStatus:(NSUInteger)nindex{
@@ -156,6 +205,34 @@
         [_goodsTypeBtn setTitle:name forState:UIControlStateNormal];
         _goodsNameTF.text = name;
     }
+}
+
+- (void)pickerDidChaneStly:(NSUInteger)nindex Type:(NSUInteger)type{
+    if (type == 0) {
+        //发件方式
+        [self setPGWay:nindex];
+    }
+    else{
+        //收件方式
+        [self setRGWay:nindex];
+    }
+}
+
+-(void)setPGWay:(NSInteger)stly{
+    NSString * strStly = @"";
+    
+    strStly = self.deliveryWayArray[stly];
+    
+    [self.pgWay setTitle:strStly forState:UIControlStateNormal];
+}
+
+-(void)setRGWay:(NSInteger)stly{
+    
+    NSString * strStly = @"";
+    
+    strStly = self.consigneeWayArray[stly];
+    
+    [self.rgWayBtn setTitle:strStly forState:UIControlStateNormal];
 }
 
 #pragma mark - Table view data source

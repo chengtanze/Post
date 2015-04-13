@@ -10,16 +10,18 @@
 @protocol SelectStlyDelegate <NSObject>
 
 @optional
-- (void)pickerDidChaneStatus:(NSUInteger)nindex;
+- (void)pickerDidChaneStly:(NSUInteger)nindex Type:(NSUInteger)type;
 
 @end
 
 @interface DeliveryWayView : UIView<UIPickerViewDelegate, UIPickerViewDataSource>
 
-@property (strong, nonatomic) NSArray * goodsStlyArray;
+
 
 @property (weak, nonatomic) IBOutlet UIPickerView *goodsPickView;
 @property (weak, nonatomic) id<SelectStlyDelegate> delegate;
+@property (strong, nonatomic) NSArray * goodsStlyArray;
+@property (assign, nonatomic) NSUInteger typeStly;
 
 - (IBAction)okClick:(id)sender;
 - (IBAction)cancleClick:(id)sender;
