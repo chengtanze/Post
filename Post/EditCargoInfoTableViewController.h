@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DetailedAddressViewController.h"
 @class GoodsTypeView;
-
+@class DeliveryWayView;
 @interface EditCargoInfoTableViewController : UITableViewController
 
 @property (weak, nonatomic) IBOutlet UIButton *firstAddress;
@@ -21,11 +21,16 @@
 
 - (IBAction)changeAddress:(id)sender;
 - (IBAction)goodsTypeBtn:(id)sender;
+- (IBAction)pgWayBtn:(id)sender;
 
 
 
 @property (strong, nonatomic) NSArray * goodsTypeArray;
+@property (strong, nonatomic) NSArray * deliveryWayArray;
+
 @property (strong, nonatomic) GoodsTypeView * goodsTypeView;
+@property (strong, nonatomic) DeliveryWayView * deliveryWayView;
+
 @property (strong, nonatomic) NSMutableArray * addOrderParams;
 
 

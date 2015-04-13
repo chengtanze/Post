@@ -9,7 +9,9 @@
 #import "EditCargoInfoTableViewController.h"
 #import "GoodsTypeView.h"
 #import "HttpProtocolAPI.h"
-@interface EditCargoInfoTableViewController ()<UITextFieldDelegate, GetAddressTypeDelegate, SelectTypeDelegate>
+#import "DeliveryWayView.h"
+
+@interface EditCargoInfoTableViewController ()<UITextFieldDelegate, GetAddressTypeDelegate, SelectTypeDelegate, SelectStlyDelegate>
 
 
 @end
@@ -43,12 +45,12 @@
 -(void)initLocalData{
     self.addOrderParams = [[NSMutableArray alloc]initWithCapacity:15];
     
-    
+    self.deliveryWayArray = [[NSArray alloc]initWithObjects:@"协商", @"上门取件", @"到指定点取件", @"到代收点取件", nil];
 }
 
 -(void)initNetWorkData{
     [[HttpProtocolAPI sharedClient]getGoodsTypeList:^(NSDictionary *data, NSError *error) {
-        if (data != nil) {
+        if (data != nil && [self getRetDataState:data]) {
             
             self.goodsTypeArray = [data valueForKey:@"data"];
             
@@ -72,6 +74,19 @@
     //    NSDictionary *dic6 = [[NSDictionary alloc]initWithObjectsAndKeys:@"3", @"id", @"生活用品", @"type",@"1", @"isActive",nil];
     //
     //    self.goodsTypeArray = [[NSArray alloc]initWithObjects:dic1, dic2, dic3, dic4, dic5, dic6,nil];
+}
+
+-(BOOL)getRetDataState:(NSDictionary *)data{
+    BOOL ret = NO;
+    if (data != nil) {
+        NSNumber * numberState = [data valueForKey:@"state"];
+        NSInteger state = numberState.integerValue;
+        if (state == 0) {
+            ret = YES;
+        }
+    }
+    
+    return ret;
 }
 
 - (IBAction)changeAddress:(id)sender {
@@ -119,6 +134,16 @@
     }
 
     [self.goodsTypeView  showInView:self.view];
+}
+
+- (IBAction)pgWayBtn:(id)sender {
+    if (self.deliveryWayView == nil) {
+        self.deliveryWayView = [[DeliveryWayView alloc]init];
+        self.deliveryWayView.goodsStlyArray = _deliveryWayArray;
+        self.deliveryWayView.delegate = self;
+    }
+    
+    [self.deliveryWayView showInView:self.view];
 }
 
 - (void)pickerDidChaneStatus:(NSUInteger)nindex{

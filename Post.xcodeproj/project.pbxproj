@@ -31,6 +31,8 @@
 		1443E9E41A9F012E006BC700 /* SCNavTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1443E9E31A9F012E006BC700 /* SCNavTabBarController.m */; };
 		1443E9E71A9F0257006BC700 /* GoodsOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1443E9E61A9F0257006BC700 /* GoodsOrderViewController.m */; };
 		1443E9EA1A9F1714006BC700 /* GoodsInProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1443E9E91A9F1714006BC700 /* GoodsInProgressViewController.m */; };
+		14447ABF1ADB5328005E6974 /* DeliveryWayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14447ABE1ADB5328005E6974 /* DeliveryWayView.m */; };
+		14447AC11ADB5366005E6974 /* DeliveryWay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14447AC01ADB5366005E6974 /* DeliveryWay.xib */; };
 		14456D6F1AAC373F0067068E /* TaskOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14456D6E1AAC373F0067068E /* TaskOrderViewController.m */; };
 		14456D721AAC3D780067068E /* TaskOrderUnfinishedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14456D711AAC3D780067068E /* TaskOrderUnfinishedViewController.m */; };
 		1447CD8F1ABD021700EDECCF /* AccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447CD8E1ABD021700EDECCF /* AccountInfoViewController.m */; };
@@ -193,6 +195,9 @@
 		1443E9E61A9F0257006BC700 /* GoodsOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsOrderViewController.m; path = Post/GoodsOrderViewController.m; sourceTree = "<group>"; };
 		1443E9E81A9F1714006BC700 /* GoodsInProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsInProgressViewController.h; path = Post/GoodsInProgressViewController.h; sourceTree = "<group>"; };
 		1443E9E91A9F1714006BC700 /* GoodsInProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsInProgressViewController.m; path = Post/GoodsInProgressViewController.m; sourceTree = "<group>"; };
+		14447ABD1ADB5328005E6974 /* DeliveryWayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeliveryWayView.h; path = Post/DeliveryWayView.h; sourceTree = "<group>"; };
+		14447ABE1ADB5328005E6974 /* DeliveryWayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeliveryWayView.m; path = Post/DeliveryWayView.m; sourceTree = "<group>"; };
+		14447AC01ADB5366005E6974 /* DeliveryWay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeliveryWay.xib; sourceTree = "<group>"; };
 		14456D6D1AAC373F0067068E /* TaskOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskOrderViewController.h; path = Post/TaskOrderViewController.h; sourceTree = "<group>"; };
 		14456D6E1AAC373F0067068E /* TaskOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskOrderViewController.m; path = Post/TaskOrderViewController.m; sourceTree = "<group>"; };
 		14456D701AAC3D780067068E /* TaskOrderUnfinishedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskOrderUnfinishedViewController.h; path = Post/TaskOrderUnfinishedViewController.h; sourceTree = "<group>"; };
@@ -978,6 +983,9 @@
 				FCC7CA0B1ACE794100347105 /* GoodsTypeView.h */,
 				FCC7CA0C1ACE794100347105 /* GoodsTypeView.m */,
 				FCC7CA0E1ACE7A6700347105 /* GoodsType.xib */,
+				14447ABD1ADB5328005E6974 /* DeliveryWayView.h */,
+				14447ABE1ADB5328005E6974 /* DeliveryWayView.m */,
+				14447AC01ADB5366005E6974 /* DeliveryWay.xib */,
 			);
 			name = Coustom;
 			sourceTree = "<group>";
@@ -1076,6 +1084,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1454D0851A861E57003033D3 /* icon_center_point.png in Resources */,
+				14447AC11ADB5366005E6974 /* DeliveryWay.xib in Resources */,
 				FC81BC8D1A7A0E6B00D6C78F /* 5.jpg in Resources */,
 				14CE5FED1A74D34A00A19C36 /* Default@2x.png in Resources */,
 				FCA8C80C1AB815D900830AD5 /* SelectRange.xib in Resources */,
@@ -1198,6 +1207,7 @@
 				FC4F73AA1ABBFF0800953D95 /* AFNetworkReachabilityManager.m in Sources */,
 				FC79E5101AC3FECE00F2AD3E /* OftenGoodsTableViewCell.m in Sources */,
 				14CE5FC41A74CF8400A19C36 /* Post.xcdatamodeld in Sources */,
+				14447ABF1ADB5328005E6974 /* DeliveryWayView.m in Sources */,
 				1459912E1A89DC7F00710CF2 /* PhotoGroupView.m in Sources */,
 				FC84C0AF1AAEE9F70074F65C /* PeripheralsTableViewController.m in Sources */,
 				14456D721AAC3D780067068E /* TaskOrderUnfinishedViewController.m in Sources */,

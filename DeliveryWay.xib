@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Zry-nU-uE3" customClass="DeliveryWayView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="229"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kFD-Nw-eTl">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="180" id="dFf-3E-jsN"/>
+                    </constraints>
+                </pickerView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zd-Lp-j3y">
+                    <rect key="frame" x="15" y="191" width="30" height="30"/>
+                    <state key="normal" title="取消">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="cancleClick:" destination="Zry-nU-uE3" eventType="touchUpInside" id="7kz-iZ-nbs"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64q-cI-cjc">
+                    <rect key="frame" x="275" y="191" width="30" height="30"/>
+                    <state key="normal" title="完成">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="okClick:" destination="Zry-nU-uE3" eventType="touchUpInside" id="85o-Ea-51w"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="kFD-Nw-eTl" firstAttribute="leading" secondItem="Zry-nU-uE3" secondAttribute="leading" id="JFo-BC-WC4"/>
+                <constraint firstItem="kFD-Nw-eTl" firstAttribute="top" secondItem="Zry-nU-uE3" secondAttribute="top" id="Ke5-36-MtM"/>
+                <constraint firstAttribute="trailing" secondItem="64q-cI-cjc" secondAttribute="trailing" constant="15" id="Q0h-l8-NcT"/>
+                <constraint firstItem="9zd-Lp-j3y" firstAttribute="leading" secondItem="Zry-nU-uE3" secondAttribute="leading" constant="15" id="hgH-b1-RBe"/>
+                <constraint firstAttribute="trailing" secondItem="kFD-Nw-eTl" secondAttribute="trailing" id="y3s-KF-huv"/>
+                <constraint firstAttribute="bottom" secondItem="64q-cI-cjc" secondAttribute="bottom" constant="8" id="z94-Ny-2Sc"/>
+                <constraint firstAttribute="bottom" secondItem="9zd-Lp-j3y" secondAttribute="bottom" constant="8" id="zZI-M7-Sta"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="goodsPickView" destination="kFD-Nw-eTl" id="ihm-f3-FCJ"/>
+            </connections>
+            <point key="canvasLocation" x="336" y="528.5"/>
+        </view>
+    </objects>
+</document>
