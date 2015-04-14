@@ -8,6 +8,9 @@
 
 #import "MapSearchViewController.h"
 #import "BMapKit.h"
+#import "DetailedAddressViewController.h"
+
+
 @interface MapSearchViewController ()<BMKGeneralDelegate, BMKMapViewDelegate, CLLocationManagerDelegate, BMKPoiSearchDelegate, BMKLocationServiceDelegate, BMKGeoCodeSearchDelegate, UISearchBarDelegate>
 {
     CLLocation *checkinLocation;
@@ -50,26 +53,29 @@
     _mapView.userTrackingMode = BMKUserTrackingModeFollow;
     _mapView.showsUserLocation = YES;
 }
-
-#define POST_MAPVIEW_ADDRESSINFO_HEIGHT (50.0)
+#define POST_MAPVIEW_ADDRESSINFO_WIDTH (50.0)
+#define POST_MAPVIEW_ADDRESSINFO_HEIGHT (70.0)
 
 -(void)createWidget{
     
     
     NSLog(@"%f, %f", self.view.frame.size.height, self.view.bounds.size.width);
     //底部地址框view
-    UIView * backGroup = [[UIView alloc]initWithFrame:CGRectMake(5, self.view.bounds.size.height - POST_MAPVIEW_ADDRESSINFO_HEIGHT * 2, self.view.bounds.size.width - 10, POST_MAPVIEW_ADDRESSINFO_HEIGHT - 10)];
+    UIView * backGroup = [[UIView alloc]initWithFrame:CGRectMake(5, self.view.bounds.size.height - POST_MAPVIEW_ADDRESSINFO_WIDTH * 2, self.view.bounds.size.width - 10, POST_MAPVIEW_ADDRESSINFO_WIDTH - 10)];
     backGroup.backgroundColor = [UIColor whiteColor];
     [backGroup setAlpha:0.7];
     //地址框
-    self.addressLabel = [[UILabel alloc]initWithFrame:CGRectMake(5, 0, (self.view.bounds.size.width - 10) * 0.75, POST_MAPVIEW_ADDRESSINFO_HEIGHT - 10)];
+    self.addressLabel = [[UILabel alloc]initWithFrame:CGRectMake(5, 0, (self.view.bounds.size.width - 10) * 0.75, POST_MAPVIEW_ADDRESSINFO_WIDTH - 10)];
     self.addressLabel.font = [UIFont boldSystemFontOfSize:15.0f]; //UILabel的字体大小
     self.addressLabel.text = @"";
     
     //确定按钮
     float x = (self.view.bounds.size.width - 10) * 0.75;
-    UIButton * butOK = [[UIButton alloc]initWithFrame:CGRectMake(x, 0, 80,20)];//(self.view.bounds.size.width - 10) * 0.85 + 10), 0, 50,20
-    //butOK.center
+    UIButton * butOK = [[UIButton alloc]initWithFrame:CGRectMake(x, 0, 80,40)];//(self.view.bounds.size.width - 10) * 0.85 + 10), 0, 50,20
+    
+    CGPoint point = butOK.center;
+    point.y = (POST_MAPVIEW_ADDRESSINFO_WIDTH - 10) / 2.0;
+    butOK.center = point;
     
     [butOK setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
     [butOK setTitle:@"设为地址" forState:UIControlStateNormal];
@@ -99,7 +105,7 @@
 -(void)okClick:(id)sender{
     NSLog(@"okClick");
 
-    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)initPOI{
@@ -238,9 +244,34 @@
         //[myAlertView show];
         
         self.addressLabel.text = result.address;
+        
+        if([self.delegate respondsToSelector:@selector(pickerAdress:)]) {
+            [self.delegate pickerAdress:self.addressLabel.text ];
+        }
+        
     }
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if([segue.destinationViewController isKindOfClass:[DetailedAddressViewController class]])
+    {
+        DetailedAddressViewController *viewController = (DetailedAddressViewController *)segue.destinationViewController;
+        
+        viewController.areaText.text = self.addressLabel.text;
+//        viewController.delegate = self;
+//        NSInteger nType = 0;
+//        if ([segue.identifier isEqualToString:@"sourceAddress"])
+//        {
+//            nType = 0;
+//        }
+//        else if ([segue.identifier isEqualToString:@"targetAddress"]){
+//            nType = 1;
+//        }
+//        
+//        viewController.addressType = nType;
+    }
+}
 
 
 /**

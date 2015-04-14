@@ -3399,13 +3399,18 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="85"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="街道、门牌号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HiB-cg-AKw">
-                                        <rect key="frame" x="20" y="45" width="150" height="40"/>
+                                        <rect key="frame" x="20" y="45" width="420" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="mBl-jX-p7P"/>
                                             <constraint firstAttribute="height" constant="40" id="zuY-U6-5yW"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="mBl-jX-p7P"/>
+                                            </mask>
+                                        </variation>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j51-T9-WSw">
                                         <rect key="frame" x="535" y="50" width="60" height="30"/>
@@ -3421,13 +3426,18 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="省、市、区" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZDp-4y-paW">
-                                        <rect key="frame" x="21" y="0.0" width="150" height="40"/>
+                                        <rect key="frame" x="21" y="0.0" width="420" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="Vlq-Nf-1ww"/>
                                             <constraint firstAttribute="height" constant="40" id="wJA-zT-dW5"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Vlq-Nf-1ww"/>
+                                            </mask>
+                                        </variation>
                                     </textField>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HmQ-fj-BaV">
                                         <rect key="frame" x="565" y="22" width="30" height="30"/>
@@ -3449,7 +3459,9 @@
                                     <constraint firstItem="j51-T9-WSw" firstAttribute="top" secondItem="HmQ-fj-BaV" secondAttribute="bottom" constant="-2" id="bG0-2X-EdR"/>
                                     <constraint firstItem="ZDp-4y-paW" firstAttribute="top" secondItem="Zy5-0L-KBj" secondAttribute="top" id="g9R-6m-FDr"/>
                                     <constraint firstAttribute="bottom" secondItem="HiB-cg-AKw" secondAttribute="bottom" id="nFt-b3-whm"/>
+                                    <constraint firstItem="HiB-cg-AKw" firstAttribute="width" secondItem="Zy5-0L-KBj" secondAttribute="width" multiplier="0.7" id="nd3-JC-ThJ"/>
                                     <constraint firstAttribute="height" constant="85" id="rWe-2O-xAZ"/>
+                                    <constraint firstItem="ZDp-4y-paW" firstAttribute="width" secondItem="HiB-cg-AKw" secondAttribute="width" id="sOc-fg-ziQ"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" translatesAutoresizingMaskIntoConstraints="NO" id="k49-5V-PEh">

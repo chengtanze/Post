@@ -7,17 +7,21 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="Zry-nU-uE3" customClass="DeliveryWayView">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="229"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kFD-Nw-eTl">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
+                    <rect key="frame" x="0.0" y="210" width="600" height="180"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="180" id="dFf-3E-jsN"/>
                     </constraints>
                 </pickerView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zd-Lp-j3y">
-                    <rect key="frame" x="15" y="185" width="30" height="30"/>
+                    <rect key="frame" x="15" y="395" width="80" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="577-at-6Zh"/>
+                        <constraint firstAttribute="height" constant="40" id="C0g-nd-mxq"/>
+                    </constraints>
                     <state key="normal" title="取消">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -26,7 +30,11 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="64q-cI-cjc">
-                    <rect key="frame" x="275" y="185" width="30" height="30"/>
+                    <rect key="frame" x="505" y="395" width="80" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="cfE-8E-mka"/>
+                        <constraint firstAttribute="height" constant="40" id="j6X-wx-Yxi"/>
+                    </constraints>
                     <state key="normal" title="完成">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -37,16 +45,22 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="centerX" secondItem="kFD-Nw-eTl" secondAttribute="centerX" id="D0K-Ci-cqg"/>
                 <constraint firstItem="kFD-Nw-eTl" firstAttribute="leading" secondItem="Zry-nU-uE3" secondAttribute="leading" id="JFo-BC-WC4"/>
                 <constraint firstItem="kFD-Nw-eTl" firstAttribute="top" secondItem="Zry-nU-uE3" secondAttribute="top" id="Ke5-36-MtM"/>
                 <constraint firstAttribute="trailing" secondItem="64q-cI-cjc" secondAttribute="trailing" constant="15" id="Q0h-l8-NcT"/>
+                <constraint firstAttribute="centerY" secondItem="kFD-Nw-eTl" secondAttribute="centerY" id="T4q-Dw-X2E"/>
                 <constraint firstItem="64q-cI-cjc" firstAttribute="top" secondItem="kFD-Nw-eTl" secondAttribute="bottom" constant="5" id="bfZ-s3-xaV"/>
                 <constraint firstItem="9zd-Lp-j3y" firstAttribute="leading" secondItem="Zry-nU-uE3" secondAttribute="leading" constant="15" id="hgH-b1-RBe"/>
                 <constraint firstItem="9zd-Lp-j3y" firstAttribute="top" secondItem="kFD-Nw-eTl" secondAttribute="bottom" constant="5" id="mp1-9W-F2f"/>
                 <constraint firstAttribute="trailing" secondItem="kFD-Nw-eTl" secondAttribute="trailing" id="y3s-KF-huv"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Ke5-36-MtM"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="goodsPickView" destination="kFD-Nw-eTl" id="ihm-f3-FCJ"/>
             </connections>

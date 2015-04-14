@@ -9,12 +9,13 @@
 #import "DetailedAddressViewController.h"
 #import "HZAreaPickerView.h"
 #import "BMapKit.h"
+#import "MapSearchViewController.h"
 
 @implementation POIDataInfo
 
 @end
 
-@interface DetailedAddressViewController ()<UITextFieldDelegate, HZAreaPickerDelegate, BMKMapViewDelegate, BMKPoiSearchDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface DetailedAddressViewController ()<UITextFieldDelegate, HZAreaPickerDelegate, BMKMapViewDelegate, BMKPoiSearchDelegate, UITableViewDataSource, UITableViewDelegate, SelectAdressDelegate>
 @property(nonatomic, strong)HZAreaPickerView * pickCityView;
 @property(nonatomic, strong)NSMutableString * searchString;
 
@@ -102,7 +103,9 @@
     NSLog(@"barBtnAction");
     
     UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController * info = [mainStoryboard instantiateViewControllerWithIdentifier:@"MapSearchViewController"];
+    MapSearchViewController * info = [mainStoryboard instantiateViewControllerWithIdentifier:@"MapSearchViewController"];
+    
+    info.delegate = self;
     
     [self.navigationController pushViewController:info animated:NO];
     
@@ -360,6 +363,10 @@
     if (cell != nil) {
         self.areaText.text = cell.textLabel.text;
     }
+}
+
+- (void)pickerAdress:(NSString *)adress{
+    self.areaText.text = adress;
 }
 
 

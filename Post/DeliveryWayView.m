@@ -41,7 +41,7 @@
     [view addSubview:self];
     
     [UIView animateWithDuration:0.3 animations:^{
-        self.frame = CGRectMake(0, view.frame.size.height - self.frame.size.height - 100, self.frame.size.width, self.frame.size.height);
+        self.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     }];
     
 }
