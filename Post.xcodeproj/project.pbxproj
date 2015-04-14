@@ -558,6 +558,8 @@
 				142B224E1A7DCE3000363BD9 /* DetailedAddressViewController.m */,
 				14BD14281A7C90E1007F9287 /* MapSearchViewController.h */,
 				14BD14291A7C90E1007F9287 /* MapSearchViewController.mm */,
+				145991291A89D76700710CF2 /* ConfirmTableViewController.h */,
+				1459912A1A89D76700710CF2 /* ConfirmTableViewController.m */,
 			);
 			name = "首页";
 			sourceTree = "<group>";
@@ -567,8 +569,6 @@
 			children = (
 				1478BE391A83AAAA006B03ED /* OrderTrackViewController.h */,
 				1478BE3A1A83AAAA006B03ED /* OrderTrackViewController.mm */,
-				145991291A89D76700710CF2 /* ConfirmTableViewController.h */,
-				1459912A1A89D76700710CF2 /* ConfirmTableViewController.m */,
 				144023551A8E35A400321C6F /* GoodsPhotoViewController.h */,
 				144023561A8E35A400321C6F /* GoodsPhotoViewController.m */,
 				1443E9E51A9F0257006BC700 /* GoodsOrderViewController.h */,
@@ -581,6 +581,8 @@
 				FC821BA11AA4561700F4B0C9 /* GoodsInCancleViewController.m */,
 				148BC3A71AA5FE3100819910 /* OrderDetailTableViewController.h */,
 				148BC3A81AA5FE3100819910 /* OrderDetailTableViewController.m */,
+				FC98FBB61AAD8B66005E2DB0 /* ConfirmDeliveryViewController.h */,
+				FC98FBB71AAD8B66005E2DB0 /* ConfirmDeliveryViewController.m */,
 			);
 			name = "订单";
 			sourceTree = "<group>";
@@ -592,8 +594,6 @@
 				14456D6E1AAC373F0067068E /* TaskOrderViewController.m */,
 				14456D701AAC3D780067068E /* TaskOrderUnfinishedViewController.h */,
 				14456D711AAC3D780067068E /* TaskOrderUnfinishedViewController.m */,
-				FC98FBB61AAD8B66005E2DB0 /* ConfirmDeliveryViewController.h */,
-				FC98FBB71AAD8B66005E2DB0 /* ConfirmDeliveryViewController.m */,
 				FC84C0AD1AAEE9F70074F65C /* PeripheralsTableViewController.h */,
 				FC84C0AE1AAEE9F70074F65C /* PeripheralsTableViewController.m */,
 				FC84C0B01AAF08630074F65C /* MapAroudViewController.h */,

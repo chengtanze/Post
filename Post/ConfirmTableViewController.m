@@ -203,4 +203,6 @@
 }
 */
 
+- (IBAction)costTypeClick:(id)sender {
+}
 @end

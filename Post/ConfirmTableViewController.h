@@ -18,5 +18,8 @@
 @interface ConfirmTableViewController : UITableViewController
 
 @property (weak, nonatomic) IBOutlet UIView *PhotoGroupView;
+@property (weak, nonatomic) IBOutlet UILabel *deliveryCost;
+- (IBAction)costTypeClick:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *consignerTF;
 
 @end
