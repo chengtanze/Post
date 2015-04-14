@@ -45,7 +45,7 @@
     strUserName = self.phoneNumber.text;
     strUserPassWord = self.userPassWord.text;
 #else
-    strUserName = @"18576430783";//@"13691790130";//
+    strUserName = @"13691790130";//@"18576430783";//
     strUserPassWord = @"123456";
 #endif
     

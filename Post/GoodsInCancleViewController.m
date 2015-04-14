@@ -28,6 +28,12 @@
             
             self.arrayCancleData = [data valueForKey:@"data"];
             
+            if(![self.arrayCancleData respondsToSelector:@selector(objectAtIndex:)])
+            {
+                NSLog(@"is null");
+                self.arrayCancleData = nil;
+            }
+            
             [self.tableView reloadData];
         }
     }];

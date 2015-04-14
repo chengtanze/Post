@@ -62,12 +62,25 @@
     backGroup.backgroundColor = [UIColor whiteColor];
     [backGroup setAlpha:0.7];
     //地址框
-    self.addressLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 0, 200, POST_MAPVIEW_ADDRESSINFO_HEIGHT - 10)];
-    self.addressLabel.text = @"苹果园";
-    [backGroup addSubview:self.addressLabel];
+    self.addressLabel = [[UILabel alloc]initWithFrame:CGRectMake(5, 0, (self.view.bounds.size.width - 10) * 0.75, POST_MAPVIEW_ADDRESSINFO_HEIGHT - 10)];
+    self.addressLabel.font = [UIFont boldSystemFontOfSize:15.0f]; //UILabel的字体大小
+    self.addressLabel.text = @"";
     
+    //确定按钮
+    float x = (self.view.bounds.size.width - 10) * 0.75;
+    UIButton * butOK = [[UIButton alloc]initWithFrame:CGRectMake(x, 0, 80,20)];//(self.view.bounds.size.width - 10) * 0.85 + 10), 0, 50,20
+    //butOK.center
+    
+    [butOK setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+    [butOK setTitle:@"设为地址" forState:UIControlStateNormal];
+    butOK.titleLabel.font = [UIFont systemFontOfSize: 15];
+ 
+    [butOK addTarget:self action:@selector(okClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [backGroup addSubview:self.addressLabel];
+    [backGroup addSubview:butOK];
     //放大按钮
-    UIButton * but = [[UIButton alloc]initWithFrame:CGRectMake(10, self.view.bounds.size.height - POST_MAPVIEW_ADDRESSINFO_HEIGHT * 2, 20, 20)];
+    UIButton * but = [[UIButton alloc]initWithFrame:CGRectMake(10, self.view.bounds.size.height - POST_MAPVIEW_ADDRESSINFO_HEIGHT * 2 - 20, 20, 20)];
     [but setBackgroundImage:[UIImage imageNamed:@"icon_direction"] forState:UIControlStateNormal];
     [but addTarget:self action:@selector(handleButtonTap:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:but];
@@ -81,6 +94,12 @@
     _mapView.showsUserLocation = NO;
     _mapView.userTrackingMode = BMKUserTrackingModeFollow;
     _mapView.showsUserLocation = YES;
+}
+
+-(void)okClick:(id)sender{
+    NSLog(@"okClick");
+
+    
 }
 
 -(void)initPOI{

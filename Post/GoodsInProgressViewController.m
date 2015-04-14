@@ -20,15 +20,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _arrayProgressData = nil;
     _selectIndex = -1;
     
     [[HttpProtocolAPI sharedClient] getOrderByState:0 setBlock:^(NSDictionary *data, NSError *error) {
         
         if (data != nil && [self getRetDataState:data]) {
-            
             self.arrayProgressData = [data valueForKey:@"data"];
             
-            [self.tableView reloadData];
+            if(![_arrayProgressData respondsToSelector:@selector(objectAtIndex:)])
+            {
+                NSLog(@"is null");
+                _arrayProgressData = nil;
+            }
+
+            if (_arrayProgressData != nil && _arrayProgressData.count > 0) {
+                [self.tableView reloadData];
+            }
         }
     }];
     
@@ -62,12 +70,23 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
     // Return the number of sections.
-    return (self.arrayProgressData != nil ? self.arrayProgressData.count : 0);
+    
+    if (_arrayProgressData ==nil) {
+        return 0;
+    }
+
+    return self.arrayProgressData.count;
+    //return (self.arrayProgressData != nil ? self.arrayProgressData.count : 0);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
+    //return (self.arrayProgressData != nil ? 2 : 0);
+    if (_arrayProgressData ==nil) {
+        return 0;
+    }
+
     return 2;
 }
 

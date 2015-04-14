@@ -38,6 +38,12 @@
             
             self.arrayCompleteData = [data valueForKey:@"data"];
             
+            if(![_arrayCompleteData respondsToSelector:@selector(objectAtIndex:)])
+            {
+                NSLog(@"is null");
+                _arrayCompleteData = nil;
+            }
+            
             [self.tableView reloadData];
         }
         
