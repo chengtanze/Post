@@ -11,12 +11,14 @@
 #import "PhotoGroupTableViewCell.h"
 #import "Media_Photo.h"
 #import "GoodsPhotoViewController.h"
+#import "QCheckBox.h"
+#import "PaymentMethodView.h"
 @implementation structPhotoInfo
 
 
 @end
 
-@interface ConfirmTableViewController () <getPhotoInfoDelegate, photoGroupDelegate>
+@interface ConfirmTableViewController () <getPhotoInfoDelegate, photoGroupDelegate, SelectPayWayDelegate>
 {
     Media_Photo * mediaPhoto;
     NSInteger selectPhotoIndex;
@@ -33,6 +35,8 @@
     [super viewDidLoad];
     
     [self initLocalData];
+    
+    [self addConfirmViewAtBottom];
 //    UIButton * button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 40, 40)];
 //    [button setBackgroundImage:[UIImage imageNamed:@"4-4SMART-BOX-消息_启动预警.png"] forState:UIControlStateNormal];
 //    [button addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
@@ -74,6 +78,8 @@
         mediaPhoto.showInViewController = self;
         mediaPhoto.delegate = self;
     }
+    
+    self.arrayPayWay = [[NSArray alloc]initWithObjects:@"在线支付", @"货到付款", nil];
 }
 
 
@@ -98,6 +104,7 @@
     
     [_photoInfoCell setPhoto:image byIndex:selectPhotoIndex];
 
+    
 }
 
 #pragma mark - PhotoGroupTableViewCell delegate
@@ -129,6 +136,73 @@
     
 }
 
+- (void)addConfirmViewAtBottom
+{
+    // 1,创建一个footerView,将它作为tableView的TableFooterView
+    UIView *footerView = [[UIView alloc] init];
+    // tableView的TableFooterView的宽度固定是320,只有高度可调节
+    footerView.frame = CGRectMake(0, 0, self.tableView.bounds.size.width, 100);
+    // 将刚才创建的footerView作为tableView的TableFooterView,目的是防止用户点击底部dockItem时不小心点到了退出按钮,因此要设置一个额外的空间,补充一下TableFooterView的宽度固定是320
+    self.tableView.tableFooterView = footerView;
+    
+    
+    QCheckBox *_check2 = [[QCheckBox alloc] initWithDelegate:self];
+    _check2.frame = CGRectMake(10, 5, 250, 40);
+    [_check2 setTitle:@"同意并接受《全名快递申请协议》" forState:UIControlStateNormal];
+    [_check2 setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [_check2.titleLabel setFont:[UIFont boldSystemFontOfSize:13.0f]];
+    [self.tableView.tableFooterView addSubview:_check2];
+    
+    
+    
+    // 2,创建退出按钮 并添加到tableView的最底部的TableFooterView
+    UIButton *btnExit = [UIButton buttonWithType:UIButtonTypeCustom];
+    // footerView是作为tableView的TableFooterView存在,按钮是加到了footerView里面,这儿按钮的frame x 10 y 5是相对于footerView的
+    btnExit.backgroundColor = [UIColor orangeColor];
+    
+    btnExit.frame = CGRectMake(20, 45, self.tableView.bounds.size.width - 20 * 2, 30);
+    // 按钮上字体大小
+    btnExit.titleLabel.font = [UIFont systemFontOfSize:17];
+    // 按钮的监听点击事件
+    [btnExit addTarget:self action:@selector(okBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 分类方法,设置按钮正常和高亮时背景图片(可拉伸)
+    //[btnExit setBtnBgImgForNormalAndHighightedWithName:@"common_button_red.png"];
+    // 设置按钮上的文字,最后一组,数组只有一行,每一行就是一个字典
+    //NSString *btnTitle = [_groups lastObject][0][@"name"];
+    [btnExit setTitle:@"确定申请" forState:UIControlStateNormal];
+    
+    
+    
+    // 3,最重要的一步,将刚才创建的 退出按钮 添加到tableView的TableFooterView
+    //[footerView addSubview:btnExit];
+    [self.tableView.tableFooterView addSubview:btnExit];
+    
+}
+
+// 点击 按钮
+- (void)okBtnClick
+{
+
+}
+
+- (IBAction)costTypeClick:(id)sender {
+    NSLog(@"ok click");
+    if (self.paymentMethodView == nil) {
+        self.paymentMethodView = [[PaymentMethodView alloc]init];
+        self.paymentMethodView.arrayPayWay = _arrayPayWay;
+        self.paymentMethodView.delegate = self;
+    }
+    
+    [self.paymentMethodView showInView:self.view];
+    
+}
+
+- (void)pickerPayWay:(NSUInteger)index{
+    
+    NSString *strPay = self.arrayPayWay[index];
+    [self.payWayBtn setTitle:strPay forState:UIControlStateNormal];
+}
 
 //-(void)updateViewConstraints{
 //    [super updateViewConstraints];
@@ -203,6 +277,7 @@
 }
 */
 
-- (IBAction)costTypeClick:(id)sender {
+
+- (IBAction)payWayClick:(id)sender {
 }
 @end

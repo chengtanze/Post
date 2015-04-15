@@ -3023,7 +3023,7 @@
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bZM-Xi-ghv">
                                                     <rect key="frame" x="88" y="7" width="452" height="30"/>
-                                                    <state key="normal" title="深圳市宝安区铁岗村">
+                                                    <state key="normal">
                                                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -3033,7 +3033,7 @@
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wvf-jh-bSq">
                                                     <rect key="frame" x="88" y="50" width="452" height="30"/>
-                                                    <state key="normal" title="深圳市龙华区苹果园 ">
+                                                    <state key="normal">
                                                         <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
@@ -3184,7 +3184,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qzm-AL-Q38">
-                                                    <rect key="frame" x="577" y="6" width="15" height="30"/>
+                                                    <rect key="frame" x="577" y="7" width="15" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -3199,6 +3199,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="costTypeClick:" destination="xhF-JI-8XN" eventType="touchUpInside" id="ATd-HP-gQD"/>
+                                                        <action selector="payWayClick:" destination="xhF-JI-8XN" eventType="touchUpInside" id="2ob-Q9-35B"/>
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10元" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XdB-v0-Xlw">
@@ -3210,6 +3211,8 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Qzm-AL-Q38" firstAttribute="leading" secondItem="Xgi-H5-puV" secondAttribute="trailing" constant="8" id="1A3-T7-Scf"/>
+                                                <constraint firstAttribute="centerY" secondItem="Qzm-AL-Q38" secondAttribute="centerY" id="8hy-hq-tg2"/>
+                                                <constraint firstItem="Xgi-H5-puV" firstAttribute="centerY" secondItem="Qzm-AL-Q38" secondAttribute="centerY" id="Khu-aW-cwB"/>
                                                 <constraint firstItem="Qzm-AL-Q38" firstAttribute="trailing" secondItem="Krq-6V-6me" secondAttribute="trailingMargin" id="KuS-eg-Upu"/>
                                                 <constraint firstAttribute="centerY" secondItem="UZc-O7-5SE" secondAttribute="centerY" id="Okm-DL-VvE"/>
                                                 <constraint firstAttribute="centerY" secondItem="Qzm-AL-Q38" secondAttribute="centerY" id="RtG-Gc-tR2"/>
@@ -3218,6 +3221,12 @@
                                                 <constraint firstAttribute="centerY" secondItem="XdB-v0-Xlw" secondAttribute="centerY" id="cL7-8H-8cU"/>
                                                 <constraint firstItem="UZc-O7-5SE" firstAttribute="leading" secondItem="Krq-6V-6me" secondAttribute="leading" constant="10" id="w4u-mz-9bU"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Khu-aW-cwB"/>
+                                                    <exclude reference="RtG-Gc-tR2"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -3372,7 +3381,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view tag="1001" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="80" translatesAutoresizingMaskIntoConstraints="NO" id="d57-wP-iaL">
-                                                    <rect key="frame" x="0.0" y="21.5" width="600" height="80"/>
+                                                    <rect key="frame" x="0.0" y="22" width="600" height="80"/>
                                                     <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 </view>
                                             </subviews>
@@ -3384,12 +3393,6 @@
                                                 <constraint firstItem="9qH-Bc-zbP" firstAttribute="leading" secondItem="K3K-S3-D0S" secondAttribute="leading" constant="10" id="hrl-03-asB"/>
                                                 <constraint firstItem="d57-wP-iaL" firstAttribute="leading" secondItem="K3K-S3-D0S" secondAttribute="leading" id="lRd-do-V1q"/>
                                             </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="160" id="Buq-dx-rCY">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Buq-dx-rCY" id="gaG-dq-5PX">
-                                            <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -3405,14 +3408,18 @@
                     </toolbarItems>
                     <connections>
                         <outlet property="PhotoGroupView" destination="d57-wP-iaL" id="GdT-Hc-Dwy"/>
+                        <outlet property="consigneePhoneTF" destination="6rV-Vw-tsB" id="8lw-86-cFq"/>
+                        <outlet property="consigneeTF" destination="Vgi-3C-15R" id="xaC-eM-iFe"/>
+                        <outlet property="consignerPhoneTF" destination="xm0-ZG-hGD" id="ben-78-ZJr"/>
                         <outlet property="consignerTF" destination="Rvm-P1-f40" id="a89-4x-Lbc"/>
                         <outlet property="deliveryCost" destination="XdB-v0-Xlw" id="PLu-dt-W7h"/>
+                        <outlet property="payWayBtn" destination="Xgi-H5-puV" id="O13-Bt-L1o"/>
                         <outlet property="photoInfoCell" destination="nqL-Q5-E1g" id="Uee-44-vb8"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Db8-9P-lTU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4879" y="380"/>
+            <point key="canvasLocation" x="4879" y="379.5"/>
         </scene>
         <!--照片浏览-->
         <scene sceneID="REs-50-6Oa">

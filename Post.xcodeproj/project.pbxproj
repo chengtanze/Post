@@ -40,6 +40,8 @@
 		1447CD8F1ABD021700EDECCF /* AccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447CD8E1ABD021700EDECCF /* AccountInfoViewController.m */; };
 		1447CD921ABD030100EDECCF /* AccountInComeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447CD911ABD030100EDECCF /* AccountInComeController.m */; };
 		1447CD951ABD06A500EDECCF /* AccountExpendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447CD941ABD06A500EDECCF /* AccountExpendController.m */; };
+		144DAFA41ADDFCAE005AF7E4 /* PaymentMethodView.m in Sources */ = {isa = PBXBuildFile; fileRef = 144DAFA31ADDFCAE005AF7E4 /* PaymentMethodView.m */; };
+		144DAFA61ADDFD43005AF7E4 /* PaymentMethod.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144DAFA51ADDFD43005AF7E4 /* PaymentMethod.xib */; };
 		1454D07D1A85F6F1003033D3 /* icon_nav_end.png in Resources */ = {isa = PBXBuildFile; fileRef = 1454D07B1A85F6F1003033D3 /* icon_nav_end.png */; };
 		1454D07E1A85F6F1003033D3 /* icon_nav_start.png in Resources */ = {isa = PBXBuildFile; fileRef = 1454D07C1A85F6F1003033D3 /* icon_nav_start.png */; };
 		1454D0811A861BF9003033D3 /* icon_nav_end@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1454D07F1A861BF9003033D3 /* icon_nav_end@2x.png */; };
@@ -213,6 +215,9 @@
 		1447CD911ABD030100EDECCF /* AccountInComeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountInComeController.m; path = Post/AccountInComeController.m; sourceTree = "<group>"; };
 		1447CD931ABD06A500EDECCF /* AccountExpendController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountExpendController.h; path = Post/AccountExpendController.h; sourceTree = "<group>"; };
 		1447CD941ABD06A500EDECCF /* AccountExpendController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountExpendController.m; path = Post/AccountExpendController.m; sourceTree = "<group>"; };
+		144DAFA21ADDFCAE005AF7E4 /* PaymentMethodView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaymentMethodView.h; path = Post/PaymentMethodView.h; sourceTree = "<group>"; };
+		144DAFA31ADDFCAE005AF7E4 /* PaymentMethodView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaymentMethodView.m; path = Post/PaymentMethodView.m; sourceTree = "<group>"; };
+		144DAFA51ADDFD43005AF7E4 /* PaymentMethod.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaymentMethod.xib; sourceTree = "<group>"; };
 		1454D07B1A85F6F1003033D3 /* icon_nav_end.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_nav_end.png; path = mapapi.bundle/images/icon_nav_end.png; sourceTree = "<group>"; };
 		1454D07C1A85F6F1003033D3 /* icon_nav_start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_nav_start.png; path = mapapi.bundle/images/icon_nav_start.png; sourceTree = "<group>"; };
 		1454D07F1A861BF9003033D3 /* icon_nav_end@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_nav_end@2x.png"; path = "mapapi.bundle/images/icon_nav_end@2x.png"; sourceTree = "<group>"; };
@@ -994,6 +999,9 @@
 				14447AC41ADBAF3B005E6974 /* TimerPickerView.h */,
 				14447AC51ADBAF3B005E6974 /* TimerPickerView.m */,
 				14447AC21ADBAC40005E6974 /* TimerPicker.xib */,
+				144DAFA21ADDFCAE005AF7E4 /* PaymentMethodView.h */,
+				144DAFA31ADDFCAE005AF7E4 /* PaymentMethodView.m */,
+				144DAFA51ADDFD43005AF7E4 /* PaymentMethod.xib */,
 			);
 			name = Coustom;
 			sourceTree = "<group>";
@@ -1092,6 +1100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1454D0851A861E57003033D3 /* icon_center_point.png in Resources */,
+				144DAFA61ADDFD43005AF7E4 /* PaymentMethod.xib in Resources */,
 				14447AC11ADB5366005E6974 /* DeliveryWay.xib in Resources */,
 				FC81BC8D1A7A0E6B00D6C78F /* 5.jpg in Resources */,
 				14CE5FED1A74D34A00A19C36 /* Default@2x.png in Resources */,
@@ -1171,6 +1180,7 @@
 				FC821BA21AA4561700F4B0C9 /* GoodsInCancleViewController.m in Sources */,
 				1472286F1AD55EE500858201 /* PublicFunction.m in Sources */,
 				14456D6F1AAC373F0067068E /* TaskOrderViewController.m in Sources */,
+				144DAFA41ADDFCAE005AF7E4 /* PaymentMethodView.m in Sources */,
 				145991371A89F42F00710CF2 /* PhotoGroupTableViewCell.m in Sources */,
 				FCA8C80A1AB815BA00830AD5 /* SelectRangeView.m in Sources */,
 				1443E9EA1A9F1714006BC700 /* GoodsInProgressViewController.m in Sources */,
