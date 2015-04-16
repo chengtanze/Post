@@ -41,7 +41,8 @@
 @property (strong, nonatomic) DeliveryWayView * deliveryWayView;
 @property (strong, nonatomic) TimerPickerView * timerPickerView;
 
-@property (strong, nonatomic) NSMutableArray * addOrderParams;
-
-
+@property (strong, nonatomic) NSMutableDictionary * addOrderParams;
+@property (assign, nonatomic) NSUInteger nPgWay;
+@property (assign, nonatomic) NSUInteger nRgWay;
+@property (assign, nonatomic) NSUInteger nGoodsType;
 @end

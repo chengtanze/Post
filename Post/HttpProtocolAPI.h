@@ -24,7 +24,7 @@
 -(NSURLSessionDataTask *)getGoodsTypeList:(void(^) (NSDictionary * data, NSError *error))block;
 
 //添加发货协议
--(NSURLSessionDataTask *)addSenderOrder:(NSDictionary *)params setBlock:(void(^) (NSDictionary * data, NSError *error))block;
+-(NSURLSessionDataTask *)addSenderOrder:(NSMutableDictionary *)params setBlock:(void(^) (NSDictionary * data, NSError *error))block;
 
 //获取指定用户全部订单协议
 -(NSURLSessionDataTask *)getOrders:(NSDictionary *)params setBlock:(void(^) (NSDictionary * data, NSError *error))block;

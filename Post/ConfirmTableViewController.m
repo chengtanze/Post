@@ -13,12 +13,14 @@
 #import "GoodsPhotoViewController.h"
 #import "QCheckBox.h"
 #import "PaymentMethodView.h"
+#import "HttpProtocolAPI.h"
+
 @implementation structPhotoInfo
 
 
 @end
 
-@interface ConfirmTableViewController () <getPhotoInfoDelegate, photoGroupDelegate, SelectPayWayDelegate>
+@interface ConfirmTableViewController () <getPhotoInfoDelegate, photoGroupDelegate, SelectPayWayDelegate, UITextFieldDelegate>
 {
     Media_Photo * mediaPhoto;
     NSInteger selectPhotoIndex;
@@ -58,9 +60,16 @@
 
 
 -(void)initLocalData{
+    //self.addOrderParams = nil;
+    
     selectPhotoIndex = -1;
     
     self.photoInfoCell.delegate = self;
+    self.consignerTF.delegate = self;
+    self.consignerPhoneTF.delegate = self;
+    self.consigneeTF.delegate = self;
+    self.consigneePhoneTF.delegate = self;
+    
     
     self.imageArray = [[NSMutableArray alloc]initWithCapacity:5];
     for (int index = 0; index < 5; index++) {
@@ -183,7 +192,15 @@
 // 点击 按钮
 - (void)okBtnClick
 {
-
+    [self addParams];
+    
+    [[HttpProtocolAPI sharedClient] addSenderOrder:self.addOrderParams setBlock:^(NSDictionary *data, NSError *error) {
+        
+        if (data != nil) {
+            
+        }
+        
+    }];
 }
 
 - (IBAction)costTypeClick:(id)sender {
@@ -202,6 +219,54 @@
     
     NSString *strPay = self.arrayPayWay[index];
     [self.payWayBtn setTitle:strPay forState:UIControlStateNormal];
+}
+
+-(void)addParams{
+//    
+    if (self.addOrderParams != nil) {
+        NSString * strConsigner = self.consignerTF.text;
+        NSString * strConsignerPhone = self.consignerPhoneTF.text;
+        NSString * strConsignee = self.consigneeTF.text;
+        NSString * strConsigneePhone = self.consigneePhoneTF.text;
+        
+        CGFloat free = self.deliveryCost.text.floatValue;
+        NSInteger payWay = 0;
+        NSNumber * numberfree = [[NSNumber alloc]initWithFloat:free];
+        NSNumber * numberPayWay = [[NSNumber alloc]initWithFloat:payWay];
+        
+        [_addOrderParams setObject: numberPayWay forKey:@"payMethod"];
+        [_addOrderParams setObject: numberfree forKey:@"free"];
+        [_addOrderParams setObject: strConsigner forKey:@"pgName"];
+        [_addOrderParams setObject: strConsignerPhone forKey:@"pgPhone"];
+        [_addOrderParams setObject: strConsignee forKey:@"rgName"];
+        [_addOrderParams setObject: strConsigneePhone forKey:@"rgPhone"];
+//        [_addOrderParams setObject: explanation forKey:@"explanation"];
+//        [_addOrderParams setObject: deliveryAID forKey:@"deliveryAID"];
+//        [_addOrderParams setObject: receiveAID forKey:@"receiveAID"];
+//        [_addOrderParams setObject: deliveryCityID forKey:@"deliveryCityID"];
+//        [_addOrderParams setObject: receiveCityID forKey:@"receiveCityID"];
+//        [_addOrderParams setObject: iamges forKey:@"iamges"];
+
+
+    }
+//
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField*)textField {
+    if ([self.consignerTF isFirstResponder])
+    {
+        [self.consignerPhoneTF becomeFirstResponder];
+    }
+    else if([self.consignerPhoneTF isFirstResponder])
+    {
+        [self.consigneeTF becomeFirstResponder];
+    }
+    else if([self.consigneeTF isFirstResponder])
+    {
+        [self.consigneePhoneTF becomeFirstResponder];
+    }
+    
+    return YES;
 }
 
 //-(void)updateViewConstraints{

@@ -3410,7 +3410,7 @@
                         <outlet property="PhotoGroupView" destination="d57-wP-iaL" id="GdT-Hc-Dwy"/>
                         <outlet property="consigneePhoneTF" destination="6rV-Vw-tsB" id="8lw-86-cFq"/>
                         <outlet property="consigneeTF" destination="Vgi-3C-15R" id="xaC-eM-iFe"/>
-                        <outlet property="consignerPhoneTF" destination="xm0-ZG-hGD" id="ben-78-ZJr"/>
+                        <outlet property="consignerPhoneTF" destination="Gi3-b0-mfI" id="YJG-1B-Jpe"/>
                         <outlet property="consignerTF" destination="Rvm-P1-f40" id="a89-4x-Lbc"/>
                         <outlet property="deliveryCost" destination="XdB-v0-Xlw" id="PLu-dt-W7h"/>
                         <outlet property="payWayBtn" destination="Xgi-H5-puV" id="O13-Bt-L1o"/>

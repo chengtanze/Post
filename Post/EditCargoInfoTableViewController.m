@@ -7,6 +7,7 @@
 //
 
 #import "EditCargoInfoTableViewController.h"
+#import "ConfirmTableViewController.h"
 #import "GoodsTypeView.h"
 #import "HttpProtocolAPI.h"
 #import "DeliveryWayView.h"
@@ -26,11 +27,6 @@
     
     [self initNetWorkData];
     
-    
-    
-
-
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -44,12 +40,19 @@
 }
 
 -(void)initLocalData{
-    self.addOrderParams = [[NSMutableArray alloc]initWithCapacity:15];
+    self.nPgWay = 0;
+    self.nRgWay = 0;
+    self.nGoodsType = 0;
+    
+    self.addOrderParams = [[NSMutableDictionary alloc]initWithCapacity:15];
     
     self.deliveryWayArray = [[NSArray alloc]initWithObjects:@"协商", @"上门取件", @"到指定点取件", @"到代收点取件", nil];
     
     self.consigneeWayArray = [[NSArray alloc]initWithObjects:@"协商", @"送件上门", @"到指定点取件", @"到代收点取件", nil];
-
+    
+    self.goodsNameTF.delegate = self;
+    self.goodsVaulesTF.delegate = self;
+    self.goodsWeight.delegate = self;
 }
 
 -(void)initNetWorkData{
@@ -121,9 +124,50 @@
         
         viewController.addressType = nType;
     }
+    else if([segue.destinationViewController isKindOfClass:[ConfirmTableViewController class]]){
+        NSLog(@"ConfirmTableViewController");
+        
+        [self addParams];
+        
+        ConfirmTableViewController *viewController = (ConfirmTableViewController *)segue.destinationViewController;
+        viewController.addOrderParams = _addOrderParams;
+    }
 }
 
+-(void)addParams{
+    NSNumber * numberType = [[NSNumber alloc]initWithInt:0];
+    NSString * strGoodsName = self.goodsNameTF.text;
+    NSString * strGoodsValue = self.goodsVaulesTF.text;
+    CGFloat cgWeight = self.goodsWeight.text.floatValue;
 
+    NSNumber * numberWeight = [[NSNumber alloc]initWithFloat:cgWeight];
+    NSNumber * numberPgWay = [[NSNumber alloc]initWithInt:self.nPgWay];
+    NSNumber * numberRgWay = [[NSNumber alloc]initWithInt:self.nRgWay];
+    
+    NSString * startTime = self.startTimeBtn.titleLabel.text;
+    NSString * endTime = self.endTimeBtn.titleLabel.text;
+    if (startTime == nil) {
+        startTime = @"";
+    }
+    if (endTime == nil) {
+        endTime = @"";
+    }
+    
+    NSString * startAddress = self.firstAddress.titleLabel.text;
+    NSString * endAddress = self.secondAddress.titleLabel.text;
+    
+    [_addOrderParams setObject: numberType forKey:@"type"];
+    [_addOrderParams setObject: strGoodsName forKey:@"name"];
+    [_addOrderParams setObject: strGoodsValue forKey:@"value"];
+    [_addOrderParams setObject: numberWeight forKey:@"weight"];
+    [_addOrderParams setObject: numberPgWay forKey:@"pgWay"];
+    [_addOrderParams setObject: numberRgWay forKey:@"rgWay"];
+    [_addOrderParams setObject: startTime forKey:@"rgStartTime"];
+    [_addOrderParams setObject: endTime forKey:@"rgEndTime"];
+    [_addOrderParams setObject: startAddress forKey:@"pgAddress"];
+    [_addOrderParams setObject: endAddress forKey:@"rgAddress"];
+
+}
 
 -(void)setValue:(NSString *)address Type:(NSInteger)type{
     NSLog(@"address :%@ Type :%ld", address, (long)type);
@@ -213,17 +257,23 @@
         [_goodsTypeBtn setTitle:name forState:UIControlStateNormal];
         _goodsNameTF.text = name;
     }
+    
+    self.nGoodsType = nindex;
 }
 
 - (void)pickerDidChaneStly:(NSUInteger)nindex Type:(NSUInteger)type{
     if (type == 0) {
         //发件方式
         [self setPGWay:nindex];
+        self.nPgWay = nindex;
     }
     else{
         //收件方式
         [self setRGWay:nindex];
+        self.nPgWay = nindex;
     }
+    
+    
 }
 
 -(void)setPGWay:(NSInteger)stly{
@@ -241,6 +291,25 @@
     strStly = self.consigneeWayArray[stly];
     
     [self.rgWayBtn setTitle:strStly forState:UIControlStateNormal];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField*)textField {
+    if ([self.goodsNameTF isFirstResponder])
+    {
+        [self.goodsVaulesTF becomeFirstResponder];
+        
+    }
+    else if([self.goodsVaulesTF isFirstResponder])
+    {
+        [self.goodsWeight becomeFirstResponder];
+    }
+//    else if([fieldThree isFirstResponder])
+//    {
+//        [fieldOne becomeFirstResponder]; 
+//        //NSLog(@"3-->1"); 
+//    }
+    
+    return YES;
 }
 
 #pragma mark - Table view data source
