@@ -194,7 +194,26 @@
 {
     [self addParams];
     
-    [[HttpProtocolAPI sharedClient] addSenderOrder:self.addOrderParams setBlock:^(NSDictionary *data, NSError *error) {
+    NSMutableArray * arrayImage = [[NSMutableArray alloc]initWithCapacity:5];
+    for (int nIndex = 0; nIndex < self.imageArray.count; nIndex++) {
+        NSMutableDictionary * item = self.imageArray[nIndex];
+        if (item != nil) {
+            NSString * key = [NSString stringWithFormat:@"%ld", (long)nIndex];
+            structPhotoInfo * info = [item objectForKey:key];
+            if (info.isPhoto) {
+                [arrayImage addObject:info.image];
+            }
+        }
+        
+    }
+    
+//    NSMutableDictionary * item = self.imageArray[selectPhotoIndex];
+//    NSString * key = [NSString stringWithFormat:@"%ld", (long)selectPhotoIndex];
+//    structPhotoInfo * info = [item objectForKey:key];
+    //info.image = image;
+    
+    
+    [[HttpProtocolAPI sharedClient] addSenderOrder:self.addOrderParams images:arrayImage setBlock:^(NSDictionary *data, NSError *error) {
         
         if (data != nil) {
             

@@ -158,7 +158,7 @@ static NSString * const APIBaseURLString = @"http://114.215.132.245/";
     return nil;
 }
 
--(NSURLSessionDataTask *)addSenderOrder:(NSMutableDictionary *)params setBlock:(void(^) (NSDictionary * data, NSError *error))block
+-(NSURLSessionDataTask *)addSenderOrder:(NSMutableDictionary *)params images:(NSArray *)imageArray setBlock:(void(^) (NSDictionary * data, NSError *error))block
 {
     //NSString * uid = @"7";
     NSNumber * type = [[NSNumber alloc]initWithInt:0];
@@ -198,20 +198,14 @@ static NSString * const APIBaseURLString = @"http://114.215.132.245/";
     NSNumber * deliveryCityID = [[NSNumber alloc]initWithInt:0755];
     NSNumber * receiveCityID = [[NSNumber alloc]initWithInt:0755];
     
-    
-    
-    UIImage *image = [UIImage imageNamed:@"poi_2.png"];
-   // NSData *data = UIImagePNGRepresentation(image);
-    
-    NSData *data = UIImageJPEGRepresentation(image, 0.7);
-    NSArray * iamges = [[NSArray alloc]initWithObjects:data, nil];
+    //NSArray * iamges = [[NSArray alloc]initWithObjects:data, nil];
     
     [params setObject: explanation forKey:@"explanation"];
     [params setObject: deliveryAID forKey:@"deliveryAID"];
     [params setObject: receiveAID forKey:@"receiveAID"];
     [params setObject: deliveryCityID forKey:@"deliveryCityID"];
     [params setObject: receiveCityID forKey:@"receiveCityID"];
-    [params setObject: iamges forKey:@"iamges[]"];
+    //[params setObject: iamges forKey:@"iamges[]"];
     [params setObject: uid forKey:@"uid"];
     [params setObject: @"" forKey:@"imei"];
     [params setObject: @"" forKey:@"ip"];
@@ -293,9 +287,16 @@ static NSString * const APIBaseURLString = @"http://114.215.132.245/";
     
     return [[HttpProtocolAPI sharedClient] POST:@"qmld/api/addOrder.php?" parameters:paramsTest constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         
-        UIImage *image = [UIImage imageNamed:@"poi_2.png"];
-        NSData *data = UIImageJPEGRepresentation(image, 0.7);
-        //NSArray * iamges = [[NSArray alloc]initWithObjects:data, nil];
+        //UIImage *image = [UIImage imageNamed:@"poi_2.png"];
+        //NSData *data = UIImageJPEGRepresentation(image, 0.7);
+        for (int nIndex = 0; nIndex < imageArray.count; nIndex++) {
+            UIImage * image = imageArray[nIndex];
+            NSData *data = UIImageJPEGRepresentation(image, 0.7);
+            
+            NSString * imageName = [NSString stringWithFormat:@"%d.png", nIndex];
+            [formData appendPartWithFileData:data name:@"images[]" fileName:imageName mimeType:@"image/png"];
+        }
+       
         /*
          32          此方法参数
          33          1. 要上传的[二进制数据]
@@ -303,7 +304,7 @@ static NSString * const APIBaseURLString = @"http://114.215.132.245/";
          35          3. 要保存在服务器上的[文件名]
          36          4. 上传文件的[mimeType]
          37          */
-        [formData appendPartWithFileData:data name:@"images[]" fileName:@"poi_2.png" mimeType:@"image/png"];
+        //[formData appendPartWithFileData:data name:@"images[]" fileName:@"poi_2.png" mimeType:@"image/png"];
         
     } success:^(NSURLSessionDataTask *task, id responseObject) {
         NSString * xmlstring = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
