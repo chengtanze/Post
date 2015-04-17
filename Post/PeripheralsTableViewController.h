@@ -10,4 +10,6 @@
 
 @interface PeripheralsTableViewController : UITableViewController
 
+@property(strong, nonatomic)NSArray * arrayAroundData;
+
 @end

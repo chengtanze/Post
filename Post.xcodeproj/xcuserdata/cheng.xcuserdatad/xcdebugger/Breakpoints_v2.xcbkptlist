@@ -633,12 +633,12 @@
                   symbolName = "-[HttpProtocolAPI addSenderOrder:images:setBlock:]"
                   moduleName = "Post"
                   urlString = "file:///Users/cheng/ios%E7%BB%83%E4%B9%A0/GitHubCode/Post/Post/HttpProtocolAPI.m"
-                  timestampString = "450931014.507734"
+                  timestampString = "450972854.705313"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "248"
                   endingLineNumber = "248"
-                  offsetFromSymbolStart = "714">
+                  offsetFromSymbolStart = "1453">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -647,46 +647,14 @@
                   symbolName = "__50-[HttpProtocolAPI addSenderOrder:images:setBlock:]_block_invoke"
                   moduleName = "Post"
                   urlString = "file:///Users/cheng/ios%E7%BB%83%E4%B9%A0/GitHubCode/Post/Post/HttpProtocolAPI.m"
-                  timestampString = "450931014.507897"
+                  timestampString = "450972854.705473"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "248"
                   endingLineNumber = "248"
-                  offsetFromSymbolStart = "32">
+                  offsetFromSymbolStart = "52">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Post/HttpProtocolAPI.m"
-            timestampString = "450926881.27037"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
-            landmarkName = "-addSenderOrder:images:setBlock:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Post/HttpProtocolAPI.m"
-            timestampString = "450926897.659633"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "278"
-            endingLineNumber = "278"
-            landmarkName = "-addSenderOrder:images:setBlock:"
-            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

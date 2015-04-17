@@ -9,6 +9,7 @@
 #import "PeripheralsTableViewController.h"
 #import "MapPulicFunction.h"
 #import "WWSideslipViewController.h"
+#import "HttpProtocolAPI.h"
 
 @interface PeripheralsTableViewController ()
 
@@ -19,10 +20,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.rowHeight = 200;
     //MapPulicFunction * map = [MapPulicFunction sharedInstance];
     
+    [[HttpProtocolAPI sharedClient]getOrderByCityId:77 setBlock:^(NSDictionary *data, NSError *error) {
+        if (data != nil) {
+            self.arrayAroundData = [data valueForKey:@"data"];
+            
+            if(![self.arrayAroundData respondsToSelector:@selector(objectAtIndex:)])
+            {
+                NSLog(@"is null");
+                self.arrayAroundData = nil;
+            }
+            
+            if (self.arrayAroundData != nil && self.arrayAroundData.count > 0) {
+                [self.tableView reloadData];
+            }
+        }
+    }];
     
-    self.tableView.rowHeight = 100;
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -42,6 +59,7 @@
 
     // Return the number of sections.
     return 5;
+    //return (self.arrayAroundData != nil ? self.arrayAroundData.count : 0);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -52,7 +70,7 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AroundOrder_Cell" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CityOrder_Cell" forIndexPath:indexPath];
     
     // Configure the cell...
     
