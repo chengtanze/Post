@@ -63,7 +63,7 @@
         self.shipperPhoneNOText.text = [_selectData valueForKey:@"pgPhone"];
         self.shipperText.text = [_selectData valueForKey:@"pgName"];
         self.messrsLable.text = [_selectData valueForKey:@"rgName"];
-        self.messrsPhoneNOText = [_selectData valueForKey:@"rgPhone"];
+        self.messrsPhoneNOText.text = [_selectData valueForKey:@"rgPhone"];
     }
 }
 

@@ -207,12 +207,6 @@
         
     }
     
-//    NSMutableDictionary * item = self.imageArray[selectPhotoIndex];
-//    NSString * key = [NSString stringWithFormat:@"%ld", (long)selectPhotoIndex];
-//    structPhotoInfo * info = [item objectForKey:key];
-    //info.image = image;
-    
-    
     [[HttpProtocolAPI sharedClient] addSenderOrder:self.addOrderParams images:arrayImage setBlock:^(NSDictionary *data, NSError *error) {
         
         if (data != nil) {
@@ -268,7 +262,7 @@
 
 
     }
-//
+
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField*)textField {
