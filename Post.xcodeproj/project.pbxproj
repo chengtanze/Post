@@ -111,6 +111,7 @@
 		14CE5FED1A74D34A00A19C36 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CE5FEA1A74D34A00A19C36 /* Default@2x.png */; };
 		14CE5FEE1A74D34A00A19C36 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CE5FEB1A74D34A00A19C36 /* Default-568h@2x.png */; };
 		14CE5FEF1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png in Resources */ = {isa = PBXBuildFile; fileRef = 14CE5FEC1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png */; };
+		14CF99041AE5F3AE00A563C0 /* china_city.db in Resources */ = {isa = PBXBuildFile; fileRef = 14CF99031AE5F3AE00A563C0 /* china_city.db */; };
 		14E99CDE1ACBEA8500DF606E /* HttpProtocolAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E99CDD1ACBEA8500DF606E /* HttpProtocolAPI.m */; };
 		FC2B862E1AC2A54D00926FA6 /* CommonDetailAddressController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2B862D1AC2A54D00926FA6 /* CommonDetailAddressController.m */; };
 		FC2B86311AC2AC5300926FA6 /* CommonAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2B86301AC2AC5300926FA6 /* CommonAddressTableViewCell.m */; };
@@ -405,6 +406,7 @@
 		14CE5FEA1A74D34A00A19C36 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		14CE5FEB1A74D34A00A19C36 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		14CE5FEC1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "0-SMART-BOX-启动750-1334.png"; sourceTree = "<group>"; };
+		14CF99031AE5F3AE00A563C0 /* china_city.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = china_city.db; sourceTree = "<group>"; };
 		14E99CDC1ACBEA8500DF606E /* HttpProtocolAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HttpProtocolAPI.h; path = Post/HttpProtocolAPI.h; sourceTree = "<group>"; };
 		14E99CDD1ACBEA8500DF606E /* HttpProtocolAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HttpProtocolAPI.m; path = Post/HttpProtocolAPI.m; sourceTree = "<group>"; };
 		FC2B862C1AC2A54D00926FA6 /* CommonDetailAddressController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonDetailAddressController.h; path = Post/CommonDetailAddressController.h; sourceTree = "<group>"; };
@@ -559,6 +561,7 @@
 		142B22561A7DD82400363BD9 /* city */ = {
 			isa = PBXGroup;
 			children = (
+				14CF99031AE5F3AE00A563C0 /* china_city.db */,
 				FCD6C5B71AA3144C008D5E23 /* citydict.plist */,
 				142B22571A7DD84100363BD9 /* area.plist */,
 			);
@@ -1218,6 +1221,7 @@
 				FC81BC891A7A0E6B00D6C78F /* 1.JPG in Resources */,
 				1483DA0B1A8856CF003A3B8B /* 4-4SMART-BOX-消息_启动预警.png in Resources */,
 				FCD6C5B81AA3144C008D5E23 /* citydict.plist in Resources */,
+				14CF99041AE5F3AE00A563C0 /* china_city.db in Resources */,
 				14CE5FCA1A74CF8400A19C36 /* Main.storyboard in Resources */,
 				FC81BC941A7A389800D6C78F /* 2-1SMART-BOX-导航按钮_救援-d.png in Resources */,
 				14CE5FEF1A74D34A00A19C36 /* 0-SMART-BOX-启动750-1334.png in Resources */,

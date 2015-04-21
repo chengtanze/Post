@@ -46,13 +46,13 @@
     
     
     
-    WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
-    
-    PersonalDataController * dataCtrl = (PersonalDataController *)sides->righControl;
-    dataCtrl.delegate = self;
+//    WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
+//    
+//    PersonalDataController * dataCtrl = (PersonalDataController *)sides->righControl;
+//    dataCtrl.delegate = self;
 
     
-    [sides addPanGsetureToHomeView];
+    //[sides addPanGsetureToHomeView];
 }
 
 //滑动手势
@@ -65,7 +65,7 @@
 {
     WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
     
-    [sides addPanGsetureToHomeView];
+    //[sides addPanGsetureToHomeView];
     NSLog(@"viewDidAppear");
 }
 
@@ -125,7 +125,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
     
-    [sides removeGestureToHomeView];
+    //[sides removeGestureToHomeView];
     
     NSLog(@"prepareForSegue");
 }

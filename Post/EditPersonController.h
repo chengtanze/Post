@@ -11,4 +11,9 @@
 @interface EditPersonController : UITableViewController
 - (IBAction)goBackClick:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *phoneNumberLB;
+
+@property (weak, nonatomic) IBOutlet UIImageView *userHeaderImageView;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLB;
+
 @end

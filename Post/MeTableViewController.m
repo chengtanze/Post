@@ -7,8 +7,13 @@
 //
 
 #import "MeTableViewController.h"
+#import "HttpProtocolAPI.h"
+#import "UserDataInterface.h"
+#import "UIImageView+AFNetworking.h"
+#import "WWSideslipViewController.h"
+#import "PersonalDataController.h"
 
-@interface MeTableViewController ()
+@interface MeTableViewController ()<GetSelectIndexDelegate>
 
 @end
 
@@ -16,8 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.11 green:0.690 blue:0.988 alpha:1];
+
+    [self initLocalData];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -25,9 +30,73 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)initLocalData{
+    
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.11 green:0.690 blue:0.988 alpha:1];
+    
+    // 单击的 Recognizer
+    UITapGestureRecognizer* singleRecognizer;
+    singleRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(SingleTap:)];
+    //点击的次数
+    singleRecognizer.numberOfTapsRequired = 1; // 单击
+    [self.backGroupView addGestureRecognizer:singleRecognizer];
+    
+    self.userHeaderImageView.layer.masksToBounds = YES;
+    self.userHeaderImageView.layer.cornerRadius = self.userHeaderImageView.bounds.size.width / 2.0;
+    
+    self.userNameLB.text = [UserDataInterface sharedClient].userNickName;
+    
+    NSURL * url = [[NSURL alloc]initWithString:[UserDataInterface sharedClient].userImageHeader];
+    [self.userHeaderImageView setImageWithURL:url];
+}
+
+-(void)SingleTap:(UITapGestureRecognizer*)recognizer
+{
+    //处理单击操作
+    //NSLog(@"index:%ld", (long)recognizer.view.tag);
+    
+    [self showEditPersonDataView];
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
+    
+    PersonalDataController * dataCtrl = (PersonalDataController *)sides->righControl;
+    dataCtrl.delegate = self;
+    
+    [sides addPanGsetureToHomeView];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
+    
+    [sides removeGestureToHomeView];
+}
+
+-(void)showEditPersonDataView{
+    
+    //先显示首页
+    
+    UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController * info = [mainStoryboard instantiateViewControllerWithIdentifier:@"EditPersonController"];
+    
+    [self.navigationController pushViewController:info animated:YES];
+    //    self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    //    [self presentViewController:info animated:YES completion:^{
+    //
+    //    }];
+}
+
+-(void)setIndex:(NSUInteger)index{
+    if (index == 0) {
+        [self showEditPersonDataView];
+    }
 }
 
 #pragma mark - Table view data source

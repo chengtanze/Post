@@ -59,24 +59,35 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(NSArray *)getFilenamelistOfType:(NSString *)type fromDirPath:(NSString *)dirPath
+{
+    NSMutableArray *filenamelist = [NSMutableArray arrayWithCapacity:10];
+    NSArray *tmplist = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dirPath error:nil];
+    
+    for (NSString *filename in tmplist) {
+        NSString *fullpath = [dirPath stringByAppendingPathComponent:filename];
+        if ([self isFileExistAtPath:fullpath]) {
+            
+            NSLog(@"filename: %@", filename);
+            //if ([[filename pathExtension] isEqualToString:type]) {
+            //    [filenamelist  addObject:filename];
+            //}
+        }
+    }
+    
+    return filenamelist;
+}
+
+-(BOOL)isFileExistAtPath:(NSString*)fileFullPath {
+    BOOL isExist = NO;
+    isExist = [[NSFileManager defaultManager] fileExistsAtPath:fileFullPath];
+    return isExist;
+}
+
 -(void)initLocalData{
-    //sqlite3 *database;
-    //int result = sqlite3_open("/path/databaseFile", &database);
-    
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSString *documentsDir = [paths objectAtIndex:0];
-//    NSString *str = [documentsDir stringByAppendingPathComponent:@"Contacts.sqlite"];
-    
     NSString *Path = [[NSBundle mainBundle] pathForResource:@"china_city.db" ofType:nil];
 
-    NSString *path1 = [[NSBundle mainBundle] pathForResource:@"citydict.plist"
-                                                   ofType:nil];
-    NSArray* paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory ,  NSUserDomainMask ,  YES );
-    NSString* documentPath = [ paths objectAtIndex: 0 ];
-    
-    NSString* dbPath = [ documentPath stringByAppendingPathComponent: @"china_city.db" ];
-    
-    FMDatabase * database = [FMDatabase databaseWithPath: dbPath ];
+    FMDatabase * database = [FMDatabase databaseWithPath: Path ];
     if ( ![database open] )
     {
         return;
@@ -86,12 +97,14 @@
     FMResultSet* resultSet = [ database executeQuery: @"SELECT * FROM area" ];
     
     // 逐行读取数据
-    while ( [ resultSet next ] )
+    while ([resultSet next])
     {
         // 对应字段来取数据
-        NSString* history = [ resultSet stringForColumn: @"History" ];
-        NSString* question = [ resultSet stringForColumn: @"Question" ];
-        NSLog( @"history: %@ , question: %@" , history , question );
+//        NSString* areaName = [ resultSet stringForColumn: @"areaName" ];
+//        NSString* id = [ resultSet stringForColumn: @"id" ];
+//        NSString* parentId = [ resultSet stringForColumn: @"parentId" ];
+
+        //NSLog( @"areaName: %@, id: %@ , parentId: %@" , areaName , id, parentId );
     }
     
 //    int result = sqlite3_open(path.UTF8String, &database);
@@ -117,6 +130,7 @@
 
     // Return the number of sections.
     //return 5;
+    NSLog(@"section:%ld", (unsigned long)self.arrayAroundData.count);
     return (self.arrayAroundData != nil ? self.arrayAroundData.count : 0);
 }
 
@@ -130,8 +144,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AroundCityGoods_Cell *cell = [tableView dequeueReusableCellWithIdentifier:@"CityOrder_Cell" forIndexPath:indexPath];
     
+    //NSLog(@"row:%ld", (long)indexPath.section);
+    
+    
     if (cell != nil) {
-        NSDictionary * dicData = self.arrayAroundData[indexPath.row];
+        NSDictionary * dicData = self.arrayAroundData[indexPath.section];
         
         if (dicData) {
             cell.goodsNameLB.text = [dicData valueForKey:@"name"];
@@ -140,6 +157,7 @@
             cell.startAddressLB.text = [dicData valueForKey:@"pgAddress"];
             cell.endAddressLB.text = [dicData valueForKey:@"rgAddress"];
             
+            NSLog(@"num:%@ id:%ld", [dicData valueForKey:@"num"], (long)indexPath.row);
             //发货经纬度
             NSNumber * pgLon = [dicData valueForKey:@"pgLongitude"];
             CGFloat pgLongitude = pgLon.floatValue;
@@ -154,11 +172,15 @@
             
             NSDictionary * dicImage = [dicData valueForKey:@"goodsImg"];
             if (dicImage != nil) {
-                NSString * strImage =  [dicImage valueForKey:@"imgUrl"][0];
-                
-                NSURL * url = [[NSURL alloc]initWithString:strImage];
-                [cell.goodsImage setImageWithURL:url];
-                NSLog(@"%@", strImage);
+                if([dicImage respondsToSelector:@selector(objectAtIndex:)]){
+                //if (dicImage.count <= 0) {
+                    NSString * strImage =  [dicImage valueForKey:@"imgUrl"][0];
+                    
+                    NSURL * url = [[NSURL alloc]initWithString:strImage];
+                    [cell.goodsImage setImageWithURL:url];
+                    NSLog(@"%@", strImage);
+                }
+
             }
 
         }
@@ -172,14 +194,14 @@
 {
     WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
     
-    [sides addPanGsetureToHomeView];
+    //[sides addPanGsetureToHomeView];
     NSLog(@"viewDidAppear");
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
     
-    [sides removeGestureToHomeView];
+    //[sides removeGestureToHomeView];
     
     NSLog(@"prepareForSegue");
 }

@@ -14,6 +14,8 @@
 @synthesize userID_Int = _userID_Int;
 @synthesize userPhoneNum = _userPhoneNum;
 @synthesize userKey = _userKey;
+@synthesize userImageHeader = _userImageHeader;
+@synthesize userHonestRank = _userHonestRank;
 
 + (instancetype)sharedClient {
     static UserDataInterface *_sharedClient = nil;
@@ -26,7 +28,7 @@
 }
 
 -(NSString *)userNickName{
-    return (_dicUserInfo != nil ? [_dicUserInfo valueForKey:@"key"] : @"");
+    return (_dicUserInfo != nil ? [_dicUserInfo valueForKey:@"nickName"] : @"");
 }
 
 -(NSString *)userID{
@@ -44,6 +46,21 @@
 
 -(NSString *) userKey{
     return (_dicUserInfo != nil ? [_dicUserInfo valueForKey:@"key"] : @"");
+}
+
+-(NSString *) userImageHeader{
+    return (_dicUserInfo != nil ? [_dicUserInfo valueForKey:@"avatar"] : @"");
+}
+
+-(NSUInteger) userHonestRank{
+    NSUInteger nHonesRank = 0;
+    
+    if (_dicUserInfo != nil) {
+        NSNumber * number = [_dicUserInfo valueForKey:@"honestRank"];
+        nHonesRank = number.unsignedIntegerValue;
+        return nHonesRank;
+    }
+    return nHonesRank;
 }
 
 @end

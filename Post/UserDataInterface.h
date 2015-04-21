@@ -15,7 +15,8 @@
     NSInteger _userID_Int;
     NSString * _userPhoneNum;
     NSString * _userKey;
-    
+    NSString * _userImageHeader;
+    NSUInteger _userHonestRank;
 }
 + (instancetype)sharedClient;
 
@@ -25,6 +26,7 @@
 @property(assign, nonatomic)NSInteger userID_Int;
 @property(strong, nonatomic)NSString * userPhoneNum;
 @property(strong, nonatomic)NSString * userKey;
-
+@property(strong, nonatomic)NSString * userImageHeader;
+@property(assign, nonatomic)NSUInteger userHonestRank;
 
 @end

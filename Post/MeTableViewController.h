@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface MeTableViewController : UITableViewController
+@property (weak, nonatomic) IBOutlet UIImageView *userHeaderImageView;
+@property (weak, nonatomic) IBOutlet UILabel *userNameLB;
+@property (weak, nonatomic) IBOutlet UIView *backGroupView;
 
 @end

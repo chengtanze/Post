@@ -63,13 +63,13 @@
     if (indexPath.section == 0 && indexPath.row == 0) {
         WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
         
-        UITabBarController * tabController = (UITabBarController *) sides->mainControl;
+//        UITabBarController * tabController = (UITabBarController *) sides->mainControl;
+//        
+//        if (tabController.selectedIndex != 0) {
+//            tabController.selectedIndex = 0;
+//        }
         
-        if (tabController.selectedIndex != 0) {
-            tabController.selectedIndex = 0;
-        }
-        
-        [sides restoreViewState];
+       [sides restoreViewState];
         
         if (_delegate != nil && [self.delegate respondsToSelector:@selector(setIndex:)])
         {
@@ -89,6 +89,11 @@
     
 }
 
+//设置tableview头部高度
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.1;
+}
 
 
 #pragma mark - Table view data source

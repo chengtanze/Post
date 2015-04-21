@@ -7,6 +7,8 @@
 //
 
 #import "EditPersonController.h"
+#import "UserDataInterface.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface EditPersonController ()
 
@@ -17,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self initLocalData];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -28,6 +31,30 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)initLocalData{
+    
+    self.navigationController.title = @"个人资料";
+    
+    self.userHeaderImageView.layer.masksToBounds = YES;
+    self.userHeaderImageView.layer.cornerRadius = self.userHeaderImageView.bounds.size.width / 2.0;
+    
+    self.userNameLB.text = [UserDataInterface sharedClient].userNickName;
+    
+    self.phoneNumberLB.text = [UserDataInterface sharedClient].userPhoneNum;
+    NSURL * url = [[NSURL alloc]initWithString:[UserDataInterface sharedClient].userImageHeader];
+    [self.userHeaderImageView setImageWithURL:url];
+    
+    
+    
+}
+
+//设置tableview头部高度
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.1;
+}
+
 
 #pragma mark - Table view data source
 
