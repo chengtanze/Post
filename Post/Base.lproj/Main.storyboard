@@ -1273,7 +1273,7 @@
         <!--我的-->
         <scene sceneID="GXi-yM-IOT">
             <objects>
-                <tableViewController title="我的" id="L53-Jc-7jQ" sceneMemberID="viewController">
+                <tableViewController title="我的" id="L53-Jc-7jQ" customClass="MeTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="cVb-bu-smz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2092,7 +2092,7 @@
                                     </variation>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityOrder_Cell" rowHeight="200" id="Qbi-Ow-NA6">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CityOrder_Cell" rowHeight="200" id="Qbi-Ow-NA6" customClass="AroundCityGoods_Cell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qbi-Ow-NA6" id="tA2-dv-8di">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -2239,6 +2239,17 @@
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="distanceGoodsLB" destination="UFX-5n-gJn" id="uvf-QX-PeP"/>
+                                    <outlet property="distanceMeLB" destination="rYb-vx-lIy" id="KWB-wT-xC7"/>
+                                    <outlet property="endAddressLB" destination="RP6-43-FRW" id="qWa-Pb-QUq"/>
+                                    <outlet property="endTimesLB" destination="Oj4-JX-L7k" id="NTF-m6-OPd"/>
+                                    <outlet property="goodsImage" destination="imD-cr-cTb" id="l0R-0M-KJ5"/>
+                                    <outlet property="goodsNameLB" destination="Ql0-mC-u9F" id="g8e-Eg-UFg"/>
+                                    <outlet property="goodsValue" destination="v3g-KA-hXg" id="zLR-ho-Bmq"/>
+                                    <outlet property="startAddressLB" destination="Ilj-RE-Ia2" id="ZrS-RR-jZn"/>
+                                    <outlet property="startTimesLB" destination="DRq-CP-NXU" id="Qis-fr-MlQ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -2624,8 +2635,8 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我要发货" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CC2-t3-THA">
-                                                    <rect key="frame" x="85" y="10" width="68" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="85" y="10" width="60" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -2636,7 +2647,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FZB-JP-wR0">
-                                                    <rect key="frame" x="555" y="16" width="17" height="34"/>
+                                                    <rect key="frame" x="555" y="16" width="16.5" height="33.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2680,14 +2691,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uw-hT-VQt">
-                                                    <rect key="frame" x="555" y="17" width="17" height="34"/>
+                                                    <rect key="frame" x="555" y="17" width="16.5" height="33.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="扫一扫" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rG2-iQ-JgM">
-                                                    <rect key="frame" x="85" y="10" width="51" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="85" y="10" width="45" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -2748,6 +2759,7 @@
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="手机号码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pmf-ql-nPV">
                                 <rect key="frame" x="90" y="164" width="420" height="30"/>
+                                <color key="textColor" red="0.11764705882352941" green="0.69019607843137254" blue="0.9882352941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>

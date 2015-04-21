@@ -29,7 +29,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.11 green:0.690 blue:0.988 alpha:1];
     
+    //1EB0FC
 //    [[HttpProtocolAPI sharedClient] login:^(NSDictionary *data, NSError *error) {
 //        if (data != nil) {
 //            
@@ -101,7 +103,7 @@
 //设置tableview头部高度
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 1;
+    return 0.1;
 }
 
 -(void)ScrollImageViewdidSelectRowAtIndexPath:(NSInteger)index{

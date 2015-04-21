@@ -21,6 +21,22 @@
 		143770291A74DF17005084CE /* IntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 143770281A74DF17005084CE /* IntroduceViewController.m */; };
 		1439DBF91ABE7EB9004C45C2 /* CardID.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1439DBF81ABE7EB9004C45C2 /* CardID.jpg */; };
 		144023571A8E35A400321C6F /* GoodsPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 144023561A8E35A400321C6F /* GoodsPhotoViewController.m */; };
+		14403DA41AE48D9C005FE49B /* AroundCityGoods_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14403DA31AE48D9C005FE49B /* AroundCityGoods_Cell.m */; };
+		14403DB71AE4B146005FE49B /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14403DA71AE4B146005FE49B /* AFNetworkActivityIndicatorManager.m */; };
+		14403DB81AE4B146005FE49B /* UIActivityIndicatorView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 14403DA91AE4B146005FE49B /* UIActivityIndicatorView+AFNetworking.m */; };
+		14403DB91AE4B146005FE49B /* UIAlertView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 14403DAB1AE4B146005FE49B /* UIAlertView+AFNetworking.m */; };
+		14403DBA1AE4B146005FE49B /* UIButton+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 14403DAD1AE4B146005FE49B /* UIButton+AFNetworking.m */; };
+		14403DBB1AE4B146005FE49B /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 14403DAF1AE4B146005FE49B /* UIImageView+AFNetworking.m */; };
+		14403DBC1AE4B146005FE49B /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 14403DB21AE4B146005FE49B /* UIProgressView+AFNetworking.m */; };
+		14403DBD1AE4B146005FE49B /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 14403DB41AE4B146005FE49B /* UIRefreshControl+AFNetworking.m */; };
+		14403DBE1AE4B146005FE49B /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 14403DB61AE4B146005FE49B /* UIWebView+AFNetworking.m */; };
+		14403DC11AE4DD38005FE49B /* MeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14403DC01AE4DD38005FE49B /* MeTableViewController.m */; };
+		14403DC31AE4F6AD005FE49B /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 14403DC21AE4F6AD005FE49B /* libsqlite3.dylib */; };
+		14403E021AE4FFEC005FE49B /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 14403DEC1AE4FD25005FE49B /* FMDatabase.m */; };
+		14403E031AE4FFEC005FE49B /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 14403DEE1AE4FD25005FE49B /* FMDatabaseAdditions.m */; };
+		14403E041AE4FFEC005FE49B /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 14403DF01AE4FD25005FE49B /* FMDatabasePool.m */; };
+		14403E051AE4FFEC005FE49B /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 14403DF21AE4FD25005FE49B /* FMDatabaseQueue.m */; };
+		14403E061AE4FFEC005FE49B /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 14403DF51AE4FD25005FE49B /* FMResultSet.m */; };
 		14408D1F1AA1F17400EC6D79 /* GoodsInComplete_Times_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14408D1E1AA1F17400EC6D79 /* GoodsInComplete_Times_Cell.m */; };
 		14408D221AA1F20D00EC6D79 /* GoodsInComplete_State_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14408D211AA1F20D00EC6D79 /* GoodsInComplete_State_Cell.m */; };
 		14408D251AA1F22300EC6D79 /* GoodsInComplete_Address_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14408D241AA1F22300EC6D79 /* GoodsInComplete_Address_Cell.m */; };
@@ -178,6 +194,38 @@
 		1439DBF81ABE7EB9004C45C2 /* CardID.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = CardID.jpg; path = image/CardID.jpg; sourceTree = "<group>"; };
 		144023551A8E35A400321C6F /* GoodsPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsPhotoViewController.h; path = Post/GoodsPhotoViewController.h; sourceTree = "<group>"; };
 		144023561A8E35A400321C6F /* GoodsPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsPhotoViewController.m; path = Post/GoodsPhotoViewController.m; sourceTree = "<group>"; };
+		14403DA21AE48D9C005FE49B /* AroundCityGoods_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AroundCityGoods_Cell.h; path = Post/AroundCityGoods_Cell.h; sourceTree = "<group>"; };
+		14403DA31AE48D9C005FE49B /* AroundCityGoods_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AroundCityGoods_Cell.m; path = Post/AroundCityGoods_Cell.m; sourceTree = "<group>"; };
+		14403DA61AE4B146005FE49B /* AFNetworkActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkActivityIndicatorManager.h; sourceTree = "<group>"; };
+		14403DA71AE4B146005FE49B /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkActivityIndicatorManager.m; sourceTree = "<group>"; };
+		14403DA81AE4B146005FE49B /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
+		14403DA91AE4B146005FE49B /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
+		14403DAA1AE4B146005FE49B /* UIAlertView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+AFNetworking.h"; sourceTree = "<group>"; };
+		14403DAB1AE4B146005FE49B /* UIAlertView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+AFNetworking.m"; sourceTree = "<group>"; };
+		14403DAC1AE4B146005FE49B /* UIButton+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+AFNetworking.h"; sourceTree = "<group>"; };
+		14403DAD1AE4B146005FE49B /* UIButton+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+AFNetworking.m"; sourceTree = "<group>"; };
+		14403DAE1AE4B146005FE49B /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
+		14403DAF1AE4B146005FE49B /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		14403DB01AE4B146005FE49B /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit+AFNetworking.h"; sourceTree = "<group>"; };
+		14403DB11AE4B146005FE49B /* UIProgressView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+AFNetworking.h"; sourceTree = "<group>"; };
+		14403DB21AE4B146005FE49B /* UIProgressView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+AFNetworking.m"; sourceTree = "<group>"; };
+		14403DB31AE4B146005FE49B /* UIRefreshControl+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIRefreshControl+AFNetworking.h"; sourceTree = "<group>"; };
+		14403DB41AE4B146005FE49B /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
+		14403DB51AE4B146005FE49B /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
+		14403DB61AE4B146005FE49B /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		14403DBF1AE4DD38005FE49B /* MeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MeTableViewController.h; path = Post/MeTableViewController.h; sourceTree = "<group>"; };
+		14403DC01AE4DD38005FE49B /* MeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MeTableViewController.m; path = Post/MeTableViewController.m; sourceTree = "<group>"; };
+		14403DC21AE4F6AD005FE49B /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		14403DEB1AE4FD25005FE49B /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = DataBase/FMDatabase.h; sourceTree = "<group>"; };
+		14403DEC1AE4FD25005FE49B /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = DataBase/FMDatabase.m; sourceTree = "<group>"; };
+		14403DED1AE4FD25005FE49B /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = DataBase/FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		14403DEE1AE4FD25005FE49B /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = DataBase/FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		14403DEF1AE4FD25005FE49B /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = DataBase/FMDatabasePool.h; sourceTree = "<group>"; };
+		14403DF01AE4FD25005FE49B /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = DataBase/FMDatabasePool.m; sourceTree = "<group>"; };
+		14403DF11AE4FD25005FE49B /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = DataBase/FMDatabaseQueue.h; sourceTree = "<group>"; };
+		14403DF21AE4FD25005FE49B /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = DataBase/FMDatabaseQueue.m; sourceTree = "<group>"; };
+		14403DF41AE4FD25005FE49B /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = DataBase/FMResultSet.h; sourceTree = "<group>"; };
+		14403DF51AE4FD25005FE49B /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = DataBase/FMResultSet.m; sourceTree = "<group>"; };
 		14408D1D1AA1F17400EC6D79 /* GoodsInComplete_Times_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsInComplete_Times_Cell.h; path = Post/GoodsInComplete_Times_Cell.h; sourceTree = "<group>"; };
 		14408D1E1AA1F17400EC6D79 /* GoodsInComplete_Times_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsInComplete_Times_Cell.m; path = Post/GoodsInComplete_Times_Cell.m; sourceTree = "<group>"; };
 		14408D201AA1F20D00EC6D79 /* GoodsInComplete_State_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsInComplete_State_Cell.h; path = Post/GoodsInComplete_State_Cell.h; sourceTree = "<group>"; };
@@ -449,6 +497,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14403DC31AE4F6AD005FE49B /* libsqlite3.dylib in Frameworks */,
 				14C40F441A7BC1070050FAF4 /* Security.framework in Frameworks */,
 				14C40F421A7BC0FF0050FAF4 /* MessageUI.framework in Frameworks */,
 				14C40F401A7BC0F70050FAF4 /* OpenGLES.framework in Frameworks */,
@@ -516,6 +565,48 @@
 			name = city;
 			sourceTree = "<group>";
 		};
+		14403DA51AE4B146005FE49B /* UIKit+AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				14403DA61AE4B146005FE49B /* AFNetworkActivityIndicatorManager.h */,
+				14403DA71AE4B146005FE49B /* AFNetworkActivityIndicatorManager.m */,
+				14403DA81AE4B146005FE49B /* UIActivityIndicatorView+AFNetworking.h */,
+				14403DA91AE4B146005FE49B /* UIActivityIndicatorView+AFNetworking.m */,
+				14403DAA1AE4B146005FE49B /* UIAlertView+AFNetworking.h */,
+				14403DAB1AE4B146005FE49B /* UIAlertView+AFNetworking.m */,
+				14403DAC1AE4B146005FE49B /* UIButton+AFNetworking.h */,
+				14403DAD1AE4B146005FE49B /* UIButton+AFNetworking.m */,
+				14403DAE1AE4B146005FE49B /* UIImageView+AFNetworking.h */,
+				14403DAF1AE4B146005FE49B /* UIImageView+AFNetworking.m */,
+				14403DB01AE4B146005FE49B /* UIKit+AFNetworking.h */,
+				14403DB11AE4B146005FE49B /* UIProgressView+AFNetworking.h */,
+				14403DB21AE4B146005FE49B /* UIProgressView+AFNetworking.m */,
+				14403DB31AE4B146005FE49B /* UIRefreshControl+AFNetworking.h */,
+				14403DB41AE4B146005FE49B /* UIRefreshControl+AFNetworking.m */,
+				14403DB51AE4B146005FE49B /* UIWebView+AFNetworking.h */,
+				14403DB61AE4B146005FE49B /* UIWebView+AFNetworking.m */,
+			);
+			name = "UIKit+AFNetworking";
+			path = "AFNetworking/UIKit+AFNetworking";
+			sourceTree = "<group>";
+		};
+		14403DC41AE4FB6B005FE49B /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				14403DEB1AE4FD25005FE49B /* FMDatabase.h */,
+				14403DEC1AE4FD25005FE49B /* FMDatabase.m */,
+				14403DED1AE4FD25005FE49B /* FMDatabaseAdditions.h */,
+				14403DEE1AE4FD25005FE49B /* FMDatabaseAdditions.m */,
+				14403DEF1AE4FD25005FE49B /* FMDatabasePool.h */,
+				14403DF01AE4FD25005FE49B /* FMDatabasePool.m */,
+				14403DF11AE4FD25005FE49B /* FMDatabaseQueue.h */,
+				14403DF21AE4FD25005FE49B /* FMDatabaseQueue.m */,
+				14403DF41AE4FD25005FE49B /* FMResultSet.h */,
+				14403DF51AE4FD25005FE49B /* FMResultSet.m */,
+			);
+			name = DataBase;
+			sourceTree = "<group>";
+		};
 		14408D1C1AA1EEC500EC6D79 /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -536,6 +627,8 @@
 				14408D241AA1F22300EC6D79 /* GoodsInComplete_Address_Cell.m */,
 				FC821BA31AA45AC500F4B0C9 /* GoodsInCancle_State_Cell.h */,
 				FC821BA41AA45AC500F4B0C9 /* GoodsInCancle_State_Cell.m */,
+				14403DA21AE48D9C005FE49B /* AroundCityGoods_Cell.h */,
+				14403DA31AE48D9C005FE49B /* AroundCityGoods_Cell.m */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -640,6 +733,8 @@
 				FCB960E21AC55BB100FC3FF9 /* PersonalDataController.m */,
 				FCAEEB541ACA858A00D24E73 /* EditPersonController.h */,
 				FCAEEB551ACA858A00D24E73 /* EditPersonController.m */,
+				14403DBF1AE4DD38005FE49B /* MeTableViewController.h */,
+				14403DC01AE4DD38005FE49B /* MeTableViewController.m */,
 			);
 			name = "我";
 			sourceTree = "<group>";
@@ -675,6 +770,7 @@
 		14C40EF01A7BBF3A0050FAF4 /* OpenCode */ = {
 			isa = PBXGroup;
 			children = (
+				14403DC41AE4FB6B005FE49B /* DataBase */,
 				FC4F73931ABBFEEC00953D95 /* NetWork */,
 				14C40EF11A7BBF440050FAF4 /* BaiduMap */,
 			);
@@ -786,6 +882,7 @@
 		14CE5FAF1A74CF8400A19C36 = {
 			isa = PBXGroup;
 			children = (
+				14403DC21AE4F6AD005FE49B /* libsqlite3.dylib */,
 				14BD6BA21A7C9295001A8535 /* framework */,
 				14C40EF01A7BBF3A0050FAF4 /* OpenCode */,
 				14CE5FE71A74D2B700A19C36 /* Resource */,
@@ -941,6 +1038,7 @@
 		FC4F73931ABBFEEC00953D95 /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
+				14403DA51AE4B146005FE49B /* UIKit+AFNetworking */,
 				FC4F73941ABBFF0800953D95 /* AFHTTPRequestOperation.h */,
 				FC4F73951ABBFF0800953D95 /* AFHTTPRequestOperation.m */,
 				FC4F73961ABBFF0800953D95 /* AFHTTPRequestOperationManager.h */,
@@ -1160,20 +1258,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14403E021AE4FFEC005FE49B /* FMDatabase.m in Sources */,
+				14403E031AE4FFEC005FE49B /* FMDatabaseAdditions.m in Sources */,
+				14403E041AE4FFEC005FE49B /* FMDatabasePool.m in Sources */,
+				14403E051AE4FFEC005FE49B /* FMDatabaseQueue.m in Sources */,
+				14403E061AE4FFEC005FE49B /* FMResultSet.m in Sources */,
 				FC4F73A71ABBFF0800953D95 /* AFHTTPRequestOperation.m in Sources */,
 				14E99CDE1ACBEA8500DF606E /* HttpProtocolAPI.m in Sources */,
 				FC98FBB81AAD8B66005E2DB0 /* ConfirmDeliveryViewController.m in Sources */,
 				144023571A8E35A400321C6F /* GoodsPhotoViewController.m in Sources */,
+				14403DBC1AE4B146005FE49B /* UIProgressView+AFNetworking.m in Sources */,
 				1459912B1A89D76700710CF2 /* ConfirmTableViewController.m in Sources */,
 				FC4F73AC1ABBFF0800953D95 /* AFURLConnectionOperation.m in Sources */,
 				14408D221AA1F20D00EC6D79 /* GoodsInComplete_State_Cell.m in Sources */,
 				143770291A74DF17005084CE /* IntroduceViewController.m in Sources */,
 				1447CD8F1ABD021700EDECCF /* AccountInfoViewController.m in Sources */,
 				FC84C0B21AAF08630074F65C /* MapAroudViewController.mm in Sources */,
+				14403DA41AE48D9C005FE49B /* AroundCityGoods_Cell.m in Sources */,
 				14C8B4CB1AC1A4D900AAF5E1 /* AddNewAddressController.m in Sources */,
 				FC79E50A1AC3FC5600F2AD3E /* EditGoodsController.m in Sources */,
 				14B700A41AB527360036211F /* OrderDetailView.m in Sources */,
 				FCC7CA0D1ACE794100347105 /* GoodsTypeView.m in Sources */,
+				14403DBE1AE4B146005FE49B /* UIWebView+AFNetworking.m in Sources */,
 				1447CD921ABD030100EDECCF /* AccountInComeController.m in Sources */,
 				1443E9E11A9EFC07006BC700 /* SCNavTabBar.m in Sources */,
 				1459ABB31AA088FB0041CEBB /* GoodsInProgress_Order_Cell.m in Sources */,
@@ -1183,6 +1289,7 @@
 				144DAFA41ADDFCAE005AF7E4 /* PaymentMethodView.m in Sources */,
 				145991371A89F42F00710CF2 /* PhotoGroupTableViewCell.m in Sources */,
 				FCA8C80A1AB815BA00830AD5 /* SelectRangeView.m in Sources */,
+				14403DB71AE4B146005FE49B /* AFNetworkActivityIndicatorManager.m in Sources */,
 				1443E9EA1A9F1714006BC700 /* GoodsInProgressViewController.m in Sources */,
 				142B22521A7DD4AA00363BD9 /* HZAreaPickerView.m in Sources */,
 				FC84C0B51AAF09160074F65C /* MapViewController.m in Sources */,
@@ -1196,6 +1303,7 @@
 				1441B9E91A8F7EDB003F9142 /* QRCodesViewController.m in Sources */,
 				1447CD951ABD06A500EDECCF /* AccountExpendController.m in Sources */,
 				FC4F73A91ABBFF0800953D95 /* AFHTTPSessionManager.m in Sources */,
+				14403DBA1AE4B146005FE49B /* UIButton+AFNetworking.m in Sources */,
 				14BD142A1A7C90E1007F9287 /* MapSearchViewController.mm in Sources */,
 				1443E9E71A9F0257006BC700 /* GoodsOrderViewController.m in Sources */,
 				140B6DCF1ABDB7940037055C /* QCheckBox.m in Sources */,
@@ -1216,6 +1324,7 @@
 				FCD6C5BB1AA31616008D5E23 /* CityListViewController.m in Sources */,
 				14408D281AA1FCAE00EC6D79 /* GoodsInCompleteViewController.m in Sources */,
 				FC2B86311AC2AC5300926FA6 /* CommonAddressTableViewCell.m in Sources */,
+				14403DC11AE4DD38005FE49B /* MeTableViewController.m in Sources */,
 				1443E92F1A9ED37E006BC700 /* SCPopView.m in Sources */,
 				14CE5FC71A74CF8400A19C36 /* ViewController.m in Sources */,
 				14AB64DB1AB70A3D0064C032 /* UIImage+Rotate.m in Sources */,
@@ -1227,6 +1336,7 @@
 				FC4F73AA1ABBFF0800953D95 /* AFNetworkReachabilityManager.m in Sources */,
 				FC79E5101AC3FECE00F2AD3E /* OftenGoodsTableViewCell.m in Sources */,
 				14CE5FC41A74CF8400A19C36 /* Post.xcdatamodeld in Sources */,
+				14403DB91AE4B146005FE49B /* UIAlertView+AFNetworking.m in Sources */,
 				14447ABF1ADB5328005E6974 /* DeliveryWayView.m in Sources */,
 				1459912E1A89DC7F00710CF2 /* PhotoGroupView.m in Sources */,
 				FC84C0AF1AAEE9F70074F65C /* PeripheralsTableViewController.m in Sources */,
@@ -1234,10 +1344,13 @@
 				140B6DCB1ABDB24C0037055C /* ApplyCourierController.m in Sources */,
 				FC79E50D1AC3FCEC00F2AD3E /* GoodsDetailController.m in Sources */,
 				1483DA0E1A885896003A3B8B /* OrderTrack_UserItem_Cell.m in Sources */,
+				14403DB81AE4B146005FE49B /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				FC2E651A1ABFFD65006BD470 /* CommonAddressController.m in Sources */,
 				FCD6C5B61AA2FCC3008D5E23 /* GMDCircleLoader.m in Sources */,
+				14403DBB1AE4B146005FE49B /* UIImageView+AFNetworking.m in Sources */,
 				FC81BC821A7A0D4500D6C78F /* Custom_ScrollImageView.m in Sources */,
 				FC7FC7F61A788972004B3909 /* RegisterViewController.m in Sources */,
+				14403DBD1AE4B146005FE49B /* UIRefreshControl+AFNetworking.m in Sources */,
 				1443E9E41A9F012E006BC700 /* SCNavTabBarController.m in Sources */,
 				14408D1F1AA1F17400EC6D79 /* GoodsInComplete_Times_Cell.m in Sources */,
 				FC4F73AE1ABBFF0800953D95 /* AFURLResponseSerialization.m in Sources */,

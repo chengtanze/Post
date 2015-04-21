@@ -178,7 +178,7 @@ typedef enum
         imageView.userInteractionEnabled = YES;
         imageView.backgroundColor = [UIColor blackColor];
         imageView.image = image;
-        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.contentMode = UIViewContentModeScaleToFill;//UIViewContentModeScaleAspectFit;
         imageView.tag = cur;
         //[imageViewArray addObject:imageView];
         
