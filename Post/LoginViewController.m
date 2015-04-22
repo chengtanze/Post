@@ -10,6 +10,7 @@
 #import "HttpProtocolAPI.h"
 #import "PublicFunction.h"
 #import "UserDataInterface.h"
+#import "SVProgressHUD.h"
 
 @interface LoginViewController ()
 
@@ -37,38 +38,37 @@
 }
 */
 
+//#define USERTEST
+
 - (IBAction)loginClick:(id)sender {
-    NSString * strUserName;
-    NSString * strUserPassWord;
+
     
 #ifdef USERTEST
-    strUserName = self.phoneNumber.text;
-    strUserPassWord = self.userPassWord.text;
+    _strUserName = self.phoneNumber.text;
+    _strUserPassWord = self.userPassWord.text;
 #else
-    strUserName = @"13691790130";//@"18576430783";//
-    strUserPassWord = @"123456";
+    _strUserName = @"13691790130";//@"18576430783";//
+    _strUserPassWord = @"12345678";
 #endif
     
-    
-    NSString * imei = @"12345678";
-    NSString * ip = @"192.168.0.26";
-    
+    [self login:_strUserName passWord:_strUserPassWord loginType:0];
+}
+
+-(void)login:(NSString *)strUserName passWord:(NSString *)strUserPassWord loginType:(NSInteger)type{
     NSMutableDictionary * params= [[NSMutableDictionary alloc]init];
     [params setObject: strUserName forKey:@"phoneNum"];
     
     NSString * md5_PassWord = [PublicFunction md5:strUserPassWord];
     [params setObject: md5_PassWord forKey:@"password"];
-    //[params setObject: imei forKey:@"imei"];
-    //[params setObject: ip forKey:@"ip"];
     
     [[HttpProtocolAPI sharedClient] login:params setBlock:^(NSDictionary *data, NSError *error) {
         
         //登陆请求返回处理
-        [self responseNetWorkData:data errorCode:error];
+        [self responseNetWorkData:data errorCode:error loginType:type];
     }];
 }
 
--(void)responseNetWorkData:(NSDictionary *)data errorCode:(NSError *)error{
+-(void)responseNetWorkData:(NSDictionary *)data errorCode:(NSError *)error loginType:(NSInteger)type{
     if (data != nil) {
         //解析数据
         NSNumber * state = [data valueForKey:@"state"];
@@ -86,12 +86,21 @@
 //                NSString *sid = [dataArray valueForKey:@"sid"];                 //sessionId
 //                NSString *key = [dataArray valueForKey:@"key"];
                 
+                [UserDataInterface sharedClient].bLogin = YES;
                 [UserDataInterface sharedClient].dicUserInfo = dataArray;
+                if (type == 0) {
+                    [[UserDataInterface sharedClient] saveLoginInfo:self.strUserName passWord:self.strUserPassWord];
+                    
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
                 
+                [SVProgressHUD showSuccessWithStatus:@"登陆成功"];
+
             }
         }
         else{
             //登陆失败
+            
         }
         
     }else{

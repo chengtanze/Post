@@ -2773,7 +2773,7 @@
         <!--登陆界面-->
         <scene sceneID="eS7-ab-by0">
             <objects>
-                <viewController title="登陆" id="1NF-XS-BUm" userLabel="登陆界面" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" title="登陆" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1NF-XS-BUm" userLabel="登陆界面" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kJn-Rv-cSz"/>
                         <viewControllerLayoutGuide type="bottom" id="t61-ZL-TdG"/>
@@ -5834,7 +5834,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iTe-1p-4ir">
                                 <rect key="frame" x="21" y="94" width="473" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5846,7 +5846,7 @@
                             <constraint firstItem="CYo-hP-4uT" firstAttribute="top" secondItem="0gb-ha-MjY" secondAttribute="bottom" constant="30" id="zlr-aO-rx4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="修改密码" id="cPZ-mB-8y1"/>
+                    <navigationItem key="navigationItem" id="cPZ-mB-8y1"/>
                     <connections>
                         <outlet property="passWordTF" destination="iTe-1p-4ir" id="cQv-lv-YWo"/>
                     </connections>
@@ -5887,12 +5887,18 @@
                                 <state key="normal" title="获取验证码">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="verificationCodeClick:" destination="IqU-v4-sfa" eventType="touchUpInside" id="Ini-DQ-YX4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5o-GX-Anu">
                                 <rect key="frame" x="36" y="213" width="480" height="30"/>
                                 <state key="normal" title="完成">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="okClick:" destination="IqU-v4-sfa" eventType="touchUpInside" id="XBA-OG-xlo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -5924,6 +5930,11 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="passWordTF" destination="kXr-Is-JmF" id="3wc-sD-hvI"/>
+                        <outlet property="verificationCodeTF" destination="Bxx-IY-Rd7" id="9dh-kc-w13"/>
+                        <outlet property="verifyPassWordTF" destination="tqQ-cc-WJw" id="Wv6-cn-Bxc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ux9-Ho-biz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

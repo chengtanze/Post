@@ -35,6 +35,11 @@
     ///[self performSegueWithIdentifier:@"LeadView" sender:self];
 }
 
+
+- (void)tabBarController:(UITabBarController *)barController didSelectViewController:(UIViewController *)viewController{
+    
+}
+
 /*
 #pragma mark - Navigation
 

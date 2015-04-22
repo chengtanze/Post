@@ -38,4 +38,7 @@
 //获取用户信息
 -(NSURLSessionDataTask *)getUserInfo:(NSUInteger)uID setBlock:(void(^) (NSDictionary * data, NSError *error))block;
 
+
+//修改密码
+-(NSURLSessionDataTask *)updatePassword:(NSMutableDictionary *)params setBlock:(void(^) (NSDictionary * data, NSError *error))block;
 @end

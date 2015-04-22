@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Post/EditCargoInfoTableViewController.m"
-            timestampString = "451367837.879686"
+            timestampString = "451377911.475653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "-initNetWorkData"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Post/EditCargoInfoTableViewController.m"
-            timestampString = "451367837.879686"
+            timestampString = "451377911.475653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "-initNetWorkData"
             landmarkType = "5">
          </BreakpointContent>
@@ -362,11 +362,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Post/EditCargoInfoTableViewController.m"
-            timestampString = "451367837.879686"
+            timestampString = "451377911.475653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "-initNetWorkData"
             landmarkType = "5">
          </BreakpointContent>
@@ -554,11 +554,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Post/EditCargoInfoTableViewController.m"
-            timestampString = "451367837.879686"
+            timestampString = "451377911.475653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "243"
-            endingLineNumber = "243"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "-pgWayBtn:"
             landmarkType = "5">
          </BreakpointContent>
@@ -633,7 +633,7 @@
                   symbolName = "-[HttpProtocolAPI addSenderOrder:images:setBlock:]"
                   moduleName = "Post"
                   urlString = "file:///Users/cheng/ios%E7%BB%83%E4%B9%A0/GitHubCode/Post/Post/HttpProtocolAPI.m"
-                  timestampString = "451368127.184713"
+                  timestampString = "451388599.98374"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "248"
@@ -647,7 +647,7 @@
                   symbolName = "__50-[HttpProtocolAPI addSenderOrder:images:setBlock:]_block_invoke"
                   moduleName = "Post"
                   urlString = "file:///Users/cheng/ios%E7%BB%83%E4%B9%A0/GitHubCode/Post/Post/HttpProtocolAPI.m"
-                  timestampString = "451368127.184825"
+                  timestampString = "451388599.983854"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "248"
@@ -702,6 +702,22 @@
             startingLineNumber = "443"
             endingLineNumber = "443"
             landmarkName = "-getUserInfo:setBlock:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Post/HomeViewController.m"
+            timestampString = "451384704.16834"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "-getCurrentVC"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

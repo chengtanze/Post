@@ -7,6 +7,8 @@
 //
 
 #import "ChangePassWordViewController.h"
+#import "UserDataInterface.h"
+#import "SVProgressHUD.h"
 
 @interface ChangePassWordViewController ()
 
@@ -28,10 +30,28 @@
 
 - (IBAction)nextClick:(id)sender {
     
-    UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController * info = [mainStoryboard instantiateViewControllerWithIdentifier:@"NewPassWordViewController"];
+    if ([self comparePassWord:self.passWordTF.text userPassWord:[UserDataInterface sharedClient].userLoginPassWord]) {
+        UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UIViewController * info = [mainStoryboard instantiateViewControllerWithIdentifier:@"NewPassWordViewController"];
+        
+        [self.navigationController pushViewController:info animated:YES];
+    }
+    else{
+        self.passWordTF.text = @"";
+        [SVProgressHUD showSuccessWithStatus:@"密码错误"];
+    }
     
-    [self.navigationController pushViewController:info animated:YES];
+
+}
+
+-(BOOL)comparePassWord:(NSString *)editPW userPassWord:(NSString *)userPW{
+    BOOL ret = NO;
+    
+    if ([editPW isEqual:userPW]) {
+        ret = YES;
+    }
+    
+    return ret;
 }
 
 /*

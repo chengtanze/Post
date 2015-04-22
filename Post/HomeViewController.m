@@ -11,10 +11,12 @@
 #import "QRCodesViewController.h"
 #import "WWSideslipViewController.h"
 #import "PersonalDataController.h"
-
+#import "LoginViewController.h"
 #import "HttpProtocolAPI.h"
 #import "EditCargoInfoTableViewController.h"
-@interface HomeViewController ()<CustromScrollImageViewTapDelegate, GetSelectIndexDelegate>
+#import "UserDataInterface.h"
+
+@interface HomeViewController ()<CustromScrollImageViewTapDelegate, UITabBarControllerDelegate>
 
 @property(nonatomic, strong)Custom_ScrollImageView * srcollImage;
 
@@ -22,14 +24,13 @@
 
 @implementation HomeViewController
 
--(void)loadView{
-    [super loadView];
-    //self.title = @"首页";
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.11 green:0.690 blue:0.988 alpha:1];
+    
+    self.tabBarController.delegate = self;
+    
+    [self login];
     
     //1EB0FC
 //    [[HttpProtocolAPI sharedClient] login:^(NSDictionary *data, NSError *error) {
@@ -55,22 +56,27 @@
     //[sides addPanGsetureToHomeView];
 }
 
-//滑动手势
-- (void) handlePan: (UIPanGestureRecognizer *)rec{
+-(void)login{
     
+    NSArray * userInfo = [[UserDataInterface sharedClient] loadLoginInfo];
     
-}
+    if (userInfo != nil && ![userInfo isKindOfClass:[NSNull class]] && userInfo.count > 0) {
+        NSString * userName = userInfo[0];
+        NSString * userPW = userInfo[1];
+        
+        if (![userName isEqualToString:@""] && ![userPW isEqualToString:@""]) {
+            
+            UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            LoginViewController * info = [mainStoryboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+            
+            [info login:userName passWord:userPW loginType:1];
+            
+        }
+        else{
+            
+        }
+    }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
-    
-    //[sides addPanGsetureToHomeView];
-    NSLog(@"viewDidAppear");
-}
-
--(void)viewDidDisappear:(BOOL)animated{
-    
 }
 
 -(void)viewDidLayoutSubviews{
@@ -111,18 +117,15 @@
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (1) {
-        if (indexPath.section == 1) {
+    if (![self getLoginState]) {
+        if (indexPath.section == 1 || indexPath.section == 2) {
             
-//                    UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//                    UIViewController * info = [mainStoryboard instantiateViewControllerWithIdentifier:@"NewPassWordViewController"];
-//            
-//                    //[self.navigationController pushViewController:info animated:YES];
-//                    [self presentViewController:info animated:YES completion:^{
-//                        
-//                    }];
-//            
-//            return nil;
+            UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UIViewController * info = [mainStoryboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+            
+            [self.navigationController pushViewController:info animated:YES];
+
+            return nil;
         }
     }
     return indexPath;
@@ -150,24 +153,56 @@
     }
 }
 
--(void)showEditPersonDataView{
-    
-    //先显示首页
-    
-    UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UIViewController * info = [mainStoryboard instantiateViewControllerWithIdentifier:@"EditPersonController"];
-    
-    [self.navigationController pushViewController:info animated:NO];
-//    self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-//    [self presentViewController:info animated:YES completion:^{
-//        
-//    }];
+-(BOOL)getLoginState{
+    return [UserDataInterface sharedClient].bLogin;
 }
 
--(void)setIndex:(NSUInteger)index{
-    if (index == 0) {
-        [self showEditPersonDataView];
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+    
+    if (![self getLoginState]) {
+        UIViewController * currentView = [self getCurrentVC];
+        //if (![currentView.title isEqual:@"登陆"]){
+        //if (![currentView isKindOfClass:[LoginViewController class]]) {
+            UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UIViewController * info = [mainStoryboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+            
+            [self.navigationController pushViewController:info animated:YES];
+            
+            return NO;
+       // }
+
     }
+
+    return YES;
+}
+
+- (UIViewController *)getCurrentVC
+{
+    UIViewController *result = nil;
+    
+    UIWindow * window = [[UIApplication sharedApplication] keyWindow];
+    if (window.windowLevel != UIWindowLevelNormal)
+    {
+        NSArray *windows = [[UIApplication sharedApplication] windows];
+        for(UIWindow * tmpWin in windows)
+        {
+            if (tmpWin.windowLevel == UIWindowLevelNormal)
+            {
+                window = tmpWin;
+                break;
+            }
+        }
+    }
+    
+    UIView *frontView = [[window subviews] objectAtIndex:0];
+    id nextResponder = [frontView nextResponder];
+    
+    if ([nextResponder isKindOfClass:[UIViewController class]])
+        result = nextResponder;
+    else
+        result = window.rootViewController;
+    
+    return result;
 }
 
 #pragma mark - Table view data source

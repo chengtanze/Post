@@ -21,6 +21,11 @@
 + (instancetype)sharedClient;
 
 @property(strong, nonatomic)NSDictionary * dicUserInfo;
+
+@property(assign, nonatomic)BOOL bLogin;
+@property(strong, nonatomic)NSString * userLoginName;
+@property(strong, nonatomic)NSString * userLoginPassWord;
+
 @property(strong, nonatomic)NSString * userNickName;
 @property(strong, nonatomic)NSString * userID;
 @property(assign, nonatomic)NSInteger userID_Int;
@@ -28,5 +33,9 @@
 @property(strong, nonatomic)NSString * userKey;
 @property(strong, nonatomic)NSString * userImageHeader;
 @property(assign, nonatomic)NSUInteger userHonestRank;
+
+
+-(void)saveLoginInfo:(NSString *)loginName passWord:(NSString *)loginPW;
+-(NSArray *)loadLoginInfo;
 
 @end

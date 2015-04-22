@@ -22,6 +22,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedClient = [[UserDataInterface alloc] init];
+        _sharedClient.bLogin = NO;
     });
     
     return _sharedClient;
@@ -61,6 +62,31 @@
         return nHonesRank;
     }
     return nHonesRank;
+}
+
+-(void)saveLoginInfo:(NSString *)loginName passWord:(NSString *)loginPW{
+    
+    //将上述数据全部存储到NSUserDefaults中
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    
+    [userDefaults setObject:loginPW forKey:@"userLoginPassWord"];
+    [userDefaults setObject:loginName forKey:@"userLoginName"];
+    
+    _userLoginName = loginName;
+    _userLoginPassWord = loginPW;
+    
+    //这里建议同步存储到磁盘中，但是不是必须的
+    [userDefaults synchronize];
+}
+
+-(NSArray *)loadLoginInfo{
+    NSUserDefaults *userDefaultes = [NSUserDefaults standardUserDefaults];
+    
+    _userLoginPassWord  = [userDefaultes stringForKey:@"userLoginPassWord"];
+    _userLoginName = [userDefaultes stringForKey:@"userLoginName"];
+    
+    NSArray * loginInfo = [[NSArray alloc]initWithObjects:_userLoginName, _userLoginPassWord, nil];
+    return loginInfo;
 }
 
 @end

@@ -7,6 +7,9 @@
 //
 
 #import "NewPassWordViewController.h"
+#import "HttpProtocolAPI.h"
+#import "UserDataInterface.h"
+#import "SVProgressHUD.h"
 
 @interface NewPassWordViewController ()
 
@@ -36,4 +39,71 @@
 }
 */
 
+- (IBAction)verificationCodeClick:(id)sender {
+    [[HttpProtocolAPI sharedClient] getAuthCode:[UserDataInterface sharedClient].userPhoneNum authType:2 setBlock:^(NSDictionary *data, NSError *error) {
+        [self responseAuthCodeNetWorkData:data errorCode:error];
+    }];
+}
+
+-(void)responseAuthCodeNetWorkData:(NSDictionary *)data errorCode:(NSError *)error{
+    if (data != nil) {
+        //解析数据
+        NSNumber * state = [data valueForKey:@"state"];
+        if (state.intValue == 0) {
+            //获取验证码成功
+            NSLog(@"获取验证码成功");
+        }
+        else{
+            //获取验证码失败
+            NSLog(@"获取验证码失败");
+        }
+        
+    }else{
+        //网络错误
+        NSLog(@"网络错误");
+        
+    }
+}
+
+- (IBAction)okClick:(id)sender {
+    NSMutableDictionary * params = [[NSMutableDictionary alloc]initWithCapacity:15];
+    
+    NSString *strPassWord = self.passWordTF.text;
+    NSString * strAuthCode = self.verificationCodeTF.text;
+    NSNumber * numberType = [[NSNumber alloc]initWithInt:2];
+    NSString * userPhoneNumer = [UserDataInterface sharedClient].userPhoneNum;
+    
+    [params setObject: strPassWord forKey:@"password"];
+    [params setObject: strAuthCode forKey:@"verifyCode"];
+    [params setObject: numberType forKey:@"type"];
+    [params setObject: userPhoneNumer forKey:@"phoneNum"];
+    
+    [[HttpProtocolAPI sharedClient] updatePassword:params setBlock:^(NSDictionary *data, NSError *error) {
+        if (data != nil) {
+            //解析数据
+            NSNumber * state = [data valueForKey:@"state"];
+            if (state.intValue == 0) {
+                //登陆成功
+                NSDictionary * dataArray = [data valueForKey:@"data"];
+                
+                if (dataArray != nil) {
+
+                    }
+                    
+                [SVProgressHUD showSuccessWithStatus:@"操作成功"];
+
+            }
+            else{
+                //登陆失败
+                [SVProgressHUD showSuccessWithStatus:@"操作失败"];
+            }
+            
+        }else{
+            //网络错误
+            [SVProgressHUD showSuccessWithStatus:@"操作失败"];
+        }
+
+    }];
+    
+}
 @end
