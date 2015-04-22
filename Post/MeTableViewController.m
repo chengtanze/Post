@@ -22,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self initLocalData];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -65,10 +65,14 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [self initLocalData];
+    
     WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
     
     PersonalDataController * dataCtrl = (PersonalDataController *)sides->righControl;
     dataCtrl.delegate = self;
+    
+    [dataCtrl initLocalData];
     
     [sides addPanGsetureToHomeView];
 }
@@ -93,10 +97,41 @@
     //    }];
 }
 
--(void)setIndex:(NSUInteger)index{
-    if (index == 0) {
+-(void)showChangePassWordView{
+    
+    UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController * info = [mainStoryboard instantiateViewControllerWithIdentifier:@"ChangePassWordViewController"];
+    
+    [self.navigationController pushViewController:info animated:YES];
+}
+
+-(void)setIndex:(NSUInteger)section Row:(NSUInteger)row{
+    
+    if (section == 0) {
+        //显示个人信息
         [self showEditPersonDataView];
     }
+    else if (section == 1){
+        if (row == 0) {
+            //修改密码
+            [self showChangePassWordView];
+        }
+        else{
+            
+        }
+       
+    }
+    else if (section == 2){
+        //更换手机号码
+    }
+    else if (section == 3){
+        //反馈
+    }
+    else if (section == 4){
+        //帮助
+    }
+
+    
 }
 
 #pragma mark - Table view data source

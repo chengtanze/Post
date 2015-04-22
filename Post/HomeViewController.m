@@ -13,7 +13,7 @@
 #import "PersonalDataController.h"
 
 #import "HttpProtocolAPI.h"
-//#import "EditPersonController.h"
+#import "EditCargoInfoTableViewController.h"
 @interface HomeViewController ()<CustromScrollImageViewTapDelegate, GetSelectIndexDelegate>
 
 @property(nonatomic, strong)Custom_ScrollImageView * srcollImage;
@@ -110,6 +110,25 @@
     NSLog(@"ScrollImageViewdidSelectRowAtIndexPath :%ld", (long)index);
 }
 
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (1) {
+        if (indexPath.section == 1) {
+            
+//                    UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//                    UIViewController * info = [mainStoryboard instantiateViewControllerWithIdentifier:@"NewPassWordViewController"];
+//            
+//                    //[self.navigationController pushViewController:info animated:YES];
+//                    [self presentViewController:info animated:YES completion:^{
+//                        
+//                    }];
+//            
+//            return nil;
+        }
+    }
+    return indexPath;
+}
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if(indexPath.section == 2 && indexPath.row == 0)
     {
@@ -119,15 +138,16 @@
             
         }];
     }
-
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
-    
-    //[sides removeGestureToHomeView];
-    
-    NSLog(@"prepareForSegue");
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.destinationViewController isKindOfClass:[EditCargoInfoTableViewController class]])
+    {
+//            UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//            UIViewController * info = [mainStoryboard instantiateViewControllerWithIdentifier:@"NewPassWordViewController"];
+//        
+//            [self.navigationController pushViewController:info animated:YES];
+    }
 }
 
 -(void)showEditPersonDataView{

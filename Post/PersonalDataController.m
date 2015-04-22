@@ -8,6 +8,9 @@
 
 #import "PersonalDataController.h"
 #import "WWSideslipViewController.h"
+#import "UIImageView+AFNetworking.h"
+#import "UserDataInterface.h"
+
 
 @interface PersonalDataController ()
 
@@ -26,8 +29,7 @@
     _aboutCell.backgroundColor = [UIColor clearColor];
     
     [self setBackGroupImage:nil];
-    
-    //userHeaderImageView
+
     self.userHeaderImageView.layer.cornerRadius = self.userHeaderImageView.bounds.size.width / 2.0;
     self.userHeaderImageView.layer.masksToBounds = YES;
     
@@ -38,9 +40,21 @@
      self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self initLocalData];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)initLocalData{
+
+    self.userNameLB.text = [UserDataInterface sharedClient].userNickName;
+    
+    NSURL * url = [[NSURL alloc]initWithString:[UserDataInterface sharedClient].userImageHeader];
+    [self.userHeaderImageView setImageWithURL:url];
 }
 
 -(void)setBackGroupImage:(UIImage *)image{
@@ -60,7 +74,8 @@
 //}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0 && indexPath.row == 0) {
+    NSLog(@"personData select: section:%ld, row:%ld", indexPath.section, indexPath.row);
+    //if (indexPath.section == 0 && indexPath.row == 0) {
         WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
         
 //        UITabBarController * tabController = (UITabBarController *) sides->mainControl;
@@ -71,11 +86,11 @@
         
        [sides restoreViewState];
         
-        if (_delegate != nil && [self.delegate respondsToSelector:@selector(setIndex:)])
+        if (_delegate != nil && [self.delegate respondsToSelector:@selector(setIndex:Row:)])
         {
-            [_delegate setIndex:indexPath.row];
+            [_delegate setIndex:indexPath.section Row:indexPath.row];
         }
-    }
+    //}
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
