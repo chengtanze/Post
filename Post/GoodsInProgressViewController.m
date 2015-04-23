@@ -11,6 +11,7 @@
 #import "GoodsInProgress_GoodsInfo_Cell.h"
 #import "HttpProtocolAPI.h"
 #import "OrderDetailTableViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface GoodsInProgressViewController ()
 
@@ -93,10 +94,10 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 1) {
-        return 75;
+        return 140;
     }
     
-    return 44;
+    return 36;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -156,6 +157,22 @@
                 NSInteger type = numType.integerValue;
                 
                 goodsInfoCell.goodsState.text = [self getGoodsType:type];
+                goodsInfoCell.startAddressLB.text = [dicData valueForKey:@"pgAddress"];
+                goodsInfoCell.endAddressLB.text = [dicData valueForKey:@"rgAddress"];
+                
+                NSDictionary * dicImage = [dicData valueForKey:@"goodsImg"];
+                if (dicImage != nil) {
+                    if([dicImage respondsToSelector:@selector(objectAtIndex:)]){
+                        
+                        NSString * strImage =  [dicImage valueForKey:@"imgUrl"][0];
+                        
+                        NSURL * url = [[NSURL alloc]initWithString:strImage];
+                        [goodsInfoCell.goodsImageView setImageWithURL:url];
+                        NSLog(@"%@", strImage);
+                    }
+                    
+                }
+
                 
                 if (type == 2) {
                     goodsInfoCell.modifyBtn.hidden = NO;

@@ -15,4 +15,7 @@
 - (IBAction)modifyClick:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *goodsName;
 
+@property (weak, nonatomic) IBOutlet UILabel *startAddressLB;
+@property (weak, nonatomic) IBOutlet UILabel *endAddressLB;
+
 @end

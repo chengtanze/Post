@@ -11,6 +11,8 @@
 #import "GoodsInCancle_State_Cell.h"
 #import "HttpProtocolAPI.h"
 #import "OrderDetailTableViewController.h"
+#import "GoodsInComplete_Address_Cell.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface GoodsInCancleViewController ()
 
@@ -67,22 +69,26 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
     // Return the number of sections.
+    NSLog(@"sections count:%ld", self.arrayCancleData.count);
     return (self.arrayCancleData != nil ? self.arrayCancleData.count : 0);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     // Return the number of rows in the section.
-    return 2;
+    return 3;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
-        return 44;
+        return 36;
     }
-    
-    return 75;
+    else if(indexPath.row == 2)
+    {
+        return 53;
+    }
+    return 87;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -92,6 +98,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell;
+    
+    NSLog(@"cellForRowAtIndexPath :%ld:%ld", indexPath.section, indexPath.row);
     if (indexPath.row == 0 ) {
         GoodsInComplete_Times_Cell * timeCell = [tableView dequeueReusableCellWithIdentifier:@"Times" forIndexPath:indexPath];
         
@@ -119,8 +127,34 @@
                 
                 goodsInfoCell.GoodsState.text = [self getGoodsType:numberState.integerValue];
                 
+                NSDictionary * dicImage = [dicData valueForKey:@"goodsImg"];
+                if (dicImage != nil) {
+                    if([dicImage respondsToSelector:@selector(objectAtIndex:)]){
+                        
+                        NSString * strImage =  [dicImage valueForKey:@"imgUrl"][0];
+                        
+                        NSURL * url = [[NSURL alloc]initWithString:strImage];
+                        [goodsInfoCell.GoodsImageView setImageWithURL:url];
+                        NSLog(@"%@", strImage);
+                    }
+                }
             }
         }
+        cell = goodsInfoCell;
+    }
+    else{
+        GoodsInComplete_Address_Cell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"Address" forIndexPath:indexPath];
+        
+//        if (self.arrayCancleData != nil) {
+//            NSLog(@"%ld", (long)indexPath.row);
+//            NSDictionary * dicData = self.arrayCancleData[indexPath.section];
+//            if (dicData != nil) {
+//                goodsInfoCell.startAddress.text = [dicData valueForKey:@"pgAddress"];
+//                goodsInfoCell.endAddress.text = [dicData valueForKey:@"rgAddress"];
+//                
+//            }
+//        }
+        
         cell = goodsInfoCell;
     }
 

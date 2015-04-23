@@ -18,6 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.navigationController.title = @"发货订单";
+    
     UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UIViewController * oneViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"GoodsInProgressViewController"];
 

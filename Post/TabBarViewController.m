@@ -16,6 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+//    UIImage *imageN = [UIImage imageNamed:@"ic_home_normal.png"];
+//    UIImage *image = [UIImage imageNamed:@"ic_home_pressed.png"];
+//    //[self.tabBarController.tabBar setBackgroundImage:image];
+//    self.tabBarItem.selectedImage = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//    
+//    self.tabBarItem.image = imageN;
     // Do any additional setup after loading the view.
 }
 
@@ -33,11 +40,6 @@
     
     //判断是否是第一次登陆，显示引导页
     ///[self performSegueWithIdentifier:@"LeadView" sender:self];
-}
-
-
-- (void)tabBarController:(UITabBarController *)barController didSelectViewController:(UIViewController *)viewController{
-    
 }
 
 /*

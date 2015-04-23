@@ -16,6 +16,7 @@
 #import "GMDCircleLoader.h"
 
 #import "HttpProtocolAPI.h"
+#import "UIImageView+AFNetworking.h"
 #import "OrderDetailTableViewController.h"
 
 @interface GoodsInCompleteViewController ()
@@ -32,7 +33,7 @@
     
     _selectIndex = -1;
     
-    [[HttpProtocolAPI sharedClient] getOrderByState:0 setBlock:^(NSDictionary *data, NSError *error) {
+    [[HttpProtocolAPI sharedClient] getOrderByState:1 setBlock:^(NSDictionary *data, NSError *error) {
         
         if (data != nil && [self getRetDataState:data]) {
             
@@ -79,10 +80,13 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
-        return 44;
+        return 36;
     }
-    
-    return 60;
+    else if(indexPath.row == 2)
+    {
+        return 53;
+    }
+    return 87;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -144,6 +148,18 @@
                 NSNumber * numberState = [dicData valueForKey:@"deliveryState"];
                 
                 goodsInfoCell.goodsState.text = [self getGoodsType:numberState.integerValue];
+                
+                NSDictionary * dicImage = [dicData valueForKey:@"goodsImg"];
+                if (dicImage != nil) {
+                    if([dicImage respondsToSelector:@selector(objectAtIndex:)]){
+                        
+                        NSString * strImage =  [dicImage valueForKey:@"imgUrl"][0];
+                        
+                        NSURL * url = [[NSURL alloc]initWithString:strImage];
+                        [goodsInfoCell.goodsImageView setImageWithURL:url];
+                        NSLog(@"%@", strImage);
+                    }
+                }
             }
         }
         
@@ -152,8 +168,6 @@
     }
     else{
         GoodsInComplete_Address_Cell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"Address" forIndexPath:indexPath];
-//        goodsInfoCell.startAddress.text = @"深圳市宝安区西乡";
-//        goodsInfoCell.endAddress.text = @"深圳市南山区科技园";
         
         if (self.arrayCompleteData != nil) {
             NSLog(@"%ld", (long)indexPath.row);

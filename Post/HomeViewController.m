@@ -26,9 +26,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.11 green:0.690 blue:0.988 alpha:1];
-    
-    self.tabBarController.delegate = self;
+
+    [self initLocalData];
     
     [self login];
     
@@ -54,6 +53,69 @@
 
     
     //[sides addPanGsetureToHomeView];
+}
+
+
+-(void)initLocalData{
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.11 green:0.690 blue:0.988 alpha:1];
+    
+    self.tabBarController.delegate = self;
+    
+    [self setTabBarImage];
+}
+
+-(void)setTabBarImage{
+    
+    UITabBar *tabBar = self.tabBarController.tabBar;
+    
+    UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
+    UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
+    UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
+    UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
+    
+    
+    tabBarItem1.title = @"首页";
+    
+    UIImage* selectedImage1 = [self scaleToSize:[UIImage imageNamed:@"ic_home_pressed.png"] size:CGSizeMake(30, 30)];
+    UIImage* normalImage1 = [self scaleToSize:[UIImage imageNamed:@"ic_home_normal.png"] size:CGSizeMake(30, 30)];
+    
+    UIImage* selectedImage2 = [self scaleToSize:[UIImage imageNamed:@"ic_order_pressed.png"] size:CGSizeMake(30, 30)];
+    UIImage* normalImage2 = [self scaleToSize:[UIImage imageNamed:@"ic_order_normal.png"] size:CGSizeMake(30, 30)];
+    
+    UIImage* selectedImage3 = [self scaleToSize:[UIImage imageNamed:@"ic_local_pressed.png"] size:CGSizeMake(30, 30)];
+    UIImage* normalImage3 = [self scaleToSize:[UIImage imageNamed:@"ic_local_normal.png"] size:CGSizeMake(30, 30)];
+    
+    UIImage* selectedImage4 = [self scaleToSize:[UIImage imageNamed:@"ic_my_pressed.png"] size:CGSizeMake(30, 30)];
+    UIImage* normalImage4 = [self scaleToSize:[UIImage imageNamed:@"ic_my_normal.png"] size:CGSizeMake(30, 30)];
+    
+    
+    //声明这张图片用原图(别渲染)
+    selectedImage1 = [selectedImage1 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [tabBarItem1 setFinishedSelectedImage:selectedImage1 withFinishedUnselectedImage:normalImage1];
+    
+    selectedImage2 = [selectedImage2 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [tabBarItem2 setFinishedSelectedImage:selectedImage2 withFinishedUnselectedImage:normalImage2];
+    
+    selectedImage3 = [selectedImage3 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [tabBarItem3 setFinishedSelectedImage:selectedImage3 withFinishedUnselectedImage:normalImage3];
+    
+    selectedImage4 = [selectedImage4 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    [tabBarItem4 setFinishedSelectedImage:selectedImage4 withFinishedUnselectedImage:normalImage4];
+}
+
+//图片缩放到指定大小尺寸
+- (UIImage *)scaleToSize:(UIImage *)img size:(CGSize)size{
+    // 创建一个bitmap的context
+    // 并把它设置成为当前正在使用的context
+    UIGraphicsBeginImageContext(size);
+    // 绘制改变大小的图片
+    [img drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    // 从当前context中创建一个改变大小后的图片
+    UIImage* scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+    // 使当前的context出堆栈
+    UIGraphicsEndImageContext();
+    // 返回新的改变大小后的图片
+    return scaledImage; 
 }
 
 -(void)login{
