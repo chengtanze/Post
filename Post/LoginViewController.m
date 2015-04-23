@@ -38,20 +38,20 @@
 }
 */
 
-//#define USERTEST
+#define USERTEST
 
 - (IBAction)loginClick:(id)sender {
 
     
 #ifdef USERTEST
-    _strUserName = self.phoneNumber.text;
-    _strUserPassWord = self.userPassWord.text;
+    _userName = self.phoneNumber.text;
+    _userPW = self.userPassWord.text;
 #else
-    _strUserName = @"13691790130";//@"18576430783";//
-    _strUserPassWord = @"12345678";
+    _userName = @"13691790130";//@"18576430783";//
+    _userPW = @"12345678";
 #endif
-    
-    [self login:_strUserName passWord:_strUserPassWord loginType:0];
+    [[UserDataInterface sharedClient] saveLoginInfo:_userName passWord:_userPW];
+    [self login:_userName passWord:_userPW loginType:0];
 }
 
 -(void)login:(NSString *)strUserName passWord:(NSString *)strUserPassWord loginType:(NSInteger)type{
@@ -86,10 +86,11 @@
 //                NSString *sid = [dataArray valueForKey:@"sid"];                 //sessionId
 //                NSString *key = [dataArray valueForKey:@"key"];
                 
+                //NSLog(@"pw:%@", _userPW);
                 [UserDataInterface sharedClient].bLogin = YES;
                 [UserDataInterface sharedClient].dicUserInfo = dataArray;
                 if (type == 0) {
-                    [[UserDataInterface sharedClient] saveLoginInfo:self.strUserName passWord:self.strUserPassWord];
+                    //[[UserDataInterface sharedClient] saveLoginInfo:_userName passWord:_userPW];
                     
                     [self.navigationController popViewControllerAnimated:YES];
                 }
@@ -98,13 +99,14 @@
 
             }
         }
-        else{
+        else if(state.intValue == 1){
             //登陆失败
-            
+            [SVProgressHUD showSuccessWithStatus:@"密码错误"];
         }
         
     }else{
         //网络错误
+        [SVProgressHUD showSuccessWithStatus:@"登陆失败"];
         
     }
 }

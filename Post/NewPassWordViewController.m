@@ -10,6 +10,7 @@
 #import "HttpProtocolAPI.h"
 #import "UserDataInterface.h"
 #import "SVProgressHUD.h"
+#import "PublicFunction.h"
 
 @interface NewPassWordViewController ()
 
@@ -68,12 +69,14 @@
 - (IBAction)okClick:(id)sender {
     NSMutableDictionary * params = [[NSMutableDictionary alloc]initWithCapacity:15];
     
-    NSString *strPassWord = self.passWordTF.text;
+    NSString * strPassWord = self.passWordTF.text;
     NSString * strAuthCode = self.verificationCodeTF.text;
     NSNumber * numberType = [[NSNumber alloc]initWithInt:2];
     NSString * userPhoneNumer = [UserDataInterface sharedClient].userPhoneNum;
     
-    [params setObject: strPassWord forKey:@"password"];
+    
+    NSString * md5_PassWord = [PublicFunction md5:strPassWord];
+    [params setObject: md5_PassWord forKey:@"password"];
     [params setObject: strAuthCode forKey:@"verifyCode"];
     [params setObject: numberType forKey:@"type"];
     [params setObject: userPhoneNumer forKey:@"phoneNum"];
@@ -89,9 +92,12 @@
                 if (dataArray != nil) {
 
                     }
-                    
+                //NSLog(@"pw:%@", strPassWord);
+                [[UserDataInterface sharedClient] saveLoginInfo:[UserDataInterface sharedClient].userLoginName passWord:strPassWord];
+                
                 [SVProgressHUD showSuccessWithStatus:@"操作成功"];
 
+                [self.navigationController popViewControllerAnimated:YES];
             }
             else{
                 //登陆失败

@@ -81,10 +81,10 @@
 
 -(void)viewDidLayoutSubviews{
     
-    NSString *str1 = @"1.JPG";
-    NSString *str2 = @"2.JPG";
-    NSString *str3 = @"3.JPG";
-    NSString *str4 = @"4.JPG";
+    NSString *str1 = @"dot1.png";
+    NSString *str2 = @"dot2.png";
+    NSString *str3 = @"dot3.png";
+    NSString *str4 = @"dot4.png";
     
     NSArray * array = @[str1, str2, str3, str4];
     

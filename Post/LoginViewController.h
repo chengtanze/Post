@@ -13,8 +13,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumber;
 @property (weak, nonatomic) IBOutlet UITextField *userPassWord;
 
-@property(assign, nonatomic)NSString * strUserName;
-@property(assign, nonatomic)NSString * strUserPassWord;
+@property(strong, nonatomic)NSString * userName;
+@property(strong, nonatomic)NSString * userPW;
 
 -(void)login:(NSString *)strUserName passWord:(NSString *)strUserPassWord loginType:(NSInteger)type;
 @end

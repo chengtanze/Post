@@ -31,6 +31,7 @@
 }
 
 -(void)initLocalData{
+    self.navigationController.title = @"我的";
     
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.11 green:0.690 blue:0.988 alpha:1];
     

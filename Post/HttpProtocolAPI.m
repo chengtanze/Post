@@ -98,6 +98,17 @@ static NSString * const APIBaseURLString = @"http://114.215.132.245/";
     [params setObject: phoneNum forKey:@"phoneNum"];
     [params setObject: numberType forKey:@"type"];
     
+    if(type != 0){
+        NSString * uid = [UserDataInterface sharedClient].userID;
+        NSString * key = [UserDataInterface sharedClient].userKey;
+        
+        [params setObject: uid forKey:@"uid"];
+        [params setObject: @"" forKey:@"imei"];
+        [params setObject: @"" forKey:@"ip"];
+        [params setObject: @"" forKey:@"mac"];
+        [params setObject: key forKey:@"key"];
+    }
+    
     return [[HttpProtocolAPI sharedClient] POST:@"qmld/api/getVerifyCode.php?" parameters:params success:^(NSURLSessionDataTask * __unused task, id responseObject)
             {
                 NSString * xmlstring = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
