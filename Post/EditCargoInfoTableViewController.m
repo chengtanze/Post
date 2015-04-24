@@ -133,7 +133,7 @@
     else if([segue.destinationViewController isKindOfClass:[ConfirmTableViewController class]]){
         NSLog(@"ConfirmTableViewController");
         
-        //[self addParams];
+        [self addParams];
         
         ConfirmTableViewController *viewController = (ConfirmTableViewController *)segue.destinationViewController;
         viewController.addOrderParams = _addOrderParams;

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TaskOrderUnfinishedViewController : UITableViewController
+@property(strong, nonatomic)NSArray * arrayOrderUnfinishedData;
+@property(assign, nonatomic)NSInteger selectIndex;
 
 @end

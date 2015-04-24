@@ -19,4 +19,6 @@
 @property(nonatomic, weak)id<photoGroupDelegate> delegate;
 
 -(void)setPhoto:(UIImage *)image byIndex:(NSInteger)index;
+
+-(void)setURLPhoto:(NSURL *)url byIndex:(NSInteger)index;
 @end

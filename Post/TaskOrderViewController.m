@@ -24,7 +24,7 @@
     
     oneViewController.title = @"   未完成   ";
     
-    UIViewController * twoViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"GoodsInCompleteViewController"];
+    UIViewController * twoViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"TaskOrderCompleteViewController"];
     twoViewController.title = @"   已完成   ";
     
     

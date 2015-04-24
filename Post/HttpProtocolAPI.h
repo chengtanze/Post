@@ -32,6 +32,9 @@
 //获取指定状态订单
 -(NSURLSessionDataTask *)getOrderByState:(NSUInteger)state setBlock:(void(^) (NSDictionary * data, NSError *error))block;
 
+//获取任务订单
+-(NSURLSessionDataTask *)getTaskOrderByState:(NSUInteger)state setBlock:(void(^) (NSDictionary * data, NSError *error))block;
+
 //根据城市获取订单（周边）
 -(NSURLSessionDataTask *)getOrderByCityId:(NSUInteger)cityID setBlock:(void(^) (NSDictionary * data, NSError *error))block;
 

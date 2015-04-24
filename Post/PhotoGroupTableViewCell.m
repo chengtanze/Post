@@ -7,7 +7,7 @@
 //
 
 #import "PhotoGroupTableViewCell.h"
-
+#import "UIButton+AFNetworking.h"
 
 
 #define POST_PHOTOGROUPVIEW_ITEMHEIGHTSEP 5.0
@@ -54,7 +54,7 @@
                 y += POST_PHOTOGROUPVIEW_TIPLABELHEIGHT;
                 
             UIButton * button = [[UIButton alloc]initWithFrame:CGRectMake(x, y, itemHeight, itemWidth)];
-            [button setBackgroundImage:[UIImage imageNamed:@"4-4SMART-BOX-消息_启动预警.png"] forState:UIControlStateNormal];
+            [button setBackgroundImage:[UIImage imageNamed:@"img_apply_default_normal.9.png"] forState:UIControlStateNormal];
             button.tag = nIndex;
             [button addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:button];
@@ -95,6 +95,15 @@
     UIButton * selectBtn = (UIButton *)_photoArray[index];
     if (selectBtn != nil) {
         [selectBtn setBackgroundImage:image forState:UIControlStateNormal];
+    }
+}
+
+-(void)setURLPhoto:(NSURL *)url byIndex:(NSInteger)index{
+    
+    UIButton * selectBtn = (UIButton *)_photoArray[index];
+    if (selectBtn != nil) {
+        //[selectBtn setBackgroundImage:image forState:UIControlStateNormal];
+        [selectBtn setImageForState:UIControlStateNormal withURL:url];
     }
 }
 

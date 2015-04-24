@@ -1,41 +1,40 @@
 //
-//  GoodsInCancleViewController.m
+//  TaskOrderCompleteViewController.m
 //  Post
 //
-//  Created by wangsl-iMac on 15/3/2.
+//  Created by cheng on 15/4/24.
 //  Copyright (c) 2015年 cheng. All rights reserved.
 //
 
-#import "GoodsInCancleViewController.h"
-#import "GoodsInComplete_Times_Cell.h"
-#import "GoodsInCancle_State_Cell.h"
+#import "TaskOrderCompleteViewController.h"
 #import "HttpProtocolAPI.h"
-#import "OrderDetailTableViewController.h"
-#import "GoodsInComplete_Address_Cell.h"
 #import "UIImageView+AFNetworking.h"
-#import "GoodsInCancle_Address_Cell.h"
+#import "UIButton+AFNetworking.h"
+#import "TaskOrderComplete_Address_Cell.h"
+#import "TaskOrderComplete_Order_Cell.h"
+#import "TaskOrderComplete_State_Cell.h"
+#import "PhotoGroupTableViewCell.h"
 
-
-@interface GoodsInCancleViewController ()
+@interface TaskOrderCompleteViewController ()
 
 @end
 
-@implementation GoodsInCancleViewController
+@implementation TaskOrderCompleteViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     _selectIndex = -1;
     
-    [[HttpProtocolAPI sharedClient] getOrderByState:2 setBlock:^(NSDictionary *data, NSError *error) {
+    [[HttpProtocolAPI sharedClient] getTaskOrderByState:1 setBlock:^(NSDictionary *data, NSError *error) {
         
         if (data != nil && [self getRetDataState:data]) {
             
-            self.arrayCancleData = [data valueForKey:@"data"];
+            self.arrayOrderCompleteData = [data valueForKey:@"data"];
             
-            if(![self.arrayCancleData respondsToSelector:@selector(objectAtIndex:)])
+            if(![self.arrayOrderCompleteData respondsToSelector:@selector(objectAtIndex:)])
             {
                 NSLog(@"is null");
-                self.arrayCancleData = nil;
+                self.arrayOrderCompleteData = nil;
             }
             
             [self.tableView reloadData];
@@ -66,19 +65,23 @@
     return ret;
 }
 
-#pragma mark - Table view data source
+//设置tableview头部高度
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0.1;
+}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
+    
     // Return the number of sections.
     //NSLog(@"sections count:%ld", self.arrayCancleData.count);
-    return (self.arrayCancleData != nil ? self.arrayCancleData.count : 0);
+    return (self.arrayOrderCompleteData != nil ? self.arrayOrderCompleteData.count : 0);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
     // Return the number of rows in the section.
-    return 3;
+    return 4;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -86,11 +89,20 @@
     if (indexPath.row == 0) {
         return 36;
     }
+    else if(indexPath.row == 1)
+    {
+        return 87;
+    }
     else if(indexPath.row == 2)
     {
         return 53;
     }
-    return 87;
+    else if(indexPath.row == 3)
+    {
+        return 80;
+    }
+    
+    return 44;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -103,31 +115,31 @@
     
     NSLog(@"cellForRowAtIndexPath :%ld:%ld", (long)indexPath.section, (long)indexPath.row);
     if (indexPath.row == 0 ) {
-        GoodsInComplete_Times_Cell * timeCell = [tableView dequeueReusableCellWithIdentifier:@"Times" forIndexPath:indexPath];
+        TaskOrderComplete_Order_Cell * timeCell = [tableView dequeueReusableCellWithIdentifier:@"OrderID" forIndexPath:indexPath];
         
-        if (self.arrayCancleData != nil) {
+        if (self.arrayOrderCompleteData != nil) {
             
-            NSDictionary * dicData = self.arrayCancleData[indexPath.section];
+            NSDictionary * dicData = self.arrayOrderCompleteData[indexPath.section];
             if (dicData != nil) {
-                timeCell.timeLable.text = [dicData valueForKey:@"num"];
+                timeCell.orderIDLB.text = [dicData valueForKey:@"num"];
             }
         }
         cell = timeCell;
     }
     else if(indexPath.row == 1){
-        GoodsInCancle_State_Cell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"State" forIndexPath:indexPath];
-
-        goodsInfoCell.GoodsState.text = @"已取消";
+        TaskOrderComplete_State_Cell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"State" forIndexPath:indexPath];
         
-        if (self.arrayCancleData != nil) {
+        goodsInfoCell.goodsStateLB.text = @"已取消";
+        
+        if (self.arrayOrderCompleteData != nil) {
             
-            NSDictionary * dicData = self.arrayCancleData[indexPath.section];
+            NSDictionary * dicData = self.arrayOrderCompleteData[indexPath.section];
             if (dicData != nil) {
-                goodsInfoCell.GoodsName.text = [dicData valueForKey:@"name"];
+                goodsInfoCell.goodsNameLB.text = [dicData valueForKey:@"name"];
                 
                 NSNumber * numberState = [dicData valueForKey:@"deliveryState"];
                 
-                //goodsInfoCell.GoodsState.text = [self getGoodsType:numberState.integerValue];
+                goodsInfoCell.goodsStateLB.text = [self getGoodsType:numberState.integerValue];
                 
                 NSDictionary * dicImage = [dicData valueForKey:@"goodsImg"];
                 if (dicImage != nil) {
@@ -136,7 +148,7 @@
                         NSString * strImage =  [dicImage valueForKey:@"imgUrl"][0];
                         
                         NSURL * url = [[NSURL alloc]initWithString:strImage];
-                        [goodsInfoCell.GoodsImageView setImageWithURL:url];
+                        [goodsInfoCell.goodsImgeView setImageWithURL:url];
                         NSLog(@"%@", strImage);
                     }
                 }
@@ -144,47 +156,52 @@
         }
         cell = goodsInfoCell;
     }
-    else{
-        GoodsInCancle_Address_Cell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"Address" forIndexPath:indexPath];
+    else if(indexPath.row == 2){
+        TaskOrderComplete_Address_Cell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"Address" forIndexPath:indexPath];
         
-        if (self.arrayCancleData != nil) {
+        if (self.arrayOrderCompleteData != nil) {
             NSLog(@"%ld", (long)indexPath.row);
-            NSDictionary * dicData = self.arrayCancleData[indexPath.section];
+            NSDictionary * dicData = self.arrayOrderCompleteData[indexPath.section];
             if (dicData != nil) {
                 goodsInfoCell.startAddressLB.text = [dicData valueForKey:@"pgAddress"];
                 goodsInfoCell.endAddressLB.text = [dicData valueForKey:@"rgAddress"];
-                
             }
         }
         
         cell = goodsInfoCell;
     }
+    else if(indexPath.row == 3){
+        PhotoGroupTableViewCell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"Photos" forIndexPath:indexPath];
 
+        if (self.arrayOrderCompleteData != nil) {
+            
+            NSDictionary * dicData = self.arrayOrderCompleteData[indexPath.section];
+            if (dicData != nil) {
+                
+                NSDictionary * dicImage = [dicData valueForKey:@"validateImg"];
+                if (dicImage != nil) {
+                    if([dicImage respondsToSelector:@selector(objectAtIndex:)]){
+                        
+                        for (int nIndex = 0; nIndex < dicImage.count; nIndex++) {
+                            NSString * strImage =  [dicImage valueForKey:@"imgUrl"][nIndex];
+                            
+                            NSURL * url = [[NSURL alloc]initWithString:strImage];
+                            
+                            [goodsInfoCell setURLPhoto:url byIndex:nIndex];
+                            NSLog(@"%@", strImage);
+                        }
+
+                    }
+                }
+            }
+        }
+        cell = goodsInfoCell;
+    }
+    
     
     return cell;
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if([segue.destinationViewController isKindOfClass:[OrderDetailTableViewController class]])
-    {
-        OrderDetailTableViewController *viewController = (OrderDetailTableViewController *)segue.destinationViewController;
-        
-        NSLog(@"%ld", (long)_selectIndex);
-        
-        viewController.selectData = self.arrayCancleData[_selectIndex];
-        //        viewController.delegate = self;
-        //        NSInteger nType = 0;
-        //        if ([segue.identifier isEqualToString:@"sourceAddress"])
-        //        {
-        //            nType = 0;
-        //        }
-        //        else if ([segue.identifier isEqualToString:@"targetAddress"]){
-        //            nType = 1;
-        //        }
-        //        
-        //        viewController.addressType = nType;
-    }
-}
 
 -(NSString *)getGoodsType:(NSInteger)type{
     
@@ -218,6 +235,29 @@
     return strType;
 }
 
+#pragma mark - Table view data source
+
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//#warning Potentially incomplete method implementation.
+//    // Return the number of sections.
+//    return 0;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//#warning Incomplete method implementation.
+//    // Return the number of rows in the section.
+//    return 0;
+//}
+
+/*
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    
+    // Configure the cell...
+    
+    return cell;
+}
+*/
 
 /*
 // Override to support conditional editing of the table view.
