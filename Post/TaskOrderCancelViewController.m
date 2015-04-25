@@ -1,41 +1,39 @@
 //
-//  TaskOrderUnfinishedViewController.m
+//  TaskOrderCancelViewController.m
 //  Post
 //
-//  Created by cheng on 15/3/8.
+//  Created by cheng on 15/4/25.
 //  Copyright (c) 2015年 cheng. All rights reserved.
 //
 
-#import "TaskOrderUnfinishedViewController.h"
-
-#import "TaskOrderUnfinished_Address_Cell.h"
-#import "TaskOrderUnfinished_Goods_Cell.h"
-#import "TaskOrderUnfinished_Order_Cell.h"
-#import "TaskOrderUnfinished_Times_Cell.h"
+#import "TaskOrderCancelViewController.h"
+#import "TaskOrderCancel_Address_Cell.h"
+#import "TaskOrderCancel_Order_Cell.h"
+#import "TaskOrderCancel_State_Cell.h"
 #import "HttpProtocolAPI.h"
 #import "UIImageView+AFNetworking.h"
 
-
-@interface TaskOrderUnfinishedViewController ()
+@interface TaskOrderCancelViewController ()
 
 @end
 
-@implementation TaskOrderUnfinishedViewController
+@implementation TaskOrderCancelViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     _selectIndex = -1;
     
-    [[HttpProtocolAPI sharedClient] getTaskOrderByState:0 setBlock:^(NSDictionary *data, NSError *error) {
+    [[HttpProtocolAPI sharedClient] getTaskOrderByState:2 setBlock:^(NSDictionary *data, NSError *error) {
         
         if (data != nil && [self getRetDataState:data]) {
             
-            self.arrayOrderUnfinishedData = [data valueForKey:@"data"];
+            self.arrayOrderCancelData = [data valueForKey:@"data"];
             
-            if(![self.arrayOrderUnfinishedData respondsToSelector:@selector(objectAtIndex:)])
+            if(![self.arrayOrderCancelData respondsToSelector:@selector(objectAtIndex:)])
             {
                 NSLog(@"is null");
-                self.arrayOrderUnfinishedData = nil;
+                self.arrayOrderCancelData = nil;
             }
             
             [self.tableView reloadData];
@@ -52,6 +50,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 -(BOOL)getRetDataState:(NSDictionary *)data{
     BOOL ret = NO;
     if (data != nil) {
@@ -65,7 +64,6 @@
     return ret;
 }
 
-#pragma mark - Table view data source
 //设置tableview头部高度
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -76,13 +74,13 @@
     
     // Return the number of sections.
     //NSLog(@"sections count:%ld", self.arrayCancleData.count);
-    return (self.arrayOrderUnfinishedData != nil ? self.arrayOrderUnfinishedData.count : 0);
+    return (self.arrayOrderCancelData != nil ? self.arrayOrderCancelData.count : 0);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     // Return the number of rows in the section.
-    return 4;
+    return 3;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -100,9 +98,9 @@
     }
     else if(indexPath.row == 3)
     {
-        return 70;
+        return 80;
     }
-
+    
     return 44;
 }
 
@@ -116,25 +114,25 @@
     
     NSLog(@"cellForRowAtIndexPath :%ld:%ld", (long)indexPath.section, (long)indexPath.row);
     if (indexPath.row == 0 ) {
-        TaskOrderUnfinished_Order_Cell * timeCell = [tableView dequeueReusableCellWithIdentifier:@"OrderID" forIndexPath:indexPath];
+        TaskOrderCancel_Order_Cell * timeCell = [tableView dequeueReusableCellWithIdentifier:@"OrderID" forIndexPath:indexPath];
         
-        if (self.arrayOrderUnfinishedData != nil) {
+        if (self.arrayOrderCancelData != nil) {
             
-            NSDictionary * dicData = self.arrayOrderUnfinishedData[indexPath.section];
+            NSDictionary * dicData = self.arrayOrderCancelData[indexPath.section];
             if (dicData != nil) {
-                timeCell.orderID.text = [dicData valueForKey:@"num"];
+                timeCell.orderIDLB.text = [dicData valueForKey:@"num"];
             }
         }
         cell = timeCell;
     }
     else if(indexPath.row == 1){
-        TaskOrderUnfinished_Goods_Cell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"State" forIndexPath:indexPath];
+        TaskOrderCancel_State_Cell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"State" forIndexPath:indexPath];
         
         goodsInfoCell.goodsStateLB.text = @"已取消";
         
-        if (self.arrayOrderUnfinishedData != nil) {
+        if (self.arrayOrderCancelData != nil) {
             
-            NSDictionary * dicData = self.arrayOrderUnfinishedData[indexPath.section];
+            NSDictionary * dicData = self.arrayOrderCancelData[indexPath.section];
             if (dicData != nil) {
                 goodsInfoCell.goodsNameLB.text = [dicData valueForKey:@"name"];
                 
@@ -158,43 +156,27 @@
         cell = goodsInfoCell;
     }
     else if(indexPath.row == 2){
-        TaskOrderUnfinished_Address_Cell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"Address" forIndexPath:indexPath];
+        TaskOrderCancel_Address_Cell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"Address" forIndexPath:indexPath];
         
-        if (self.arrayOrderUnfinishedData != nil) {
+        if (self.arrayOrderCancelData != nil) {
             NSLog(@"%ld", (long)indexPath.row);
-            NSDictionary * dicData = self.arrayOrderUnfinishedData[indexPath.section];
+            NSDictionary * dicData = self.arrayOrderCancelData[indexPath.section];
             if (dicData != nil) {
-                goodsInfoCell.startAddressLB.text = [dicData valueForKey:@"pgAddress"];
+                goodsInfoCell.startAddress.text = [dicData valueForKey:@"pgAddress"];
                 goodsInfoCell.endAddressLB.text = [dicData valueForKey:@"rgAddress"];
-                
             }
         }
         
         cell = goodsInfoCell;
     }
-    else if(indexPath.row == 3){
-        TaskOrderUnfinished_Times_Cell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"Times" forIndexPath:indexPath];
-        
-        if (self.arrayOrderUnfinishedData != nil) {
-            NSLog(@"%ld", (long)indexPath.row);
-            NSDictionary * dicData = self.arrayOrderUnfinishedData[indexPath.section];
-            if (dicData != nil) {
-                goodsInfoCell.recTimesLB.text = [dicData valueForKey:@"rgEndTime"];
-                goodsInfoCell.remainTimeLB.text = @"0天";//[dicData valueForKey:@"rgAddress"];
-                
-            }
-        }
-        
-        cell = goodsInfoCell;
-    }
-    
+
     
     return cell;
 }
 
 
 -(NSString *)getGoodsType:(NSInteger)type{
-    //0未接单、1已接单、2取货中、3派送中、4已签收（完成），5已取消，默认为0
+    
     NSString * strType = @"未知";
     switch (type) {
         case 0:
@@ -224,6 +206,7 @@
     
     return strType;
 }
+
 
 #pragma mark - Table view data source
 

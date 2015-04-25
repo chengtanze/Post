@@ -602,11 +602,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Post/PeripheralsTableViewController.m"
-            timestampString = "451274741.478534"
+            timestampString = "451642861.703506"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "-getFilenamelistOfType:fromDirPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -640,22 +640,6 @@
             startingLineNumber = "39"
             endingLineNumber = "39"
             landmarkName = "-initLocalData"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Post/HttpProtocolAPI.m"
-            timestampString = "451551357.627989"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "270"
-            endingLineNumber = "270"
-            landmarkName = "-addSenderOrder:images:setBlock:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -20,4 +20,12 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)getOrderClick:(id)sender {
+
+    NSInteger select = self.tag;
+    //NSLog(@"getOrderClick select :%ld", self.tag);
+    if (_delegate != nil && [self.delegate respondsToSelector:@selector(SelectIndex:)]) {
+        [_delegate SelectIndex:select];
+    }
+}
 @end

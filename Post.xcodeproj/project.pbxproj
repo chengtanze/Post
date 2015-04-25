@@ -63,6 +63,10 @@
 		14447AC11ADB5366005E6974 /* DeliveryWay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14447AC01ADB5366005E6974 /* DeliveryWay.xib */; };
 		14447AC31ADBAC40005E6974 /* TimerPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14447AC21ADBAC40005E6974 /* TimerPicker.xib */; };
 		14447AC61ADBAF3B005E6974 /* TimerPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14447AC51ADBAF3B005E6974 /* TimerPickerView.m */; };
+		1445350F1AEB36EC00FDAE79 /* TaskOrderCancelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1445350E1AEB36EC00FDAE79 /* TaskOrderCancelViewController.m */; };
+		144535121AEB374D00FDAE79 /* TaskOrderCancel_Order_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 144535111AEB374D00FDAE79 /* TaskOrderCancel_Order_Cell.m */; };
+		144535151AEB375F00FDAE79 /* TaskOrderCancel_State_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 144535141AEB375F00FDAE79 /* TaskOrderCancel_State_Cell.m */; };
+		144535181AEB376F00FDAE79 /* TaskOrderCancel_Address_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 144535171AEB376F00FDAE79 /* TaskOrderCancel_Address_Cell.m */; };
 		14456D6F1AAC373F0067068E /* TaskOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14456D6E1AAC373F0067068E /* TaskOrderViewController.m */; };
 		14456D721AAC3D780067068E /* TaskOrderUnfinishedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14456D711AAC3D780067068E /* TaskOrderUnfinishedViewController.m */; };
 		1447CD8F1ABD021700EDECCF /* AccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447CD8E1ABD021700EDECCF /* AccountInfoViewController.m */; };
@@ -363,6 +367,14 @@
 		14447AC21ADBAC40005E6974 /* TimerPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimerPicker.xib; sourceTree = "<group>"; };
 		14447AC41ADBAF3B005E6974 /* TimerPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimerPickerView.h; path = Post/TimerPickerView.h; sourceTree = "<group>"; };
 		14447AC51ADBAF3B005E6974 /* TimerPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimerPickerView.m; path = Post/TimerPickerView.m; sourceTree = "<group>"; };
+		1445350D1AEB36EC00FDAE79 /* TaskOrderCancelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskOrderCancelViewController.h; path = Post/TaskOrderCancelViewController.h; sourceTree = "<group>"; };
+		1445350E1AEB36EC00FDAE79 /* TaskOrderCancelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskOrderCancelViewController.m; path = Post/TaskOrderCancelViewController.m; sourceTree = "<group>"; };
+		144535101AEB374D00FDAE79 /* TaskOrderCancel_Order_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskOrderCancel_Order_Cell.h; path = Post/TaskOrderCancel_Order_Cell.h; sourceTree = "<group>"; };
+		144535111AEB374D00FDAE79 /* TaskOrderCancel_Order_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskOrderCancel_Order_Cell.m; path = Post/TaskOrderCancel_Order_Cell.m; sourceTree = "<group>"; };
+		144535131AEB375F00FDAE79 /* TaskOrderCancel_State_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskOrderCancel_State_Cell.h; path = Post/TaskOrderCancel_State_Cell.h; sourceTree = "<group>"; };
+		144535141AEB375F00FDAE79 /* TaskOrderCancel_State_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskOrderCancel_State_Cell.m; path = Post/TaskOrderCancel_State_Cell.m; sourceTree = "<group>"; };
+		144535161AEB376F00FDAE79 /* TaskOrderCancel_Address_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskOrderCancel_Address_Cell.h; path = Post/TaskOrderCancel_Address_Cell.h; sourceTree = "<group>"; };
+		144535171AEB376F00FDAE79 /* TaskOrderCancel_Address_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskOrderCancel_Address_Cell.m; path = Post/TaskOrderCancel_Address_Cell.m; sourceTree = "<group>"; };
 		14456D6D1AAC373F0067068E /* TaskOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskOrderViewController.h; path = Post/TaskOrderViewController.h; sourceTree = "<group>"; };
 		14456D6E1AAC373F0067068E /* TaskOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TaskOrderViewController.m; path = Post/TaskOrderViewController.m; sourceTree = "<group>"; };
 		14456D701AAC3D780067068E /* TaskOrderUnfinishedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TaskOrderUnfinishedViewController.h; path = Post/TaskOrderUnfinishedViewController.h; sourceTree = "<group>"; };
@@ -832,6 +844,12 @@
 				141D55871AEA2B8300CE35E9 /* TaskOrderComplete_State_Cell.m */,
 				141D55891AEA2BA400CE35E9 /* TaskOrderComplete_Address_Cell.h */,
 				141D558A1AEA2BA400CE35E9 /* TaskOrderComplete_Address_Cell.m */,
+				144535101AEB374D00FDAE79 /* TaskOrderCancel_Order_Cell.h */,
+				144535111AEB374D00FDAE79 /* TaskOrderCancel_Order_Cell.m */,
+				144535131AEB375F00FDAE79 /* TaskOrderCancel_State_Cell.h */,
+				144535141AEB375F00FDAE79 /* TaskOrderCancel_State_Cell.m */,
+				144535161AEB376F00FDAE79 /* TaskOrderCancel_Address_Cell.h */,
+				144535171AEB376F00FDAE79 /* TaskOrderCancel_Address_Cell.m */,
 			);
 			name = TableViewCell;
 			sourceTree = "<group>";
@@ -890,6 +908,8 @@
 				14456D711AAC3D780067068E /* TaskOrderUnfinishedViewController.m */,
 				143C7F721AEA23E800EDFBAE /* TaskOrderCompleteViewController.h */,
 				143C7F731AEA23E800EDFBAE /* TaskOrderCompleteViewController.m */,
+				1445350D1AEB36EC00FDAE79 /* TaskOrderCancelViewController.h */,
+				1445350E1AEB36EC00FDAE79 /* TaskOrderCancelViewController.m */,
 			);
 			name = "订单";
 			sourceTree = "<group>";
@@ -1666,6 +1686,7 @@
 				148BC3A91AA5FE3100819910 /* OrderDetailTableViewController.m in Sources */,
 				FC4F73AD1ABBFF0800953D95 /* AFURLRequestSerialization.m in Sources */,
 				14408D251AA1F22300EC6D79 /* GoodsInComplete_Address_Cell.m in Sources */,
+				1445350F1AEB36EC00FDAE79 /* TaskOrderCancelViewController.m in Sources */,
 				14447AC61ADBAF3B005E6974 /* TimerPickerView.m in Sources */,
 				FC2B862E1AC2A54D00926FA6 /* CommonDetailAddressController.m in Sources */,
 				FCAEEB561ACA858A00D24E73 /* EditPersonController.m in Sources */,
@@ -1692,6 +1713,7 @@
 				FC670A221AA2F13E000BE7A0 /* SVProgressHUD.m in Sources */,
 				14A6685F1AB86CB300C534E0 /* WWSideslipViewController.m in Sources */,
 				14CE5FC11A74CF8400A19C36 /* AppDelegate.mm in Sources */,
+				144535121AEB374D00FDAE79 /* TaskOrderCancel_Order_Cell.m in Sources */,
 				14CE5FBE1A74CF8400A19C36 /* main.m in Sources */,
 				FCD6C5BB1AA31616008D5E23 /* CityListViewController.m in Sources */,
 				14408D281AA1FCAE00EC6D79 /* GoodsInCompleteViewController.m in Sources */,
@@ -1719,7 +1741,9 @@
 				FC79E50D1AC3FCEC00F2AD3E /* GoodsDetailController.m in Sources */,
 				1483DA0E1A885896003A3B8B /* OrderTrack_UserItem_Cell.m in Sources */,
 				14403DB81AE4B146005FE49B /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				144535181AEB376F00FDAE79 /* TaskOrderCancel_Address_Cell.m in Sources */,
 				FC2E651A1ABFFD65006BD470 /* CommonAddressController.m in Sources */,
+				144535151AEB375F00FDAE79 /* TaskOrderCancel_State_Cell.m in Sources */,
 				FCD6C5B61AA2FCC3008D5E23 /* GMDCircleLoader.m in Sources */,
 				14403DBB1AE4B146005FE49B /* UIImageView+AFNetworking.m in Sources */,
 				FC81BC821A7A0D4500D6C78F /* Custom_ScrollImageView.m in Sources */,

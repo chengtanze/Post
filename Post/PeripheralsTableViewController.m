@@ -15,8 +15,9 @@
 //#import "sqlite3.h"
 #import "FMDatabase.h"
 #import "FMResultSet.h"
+#import "SVProgressHUD.h"
 
-@interface PeripheralsTableViewController ()
+@interface PeripheralsTableViewController ()<SelectIndexDelegate>
 
 @end
 
@@ -25,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.rowHeight = 200;
+    self.tableView.rowHeight = 300;
     
     [self initLocalData];
     
@@ -129,8 +130,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
     // Return the number of sections.
-    //return 5;
-    NSLog(@"section:%ld", (unsigned long)self.arrayAroundData.count);
+    //NSLog(@"section:%ld", (unsigned long)self.arrayAroundData.count);
     return (self.arrayAroundData != nil ? self.arrayAroundData.count : 0);
 }
 
@@ -145,8 +145,6 @@
     AroundCityGoods_Cell *cell = [tableView dequeueReusableCellWithIdentifier:@"CityOrder_Cell" forIndexPath:indexPath];
     
     //NSLog(@"row:%ld", (long)indexPath.section);
-    
-    
     if (cell != nil) {
         NSDictionary * dicData = self.arrayAroundData[indexPath.section];
         
@@ -156,6 +154,9 @@
             cell.endTimesLB.text = [dicData valueForKey:@"rgEndTime"];
             cell.startAddressLB.text = [dicData valueForKey:@"pgAddress"];
             cell.endAddressLB.text = [dicData valueForKey:@"rgAddress"];
+            
+            cell.tag = indexPath.section;
+            cell.delegate = self;
             
             NSLog(@"num:%@ id:%ld", [dicData valueForKey:@"num"], (long)indexPath.row);
             //发货经纬度
@@ -192,18 +193,60 @@
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
+    //WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
     
     //[sides addPanGsetureToHomeView];
     NSLog(@"viewDidAppear");
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
+   // WWSideslipViewController * sides = [WWSideslipViewController sharedInstance:nil andMainView:nil andRightView:nil andBackgroundImage:nil];
     
     //[sides removeGestureToHomeView];
     
     NSLog(@"prepareForSegue");
+}
+
+-(void)SelectIndex:(NSUInteger)index{
+    NSDictionary * dicData = self.arrayAroundData[index];
+    
+    if (dicData != nil) {
+        
+        NSString * orderID = [dicData valueForKey:@"id"];
+        NSString * uID = [dicData valueForKey:@"uid"];
+        
+        NSNumber * numberOrderID = [[NSNumber alloc]initWithInteger:orderID.integerValue];
+        NSNumber * numberuID = [[NSNumber alloc]initWithInteger:uID.integerValue];
+        
+        //接单按钮代理
+        NSMutableDictionary * params = [[NSMutableDictionary alloc]initWithCapacity:10];
+        [params setObject:numberOrderID forKey:@"orderID"];
+        [params setObject:numberuID forKey:@"uid"];
+        
+        [[HttpProtocolAPI sharedClient] addTransfer:params setBlock:^(NSDictionary *data, NSError *error) {
+            
+            if (data != nil) {
+                NSNumber * numberState = [data valueForKey:@"state"];
+                
+                [self tipResult:numberState.unsignedIntegerValue];
+            }
+            
+        }];
+    }
+
+}
+
+-(void)tipResult:(NSUInteger)code{
+    
+    NSString * tip = @"";
+    if (code == 0) {
+        tip = @"接单成功";
+    }else if (code == 1){
+        tip = @"该笔单已被接走";
+    }else{
+        tip = @"接单失败";
+    }
+    [SVProgressHUD showSuccessWithStatus:tip];
 }
 
 /*

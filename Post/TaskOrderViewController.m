@@ -28,7 +28,7 @@
     twoViewController.title = @"   已完成   ";
     
     
-    UIViewController *threeViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"GoodsInCancleViewController"];
+    UIViewController *threeViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"TaskOrderCancelViewController"];
     threeViewController.title = @"   已取消   ";
     
     SCNavTabBarController *navTabBarController = [[SCNavTabBarController alloc] init];
