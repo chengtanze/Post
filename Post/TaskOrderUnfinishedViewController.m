@@ -14,9 +14,9 @@
 #import "TaskOrderUnfinished_Times_Cell.h"
 #import "HttpProtocolAPI.h"
 #import "UIImageView+AFNetworking.h"
+#import "TaskOrderUnfinished_OK_Cell.h"
 
-
-@interface TaskOrderUnfinishedViewController ()
+@interface TaskOrderUnfinishedViewController ()<SelectUnfinishedIndexDelegate>
 
 @end
 
@@ -72,6 +72,10 @@
     return 0.1;
 }
 
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+//    return -100;
+//}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     // Return the number of sections.
@@ -82,7 +86,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     // Return the number of rows in the section.
-    return 4;
+    return 5;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -187,11 +191,68 @@
         
         cell = goodsInfoCell;
     }
+    else if(indexPath.row == 4){
+        TaskOrderUnfinished_OK_Cell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"Button" forIndexPath:indexPath];
+        
+        goodsInfoCell.tag = indexPath.section;
+        goodsInfoCell.delegate = self;
+        
+        if (self.arrayOrderUnfinishedData != nil) {
+            
+            NSLog(@"%ld", (long)indexPath.row);
+            NSDictionary * dicData = self.arrayOrderUnfinishedData[indexPath.section];
+            if (dicData != nil) {
+                NSNumber * numberState = [dicData valueForKey:@"deliveryState"];
+                goodsInfoCell.nState = numberState.integerValue;
+                [goodsInfoCell.funtcionBtn setTitle:[self getButtonTitle:numberState.integerValue] forState:UIControlStateNormal];
+            }
+        }
+
+        
+        cell = goodsInfoCell;
+    }
     
     
     return cell;
 }
 
+-(void)SelectIndex:(NSUInteger)index{
+    
+    NSLog(@"SelectIndex :%ld", (unsigned long)index);
+    
+}
+
+-(NSString *)getButtonTitle:(NSUInteger)nIndex{
+    //0未接单、1已接单、2取货中、3派送中、4已签收（完成），5已取消，默认为0
+    NSString * strType = @"未知";
+    switch (nIndex) {
+        case 0:
+            strType = @"待接单";
+            break;
+        case 1:
+            strType = @"现在去取货";
+            break;
+        case 2:
+            strType = @"拍验视照";
+            break;
+        case 3:
+            strType = @"确认送达";
+            break;
+        case 4:
+            strType = @"待定";
+            break;
+        case 5:
+            strType = @"待定";
+            break;
+        case 6:
+            strType = @"待定";
+            break;
+        default:
+            break;
+    }
+    
+    return strType;
+}
 
 -(NSString *)getGoodsType:(NSInteger)type{
     //0未接单、1已接单、2取货中、3派送中、4已签收（完成），5已取消，默认为0

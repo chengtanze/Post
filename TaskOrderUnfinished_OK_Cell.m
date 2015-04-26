@@ -20,4 +20,11 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)btnClick:(id)sender {
+    
+    if (_delegate != nil && [self.delegate respondsToSelector:@selector(SelectIndex:)]) {
+        [self.delegate SelectIndex:self.tag];
+    }
+
+}
 @end

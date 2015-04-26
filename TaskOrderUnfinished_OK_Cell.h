@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SelectUnfinishedIndexDelegate <NSObject>
+
+-(void)SelectIndex:(NSUInteger)index;
+
+@end
+
 @interface TaskOrderUnfinished_OK_Cell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIButton *funtcionBtn;
+- (IBAction)btnClick:(id)sender;
+
+@property (assign, nonatomic) NSUInteger nState;
+@property (weak, nonatomic) id<SelectUnfinishedIndexDelegate> delegate;
 
 @end
