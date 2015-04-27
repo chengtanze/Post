@@ -51,4 +51,7 @@
 //更新订单派送状态
 -(NSURLSessionDataTask *)updateOrderDeliveryState:(NSUInteger)state orderID:(NSUInteger)orderID setBlock:(void(^) (NSDictionary * data, NSError *error))block;
 
+//上传验视照
+-(NSURLSessionDataTask *)addValidateImg:(NSArray *)imageArray orderID:(NSUInteger)orderID setBlock:(void(^) (NSDictionary * data, NSError *error))block;
+
 @end

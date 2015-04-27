@@ -410,11 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Post/PhotoGroupTableViewCell.m"
-            timestampString = "451558890.786758"
+            timestampString = "451822236.483345"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
             landmarkName = "-click:"
             landmarkType = "5">
          </BreakpointContent>
@@ -512,22 +512,6 @@
             startingLineNumber = "72"
             endingLineNumber = "72"
             landmarkName = "-registerUser:setBlock:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Post/HttpProtocolAPI.m"
-            timestampString = "451551357.627989"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "352"
-            endingLineNumber = "352"
-            landmarkName = "-getOrders:setBlock:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -649,42 +633,42 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Post/TaskOrderUnfinishedViewController.m"
-            timestampString = "451798818.706287"
+            filePath = "Post/HttpProtocolAPI.m"
+            timestampString = "451817628.418735"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
-            landmarkName = "-dealTakeGoodsState:"
+            startingLineNumber = "669"
+            endingLineNumber = "669"
+            landmarkName = "-addValidateImg:orderID:setBlock:"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[TaskOrderUnfinishedViewController dealTakeGoodsState:]"
+                  symbolName = "-[HttpProtocolAPI addValidateImg:orderID:setBlock:]"
                   moduleName = "Post"
-                  urlString = "file:///Users/cheng/ios%E7%BB%83%E4%B9%A0/GitHubCode/Post/Post/TaskOrderUnfinishedViewController.m"
-                  timestampString = "451799452.577655"
+                  urlString = "file:///Users/cheng/ios%E7%BB%83%E4%B9%A0/GitHubCode/Post/Post/HttpProtocolAPI.m"
+                  timestampString = "451822236.842649"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "251"
-                  endingLineNumber = "251"
-                  offsetFromSymbolStart = "36">
+                  startingLineNumber = "669"
+                  endingLineNumber = "669"
+                  offsetFromSymbolStart = "1099">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__56-[TaskOrderUnfinishedViewController dealTakeGoodsState:]_block_invoke"
+                  symbolName = "__51-[HttpProtocolAPI addValidateImg:orderID:setBlock:]_block_invoke"
                   moduleName = "Post"
-                  urlString = "file:///Users/cheng/ios%E7%BB%83%E4%B9%A0/GitHubCode/Post/Post/TaskOrderUnfinishedViewController.m"
-                  timestampString = "451799452.5778"
+                  urlString = "file:///Users/cheng/ios%E7%BB%83%E4%B9%A0/GitHubCode/Post/Post/HttpProtocolAPI.m"
+                  timestampString = "451822236.842851"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "251"
-                  endingLineNumber = "251"
-                  offsetFromSymbolStart = "82">
+                  startingLineNumber = "669"
+                  endingLineNumber = "669"
+                  offsetFromSymbolStart = "52">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -695,13 +679,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Post/TaskOrderUnfinishedViewController.m"
-            timestampString = "451799040.41588"
+            filePath = "Post/HttpProtocolAPI.m"
+            timestampString = "451817631.306543"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
-            landmarkName = "-dealTakeGoodsState:"
+            startingLineNumber = "689"
+            endingLineNumber = "689"
+            landmarkName = "-addValidateImg:orderID:setBlock:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Post/HttpProtocolAPI.m"
+            timestampString = "451817632.601976"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "681"
+            endingLineNumber = "681"
+            landmarkName = "-addValidateImg:orderID:setBlock:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

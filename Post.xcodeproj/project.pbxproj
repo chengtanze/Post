@@ -32,6 +32,7 @@
 		143C7F741AEA23E800EDFBAE /* TaskOrderCompleteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 143C7F731AEA23E800EDFBAE /* TaskOrderCompleteViewController.m */; };
 		143FBC871AE734FC000B5016 /* ChangePassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 143FBC861AE734FC000B5016 /* ChangePassWordViewController.m */; };
 		143FBC8A1AE744D1000B5016 /* NewPassWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 143FBC891AE744D1000B5016 /* NewPassWordViewController.m */; };
+		143FE24B1AEE15EC00147538 /* VerificationPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 143FE24A1AEE15EC00147538 /* VerificationPhotoViewController.m */; };
 		144023571A8E35A400321C6F /* GoodsPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 144023561A8E35A400321C6F /* GoodsPhotoViewController.m */; };
 		14403DA41AE48D9C005FE49B /* AroundCityGoods_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14403DA31AE48D9C005FE49B /* AroundCityGoods_Cell.m */; };
 		14403DB71AE4B146005FE49B /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14403DA71AE4B146005FE49B /* AFNetworkActivityIndicatorManager.m */; };
@@ -306,6 +307,8 @@
 		143FBC861AE734FC000B5016 /* ChangePassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChangePassWordViewController.m; path = Post/ChangePassWordViewController.m; sourceTree = "<group>"; };
 		143FBC881AE744D1000B5016 /* NewPassWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewPassWordViewController.h; path = Post/NewPassWordViewController.h; sourceTree = "<group>"; };
 		143FBC891AE744D1000B5016 /* NewPassWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewPassWordViewController.m; path = Post/NewPassWordViewController.m; sourceTree = "<group>"; };
+		143FE2491AEE15EC00147538 /* VerificationPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VerificationPhotoViewController.h; path = Post/VerificationPhotoViewController.h; sourceTree = "<group>"; };
+		143FE24A1AEE15EC00147538 /* VerificationPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VerificationPhotoViewController.m; path = Post/VerificationPhotoViewController.m; sourceTree = "<group>"; };
 		144023551A8E35A400321C6F /* GoodsPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsPhotoViewController.h; path = Post/GoodsPhotoViewController.h; sourceTree = "<group>"; };
 		144023561A8E35A400321C6F /* GoodsPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsPhotoViewController.m; path = Post/GoodsPhotoViewController.m; sourceTree = "<group>"; };
 		14403DA21AE48D9C005FE49B /* AroundCityGoods_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AroundCityGoods_Cell.h; path = Post/AroundCityGoods_Cell.h; sourceTree = "<group>"; };
@@ -910,6 +913,8 @@
 				143C7F731AEA23E800EDFBAE /* TaskOrderCompleteViewController.m */,
 				1445350D1AEB36EC00FDAE79 /* TaskOrderCancelViewController.h */,
 				1445350E1AEB36EC00FDAE79 /* TaskOrderCancelViewController.m */,
+				143FE2491AEE15EC00147538 /* VerificationPhotoViewController.h */,
+				143FE24A1AEE15EC00147538 /* VerificationPhotoViewController.m */,
 			);
 			name = "订单";
 			sourceTree = "<group>";
@@ -1662,6 +1667,7 @@
 				1447CD8F1ABD021700EDECCF /* AccountInfoViewController.m in Sources */,
 				FC84C0B21AAF08630074F65C /* MapAroudViewController.mm in Sources */,
 				14403DA41AE48D9C005FE49B /* AroundCityGoods_Cell.m in Sources */,
+				143FE24B1AEE15EC00147538 /* VerificationPhotoViewController.m in Sources */,
 				14C8B4CB1AC1A4D900AAF5E1 /* AddNewAddressController.m in Sources */,
 				FC79E50A1AC3FC5600F2AD3E /* EditGoodsController.m in Sources */,
 				14B700A41AB527360036211F /* OrderDetailView.m in Sources */,

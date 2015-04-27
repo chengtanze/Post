@@ -7,7 +7,7 @@
 //
 
 #import "PhotoGroupView.h"
-
+#import "UIButton+AFNetworking.h"
 
 #define POST_PHOTOGROUPVIEW_ITEMHEIGHTSEP 5.0
 #define POST_PHOTOGROUPVIEW_PHOTOCOUNT 5.0
@@ -39,7 +39,7 @@
             CGFloat y = POST_PHOTOGROUPVIEW_ITEMHEIGHTSEP + lableHeight;
             
             UIButton * button = [[UIButton alloc]initWithFrame:CGRectMake(x, y, itemHeight, itemWidth)];
-            [button setBackgroundImage:[UIImage imageNamed:@"4-4SMART-BOX-消息_启动预警.png"] forState:UIControlStateNormal];
+            [button setBackgroundImage:[UIImage imageNamed:@"ic_add_pic_normal.png"] forState:UIControlStateNormal];
             button.tag = nIndex;
             [button addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:button];
@@ -127,13 +127,35 @@
 }
 
 -(void)click:(id)sender{
-    NSLog(@"click");
+    UIButton * btn = (UIButton *)sender;
+    NSLog(@"click :%ld", (long)btn.tag);
+    
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(selectPhotoIndex:)]) {
+        [self.delegate selectPhotoIndex:btn.tag];
+    }
+
 }
 
 -(void)SingleTap:(UITapGestureRecognizer*)recognizer
 {
     //处理单击操作
     NSLog(@"index:%ld", (long)recognizer.view.tag);
+}
+
+-(void)setPhoto:(UIImage *)image byIndex:(NSInteger)index{
+    UIButton * selectBtn = (UIButton *)_photoArray[index];
+    if (selectBtn != nil) {
+        [selectBtn setBackgroundImage:image forState:UIControlStateNormal];
+    }
+}
+
+-(void)setURLPhoto:(NSURL *)url byIndex:(NSInteger)index{
+    
+    UIButton * selectBtn = (UIButton *)_photoArray[index];
+    if (selectBtn != nil) {
+        //[selectBtn setBackgroundImage:image forState:UIControlStateNormal];
+        [selectBtn setImageForState:UIControlStateNormal withURL:url];
+    }
 }
 
 /*

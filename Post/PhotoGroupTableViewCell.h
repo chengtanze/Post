@@ -21,4 +21,6 @@
 -(void)setPhoto:(UIImage *)image byIndex:(NSInteger)index;
 
 -(void)setURLPhoto:(NSURL *)url byIndex:(NSInteger)index;
+
+-(void)clearPhotoGroups;
 @end

@@ -535,7 +535,7 @@ static NSString * const APIBaseURLString = @"http://114.215.132.245/";
     [HttpProtocolAPI sharedClient].responseSerializer = [AFHTTPResponseSerializer serializer];
     
     NSError * retError = nil;
-    NSMutableDictionary * paramsTest= [[NSMutableDictionary alloc]init];
+    //NSMutableDictionary * paramsTest= [[NSMutableDictionary alloc]init];
     
     NSInteger uid = [UserDataInterface sharedClient].userID_Int;
     NSNumber * userID = [[NSNumber alloc]initWithInt:uid];
@@ -647,5 +647,56 @@ static NSString * const APIBaseURLString = @"http://114.215.132.245/";
     
     return nil;
 }
+
+-(NSURLSessionDataTask *)addValidateImg:(NSArray *)imageArray orderID:(NSUInteger)orderID setBlock:(void(^) (NSDictionary * data, NSError *error))block{
+    
+    [HttpProtocolAPI sharedClient].responseSerializer = [AFHTTPResponseSerializer serializer];
+    NSError * retError = nil;
+    NSMutableDictionary * paramsTest= [[NSMutableDictionary alloc]init];
+    
+    NSInteger uid = [UserDataInterface sharedClient].userID_Int;
+    NSNumber * userID = [[NSNumber alloc]initWithInteger:uid];
+    NSString * key = [UserDataInterface sharedClient].userKey;
+    NSNumber * numberOrderID = [[NSNumber alloc]initWithUnsignedInteger:orderID];
+    
+    [paramsTest setObject: userID forKey:@"uid"];
+    [paramsTest setObject: @"" forKey:@"imei"];
+    [paramsTest setObject: @"" forKey:@"ip"];
+    [paramsTest setObject: @"" forKey:@"mac"];
+    [paramsTest setObject: key forKey:@"key"];
+    [paramsTest setObject:numberOrderID forKey:@"orderID"];
+    
+    return [[HttpProtocolAPI sharedClient] POST:@"qmld/api/addValidateImg.php?" parameters:paramsTest constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        
+        for (int nIndex = 0; nIndex < imageArray.count; nIndex++) {
+            UIImage * image = imageArray[nIndex];
+            NSData *data = UIImageJPEGRepresentation(image, 0.2);
+            
+            NSString * imageName = [NSString stringWithFormat:@"%d.png", nIndex];
+            [formData appendPartWithFileData:data name:@"images[]" fileName:imageName mimeType:@"image/png"];
+        }
+    } success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSString * xmlstring = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",xmlstring);
+        NSData* data = [xmlstring dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary * retDictData = [NSJSONSerialization  JSONObjectWithData:data options:0 error:nil];
+        
+        if (block != nil)
+        {
+            block(retDictData, retError);
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"addSenderOrder Error:%@",error);
+        if (block != nil)
+        {
+            block(nil, error);
+        }
+    }];
+
+}
+
+
+
+
 
 @end

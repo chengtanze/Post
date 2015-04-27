@@ -16,8 +16,13 @@
 #import "UIImageView+AFNetworking.h"
 #import "TaskOrderUnfinished_OK_Cell.h"
 #import "SVProgressHUD.h"
+#import "PhotoGroupTableViewCell.h"
+#import "VerificationPhotoViewController.h"
 
 @interface TaskOrderUnfinishedViewController ()<SelectUnfinishedIndexDelegate>
+{
+
+}
 
 @end
 
@@ -25,6 +30,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
     _selectIndex = -1;
     
     [[HttpProtocolAPI sharedClient] getTaskOrderByState:0 setBlock:^(NSDictionary *data, NSError *error) {
@@ -48,6 +56,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -87,7 +97,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     // Return the number of rows in the section.
-    return 5;
+    return 6;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -106,6 +116,9 @@
     else if(indexPath.row == 3)
     {
         return 70;
+    }else if (indexPath.row == 4)
+    {
+        return 80;
     }
 
     return 44;
@@ -128,6 +141,7 @@
             NSDictionary * dicData = self.arrayOrderUnfinishedData[indexPath.section];
             if (dicData != nil) {
                 timeCell.orderID.text = [dicData valueForKey:@"num"];
+
             }
         }
         cell = timeCell;
@@ -193,6 +207,34 @@
         cell = goodsInfoCell;
     }
     else if(indexPath.row == 4){
+        PhotoGroupTableViewCell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"Images" forIndexPath:indexPath];
+        [goodsInfoCell clearPhotoGroups];
+        
+        [goodsInfoCell setPhoto:[UIImage imageNamed:@"ic_add_pic_normal.png"] byIndex:0];
+        
+        if (self.arrayOrderUnfinishedData != nil) {
+            
+            NSDictionary * dicData = self.arrayOrderUnfinishedData[indexPath.section];
+            NSDictionary * dicImage = [dicData valueForKey:@"validateImg"];
+            if (dicImage != nil) {
+                if([dicImage respondsToSelector:@selector(objectAtIndex:)]){
+                    for (int nIndex = 0; nIndex < dicImage.count; nIndex++) {
+                        NSString * strImage =  [dicImage valueForKey:@"imgUrl"][nIndex];
+                        
+                        NSURL * url = [[NSURL alloc]initWithString:strImage];
+                        
+                        [goodsInfoCell setURLPhoto:url byIndex:nIndex];
+                        NSLog(@"%@", strImage);
+                    }
+
+                }
+            }
+        }
+        
+        cell = goodsInfoCell;
+
+    }
+    else if(indexPath.row == 5){
         TaskOrderUnfinished_OK_Cell *goodsInfoCell = [tableView dequeueReusableCellWithIdentifier:@"Button" forIndexPath:indexPath];
         
         goodsInfoCell.tag = indexPath.section;
@@ -241,6 +283,10 @@
             break;
         case 2:
         {
+            [self dealVerifyPhotos:orderID];
+        }
+        case 3:
+        {
             
         }
             break;
@@ -270,7 +316,13 @@
     
 }
 
--(void)dealVerifyPhotos{
+-(void)dealVerifyPhotos:(NSUInteger)orderID{
+    
+    UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    VerificationPhotoViewController * info = [mainStoryboard instantiateViewControllerWithIdentifier:@"VerificationPhotoViewController"];
+    info.orderID = orderID;
+    
+    [self.navigationController pushViewController:info animated:YES];
     
 }
 
@@ -313,7 +365,7 @@
 }
 
 -(NSString *)getGoodsType:(NSInteger)type{
-    //0未接单、1已接单、2取货中、3派送中、4已签收（完成），5已取消，默认为0
+    //0未接单、1已接单、2取货中、3派送中、4已签收（完成），5已签收，默认为0
     NSString * strType = @"未知";
     switch (type) {
         case 0:
@@ -323,16 +375,16 @@
             strType = @"已接单";
             break;
         case 2:
-            strType = @"待取件";
+            strType = @"取货中";
             break;
         case 3:
-            strType = @"取件中";
+            strType = @"派送中";
             break;
         case 4:
-            strType = @"已取件";
+            strType = @"已签收";
             break;
         case 5:
-            strType = @"派送中";
+            strType = @"已签收";
             break;
         case 6:
             strType = @"已签收";
@@ -343,6 +395,8 @@
     
     return strType;
 }
+
+
 
 #pragma mark - Table view data source
 

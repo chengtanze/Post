@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol PhotoGroupViewDelegate <NSObject>
+
+-(void)selectPhotoIndex:(NSInteger)index;
+
+@end
+
 @interface PhotoGroupView : UIView
 @property(nonatomic, strong)NSMutableArray * photoArray;
+
+@property(weak, nonatomic) id<PhotoGroupViewDelegate> delegate;
+
+-(void)setPhoto:(UIImage *)image byIndex:(NSInteger)index;
+
+-(void)setURLPhoto:(NSURL *)url byIndex:(NSInteger)index;
 @end

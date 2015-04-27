@@ -107,6 +107,21 @@
     }
 }
 
+-(void)clearPhotoGroups{
+    
+    for (long nIndex = 0; nIndex < POST_PHOTOGROUPVIEW_PHOTOCOUNT; nIndex++) {
+        UIButton * button = (UIButton *)_photoArray[nIndex];
+        if (button != nil) {
+            //[button setBackgroundImage:[UIImage imageNamed:@"ic_add_pic_normal.png"] forState:UIControlStateNormal];
+
+            [button setImage: [UIImage imageNamed:@"ic_add_pic_normal.png"] forState:UIControlStateNormal];
+        }
+        
+        
+    }
+
+}
+
 -(void)SingleTap:(UITapGestureRecognizer*)recognizer
 {
     //处理单击操作
