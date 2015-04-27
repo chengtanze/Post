@@ -47,4 +47,8 @@
 
 //接单/中转
 -(NSURLSessionDataTask *)addTransfer:(NSMutableDictionary *)params setBlock:(void(^) (NSDictionary * data, NSError *error))block;
+
+//更新订单派送状态
+-(NSURLSessionDataTask *)updateOrderDeliveryState:(NSUInteger)state orderID:(NSUInteger)orderID setBlock:(void(^) (NSDictionary * data, NSError *error))block;
+
 @end

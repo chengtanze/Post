@@ -15,6 +15,7 @@
 #import "HttpProtocolAPI.h"
 #import "UIImageView+AFNetworking.h"
 #import "TaskOrderUnfinished_OK_Cell.h"
+#import "SVProgressHUD.h"
 
 @interface TaskOrderUnfinishedViewController ()<SelectUnfinishedIndexDelegate>
 
@@ -220,6 +221,63 @@
     
     NSLog(@"SelectIndex :%ld", (unsigned long)index);
     
+    NSDictionary * dicData = self.arrayOrderUnfinishedData[index];
+    if (dicData != nil) {
+        NSNumber * numberState = [dicData valueForKey:@"deliveryState"];
+        NSUInteger nState = numberState.integerValue;
+        NSNumber * numberOrderID = [dicData valueForKey:@"id"];
+        
+        [self dealWithUserState:nState orderID:numberOrderID.integerValue];
+    }
+}
+
+-(void)dealWithUserState:(NSUInteger)state orderID:(NSUInteger)orderID{
+    
+    switch (state) {
+        case 1:
+        {
+            [self dealTakeGoodsState:orderID];
+        }
+            break;
+        case 2:
+        {
+            
+        }
+            break;
+        default:
+            break;
+    }
+    
+}
+
+-(void)dealTakeGoodsState:(NSUInteger)orderID{
+    
+    [[HttpProtocolAPI sharedClient] updateOrderDeliveryState:2 orderID:orderID setBlock:^(NSDictionary *data, NSError *error) {
+        if (data != nil) {
+            NSNumber * numberState = [data valueForKey:@"state"];
+            if (numberState.integerValue == 0) {
+                [self tipResultByTakeGoods];
+                //更改状态
+                
+                
+            }
+            else{
+                [SVProgressHUD showSuccessWithStatus:@"操作失败"];
+            }
+            
+        }
+    }];
+    
+}
+
+-(void)dealVerifyPhotos{
+    
+}
+
+-(void)tipResultByTakeGoods{
+    NSString * tip = @"该订单已进入取货状态，请在30分钟内完成取货";
+
+    [SVProgressHUD showSuccessWithStatus:tip];
 }
 
 -(NSString *)getButtonTitle:(NSUInteger)nIndex{
@@ -227,7 +285,7 @@
     NSString * strType = @"未知";
     switch (nIndex) {
         case 0:
-            strType = @"待接单";
+            strType = @"未接单";
             break;
         case 1:
             strType = @"现在去取货";

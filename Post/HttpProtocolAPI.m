@@ -604,5 +604,48 @@ static NSString * const APIBaseURLString = @"http://114.215.132.245/";
             }];
 }
 
+-(NSURLSessionDataTask *)updateOrderDeliveryState:(NSUInteger)state orderID:(NSUInteger)orderID setBlock:(void(^) (NSDictionary * data, NSError *error))block{
+    
+    [HttpProtocolAPI sharedClient].responseSerializer = [AFHTTPResponseSerializer serializer];
+    NSError * retError = nil;
+    NSMutableDictionary * paramsTest= [[NSMutableDictionary alloc]init];
+    
+    NSInteger uid = [UserDataInterface sharedClient].userID_Int;
+    NSNumber * userID = [[NSNumber alloc]initWithInteger:uid];
+    NSString * key = [UserDataInterface sharedClient].userKey;
+    NSNumber * numberState = [[NSNumber alloc]initWithUnsignedInteger:state];
+    NSNumber * numberOrderID = [[NSNumber alloc]initWithUnsignedInteger:orderID];
+    
+    
+    
+    [paramsTest setObject: userID forKey:@"uid"];
+    [paramsTest setObject: @"" forKey:@"imei"];
+    [paramsTest setObject: @"" forKey:@"ip"];
+    [paramsTest setObject: @"" forKey:@"mac"];
+    [paramsTest setObject: key forKey:@"key"];
+    [paramsTest setObject:numberState forKey:@"deliveryState"];
+    [paramsTest setObject:numberOrderID forKey:@"orderID"];
+    
+    return [[HttpProtocolAPI sharedClient] POST:@"qmld/api/updateOrderDeliveryState.php?" parameters:paramsTest success:^(NSURLSessionDataTask * __unused task, id responseObject)
+            {
+                NSString * xmlstring = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                NSLog(@"%@",xmlstring);
+                NSData* data = [xmlstring dataUsingEncoding:NSUTF8StringEncoding];
+                NSDictionary * retDictData = [NSJSONSerialization  JSONObjectWithData:data options:0 error:nil];
+                
+                if (block != nil)
+                {
+                    block(retDictData, retError);
+                }
+                
+            } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+                if (block != nil)
+                {
+                    block(nil, error);
+                }
+            }];
+    
+    return nil;
+}
 
 @end
