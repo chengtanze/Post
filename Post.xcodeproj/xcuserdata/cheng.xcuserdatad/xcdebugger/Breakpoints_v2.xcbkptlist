@@ -410,11 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Post/PhotoGroupTableViewCell.m"
-            timestampString = "451822236.483345"
+            timestampString = "451875760.831539"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
             landmarkName = "-click:"
             landmarkType = "5">
          </BreakpointContent>
@@ -633,42 +633,42 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Post/HttpProtocolAPI.m"
-            timestampString = "451817628.418735"
+            filePath = "Post/VerifyDeliveryViewController.m"
+            timestampString = "451887298.889916"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "669"
-            endingLineNumber = "669"
-            landmarkName = "-addValidateImg:orderID:setBlock:"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-verifyDeliveryClick:"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[HttpProtocolAPI addValidateImg:orderID:setBlock:]"
+                  symbolName = "-[VerifyDeliveryViewController verifyDeliveryClick:]"
                   moduleName = "Post"
-                  urlString = "file:///Users/cheng/ios%E7%BB%83%E4%B9%A0/GitHubCode/Post/Post/HttpProtocolAPI.m"
-                  timestampString = "451822236.842649"
+                  urlString = "file:///Users/cheng/ios%E7%BB%83%E4%B9%A0/GitHubCode/Post/Post/VerifyDeliveryViewController.m"
+                  timestampString = "451904615.103169"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "669"
-                  endingLineNumber = "669"
-                  offsetFromSymbolStart = "1099">
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "576">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__51-[HttpProtocolAPI addValidateImg:orderID:setBlock:]_block_invoke"
+                  symbolName = "__52-[VerifyDeliveryViewController verifyDeliveryClick:]_block_invoke"
                   moduleName = "Post"
-                  urlString = "file:///Users/cheng/ios%E7%BB%83%E4%B9%A0/GitHubCode/Post/Post/HttpProtocolAPI.m"
-                  timestampString = "451822236.842851"
+                  urlString = "file:///Users/cheng/ios%E7%BB%83%E4%B9%A0/GitHubCode/Post/Post/VerifyDeliveryViewController.m"
+                  timestampString = "451904615.104047"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "669"
-                  endingLineNumber = "669"
-                  offsetFromSymbolStart = "52">
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "82">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -680,28 +680,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Post/HttpProtocolAPI.m"
-            timestampString = "451817631.306543"
+            timestampString = "451886545.936846"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "689"
-            endingLineNumber = "689"
-            landmarkName = "-addValidateImg:orderID:setBlock:"
+            startingLineNumber = "677"
+            endingLineNumber = "677"
+            landmarkName = "-updateOrderDeliveryState:setBlock:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Post/HttpProtocolAPI.m"
-            timestampString = "451817632.601976"
+            filePath = "Post/TaskOrderUnfinishedViewController.m"
+            timestampString = "451897464.35706"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "681"
-            endingLineNumber = "681"
-            landmarkName = "-addValidateImg:orderID:setBlock:"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

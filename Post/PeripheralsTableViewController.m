@@ -229,6 +229,13 @@
                 NSNumber * numberState = [data valueForKey:@"state"];
                 
                 [self tipResult:numberState.unsignedIntegerValue];
+                
+                if (numberState.unsignedIntegerValue == 0) {
+                    if (_delegate != nil && [self.delegate respondsToSelector:@selector(reLoadData)]) {
+                        [_delegate reLoadData];
+                        }
+
+                }
             }
             
         }];

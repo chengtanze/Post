@@ -54,7 +54,7 @@
                 y += POST_PHOTOGROUPVIEW_TIPLABELHEIGHT;
                 
             UIButton * button = [[UIButton alloc]initWithFrame:CGRectMake(x, y, itemHeight, itemWidth)];
-            [button setBackgroundImage:[UIImage imageNamed:@"img_apply_default_normal.9.png"] forState:UIControlStateNormal];
+            [button setBackgroundImage:[UIImage imageNamed:@"ic_add_pic_normal.png"] forState:UIControlStateNormal];
             button.tag = nIndex;
             [button addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:button];
@@ -116,8 +116,6 @@
 
             [button setImage: [UIImage imageNamed:@"ic_add_pic_normal.png"] forState:UIControlStateNormal];
         }
-        
-        
     }
 
 }

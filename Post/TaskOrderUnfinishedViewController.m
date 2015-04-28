@@ -18,11 +18,16 @@
 #import "SVProgressHUD.h"
 #import "PhotoGroupTableViewCell.h"
 #import "VerificationPhotoViewController.h"
+#import "VerifyDeliveryViewController.h"
+#import "MJRefresh.h"
+
+
 
 @interface TaskOrderUnfinishedViewController ()<SelectUnfinishedIndexDelegate>
 {
 
 }
+@property (assign, nonatomic) BOOL bReLoad;
 
 @end
 
@@ -30,26 +35,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    
+    _bReLoad = NO;
     _selectIndex = -1;
     
-    [[HttpProtocolAPI sharedClient] getTaskOrderByState:0 setBlock:^(NSDictionary *data, NSError *error) {
-        
-        if (data != nil && [self getRetDataState:data]) {
-            
-            self.arrayOrderUnfinishedData = [data valueForKey:@"data"];
-            
-            if(![self.arrayOrderUnfinishedData respondsToSelector:@selector(objectAtIndex:)])
-            {
-                NSLog(@"is null");
-                self.arrayOrderUnfinishedData = nil;
-            }
-            
-            [self.tableView reloadData];
-        }
-    }];
+    // 2.集成刷新控件
+    [self setupRefresh];
+    
+    [self sendTaskOrderProtocol];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -57,12 +49,55 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-
+-(void)viewWillAppear:(BOOL)animated{
+    if (_bReLoad) {
+        [self sendTaskOrderProtocol];
+        _bReLoad = NO;
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+/**
+ *  集成刷新控件
+ */
+- (void)setupRefresh
+{
+    // 1.下拉刷新(进入刷新状态就会调用self的headerRereshing)
+    [self.tableView addHeaderWithTarget:self action:@selector(headerRereshing)];
+#warning 自动刷新(一进入程序就下拉刷新)
+    [self.tableView headerBeginRefreshing];
+    
+    // 2.上拉加载更多(进入刷新状态就会调用self的footerRereshing)
+    [self.tableView addFooterWithTarget:self action:@selector(footerRereshing)];
+    
+    // 设置文字(也可以不设置,默认的文字在MJRefreshConst中修改)
+    self.tableView.headerPullToRefreshText = @"下拉刷新";
+    self.tableView.headerReleaseToRefreshText = @"松开马上刷新";
+    self.tableView.headerRefreshingText = @"刷新中";
+    
+    self.tableView.footerPullToRefreshText = @"上拉可以加载更多数据了";
+    self.tableView.footerReleaseToRefreshText = @"松开马上加载更多数据了";
+    self.tableView.footerRefreshingText = @"MJ哥正在帮你加载中,不客气";
+}
+
+#pragma mark 开始进入刷新状态
+- (void)headerRereshing
+{
+    // 2.2秒后刷新表格UI
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        // 刷新表格
+        //[self.tableView reloadData];
+        [self sendTaskOrderProtocol];
+        // (最好在刷新表格后调用)调用endRefreshing可以结束刷新状态
+        
+    });
+}
+
+
 -(BOOL)getRetDataState:(NSDictionary *)data{
     BOOL ret = NO;
     if (data != nil) {
@@ -74,6 +109,31 @@
     }
     
     return ret;
+}
+
+-(void)reLoadData{
+    //self.tableView
+    _bReLoad = YES;
+    
+}
+
+-(void)sendTaskOrderProtocol{
+    [[HttpProtocolAPI sharedClient] getTaskOrderByState:0 setBlock:^(NSDictionary *data, NSError *error) {
+        [self.tableView headerEndRefreshing];
+        if (data != nil && [self getRetDataState:data]) {
+            
+            self.arrayOrderUnfinishedData = [data valueForKey:@"data"];
+            
+            if(![self.arrayOrderUnfinishedData respondsToSelector:@selector(objectAtIndex:)])
+            {
+                NSLog(@"is null");
+                self.arrayOrderUnfinishedData = nil;
+            }
+            
+            
+            [self.tableView reloadData];
+        }
+    }];
 }
 
 #pragma mark - Table view data source
@@ -91,7 +151,9 @@
     
     // Return the number of sections.
     //NSLog(@"sections count:%ld", self.arrayCancleData.count);
+    
     return (self.arrayOrderUnfinishedData != nil ? self.arrayOrderUnfinishedData.count : 0);
+   
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -285,9 +347,10 @@
         {
             [self dealVerifyPhotos:orderID];
         }
+            break;
         case 3:
         {
-            
+            [self dealVerifyDelivery:orderID phoneNum:@"13691790130"];
         }
             break;
         default:
@@ -305,7 +368,7 @@
                 [self tipResultByTakeGoods];
                 //更改状态
                 
-                
+                [self sendTaskOrderProtocol];
             }
             else{
                 [SVProgressHUD showSuccessWithStatus:@"操作失败"];
@@ -321,6 +384,17 @@
     UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     VerificationPhotoViewController * info = [mainStoryboard instantiateViewControllerWithIdentifier:@"VerificationPhotoViewController"];
     info.orderID = orderID;
+    
+    [self.navigationController pushViewController:info animated:YES];
+    
+}
+
+-(void)dealVerifyDelivery:(NSUInteger)orderID phoneNum:(NSString *)phoneNum{
+    
+    UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    VerifyDeliveryViewController * info = [mainStoryboard instantiateViewControllerWithIdentifier:@"VerifyDeliveryViewController"];
+    info.orderID = orderID;
+    info.recvPhoneNum = phoneNum;
     
     [self.navigationController pushViewController:info animated:YES];
     

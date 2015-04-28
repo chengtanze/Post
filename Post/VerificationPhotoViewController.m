@@ -12,11 +12,14 @@
 #import "HttpProtocolAPI.h"
 #import "SVProgressHUD.h"
 
-@interface VerificationPhotoViewController ()<PhotoGroupViewDelegate, getPhotoInfoDelegate>
+
+@interface VerificationPhotoViewController ()<PhotoGroupViewDelegate, getPhotoInfoDelegate, TaskOrderUnfinishedDelegate>
 
 @property(strong, nonatomic) Media_Photo * mediaPhoto;
 @property(assign, nonatomic) NSInteger selectPhotoIndex;
 @property(nonatomic, strong) NSMutableArray *imageArray;
+
+
 @end
 
 @implementation VerificationPhotoViewController
@@ -69,6 +72,11 @@
             if (numberState.integerValue == 0) {
                 
                 [SVProgressHUD showSuccessWithStatus:@"操作成功"];
+                
+                if (_delegate != nil && [self.delegate respondsToSelector:@selector(reLoadData)]) {
+                    [self.delegate reLoadData];
+                }
+
                 
                 [self.navigationController popViewControllerAnimated:YES];
             }

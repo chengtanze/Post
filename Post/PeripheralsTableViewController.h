@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TaskOrderUnfinishedViewController.h"
 
 @interface PeripheralsTableViewController : UITableViewController
 
 @property(strong, nonatomic)NSArray * arrayAroundData;
-
+@property(weak, nonatomic) id<TaskOrderUnfinishedDelegate> delegate;
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TaskOrderUnfinishedViewController.h"
 @class PhotoGroupView;
 
 @interface VerificationPhotoViewController : UIViewController
@@ -17,4 +18,5 @@
 
 - (IBAction)upLoadPhotoClick:(id)sender;
 
+@property(weak, nonatomic)id<TaskOrderUnfinishedDelegate> delegate;
 @end

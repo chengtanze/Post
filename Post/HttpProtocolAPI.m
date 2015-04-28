@@ -648,6 +648,51 @@ static NSString * const APIBaseURLString = @"http://114.215.132.245/";
     return nil;
 }
 
+-(NSURLSessionDataTask *)updateOrderDeliveryState:(NSMutableDictionary *)params setBlock:(void(^) (NSDictionary * data, NSError *error))block{
+    
+    [HttpProtocolAPI sharedClient].responseSerializer = [AFHTTPResponseSerializer serializer];
+    NSError * retError = nil;
+    //NSMutableDictionary * paramsTest= [[NSMutableDictionary alloc]init];
+    
+    NSInteger uid = [UserDataInterface sharedClient].userID_Int;
+    NSNumber * userID = [[NSNumber alloc]initWithInteger:uid];
+    NSString * key = [UserDataInterface sharedClient].userKey;
+//    NSNumber * numberState = [[NSNumber alloc]initWithUnsignedInteger:state];
+//    NSNumber * numberOrderID = [[NSNumber alloc]initWithUnsignedInteger:orderID];
+    
+    
+    
+    [params setObject: userID forKey:@"uid"];
+    [params setObject: @"" forKey:@"imei"];
+    [params setObject: @"" forKey:@"ip"];
+    [params setObject: @"" forKey:@"mac"];
+    [params setObject: key forKey:@"key"];
+    //[params setObject:numberState forKey:@"deliveryState"];
+    //[params setObject:numberOrderID forKey:@"orderID"];
+    
+    return [[HttpProtocolAPI sharedClient] POST:@"qmld/api/updateOrderDeliveryState.php?" parameters:params success:^(NSURLSessionDataTask * __unused task, id responseObject)
+            {
+                NSString * xmlstring = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                NSLog(@"%@",xmlstring);
+                NSData* data = [xmlstring dataUsingEncoding:NSUTF8StringEncoding];
+                NSDictionary * retDictData = [NSJSONSerialization  JSONObjectWithData:data options:0 error:nil];
+                
+                if (block != nil)
+                {
+                    block(retDictData, retError);
+                }
+                
+            } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+                if (block != nil)
+                {
+                    block(nil, error);
+                }
+            }];
+    
+    return nil;
+
+}
+
 -(NSURLSessionDataTask *)addValidateImg:(NSArray *)imageArray orderID:(NSUInteger)orderID setBlock:(void(^) (NSDictionary * data, NSError *error))block{
     
     [HttpProtocolAPI sharedClient].responseSerializer = [AFHTTPResponseSerializer serializer];
@@ -696,7 +741,9 @@ static NSString * const APIBaseURLString = @"http://114.215.132.245/";
 }
 
 
-
+-(NSURLSessionDataTask *)checkPhoneNum:(void(^) (NSDictionary * data, NSError *error))block{
+    return nil;
+}
 
 
 @end

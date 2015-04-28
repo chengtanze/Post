@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol TaskOrderUnfinishedDelegate <NSObject>
+
+-(void)reLoadData;
+
+@end
+
 @interface TaskOrderUnfinishedViewController : UITableViewController
 @property(strong, nonatomic)NSArray * arrayOrderUnfinishedData;
 @property(assign, nonatomic)NSInteger selectIndex;
