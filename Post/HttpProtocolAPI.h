@@ -57,4 +57,12 @@
 //上传验视照
 -(NSURLSessionDataTask *)addValidateImg:(NSArray *)imageArray orderID:(NSUInteger)orderID setBlock:(void(^) (NSDictionary * data, NSError *error))block;
 
+//检测手机号码是否已注册
+-(NSURLSessionDataTask *)checkPhoneNum:(void(^) (NSDictionary * data, NSError *error))block;
+
+//申请承运人资格
+-(NSURLSessionDataTask *)getPersonal:(NSMutableDictionary *)params images:(NSArray *)imageArray setBlock:(void(^) (NSDictionary * data, NSError *error))block;
+
+//获取申请承运人审核结果
+-(NSURLSessionDataTask *)getApplyState:(void(^) (NSDictionary * data, NSError *error))block;
 @end

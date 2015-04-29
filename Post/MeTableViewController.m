@@ -12,6 +12,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "WWSideslipViewController.h"
 #import "PersonalDataController.h"
+#import "SVProgressHUD.h"
 
 @interface MeTableViewController ()<GetSelectIndexDelegate>
 
@@ -22,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    [self judgeCourierIdentity];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -131,9 +133,24 @@
     else if (section == 4){
         //帮助
     }
-
-    
 }
+
+-(void)judgeCourierIdentity{
+    //bCourierIdentity
+    [[HttpProtocolAPI sharedClient] getApplyState:^(NSDictionary *data, NSError *error) {
+        if (data != nil) {
+            NSNumber * numberState = [data valueForKey:@"state"];
+            
+            if (numberState.integerValue == 1) {
+                _bCourierIdentity = YES;
+            }
+            else{
+                _bCourierIdentity = NO;
+            }
+        }
+    }];
+}
+
 
 #pragma mark - Table view data source
 
@@ -144,8 +161,19 @@
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+    if (indexPath.row == 2) {
+        //判断是否为有快递人身份
+        if(_bCourierIdentity)
+        {
+            [SVProgressHUD showSuccessWithStatus:@"您已是全民乐递承运人，无需重复申请" duration:2];
+            return nil;
+        }
+    }
     return indexPath;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+
 }
 
 //- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

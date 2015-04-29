@@ -16,11 +16,19 @@
 @property (weak, nonatomic) IBOutlet UITextField *contactPersonLabel;
 @property (weak, nonatomic) IBOutlet UITextField *phoneCallLabel;
 
+
 @property (weak, nonatomic) IBOutlet UIImageView *userHeaderImageView;
 - (IBAction)obverseImage:(id)sender;
 - (IBAction)reverseImage:(id)sender;
+- (IBAction)takeIDCardClick:(id)sender;
+- (IBAction)drivingLicenseClick:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UIButton *obverseButton;
 @property (weak, nonatomic) IBOutlet UIButton *reverserButton;
+@property (weak, nonatomic) IBOutlet UIButton *takeIDCardButton;
+@property (weak, nonatomic) IBOutlet UIButton *drivingLicenseBtn;
 
-//  
+
+@property (strong, nonatomic) NSMutableArray * imagesArray;
+//
 @end

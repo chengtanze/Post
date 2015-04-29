@@ -9,6 +9,8 @@
 #import "ApplyCourierController.h"
 #import "QCheckBox.h"
 #import "Media_Photo.h"
+#import "HttpProtocolAPI.h"
+#import "SVProgressHUD.h"
 
 @interface ApplyCourierController ()<getPhotoInfoDelegate, QCheckBoxDelegate, UITextFieldDelegate>
 
@@ -38,6 +40,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    //[self.imagesArray removeAllObjects];
+}
+
 #pragma mark - Table view data source
 
 
@@ -56,6 +63,8 @@
         _mediaPhoto.showInViewController = self;
         _mediaPhoto.delegate = self;
     }
+    
+    self.imagesArray = [[NSMutableArray alloc]initWithCapacity:5];
     
     _checked = NO;
     _imageIndex = 0;
@@ -130,6 +139,65 @@
     else{
         
     }
+    
+    NSMutableDictionary * params = [[NSMutableDictionary alloc]initWithCapacity:10];
+    NSUInteger areaID = 77;
+    NSNumber * numberAreaID = [[NSNumber alloc]initWithUnsignedInteger:areaID];
+    
+    [params setObject:numberAreaID forKey:@"areaID"];
+    [params setObject:self.userNameLabel.text forKey:@"realName"];
+    [params setObject:self.IDCardLabel.text forKey:@"IDCode"];
+    [params setObject:self.contactPersonLabel.text forKey:@"contact"];
+    [params setObject:self.phoneCallLabel.text forKey:@"contPhone"];
+    
+//    [params setObject:@"程程" forKey:@"realName"];
+//    [params setObject:@"12345678" forKey:@"IDCode"];
+//    [params setObject:@"程程" forKey:@"contact"];
+//    [params setObject:@"123456" forKey:@"contPhone"];
+    
+    [[HttpProtocolAPI sharedClient] getPersonal:params images:self.imagesArray setBlock:^(NSDictionary *data, NSError *error) {
+        
+        if (data != nil) {
+            NSNumber * numberState = [data valueForKey:@"state"];
+            
+            [self tipResult:numberState.integerValue];
+//            if (numberState.integerValue == 0) {
+//                
+//            }
+//            else{
+//                
+//            }
+        }
+        
+    }];
+}
+
+-(void)tipResult:(NSInteger)state{
+    
+    NSString * strMsg = @"";
+    if (state == 0) {
+        strMsg = @"操作成功";
+    }else if (state == 1){
+        strMsg = @"图片移动错误";
+    }
+    else if (state == 2){
+        strMsg = @"保存图片错误";
+    }
+    else if (state == 3){
+        strMsg = @"图片格式不正确";
+    }
+    else if (state == 4){
+        strMsg = @"图片大小超过2M";
+    }else if (state == 5){
+        strMsg = @"申请失败";
+    }
+    else if (state == 6){
+        strMsg = @"已申请";
+    }else if (state == 7){
+        strMsg = @"已存在该身份证号";
+    }
+    
+    [SVProgressHUD showSuccessWithStatus:strMsg duration:2];
 }
 
 #pragma arguments QCheckBoxDelegate
@@ -138,31 +206,54 @@
 }
 
 - (IBAction)obverseImage:(id)sender {
-    _imageIndex = 0;
+    _imageIndex = 1;
     [_mediaPhoto chooseImage];
 }
 
 - (IBAction)reverseImage:(id)sender {
-     _imageIndex = 1;
+     _imageIndex = 2;
+    [_mediaPhoto chooseImage];
+}
+
+- (IBAction)takeIDCardClick:(id)sender {
+    _imageIndex = 3;
+    [_mediaPhoto chooseImage];
+}
+
+- (IBAction)drivingLicenseClick:(id)sender {
+    _imageIndex = 4;
     [_mediaPhoto chooseImage];
 }
 
 #pragma mark - Media_Photo delegate
 -(void)getPhoto:(UIImage *)image{
-    if (_imageIndex == 0) {
-        self.obverseButton.imageView.image = image;
-    }else if (_imageIndex == 1){
-        self.reverserButton.imageView.image = image;
-    }
-    else{
+    if (_imageIndex == 0){
         self.userHeaderImageView.image = image;
     }
-    
+    else if (_imageIndex == 1) {
+        
+        [self.obverseButton setImage:image forState:UIControlStateNormal];
+    }else if (_imageIndex == 2){
+        
+        [self.reverserButton setImage:image forState:UIControlStateNormal];
+    }
+    else if (_imageIndex == 3){
+        
+        [self.takeIDCardButton setImage:image forState:UIControlStateNormal];
+    }else if (_imageIndex == 4)
+    {
+        [self.drivingLicenseBtn setImage:image forState:UIControlStateNormal];
+    }
+    else{
+        return;
+    }
+ 
+    [self.imagesArray addObject:image];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 1) {
-        _imageIndex = 2;
+        _imageIndex = 0;
         [_mediaPhoto chooseImage];
     }
 }
@@ -220,6 +311,7 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 
 @end

@@ -618,11 +618,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Post/MeTableViewController.m"
-            timestampString = "451447258.055422"
+            timestampString = "451964741.779203"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "-initLocalData"
             landmarkType = "5">
          </BreakpointContent>
@@ -649,7 +649,7 @@
                   symbolName = "-[VerifyDeliveryViewController verifyDeliveryClick:]"
                   moduleName = "Post"
                   urlString = "file:///Users/cheng/ios%E7%BB%83%E4%B9%A0/GitHubCode/Post/Post/VerifyDeliveryViewController.m"
-                  timestampString = "451904615.103169"
+                  timestampString = "451986779.903572"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "85"
@@ -663,7 +663,7 @@
                   symbolName = "__52-[VerifyDeliveryViewController verifyDeliveryClick:]_block_invoke"
                   moduleName = "Post"
                   urlString = "file:///Users/cheng/ios%E7%BB%83%E4%B9%A0/GitHubCode/Post/Post/VerifyDeliveryViewController.m"
-                  timestampString = "451904615.104047"
+                  timestampString = "451986779.903823"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "85"
@@ -702,6 +702,116 @@
             startingLineNumber = "47"
             endingLineNumber = "47"
             landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Post/ApplyCourierController.m"
+            timestampString = "451984476.453121"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
+            landmarkName = "@implementation ApplyCourierController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Post/HttpProtocolAPI.m"
+            timestampString = "451984665.374501"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "814"
+            endingLineNumber = "814"
+            landmarkName = "-getPersonal:images:setBlock:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Post/HttpProtocolAPI.m"
+            timestampString = "451984665.374501"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "823"
+            endingLineNumber = "823"
+            landmarkName = "-getPersonal:images:setBlock:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Post/HttpProtocolAPI.m"
+            timestampString = "451985679.127965"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "799"
+            endingLineNumber = "799"
+            landmarkName = "-getPersonal:images:setBlock:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[HttpProtocolAPI getPersonal:images:setBlock:]"
+                  moduleName = "Post"
+                  urlString = "file:///Users/cheng/ios%E7%BB%83%E4%B9%A0/GitHubCode/Post/Post/HttpProtocolAPI.m"
+                  timestampString = "451986780.047671"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "799"
+                  endingLineNumber = "799"
+                  offsetFromSymbolStart = "842">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__47-[HttpProtocolAPI getPersonal:images:setBlock:]_block_invoke"
+                  moduleName = "Post"
+                  urlString = "file:///Users/cheng/ios%E7%BB%83%E4%B9%A0/GitHubCode/Post/Post/HttpProtocolAPI.m"
+                  timestampString = "451986780.047872"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "799"
+                  endingLineNumber = "799"
+                  offsetFromSymbolStart = "61">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Post/MeTableViewController.m"
+            timestampString = "451986526.224635"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "-judgeCourierIdentity"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

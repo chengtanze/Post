@@ -13,4 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *userNameLB;
 @property (weak, nonatomic) IBOutlet UIView *backGroupView;
 
+
+@property(assign, nonatomic) BOOL bCourierIdentity;
 @end
