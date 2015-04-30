@@ -863,9 +863,43 @@ static NSString * const APIBaseURLString = @"http://114.215.132.245/";
                     block(nil, error);
                 }
             }];
-    
-    
 }
 
+-(NSURLSessionDataTask *)getStation:(NSUInteger)areaID block:(void(^) (NSDictionary * data, NSError *error))block{
+    [HttpProtocolAPI sharedClient].responseSerializer = [AFHTTPResponseSerializer serializer];
+    NSError * retError = nil;
+    NSMutableDictionary * params= [[NSMutableDictionary alloc]init];
+    
+    NSInteger uid = [UserDataInterface sharedClient].userID_Int;
+    NSNumber * userID = [[NSNumber alloc]initWithInteger:uid];
+    NSString * key = [UserDataInterface sharedClient].userKey;
+    NSNumber * numberAreaID = [[NSNumber alloc]initWithInteger:areaID];
+    [params setObject: userID forKey:@"uid"];
+    [params setObject: @"" forKey:@"imei"];
+    [params setObject: @"" forKey:@"ip"];
+    [params setObject: @"" forKey:@"mac"];
+    [params setObject: key forKey:@"key"];
+    [params setObject: numberAreaID forKey:@"aAID"];
+    
+    
+    return [[HttpProtocolAPI sharedClient] POST:@"qmld/api/getStation.php?" parameters:params success:^(NSURLSessionDataTask * __unused task, id responseObject)
+            {
+                NSString * xmlstring = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+                NSLog(@"%@",xmlstring);
+                NSData* data = [xmlstring dataUsingEncoding:NSUTF8StringEncoding];
+                NSDictionary * retDictData = [NSJSONSerialization  JSONObjectWithData:data options:0 error:nil];
+                
+                if (block != nil)
+                {
+                    block(retDictData, retError);
+                }
+                
+            } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+                if (block != nil)
+                {
+                    block(nil, error);
+                }
+            }];
+}
 
 @end

@@ -65,4 +65,5 @@
 
 //获取申请承运人审核结果
 -(NSURLSessionDataTask *)getApplyState:(void(^) (NSDictionary * data, NSError *error))block;
+
 @end

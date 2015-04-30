@@ -83,6 +83,8 @@
 		1447CD8F1ABD021700EDECCF /* AccountInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447CD8E1ABD021700EDECCF /* AccountInfoViewController.m */; };
 		1447CD921ABD030100EDECCF /* AccountInComeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447CD911ABD030100EDECCF /* AccountInComeController.m */; };
 		1447CD951ABD06A500EDECCF /* AccountExpendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1447CD941ABD06A500EDECCF /* AccountExpendController.m */; };
+		144846D31AF2030800C5C6C0 /* PeripheralsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 144846D21AF2030800C5C6C0 /* PeripheralsTableViewController.m */; };
+		144846D61AF218D300C5C6C0 /* TransferInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 144846D51AF218D300C5C6C0 /* TransferInfoViewController.m */; };
 		144DAFA41ADDFCAE005AF7E4 /* PaymentMethodView.m in Sources */ = {isa = PBXBuildFile; fileRef = 144DAFA31ADDFCAE005AF7E4 /* PaymentMethodView.m */; };
 		144DAFA61ADDFD43005AF7E4 /* PaymentMethod.xib in Resources */ = {isa = PBXBuildFile; fileRef = 144DAFA51ADDFD43005AF7E4 /* PaymentMethod.xib */; };
 		1454D07D1A85F6F1003033D3 /* icon_nav_end.png in Resources */ = {isa = PBXBuildFile; fileRef = 1454D07B1A85F6F1003033D3 /* icon_nav_end.png */; };
@@ -243,7 +245,6 @@
 		FC81BC821A7A0D4500D6C78F /* Custom_ScrollImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC81BC811A7A0D4500D6C78F /* Custom_ScrollImageView.m */; };
 		FC821BA21AA4561700F4B0C9 /* GoodsInCancleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC821BA11AA4561700F4B0C9 /* GoodsInCancleViewController.m */; };
 		FC821BA51AA45AC500F4B0C9 /* GoodsInCancle_State_Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC821BA41AA45AC500F4B0C9 /* GoodsInCancle_State_Cell.m */; };
-		FC84C0AF1AAEE9F70074F65C /* PeripheralsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC84C0AE1AAEE9F70074F65C /* PeripheralsTableViewController.m */; };
 		FC84C0B21AAF08630074F65C /* MapAroudViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = FC84C0B11AAF08630074F65C /* MapAroudViewController.mm */; };
 		FC84C0B51AAF09160074F65C /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC84C0B41AAF09160074F65C /* MapViewController.m */; };
 		FC98FBB81AAD8B66005E2DB0 /* ConfirmDeliveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC98FBB71AAD8B66005E2DB0 /* ConfirmDeliveryViewController.m */; };
@@ -418,6 +419,9 @@
 		1447CD911ABD030100EDECCF /* AccountInComeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountInComeController.m; path = Post/AccountInComeController.m; sourceTree = "<group>"; };
 		1447CD931ABD06A500EDECCF /* AccountExpendController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AccountExpendController.h; path = Post/AccountExpendController.h; sourceTree = "<group>"; };
 		1447CD941ABD06A500EDECCF /* AccountExpendController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AccountExpendController.m; path = Post/AccountExpendController.m; sourceTree = "<group>"; };
+		144846D21AF2030800C5C6C0 /* PeripheralsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeripheralsTableViewController.m; path = Post/PeripheralsTableViewController.m; sourceTree = "<group>"; };
+		144846D41AF218D300C5C6C0 /* TransferInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TransferInfoViewController.h; path = Post/TransferInfoViewController.h; sourceTree = "<group>"; };
+		144846D51AF218D300C5C6C0 /* TransferInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TransferInfoViewController.m; path = Post/TransferInfoViewController.m; sourceTree = "<group>"; };
 		144DAFA21ADDFCAE005AF7E4 /* PaymentMethodView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaymentMethodView.h; path = Post/PaymentMethodView.h; sourceTree = "<group>"; };
 		144DAFA31ADDFCAE005AF7E4 /* PaymentMethodView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaymentMethodView.m; path = Post/PaymentMethodView.m; sourceTree = "<group>"; };
 		144DAFA51ADDFD43005AF7E4 /* PaymentMethod.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaymentMethod.xib; sourceTree = "<group>"; };
@@ -691,7 +695,6 @@
 		FC821BA31AA45AC500F4B0C9 /* GoodsInCancle_State_Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GoodsInCancle_State_Cell.h; path = Post/GoodsInCancle_State_Cell.h; sourceTree = "<group>"; };
 		FC821BA41AA45AC500F4B0C9 /* GoodsInCancle_State_Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GoodsInCancle_State_Cell.m; path = Post/GoodsInCancle_State_Cell.m; sourceTree = "<group>"; };
 		FC84C0AD1AAEE9F70074F65C /* PeripheralsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeripheralsTableViewController.h; path = Post/PeripheralsTableViewController.h; sourceTree = "<group>"; };
-		FC84C0AE1AAEE9F70074F65C /* PeripheralsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeripheralsTableViewController.m; path = Post/PeripheralsTableViewController.m; sourceTree = "<group>"; };
 		FC84C0B01AAF08630074F65C /* MapAroudViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapAroudViewController.h; path = Post/MapAroudViewController.h; sourceTree = "<group>"; };
 		FC84C0B11AAF08630074F65C /* MapAroudViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MapAroudViewController.mm; path = Post/MapAroudViewController.mm; sourceTree = "<group>"; };
 		FC84C0B31AAF09160074F65C /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = Post/MapViewController.h; sourceTree = "<group>"; };
@@ -982,11 +985,13 @@
 			isa = PBXGroup;
 			children = (
 				FC84C0AD1AAEE9F70074F65C /* PeripheralsTableViewController.h */,
-				FC84C0AE1AAEE9F70074F65C /* PeripheralsTableViewController.m */,
+				144846D21AF2030800C5C6C0 /* PeripheralsTableViewController.m */,
 				FC84C0B01AAF08630074F65C /* MapAroudViewController.h */,
 				FC84C0B11AAF08630074F65C /* MapAroudViewController.mm */,
 				FC84C0B31AAF09160074F65C /* MapViewController.h */,
 				FC84C0B41AAF09160074F65C /* MapViewController.m */,
+				144846D41AF218D300C5C6C0 /* TransferInfoViewController.h */,
+				144846D51AF218D300C5C6C0 /* TransferInfoViewController.m */,
 			);
 			name = "周边";
 			sourceTree = "<group>";
@@ -1809,17 +1814,18 @@
 				14403DB91AE4B146005FE49B /* UIAlertView+AFNetworking.m in Sources */,
 				14447ABF1ADB5328005E6974 /* DeliveryWayView.m in Sources */,
 				1459912E1A89DC7F00710CF2 /* PhotoGroupView.m in Sources */,
-				FC84C0AF1AAEE9F70074F65C /* PeripheralsTableViewController.m in Sources */,
 				14456D721AAC3D780067068E /* TaskOrderUnfinishedViewController.m in Sources */,
 				140B6DCB1ABDB24C0037055C /* ApplyCourierController.m in Sources */,
 				FC79E50D1AC3FCEC00F2AD3E /* GoodsDetailController.m in Sources */,
 				1483DA0E1A885896003A3B8B /* OrderTrack_UserItem_Cell.m in Sources */,
 				14403DB81AE4B146005FE49B /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				144846D31AF2030800C5C6C0 /* PeripheralsTableViewController.m in Sources */,
 				144535181AEB376F00FDAE79 /* TaskOrderCancel_Address_Cell.m in Sources */,
 				FC2E651A1ABFFD65006BD470 /* CommonAddressController.m in Sources */,
 				144535151AEB375F00FDAE79 /* TaskOrderCancel_State_Cell.m in Sources */,
 				FCD6C5B61AA2FCC3008D5E23 /* GMDCircleLoader.m in Sources */,
 				14403DBB1AE4B146005FE49B /* UIImageView+AFNetworking.m in Sources */,
+				144846D61AF218D300C5C6C0 /* TransferInfoViewController.m in Sources */,
 				FC81BC821A7A0D4500D6C78F /* Custom_ScrollImageView.m in Sources */,
 				FC7FC7F61A788972004B3909 /* RegisterViewController.m in Sources */,
 				144713B01AEF785F008C07B9 /* UIScrollView+MJRefresh.m in Sources */,

@@ -16,8 +16,9 @@
 #import "FMDatabase.h"
 #import "FMResultSet.h"
 #import "SVProgressHUD.h"
+#import "Custom_ScrollImageView.h"
 
-@interface PeripheralsTableViewController ()<SelectIndexDelegate>
+@interface PeripheralsTableViewController ()<SelectIndexDelegate, UIAlertViewDelegate>
 
 @end
 
@@ -208,6 +209,39 @@
 }
 
 -(void)SelectIndex:(NSUInteger)index{
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"能否送货到最终目的地？如果不能送到目的地请选择\"需中转\"" delegate:nil cancelButtonTitle:@"需中转" otherButtonTitles:@"能送达", nil];
+    alert.delegate = self;
+    alert.tag = index;
+    [alert show];
+    
+//    
+
+
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    NSLog(@"alertView index:%ld", (long)buttonIndex);
+    if (buttonIndex == 0) {
+        //需中转
+        [self pushTransferView];
+    }
+    else{
+        //能送达
+        [self addTransfer:alertView.tag];
+    }
+}
+
+-(void)pushTransferView{
+    UIStoryboard * mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController * info = [mainStoryboard instantiateViewControllerWithIdentifier:@"TransferInfoViewController"];
+    
+    [self.navigationController pushViewController:info animated:YES];
+}
+
+//接单函数
+-(void)addTransfer:(NSUInteger)index{
     NSDictionary * dicData = self.arrayAroundData[index];
     
     if (dicData != nil) {
@@ -233,14 +267,13 @@
                 if (numberState.unsignedIntegerValue == 0) {
                     if (_delegate != nil && [self.delegate respondsToSelector:@selector(reLoadData)]) {
                         [_delegate reLoadData];
-                        }
-
+                    }
+                    
                 }
             }
             
         }];
     }
-
 }
 
 -(void)tipResult:(NSUInteger)code{
